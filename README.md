@@ -1,2 +1,2 @@
 # mu
-small, simple c++ math library
+A small, simple c++ math library
