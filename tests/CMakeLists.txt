@@ -8,4 +8,5 @@ add_executable(${BINARY} ${TEST_SOURCES})
 
 add_test(NAME ${BINARY} COMMAND ${BINARY})
 
-target_link_libraries(${BINARY} PUBLIC ${CMAKE_PROJECT_NAME}_lib gtest)
+# maybe PUBLIC instead of INTERFACE here?
+target_link_libraries(${BINARY} INTERFACE ${CMAKE_PROJECT_NAME}_lib gtest)
