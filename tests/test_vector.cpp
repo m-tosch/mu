@@ -1,7 +1,7 @@
 #include "gtest/gtest.h"
-//#include "vector.h"
+#include "vector.h"
 
 TEST(sample_test_case, sample_test) {
-  // Vector v;
+  Vector v;
   EXPECT_EQ(1, 1);
 }
