@@ -17,11 +17,8 @@
     {
       "label": "run tests",
       "type": "shell",
-      "command": "make tests",
-      "group": {
-        "kind": "test",
-        "isDefault": true
-      },
+      "command": "cd ${workspaceRoot}/build/tests/ && ./mu_tests",
+      "group": "test",
       "options": {
         "cwd": "${workspaceRoot}/build"
       },
