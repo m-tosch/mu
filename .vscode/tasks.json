@@ -1,38 +1,38 @@
 {
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "build",
-            "type": "shell",
-            "command": "mkdir -p ${workspaceRoot}/build && cd ${workspaceRoot}/build && cmake .. -DCMAKE_BUILD_TYPE=Debug \"-DCMAKE_CXX_FLAGS=-Wall -O0 -g -Werror -Wall\" -G \"Unix Makefiles\" && make",
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "options": {
-                "cwd": "${workspaceRoot}"
-            },
-            "problemMatcher": []
-        },
-        {
-            "label": "run tests",
-            "type": "shell",
-            "command": "make tests",
-            "group": {
-                "kind": "test",
-                "isDefault": true
-            },
-            "options": {
-                "cwd": "${workspaceRoot}/build"
-            },
-            "problemMatcher": []
-        },
-        {
-            "label": "clean",
-            "type": "shell",
-            "command": "rm -rf ${workspaceRoot}/build",
-            "group": "build",
-            "problemMatcher": []
-        }
-    ]
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build",
+      "type": "shell",
+      "command": "mkdir -p ${workspaceRoot}/build && cd ${workspaceRoot}/build && cmake .. -DCMAKE_BUILD_TYPE=Debug \"-DCMAKE_CXX_FLAGS=-Wall -O0 -g -Werror -Wall\" -G \"Unix Makefiles\" && make",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "options": {
+        "cwd": "${workspaceRoot}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "run tests",
+      "type": "shell",
+      "command": "make tests",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "options": {
+        "cwd": "${workspaceRoot}/build"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "clean",
+      "type": "shell",
+      "command": "rm -rf ${workspaceRoot}/build",
+      "group": "build",
+      "problemMatcher": []
+    }
+  ]
 }
