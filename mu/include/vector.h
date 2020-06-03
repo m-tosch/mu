@@ -1,9 +1,9 @@
-#ifndef VECTOR_H
-#define VECTOR_H
+#ifndef MU_INCLUDE_VECTOR_H_
+#define MU_INCLUDE_VECTOR_H_
 
 class Vector {
  public:
   Vector() = default;
 };
 
-#endif
+#endif  // MU_INCLUDE_VECTOR_H_
