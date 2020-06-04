@@ -4,24 +4,10 @@
   "editor.rulers": [
     80
   ],
-  "files.insertFinalNewline": true,
   "C_Cpp.clang_format_style": "file",
   "C_Cpp.clang_format_path": "/usr/bin/clang-format",
   "cmake.configureOnOpen": true,
   "cpplint.cpplintPath": "/usr/bin/cpplint",
-  "cpplint.headers": [
-    "hpp",
-    "h"
-  ],
-  "cpplint.extensions": [
-    "cpp",
-    "hpp",
-    "h"
-  ],
-  "cpplint.filters": [
-    "-legal/copyright",
-    "-build/include_subdir",
-  ],
   "testMate.cpp.test.executables": "{build}/**/*{test,Test,TEST}*",
   "autoDocstring.includeExtendedSummary": true,
   "doxdocgen.generic.boolReturnsTrueFalse": false,
