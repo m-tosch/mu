@@ -1,33 +1,27 @@
 {
-  "autoDocstring.includeExtendedSummary": true,
   "editor.tabSize": 2,
   "editor.formatOnSave": true,
   "editor.rulers": [
     80
   ],
-  "C_Cpp.clang_format_style": "Google",
-  "C_Cpp.default.cppStandard": "c++14",
-  "C_Cpp.default.cStandard": "c11",
+  "C_Cpp.clang_format_style": "file",
+  "C_Cpp.clang_format_path": "/usr/bin/clang-format",
   "cmake.configureOnOpen": true,
-  "cpplint.cpplintPath": "/home/mtosch/.local/bin/cpplint",
+  "cpplint.cpplintPath": "/usr/bin/cpplint",
   "cpplint.headers": [
     "hpp",
     "h"
   ],
   "cpplint.extensions": [
     "cpp",
-    "c",
     "hpp",
     "h"
-  ],
-  "cpplint.languages": [
-    "cpp",
   ],
   "cpplint.filters": [
     "-legal/copyright",
     "-build/include_subdir",
   ],
   "testMate.cpp.test.executables": "{build}/**/*{test,Test,TEST}*",
+  "autoDocstring.includeExtendedSummary": true,
   "doxdocgen.generic.boolReturnsTrueFalse": false,
-  "C_Cpp.clang_format_fallbackStyle": "",
 }
