@@ -6,3 +6,5 @@ Standard: Cpp11
 ColumnLimit: 80
 
 IndentWidth: 2
+TabWidth: 2
+UseTab: Never
