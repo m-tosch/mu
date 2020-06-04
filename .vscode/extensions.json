@@ -1,10 +1,11 @@
 {
-    "recommendations": [
-        "ms-vscode.cpptools",
-        "matepek.vscode-catch2-test-adapter",
-        "mine.cpplint",
-        "twxs.cmake",
-        "cschlosser.doxdocgen",
-        "davidanson.vscode-markdownlint",
-    ]
+  "recommendations": [
+    "ms-vscode.cpptools",
+    "matepek.vscode-catch2-test-adapter",
+    "mine.cpplint",
+    "twxs.cmake",
+    "ms-vscode.cmake-tools",
+    "cschlosser.doxdocgen",
+    "davidanson.vscode-markdownlint",
+  ]
 }
