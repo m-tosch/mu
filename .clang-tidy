@@ -3,7 +3,8 @@ Checks: >
   clang-diagnostic-*,
   clang-analyzer-*,
   cppcoreguidelines-*,
-  google-*,modernize-*,
+  google-*,
+  modernize-*,
   performance-*,
   readability-*
 # exclude a rule like this:
