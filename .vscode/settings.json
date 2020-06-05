@@ -12,6 +12,10 @@
   "autoDocstring.includeExtendedSummary": true,
   "doxdocgen.generic.boolReturnsTrueFalse": false,
   "clang-tidy.executable": "/usr/bin/clang-tidy-9",
+  "clang-tidy.compilerArgsBefore": [
+    "-Wall",
+    "-Wextra"
+  ],
   "clang-tidy.compilerArgs": [
     "-std=c++14"
     // todo include sth. sth. sth. for gtest ?
