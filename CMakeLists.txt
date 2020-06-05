@@ -4,8 +4,8 @@ PROJECT(mu)
 
 set(CMAKE_CXX_STANDARD 14)
 
-include_directories(mu)
+include_directories(include/mu)
 
-add_subdirectory(mu)
+add_subdirectory(include)
 add_subdirectory(tests)
 add_subdirectory(dependencies/googletest)
