@@ -7,5 +7,6 @@
     "ms-vscode.cmake-tools",
     "cschlosser.doxdocgen",
     "davidanson.vscode-markdownlint",
+    "notskm.clang-tidy"
   ]
 }
