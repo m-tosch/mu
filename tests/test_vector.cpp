@@ -2,6 +2,6 @@
 #include "vector.h"
 
 TEST(sample_test_case, sample_test) {
-  Vector v;
+  // Vector<2, float> v;
   EXPECT_EQ(1, 1);
 }
