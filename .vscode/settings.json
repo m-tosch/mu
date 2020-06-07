@@ -11,13 +11,13 @@
   "testMate.cpp.test.executables": "{build}/**/*{test,Test,TEST}*",
   "autoDocstring.includeExtendedSummary": true,
   "doxdocgen.generic.boolReturnsTrueFalse": false,
-  "clang-tidy.executable": "/usr/bin/clang-tidy-9",
+  "clang-tidy.executable": "/usr/bin/clang-tidy",
   "clang-tidy.compilerArgsBefore": [
-    "-Wall",
-    "-Wextra"
-  ],
-  "clang-tidy.compilerArgs": [
+    // "-Wall",
+    // "-Wextra",
+    // "-O0"
+    "-xc++",
     "-std=c++14"
-    // todo include sth. sth. sth. for gtest ?
-  ]
+  ],
+  "clang-tidy.compilerArgs": [],
 }
