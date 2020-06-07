@@ -19,5 +19,7 @@
     "-xc++",
     "-std=c++14"
   ],
-  "clang-tidy.compilerArgs": [],
+  "clang-tidy.compilerArgs": [
+    "-include dependencies/googletest/"
+  ],
 }
