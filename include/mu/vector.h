@@ -1,7 +1,7 @@
 #ifndef MU_VECTOR_H_
 #define MU_VECTOR_H_
 
-#include <vector>
+#include <array>
 
 template <std::size_t N, typename T>
 class Vector {
@@ -16,13 +16,12 @@ class Vector {
    * @brief Destroy the Vector< N,  T> objec
    *
    */
-  // ~Vector() = default;
+  ~Vector() = default;
 
-  void FooBar();
+  // int FooBar(int a) { return 10 + 10; }
 
  private:
-  float x_, y_;
-  std::vector<int> v_;
+  std::array<T, N> data_;
 };
 
 #endif  // MU_VECTOR_H_
