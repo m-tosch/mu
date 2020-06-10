@@ -7,10 +7,21 @@ template <std::size_t N, typename T>
 class Vector {
  public:
   /**
-   * @brief Construct a new Vector< N,  T> object
+   * @brief Construct a new Vector<N,  T> object
    *
    */
   Vector() = default;
+
+  /**
+   * @brief Construct a new Vector object
+   *
+   * @param value
+   */
+  explicit Vector(T value) {
+    for (std::size_t i; i < N; i++) {
+      data_[i] = value;
+    }
+  }
 
   /**
    * @brief Destroy the Vector< N,  T> objec
