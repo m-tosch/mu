@@ -14,14 +14,10 @@ class Vector {
 
   /**
    * @brief Construct a new Vector object
-   *
-   * @param value
+   * 
+   * @param l 
    */
-  explicit Vector(T value) {
-    for (std::size_t i; i < N; i++) {
-      data_[i] = value;
-    }
-  }
+  Vector(std::initializer_list<T> l) : data_(l) {}
 
   /**
    * @brief Destroy the Vector< N,  T> objec
