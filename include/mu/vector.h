@@ -31,6 +31,14 @@ class Vector {
    */
   ~Vector() = default;
 
+  /**
+   * @brief
+   *
+   * @param idx
+   * @return T&
+   */
+  const T& operator[](const int idx) const noexcept { return data_[idx]; }
+
   // int FooBar(int a) { return 10 + 10; }
 
  private:
