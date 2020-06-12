@@ -11,4 +11,4 @@ add_subdirectory(include)
 add_subdirectory(tests)
 add_subdirectory(dependencies/googletest)
 
-# set(CMAKE_CXX_CLANG_TIDY clang-tidy)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
