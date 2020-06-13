@@ -12,7 +12,6 @@
   "clangd.path": "/usr/bin/clangd",
   "clangd.arguments": [
     "-log=verbose",
-    "-pretty",
     "--background-index",
     "--compile-commands-dir=/mnt/c/Users/Maxi/Desktop/mu/build/"
   ]
