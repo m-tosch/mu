@@ -39,8 +39,6 @@ class Vector {
    */
   const T& operator[](const int idx) const noexcept { return data_[idx]; }
 
-  // int FooBar(int a) { return 10 + 10; }
-
  private:
   std::array<T, N> data_;
 };
