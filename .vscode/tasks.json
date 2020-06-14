@@ -4,7 +4,7 @@
     {
       "label": "build",
       "type": "shell",
-      "command": "mkdir -p ${workspaceRoot}/build && cd ${workspaceRoot}/build && cmake .. -DCMAKE_BUILD_TYPE=Debug \"-DCMAKE_CXX_FLAGS=-Wall -O0 -g -Werror -Wall\" -G \"Unix Makefiles\" && make",
+      "command": "mkdir -p ${workspaceRoot}/build && cd ${workspaceRoot}/build && cmake .. -G \"Unix Makefiles\" && make",
       "group": {
         "kind": "build",
         "isDefault": true
