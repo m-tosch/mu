@@ -7,7 +7,7 @@ template <std::size_t N, typename T>
 class Vector {
  public:
   /**
-   * @brief Construct a new Vector<N,  T> object
+   * @brief Construct a new Vector object
    *
    */
   Vector() = default;
@@ -26,10 +26,24 @@ class Vector {
   // Vector(std::initializer_list<T> l) TODO
 
   /**
-   * @brief Destroy the Vector< N,  T> objec
+   * @brief Destroy the Vector object
    *
    */
   ~Vector() = default;
+
+  /**
+   * @brief Copy construct a new Vector object
+   *
+   * @param other
+   */
+  Vector(const Vector& other) = default;
+
+  /**
+   * @brief Move construct a new Vector object
+   *
+   * @param other
+   */
+  Vector(const Vector&& other) noexcept = default;
 
   /**
    * @brief
