@@ -3,7 +3,8 @@ cmake_minimum_required(VERSION 3.0)
 PROJECT(mu)
 
 set(CMAKE_CXX_STANDARD 14)
-
+set(CMAKE_BUILD_TYPE "Debug")
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0 -g -Werror -Wall" )
 
 include_directories(include/mu)
 
