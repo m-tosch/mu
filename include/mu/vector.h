@@ -43,7 +43,23 @@ class Vector {
    *
    * @param other
    */
-  Vector(const Vector&& other) noexcept = default;
+  Vector(Vector&& other) noexcept = default;
+
+  /**
+   * @brief Copy assignment operator
+   *
+   * @param other
+   * @return Vector&
+   */
+  Vector& operator=(const Vector& other) = default;
+
+  /**
+   * @brief Move assignment operator
+   *
+   * @param other
+   * @return Vector&
+   */
+  Vector& operator=(Vector&& other) noexcept = default;
 
   /**
    * @brief
