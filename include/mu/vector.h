@@ -3,6 +3,12 @@
 
 #include <array>
 
+/**
+ * @brief A generic Vector
+ *
+ * @tparam N size
+ * @tparam T type
+ */
 template <std::size_t N, typename T>
 class Vector {
  public:
@@ -62,12 +68,20 @@ class Vector {
   Vector& operator=(Vector&& other) noexcept = default;
 
   /**
-   * @brief
+   * @brief access an element within the vector
+   *
+   * @param idx
+   * @return const T&
+   */
+  const T& operator[](const int idx) const noexcept { return data_[idx]; }
+
+  /**
+   * @brief access an element within the vector
    *
    * @param idx
    * @return T&
    */
-  const T& operator[](const int idx) const noexcept { return data_[idx]; }
+  T& operator[](const int idx) noexcept { return data_[idx]; }
 
  private:
   std::array<T, N> data_;
