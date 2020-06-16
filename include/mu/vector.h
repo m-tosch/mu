@@ -73,7 +73,7 @@ class Vector {
    * @param idx
    * @return const T&
    */
-  const T& operator[](const int idx) const noexcept { return data_[idx]; }
+  const T& operator[](int idx) const noexcept { return data_[idx]; }
 
   /**
    * @brief access an element within the vector
@@ -81,7 +81,7 @@ class Vector {
    * @param idx
    * @return T&
    */
-  T& operator[](const int idx) noexcept { return data_[idx]; }
+  T& operator[](int idx) noexcept { return data_[idx]; }
 
  private:
   std::array<T, N> data_;
