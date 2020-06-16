@@ -40,3 +40,12 @@ TEST(Vector, ConstructorMove) {
   /** assert */
   EXPECT_FLOAT_EQ(v2[0], 2.0F);
 }
+
+TEST(Vector, OperatorCopyAssignment) {
+  /** arrange */
+  Vector<1, float> v1{2.0F};
+  /** action */
+  Vector<1, float> v2 = v1;
+  /** assert */
+  EXPECT_FLOAT_EQ(v2[0], 2.0F);
+}
