@@ -10,10 +10,10 @@ TEST(Vector, ConstructorDefault) {
 
 TEST(Vector, ConstructorSingleValueInit) {
   /** arrange */
-  Vector<2, float> v{0.0F};
+  Vector<2, float> v{2.0F};
   /** assert */
-  EXPECT_FLOAT_EQ(v[0], 0.0F);
-  EXPECT_FLOAT_EQ(v[1], 0.0F);
+  EXPECT_FLOAT_EQ(v[0], 2.0F);
+  EXPECT_FLOAT_EQ(v[1], 2.0F);
 }
 
 TEST(Vector, DestructorDefault) {
