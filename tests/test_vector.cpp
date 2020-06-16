@@ -3,7 +3,7 @@
 
 TEST(Vector, ConstructorDefault) {
   // arrange
-  bool c = std::is_default_constructible<Vector<2, int>>::value;
+  bool c = std::is_default_constructible<Vector<1, int>>::value;
   // assert
   EXPECT_TRUE(c);
 }
@@ -16,9 +16,18 @@ TEST(Vector, ConstructorSingleValueInit) {
   EXPECT_FLOAT_EQ(v[1], 0.0F);
 }
 
-TEST(Vector, DestructDefault) {
+TEST(Vector, DestructorDefault) {
   // arrange
-  bool d = std::is_destructible<Vector<2, int>>::value;
+  bool d = std::is_destructible<Vector<1, int>>::value;
   // assert
   EXPECT_TRUE(d);
+}
+
+TEST(Vector, ConstructorCopy) {
+  // arrange
+  Vector<1, float> v1{2.0F};
+  // action
+  Vector<1, float> v2{v1};
+  // assert
+  EXPECT_FLOAT_EQ(v2[0], 2.0F);
 }
