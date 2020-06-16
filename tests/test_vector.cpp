@@ -58,3 +58,14 @@ TEST(Vector, OperatorMoveAssignment) {
   /** assert */
   EXPECT_FLOAT_EQ(v2[0], 2.0F);
 }
+
+TEST(Vector, OperatorBrackets) {
+  /** arrange */
+  Vector<2, float> v{2.0F};
+  /** action */
+  float a = v[0];
+  float b = v[1];
+  /** assert */
+  EXPECT_FLOAT_EQ(a, 2.0F);
+  EXPECT_FLOAT_EQ(b, 2.0F);
+}
