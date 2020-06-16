@@ -68,7 +68,7 @@ class Vector {
   Vector& operator=(Vector&& other) noexcept = default;
 
   /**
-   * @brief access an element within the vector
+   * @brief const access an element within the vector
    *
    * @param idx
    * @return const T&
