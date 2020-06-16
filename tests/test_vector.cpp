@@ -3,9 +3,16 @@
 
 TEST(Vector, ConstructorDefault) {
   // arrange
-  bool b = std::is_default_constructible<Vector<2, int>>::value;
+  bool c = std::is_default_constructible<Vector<2, int>>::value;
   // assert
-  EXPECT_TRUE(b);
+  EXPECT_TRUE(c);
+}
+
+TEST(Vector, DestructDefault) {
+  // arrange
+  bool d = std::is_destructible<Vector<2, int>>::value;
+  // assert
+  EXPECT_TRUE(d);
 }
 
 TEST(Vector, ConstructorSingleValueInit) {
