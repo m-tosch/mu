@@ -1,0 +1,12 @@
+{
+  "name": "gdb",
+  "type": "cppdbg",
+  "request": "launch",
+  "program": "${workspaceFolder}/build/tests/mu_tests",
+  "cwd": "${workspacefolder}",
+  "externalConsole": false,
+  "linux": {
+    "MIMode": "gdb",
+    "miDebuggerPath": "/usr/bin/gdb"
+  },
+}
