@@ -6,6 +6,7 @@
     "ms-vscode.cmake-tools",
     "cschlosser.doxdocgen",
     "davidanson.vscode-markdownlint",
-    "llvm-vs-code-extensions.vscode-clangd"
+    "llvm-vs-code-extensions.vscode-clangd",
+    "mhutchie.git-graph"
   ]
 }
