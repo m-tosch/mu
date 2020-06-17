@@ -9,6 +9,9 @@
   "testMate.cpp.test.executables": "{build}/**/*{test,Test,TEST}*",
   "autoDocstring.includeExtendedSummary": true,
   "doxdocgen.generic.boolReturnsTrueFalse": false,
+  "C_Cpp.intelliSenseEngine": "Disabled",
+  "C_Cpp.autocomplete": "Disabled",
+  "C_Cpp.errorSquiggles": "Disabled",
   "clangd.path": "/usr/bin/clangd",
   "clangd.arguments": [
     "-log=verbose",
