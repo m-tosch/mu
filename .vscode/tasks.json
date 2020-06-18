@@ -15,6 +15,13 @@
       "problemMatcher": []
     },
     {
+      "label": "clean",
+      "type": "shell",
+      "command": "rm -rf ${workspaceRoot}/build",
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
       "label": "run tests",
       "type": "shell",
       "command": "cd ${workspaceRoot}/build/tests/ && ./mu_tests",
@@ -25,9 +32,9 @@
       "problemMatcher": []
     },
     {
-      "label": "clean",
+      "label": "generate doc",
       "type": "shell",
-      "command": "rm -rf ${workspaceRoot}/build",
+      "command": "cd ${workspaceRoot}/docs && doxygen Doxyfile",
       "group": "build",
       "problemMatcher": []
     }
