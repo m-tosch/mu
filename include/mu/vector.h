@@ -3,6 +3,7 @@
 
 #include <array>
 
+namespace mu {
 /**
  * @brief A generic Vector
  *
@@ -86,5 +87,5 @@ class Vector {
  private:
   std::array<T, N> data_;
 };
-
+}  // namespace mu
 #endif  // MU_VECTOR_H_
