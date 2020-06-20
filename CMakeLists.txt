@@ -25,3 +25,14 @@ add_subdirectory(tests)
 add_subdirectory(dependencies/googletest)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+# NOTES COVERAGE REPORT GENERATION (GCOV & LCOV)
+# 1. build w/cmake (generates .gcno files)
+# 2. run mu/build/tests/mu_tests (generates .gcda files)
+# 3. gcov main.cpp.gcno
+
+# 4. lcov --directory . --capture --output-file main_coverage.info
+# lcov --extract main_coverage.info "*\/mu\/*" --directory . --output-file main_coverage.info
+# TBD: exclude gtest, c++ etc. and only include mu headers
+
+# 5. genhtml main_coverage.info --output-directory out
