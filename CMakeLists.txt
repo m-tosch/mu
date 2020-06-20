@@ -36,3 +36,8 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 # TBD: exclude gtest, c++ etc. and only include mu headers
 
 # 5. genhtml main_coverage.info --output-directory out
+
+# TODO
+# extension using lcov*.info
+# Code Coverage Highlighter
+# brainfit.vscode-coverage-highlighter
