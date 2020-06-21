@@ -38,7 +38,7 @@
     {
       "label": "generate coverage",
       "type": "shell",
-      "command": "${workspaceRoot}/coverage.sh",
+      "command": "cd ${workspaceRoot}/coverage && ./coverage.sh",
       "group": "build",
       "problemMatcher": [],
       "dependsOrder": "sequence",
