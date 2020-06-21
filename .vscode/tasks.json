@@ -37,6 +37,18 @@
       "command": "cd ${workspaceRoot}/docs && doxygen Doxyfile",
       "group": "build",
       "problemMatcher": []
+    },
+    {
+      "label": "generate coverage",
+      "type": "shell",
+      "command": "cd ${workspaceRoot} && ./coverage.sh",
+      "group": "build",
+      "problemMatcher": [],
+      "dependsOrder": "sequence",
+      "dependsOn": [
+        "build",
+        "run tests"
+      ]
     }
   ]
 }
