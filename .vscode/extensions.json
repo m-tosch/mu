@@ -8,6 +8,7 @@
     "cschlosser.doxdocgen",
     "davidanson.vscode-markdownlint",
     "llvm-vs-code-extensions.vscode-clangd",
-    "mhutchie.git-graph"
+    "mhutchie.git-graph",
+    "brainfit.vscode-coverage-highlighter"
   ]
 }
