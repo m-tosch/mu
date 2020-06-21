@@ -9,9 +9,6 @@
         "kind": "build",
         "isDefault": true
       },
-      "options": {
-        "cwd": "${workspaceRoot}"
-      },
       "problemMatcher": []
     },
     {
@@ -26,9 +23,6 @@
       "type": "shell",
       "command": "cd ${workspaceRoot}/build/tests/ && ./mu_tests",
       "group": "test",
-      "options": {
-        "cwd": "${workspaceRoot}/build"
-      },
       "problemMatcher": []
     },
     {
