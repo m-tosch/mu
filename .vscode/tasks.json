@@ -23,7 +23,7 @@
       "type": "shell",
       "command": "${workspaceRoot}/build/tests/mu_tests",
       "args": [
-        "--gtest_brief=1"
+        "--gtest_brief=1" // only print test failures
       ],
       "group": "test",
       "problemMatcher": []
@@ -42,7 +42,7 @@
       "group": "build",
       "problemMatcher": [],
       "dependsOrder": "sequence",
-      "dependsOn": [
+      "dependsOn": [ // these must be run sequentially before this task 
         "build",
         "run tests"
       ]
