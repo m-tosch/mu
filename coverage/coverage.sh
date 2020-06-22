@@ -1,4 +1,4 @@
-# project root directory relative to the location of this file
+# project root directory relative to the location of this script
 ROOTDIR=".."
 # working directory for intermediate coverage files
 WORKDIR="$ROOTDIR/build/tests/CMakeFiles/mu_tests.dir"
