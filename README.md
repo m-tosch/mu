@@ -30,6 +30,14 @@ After successfully building the project w/cmake, you can run the unit tests loca
 cd build/tests && ./mu_tests
 ```
 
+If you want to only print the overall test results, run the test executable like this:
+
+```cmd
+./mu_tests --gtest_brief=1
+```
+
+*note: test failures will still be reported individually if a test fails*
+
 ## Coverage
 
 The coverage report can be found [here](https://github.com) TODO
