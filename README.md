@@ -36,4 +36,4 @@ You can generate a coverage report locally from the command line:
 cd coverage && ./coverage.sh
 ```
 
-The coverage report will be generated in html form in a coverage/html folder.View the report by opening the index.html file inside that folder in a browser.
+The coverage report will be generated in html form in a coverage/html folder. View the report by opening the index.html file inside that folder in a browser.
