@@ -17,10 +17,10 @@ The documentation can be found [here](https://github.com) **TODO**
 You can generate the documentation locally from the command line:
 
 ```cmd
-cd docs && doxygen Doxyfile
+cd doc && doxygen Doxyfile
 ```
 
-The documentation will be generated in html form inside a  docs/html folder. View the report by opening the index.html file inside that folder in a browser.
+The documentation will be generated in html form inside a  doc/html folder. View the report by opening the index.html file inside that folder in a browser.
 
 ## Tests
 

@@ -38,7 +38,7 @@
 .clangd
 
 # docs
-/docs/html
+/doc/html
 
 # coverage
 /coverage/html

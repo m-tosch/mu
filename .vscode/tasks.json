@@ -31,7 +31,7 @@
     {
       "label": "generate doc",
       "type": "shell",
-      "command": "cd ${workspaceRoot}/docs && doxygen Doxyfile",
+      "command": "cd ${workspaceRoot}/doc && doxygen Doxyfile",
       "group": "build",
       "problemMatcher": []
     },
