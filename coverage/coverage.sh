@@ -2,6 +2,8 @@
 ROOTDIR=".."
 # working directory for intermediate coverage files
 WORKDIR="$ROOTDIR/build/tests/CMakeFiles/mu_tests.dir"
+# coverage directory for a /html report to be generated in
+COVERAGEDIR="$ROOTDIR/coverage"
 
 # 1. cmake build
 # note: same command as in .vscode/tasks.json
@@ -13,4 +15,4 @@ $ROOTDIR/build/tests/mu_tests --gtest_brief=1
 # exclude all external headers then include only the ones for this project
 lcov --directory $WORKDIR --capture --output-file $WORKDIR/main_coverage.info --no-external --directory $ROOTDIR/include
 # 4. generate html report
-genhtml $WORKDIR/main_coverage.info --output-directory html
+genhtml $WORKDIR/main_coverage.info --output-directory $COVERAGEDIR/html
