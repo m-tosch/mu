@@ -24,7 +24,11 @@ The documentation will be generated in html form inside a  docs/html folder. Vie
 
 ## Tests
 
-TODO
+After successfully building the project w/cmake, you can run the unit tests locally from the command line:
+
+```cmd
+cd build/tests && ./mu_tests
+```
 
 ## Coverage
 
