@@ -41,11 +41,6 @@
       "command": "cd ${workspaceRoot}/coverage && ./coverage.sh",
       "group": "build",
       "problemMatcher": [],
-      "dependsOrder": "sequence",
-      "dependsOn": [ // these must be run sequentially before this task 
-        "build",
-        "run tests"
-      ]
     }
   ]
 }
