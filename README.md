@@ -12,7 +12,7 @@ TODO
 
 ## Documentation
 
-The documentation can be found [here](https://github.com) TODO
+The documentation can be found [here](https://github.com) **TODO**
 
 You can generate the documentation locally from the command line:
 
@@ -40,7 +40,7 @@ If you want to only print the overall test results, run the test executable like
 
 ## Coverage
 
-The coverage report can be found [here](https://github.com) TODO
+The coverage report can be found [here](https://github.com) **TODO**
 
 You can generate a coverage report locally from the command line:
 
