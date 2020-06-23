@@ -2,11 +2,11 @@
 
 A small, simple c++ math library
 
-## Installation
+## Usage
 
 TODO
 
-## Usage
+## Installation
 
 TODO
 
