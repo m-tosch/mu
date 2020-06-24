@@ -1,4 +1,4 @@
-# <img src="https://render.githubusercontent.com/render/math?math=\Huge\mu" style="filter:invert(100%)" width="32">
+# <font size="7"> μ </font>
 
 A small, simple c++ math library
 
