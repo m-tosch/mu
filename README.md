@@ -1,4 +1,4 @@
-# <font size="7"> μ </font>
+# <font size="10"> μ </font>
 
 A small, simple c++ math library
 
