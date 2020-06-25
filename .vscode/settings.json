@@ -16,7 +16,7 @@
   "clangd.arguments": [
     "-log=verbose",
     "--background-index",
-    "--compile-commands-dir=/mnt/c/Users/Maxi/Desktop/mu/build/"
+    "--compile-commands-dir=${workspaceRoot}/build"
   ],
   "vscode-coverage-highlighter.files": [
     "build/tests/CMakeFiles/mu_tests.dir/main_coverage.info",
