@@ -59,16 +59,6 @@ TEST(Vector, OperatorMoveAssignment) {
   EXPECT_FLOAT_EQ(v2[0], 2.0F);
 }
 
-TEST(Vector, Size) {
-  /** arrange */
-  const int max_size = 42;
-  mu::Vector<max_size, int> v{2};
-  /** action */
-  std::size_t size = v.Size();
-  /** assert */
-  EXPECT_EQ(size, max_size);
-}
-
 TEST(Vector, OperatorBrackets) {
   /** arrange */
   mu::Vector<2, float> v{2.0F};
@@ -89,4 +79,14 @@ TEST(Vector, OperatorConstBrackets) {
   /** assert */
   EXPECT_FLOAT_EQ(a, 2.0F);
   EXPECT_FLOAT_EQ(b, 2.0F);
+}
+
+TEST(Vector, Size) {
+  /** arrange */
+  const int max_size = 42;
+  mu::Vector<max_size, int> v{2};
+  /** action */
+  std::size_t size = v.Size();
+  /** assert */
+  EXPECT_EQ(size, max_size);
 }

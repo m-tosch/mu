@@ -69,13 +69,6 @@ class Vector {
   Vector& operator=(Vector&& other) noexcept = default;
 
   /**
-   * @brief returns the size of the vector
-   *
-   * @return std::size_t
-   */
-  std::size_t Size() const noexcept { return N; }
-
-  /**
    * @brief access an element within the vector
    *
    * @param idx
@@ -106,6 +99,13 @@ class Vector {
    * @return const T&
    */
   const T& At(int idx) const { return data_.at(idx); }
+
+  /**
+   * @brief returns the size of the vector
+   *
+   * @return std::size_t
+   */
+  std::size_t Size() const noexcept { return N; }
 
  private:
   std::array<T, N> data_;
