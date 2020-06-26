@@ -81,6 +81,28 @@ TEST(Vector, OperatorConstBrackets) {
   EXPECT_FLOAT_EQ(b, 2.0F);
 }
 
+TEST(Vector, AccessAtFunction) {
+  /** arrange */
+  mu::Vector<2, float> v{2.0F};
+  /** action */
+  float a = v.At(0);
+  float b = v.At(1);
+  /** assert */
+  EXPECT_FLOAT_EQ(a, 2.0F);
+  EXPECT_FLOAT_EQ(b, 2.0F);
+}
+
+TEST(Vector, AccessConstAtFunction) {
+  /** arrange */
+  const mu::Vector<2, float> v{2.0F};
+  /** action */
+  float a = v.At(0);
+  float b = v.At(1);
+  /** assert */
+  EXPECT_FLOAT_EQ(a, 2.0F);
+  EXPECT_FLOAT_EQ(b, 2.0F);
+}
+
 TEST(Vector, Size) {
   /** arrange */
   const int max_size = 42;
