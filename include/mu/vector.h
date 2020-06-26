@@ -71,7 +71,7 @@ class Vector {
   /**
    * @brief access an element within the vector
    *
-   * does not throw an exception if @p idx is out of range
+   * does not throw an exception if \p idx is out of range
    *
    * @param idx
    * @return T&
@@ -81,13 +81,17 @@ class Vector {
   /**
    * @brief const access an element within the vector
    *
+   * does not throw an exception if \p idx is out of range
+   *
    * @param idx
    * @return const T&
    */
   const T& operator[](int idx) const noexcept { return data_[idx]; }
 
   /**
-   * @brief
+   * @brief access an element within the vector
+   *
+   *
    *
    * @param idx
    * @return T&
@@ -95,7 +99,7 @@ class Vector {
   T& At(int idx) { return data_.at(idx); }
 
   /**
-   * @brief
+   * @brief const access an element within the vector
    *
    * @param idx
    * @return const T&
