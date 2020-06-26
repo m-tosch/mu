@@ -91,8 +91,7 @@ class Vector {
   /**
    * @brief access an element within the vector
    *
-   *
-   *
+   * @throws out of range
    * @param idx
    * @return T&
    */
