@@ -71,6 +71,8 @@ class Vector {
   /**
    * @brief access an element within the vector
    *
+   * does not throw an exception if @p idx is out of range
+   *
    * @param idx
    * @return T&
    */
