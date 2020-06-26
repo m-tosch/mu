@@ -91,6 +91,22 @@ class Vector {
    */
   const T& operator[](int idx) const noexcept { return data_[idx]; }
 
+  /**
+   * @brief
+   *
+   * @param idx
+   * @return T&
+   */
+  T& At(int idx) { return data_.at(idx); }
+
+  /**
+   * @brief
+   *
+   * @param idx
+   * @return const T&
+   */
+  const T& At(int idx) const { return data_.at(idx); }
+
  private:
   std::array<T, N> data_;
 };
