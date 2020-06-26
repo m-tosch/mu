@@ -76,20 +76,20 @@ class Vector {
   std::size_t Size() const noexcept { return N; }
 
   /**
-   * @brief const access an element within the vector
-   *
-   * @param idx
-   * @return const T&
-   */
-  const T& operator[](int idx) const noexcept { return data_[idx]; }
-
-  /**
    * @brief access an element within the vector
    *
    * @param idx
    * @return T&
    */
   T& operator[](int idx) noexcept { return data_[idx]; }
+
+  /**
+   * @brief const access an element within the vector
+   *
+   * @param idx
+   * @return const T&
+   */
+  const T& operator[](int idx) const noexcept { return data_[idx]; }
 
  private:
   std::array<T, N> data_;
