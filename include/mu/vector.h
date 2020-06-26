@@ -91,7 +91,7 @@ class Vector {
   /**
    * @brief access an element within the vector
    *
-   * @throws out of range
+   * @exception out of range
    * @param idx
    * @return T&
    */
@@ -100,6 +100,7 @@ class Vector {
   /**
    * @brief const access an element within the vector
    *
+   * @exception out of range
    * @param idx
    * @return const T&
    */
