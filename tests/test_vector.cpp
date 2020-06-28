@@ -105,10 +105,10 @@ TEST(Vector, AccessConstAtFunction) {
 
 TEST(Vector, Size) {
   /** arrange */
-  const int max_size = 42;
-  mu::Vector<max_size, int> v{2};
+  const int kMaxSize = 42;
+  mu::Vector<kMaxSize, float> v{2.0F};
   /** action */
   std::size_t size = v.Size();
   /** assert */
-  EXPECT_EQ(size, max_size);
+  EXPECT_EQ(size, kMaxSize);
 }
