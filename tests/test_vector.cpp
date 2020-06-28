@@ -1,6 +1,12 @@
 #include "gtest/gtest.h"
 #include "vector.h"
 
+/**
+ * Instantiate this template class explicitly so that all functions
+ * are generated and thus, the coverage report is complete. 
+ */
+template class mu::Vector<2, float>;
+
 TEST(Vector, ConstructorDefault) {
   /** arrange */
   bool c = std::is_default_constructible<mu::Vector<1, int>>::value;
