@@ -85,6 +85,16 @@ TEST(Vector, OperatorEqualsValuesDifferent) {
   EXPECT_FALSE(eq);
 }
 
+TEST(Vector, OperatorEqualsLengthDifferent) {
+  /** arrange */
+  mu::Vector<2, float> v1{1.0F};
+  mu::Vector<3, float> v2{1.0F};
+  /** action */
+  bool eq = (v1 == v2);
+  /** assert */
+  EXPECT_FALSE(eq);
+}
+
 TEST(Vector, OperatorBrackets) {
   /** arrange */
   mu::Vector<2, float> v{2.0F};
