@@ -3,7 +3,7 @@
 
 /**
  * Instantiate this template class explicitly so that all functions
- * are generated and thus, the coverage report is complete. 
+ * are generated and thus, the coverage report is complete.
  */
 template class mu::Vector<2, float>;
 
@@ -63,6 +63,16 @@ TEST(Vector, OperatorMoveAssignment) {
   mu::Vector<1, float> v2 = std::move(v1);
   /** assert */
   EXPECT_FLOAT_EQ(v2[0], 2.0F);
+}
+
+TEST(Vector, OperatorEquals) {
+  /** arrange */
+  mu::Vector<2, float> v1{2.0F};
+  mu::Vector<2, float> v2{2.0F};
+  /** action */
+  bool eq = v1 == v2;
+  /** assert */
+  EXPECT_TRUE(eq);
 }
 
 TEST(Vector, OperatorBrackets) {
