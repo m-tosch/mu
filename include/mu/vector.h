@@ -81,7 +81,7 @@ class Vector {
     if (Size() != other.Size()) {
       return false;
     }
-    for (std::size_t i = 0; i < N; i++) {
+    for (std::size_t i = 0; i < Size(); i++) {
       if (data_[i] != other[i]) {
         return false;
       }
