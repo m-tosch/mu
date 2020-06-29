@@ -70,7 +70,7 @@ TEST(Vector, OperatorEquals) {
   mu::Vector<2, float> v1{2.0F};
   mu::Vector<2, float> v2{2.0F};
   /** action */
-  bool eq = v1 == v2;
+  bool eq = (v1 == v2);
   /** assert */
   EXPECT_TRUE(eq);
 }
