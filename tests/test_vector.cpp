@@ -65,7 +65,7 @@ TEST(Vector, OperatorMoveAssignment) {
   EXPECT_FLOAT_EQ(v2[0], 2.0F);
 }
 
-TEST(Vector, OperatorEquals) {
+TEST(Vector, OperatorEqualsValuesSame) {
   /** arrange */
   mu::Vector<2, float> v1{2.0F};
   mu::Vector<2, float> v2{2.0F};
