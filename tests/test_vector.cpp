@@ -67,8 +67,8 @@ TEST(Vector, OperatorMoveAssignment) {
 
 TEST(Vector, OperatorEqualsValuesSame) {
   /** arrange */
-  mu::Vector<2, float> v1{2.0F};
-  mu::Vector<2, float> v2{2.0F};
+  mu::Vector<2, float> v1{1.0F};
+  mu::Vector<2, float> v2{1.0F};
   /** action */
   bool eq = (v1 == v2);
   /** assert */
