@@ -78,7 +78,7 @@ class Vector {
    */
   template <std::size_t Nn, typename Tt>
   bool operator==(const Vector<Nn, Tt>& other) const {
-    if (N != Nn) {
+    if (Size() != other.Size()) {
       return false;
     }
     for (std::size_t i = 0; i < N; i++) {
