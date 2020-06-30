@@ -90,6 +90,12 @@ class Vector {
     return true;
   }
 
+  /**
+   * @brief plus operator
+   *
+   * @param other
+   * @return Vector<N, T>
+   */
   Vector<N, T> operator+(const Vector<N, T>& other) const {
     assert(Size() == other.Size());
     Vector<N, T> res;
