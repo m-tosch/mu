@@ -167,6 +167,6 @@ class Vector {
 
  private:
   std::array<T, N> data_;
-};  // namespace mu
+};
 }  // namespace mu
 #endif  // MU_VECTOR_H_
