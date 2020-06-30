@@ -95,7 +95,7 @@ TEST(Vector, OperatorEqualsLengthDifferent) {
   EXPECT_FALSE(eq);
 }
 
-TEST(Vector, OperatorPlus) {  // OperatorPlusLengthDifferent
+TEST(Vector, OperatorPlus) {
   /** arrange */
   mu::Vector<2, float> v1{1.0F};
   mu::Vector<2, float> v2{1.0F};
