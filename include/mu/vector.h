@@ -2,6 +2,7 @@
 #define MU_VECTOR_H_
 
 #include <array>
+#include <cassert>
 
 namespace mu {
 /**
@@ -89,6 +90,15 @@ class Vector {
     return true;
   }
 
+  Vector<N, T> operator+(const Vector<N, T>& other) const {
+    assert(Size() == other.Size());
+    Vector<N, T> res;
+    for (std::size_t i = 0; i < Size(); i++) {
+      res[i] = data_[i] + other[i];
+    }
+    return res;
+  }
+
   /**
    * @brief access an element within the vector
    *
@@ -136,6 +146,6 @@ class Vector {
 
  private:
   std::array<T, N> data_;
-};
+};  // namespace mu
 }  // namespace mu
 #endif  // MU_VECTOR_H_
