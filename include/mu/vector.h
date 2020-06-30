@@ -106,6 +106,21 @@ class Vector {
   }
 
   /**
+   * @brief minus operator
+   *
+   * @param other
+   * @return Vector<N, T>
+   */
+  Vector<N, T> operator-(const Vector<N, T>& other) const {
+    assert(Size() == other.Size());
+    Vector<N, T> res;
+    for (std::size_t i = 0; i < Size(); i++) {
+      res[i] = data_[i] - other[i];
+    }
+    return res;
+  }
+
+  /**
    * @brief access an element within the vector
    *
    * does not throw an exception if \p idx is out of range
