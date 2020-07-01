@@ -2,7 +2,7 @@
 #define MU_VECTOR_H_
 
 #include <array>
-#include <cassert>
+// #include <cassert>
 
 namespace mu {
 /**
@@ -96,8 +96,9 @@ class Vector {
    * @param other
    * @return Vector<N, T>
    */
-  Vector<N, T> operator+(const Vector<N, T>& other) const {
-    assert(Size() == other.Size());
+  template <std::size_t Nn, typename Tt>
+  Vector<N, T> operator+(const Vector<Nn, Tt>& other) const {
+    static_assert(N == Nn, "dimension mismatch");
     Vector<N, T> res;
     for (std::size_t i = 0; i < Size(); i++) {
       res[i] = data_[i] + other[i];
@@ -111,8 +112,9 @@ class Vector {
    * @param other
    * @return Vector<N, T>
    */
-  Vector<N, T> operator-(const Vector<N, T>& other) const {
-    assert(Size() == other.Size());
+  template <std::size_t Nn, typename Tt>
+  Vector<N, T> operator-(const Vector<Nn, Tt>& other) const {
+    static_assert(N == Nn, "dimension mismatch");
     Vector<N, T> res;
     for (std::size_t i = 0; i < Size(); i++) {
       res[i] = data_[i] - other[i];
