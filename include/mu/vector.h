@@ -2,7 +2,6 @@
 #define MU_VECTOR_H_
 
 #include <array>
-// #include <cassert>
 
 namespace mu {
 /**
