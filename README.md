@@ -24,6 +24,8 @@ The documentation will be generated in html form inside a  doc/html folder. View
 
 ## Tests
 
+The unit tests are written using [googletest](https://github.com/google/googletest)
+
 After successfully building the project with cmake, you can run the unit tests locally from the command line:
 
 ```cmd
