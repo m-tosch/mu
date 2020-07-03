@@ -42,7 +42,9 @@ If you want to only print the overall test results, run the test executable like
 
 ## Coverage
 
-The coverage report can be found [TODO](https://github.com)
+The code coverage is generated using [gcov](https://gcc.gnu.org/onlinedocs/gcc/Gcov.html)
+
+A html coverage report can be found [TODO](https://github.com)
 
 You can generate a coverage report locally from the command line:
 
