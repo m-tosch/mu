@@ -41,4 +41,5 @@
 /doc/html
 
 # coverage
-/coverage/html
+/coverage/html_gcov
+/coverage/html_llvm
