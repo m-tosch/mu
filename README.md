@@ -42,7 +42,7 @@ If you want to only print the overall test results, run the test executable like
 
 ## Coverage
 
-A html coverage report can be found [TODO](https://github.com)
+The coverage can be found [TODO](https://github.com)
 
 The code coverage can be generated using [gcov](https://gcc.gnu.org/onlinedocs/gcc/Gcov.html) or [llvm-cov](https://clang.llvm.org/docs/SourceBasedCodeCoverage.html). gcov uses the gcc compiler while llvm-cov uses clang. The latter was implemented to also report branch coverage through what llvm calls "region coverage". gcov can only report basic line coverage. 
 
