@@ -36,9 +36,16 @@
       "problemMatcher": []
     },
     {
-      "label": "generate coverage",
+      "label": "generate coverage (gcov)",
       "type": "shell",
-      "command": "cd ${workspaceRoot}/coverage && ./coverage.sh",
+      "command": "cd ${workspaceRoot}/coverage && ./coverage_gcov.sh",
+      "group": "build",
+      "problemMatcher": [],
+    },
+    {
+      "label": "generate coverage (llvm)",
+      "type": "shell",
+      "command": "cd ${workspaceRoot}/coverage && ./coverage_llvm.sh",
       "group": "build",
       "problemMatcher": [],
     }
