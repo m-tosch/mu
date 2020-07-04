@@ -42,14 +42,14 @@ If you want to only print the overall test results, run the test executable like
 
 ## Coverage
 
-The code coverage is generated using [gcov](https://gcc.gnu.org/onlinedocs/gcc/Gcov.html)
+The code coverage can be generated using [gcov](https://gcc.gnu.org/onlinedocs/gcc/Gcov.html) and/or [llvm-cov](https://clang.llvm.org/docs/SourceBasedCodeCoverage.html)
 
 A html coverage report can be found [TODO](https://github.com)
 
-You can generate a coverage report locally from the command line:
+You can generate both coverage reports locally from the command line:
 
 ```cmd
-cd coverage && ./coverage.sh
+cd coverage && ./coverage_gcov.sh
 ```
 
 The coverage report will be generated in html form in a coverage/html folder. View the report by opening the index.html file inside that folder in a browser.
