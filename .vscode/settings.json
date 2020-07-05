@@ -17,12 +17,5 @@
     "-log=verbose",
     "--background-index",
     "--compile-commands-dir=${workspaceRoot}/build"
-  ],
-  "vscode-coverage-highlighter.files": [
-    "build/tests/CMakeFiles/mu_tests.dir/main_coverage.info",
-  ],
-  "vscode-coverage-highlighter.coveredColor": "rgba(20, 250, 20, 0.05)",
-  "vscode-coverage-highlighter.unCoveredColor": "rgba(255, 20, 20, 0.2)",
-  "vscode-coverage-highlighter.wholeLine": true,
-  "vscode-coverage-highlighter.defaultState": "enable"
+  ]
 }
