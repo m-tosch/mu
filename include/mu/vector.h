@@ -78,7 +78,7 @@ class Vector {
    */
   template <std::size_t Nn, typename Tt>
   bool operator==(const Vector<Nn, Tt>& other) const {
-    if (Size() != other.Size()) {
+    if (N != Nn) {
       return false;
     }
     for (std::size_t i = 0; i < Size(); i++) {
@@ -169,5 +169,6 @@ class Vector {
  private:
   std::array<T, N> data_;
 };
+
 }  // namespace mu
 #endif  // MU_VECTOR_H_
