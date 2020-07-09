@@ -38,7 +38,7 @@ If you want to only print the overall test results, run the test executable like
 ./mu_tests --gtest_brief=1
 ```
 
-*note: test failures will still be reported individually if a test fails*
+*note: individual test failures will still be reported if a test fails*
 
 ## Coverage
 
