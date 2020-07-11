@@ -8,6 +8,18 @@ namespace mu {
 /**
  * @brief A generic Vector
  *
+ * Can only be instantiated with one of the following arithmetic types:
+ * - bool
+ * - char
+ * - char16_t
+ * - char32_t
+ * - wchar_t
+ * - short
+ * - long long
+ * - float
+ * - double
+ * - long double
+ *
  * @tparam N size
  * @tparam T type
  */
