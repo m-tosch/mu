@@ -8,14 +8,20 @@ namespace mu {
 /**
  * @brief A generic Vector
  *
- * Can only be instantiated with one of the following numeric types:
+ * Can be instantiated with one of the following integral types or any
+ * implementation-defined extended integer types, including any signed,
+ * unsigned, and cv-qualified variants.
  * - bool
  * - char
  * - char16_t
  * - char32_t
  * - wchar_t
  * - short
+ * - int
+ * - long
  * - long long
+ * Can be instantiated with one of the following floating-point types including
+ * any cv-qualified variants.
  * - float
  * - double
  * - long double
