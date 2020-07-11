@@ -2,6 +2,7 @@
 #define MU_VECTOR_H_
 
 #include <array>
+#include <type_traits>
 
 namespace mu {
 /**
@@ -10,7 +11,9 @@ namespace mu {
  * @tparam N size
  * @tparam T type
  */
-template <std::size_t N, typename T>
+template <std::size_t N, typename T,
+          typename =
+              typename std::enable_if<std::is_arithmetic<T>::value, T>::type>
 class Vector {
  public:
   /**
