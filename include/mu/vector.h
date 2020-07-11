@@ -8,7 +8,7 @@ namespace mu {
 /**
  * @brief A generic Vector
  *
- * Can only be instantiated with one of the following arithmetic types:
+ * Can only be instantiated with one of the following numeric types:
  * - bool
  * - char
  * - char16_t
