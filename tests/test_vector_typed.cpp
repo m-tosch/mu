@@ -4,6 +4,7 @@
 #include "gtest/gtest.h"
 #include "vector.h"
 
+
 template <typename T>
 class VectorFixture : public ::testing::Test {
  public:
@@ -30,4 +31,15 @@ TYPED_TEST(VectorFixture, ConstructorSingleValueInit) {
   /** assert */
   EXPECT_FLOAT_EQ(v[0], 2.0F);
   EXPECT_FLOAT_EQ(v[1], 2.0F);
+}
+
+TYPED_TEST(VectorFixture, plus) {
+  /** arrange */
+  typename TestFixture::T1 obj1{2.0F};
+  typename TestFixture::T2 obj2{2.0F};
+  /** action */
+  typename TestFixture::T1 res = obj1 + obj2;
+  /** assert */
+  EXPECT_FLOAT_EQ(res[0], obj1[0] + obj2[0]);
+  EXPECT_FLOAT_EQ(res[1], obj1[1] + obj2[1]);
 }
