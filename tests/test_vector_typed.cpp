@@ -24,10 +24,10 @@ TYPED_TEST(VectorFixture, ConstructorDefault) {
   EXPECT_TRUE(c);
 }
 
-// TYPED_TEST(VectorFixture, ConstructorSingleValueInit) {
-//   /** arrange */
-//   mu::Vector<2, float> v{2.0F};
-//   /** assert */
-//   EXPECT_FLOAT_EQ(v[0], 2.0F);
-//   EXPECT_FLOAT_EQ(v[1], 2.0F);
-// }
+TYPED_TEST(VectorFixture, ConstructorSingleValueInit) {
+  /** arrange */
+  typename TestFixture::T1 v{2.0F};
+  /** assert */
+  EXPECT_FLOAT_EQ(v[0], 2.0F);
+  EXPECT_FLOAT_EQ(v[1], 2.0F);
+}
