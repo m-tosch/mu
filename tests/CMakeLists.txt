@@ -6,4 +6,4 @@ set(SOURCES ${TEST_SOURCES})
 
 add_executable(${BINARY} ${TEST_SOURCES})
 
-target_link_libraries(${BINARY} ${CMAKE_PROJECT_NAME}_lib gtest)
+target_link_libraries(${BINARY} ${CMAKE_PROJECT_NAME}_lib gtest gmock)

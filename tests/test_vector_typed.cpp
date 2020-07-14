@@ -1,9 +1,9 @@
 #include <tuple>
 #include <utility>
 
+#include "gmock/gmock.h"
 #include "gtest/gtest.h"
 #include "vector.h"
-
 
 template <typename T>
 class VectorFixture : public ::testing::Test {
