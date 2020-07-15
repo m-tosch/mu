@@ -5,12 +5,15 @@
 #include "gtest/gtest.h"
 #include "vector.h"
 
+
 template <typename T>
 class VectorFixture : public ::testing::Test {
  public:
   virtual void SetUp() {}
   typedef typename std::tuple_element<0, T>::type T1;
   typedef typename std::tuple_element<1, T>::type T2;
+
+  std::array<typename T1::value_type, T1().Size()> values;
 };
 
 using VectorTypes =
@@ -18,9 +21,8 @@ using VectorTypes =
 TYPED_TEST_SUITE(VectorFixture, VectorTypes);
 
 TYPED_TEST(VectorFixture, ConstructorDefault) {
-  typedef typename TestFixture::T1 Ftype;
   /** arrange */
-  bool c = std::is_default_constructible<Ftype>::value;
+  bool c = std::is_default_constructible<typename TestFixture::T1>::value;
   /** assert */
   EXPECT_TRUE(c);
 }
