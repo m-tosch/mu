@@ -38,7 +38,7 @@ class Vector {
    * @brief Construct a new Vector object
    *
    */
-  Vector() = default;
+  explicit Vector() = default;
 
   /**
    * @brief Construct a new Vector object
