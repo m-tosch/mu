@@ -1,3 +1,6 @@
+#ifndef TESTS_TEST_VECTOR_TYPED_H_
+#define TESTS_TEST_VECTOR_TYPED_H_
+
 #include <tuple>
 #include <utility>
 
@@ -45,3 +48,5 @@ TYPED_TEST(VectorFixture, plus) {
   EXPECT_FLOAT_EQ(res[0], obj1[0] + obj2[0]);
   EXPECT_FLOAT_EQ(res[1], obj1[1] + obj2[1]);
 }
+
+#endif  // TESTS_TEST_VECTOR_TYPED_H_
