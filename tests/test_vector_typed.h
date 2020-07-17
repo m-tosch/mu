@@ -9,7 +9,6 @@
 #include "gtest/gtest.h"
 #include "vector.h"
 
-
 template <typename T>
 class VectorTypeFixture : public ::testing::Test {
  public:
@@ -118,9 +117,9 @@ TYPED_TEST_P(VectorTypeFixture, OperatorBrackets) {
   EXPECT_THAT(res, ::testing::ContainerEq(obj));
 }
 
-TYPED_TEST_P(VectorTypeFixture, OperatorBrackets) {
+TYPED_TEST_P(VectorTypeFixture, OperatorBracketsConst) {
   /** arrange */
-  TypeParam obj{this->values};
+  const TypeParam obj{this->values};
   /** action */
   TypeParam res;
   std::generate(res.begin(), res.end(),
@@ -134,6 +133,7 @@ REGISTER_TYPED_TEST_SUITE_P(VectorTypeFixture, ConstructorDefault,
                             ConstructorFromSingleValue, ConstructorCopy,
                             ConstructorMove, OperatorCopyAssignment,
                             OperatorMoveAssignment, OperatorEqualsValuesMatch,
-                            OperatorEqualsValuesDontMatch, OperatorBrackets);
+                            OperatorEqualsValuesDontMatch, OperatorBrackets,
+                            OperatorBracketsConst);
 
 #endif  // TESTS_TEST_VECTOR_TYPED_H_
