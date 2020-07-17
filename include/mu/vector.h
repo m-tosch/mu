@@ -37,6 +37,9 @@ class Vector {
   /* value and size type from the underlying container */
   using value_type = typename std::array<T, N>::value_type;
   using size_type = typename std::array<T, N>::size_type;
+  /* use iterators from the underlying container */
+  using iterator = typename std::array<T, N>::iterator;
+  using const_iterator = typename std::array<T, N>::const_iterator;
 
   /**
    * @brief Construct a new Vector object
@@ -197,6 +200,11 @@ class Vector {
    * @return std::size_t
    */
   constexpr std::size_t Size() const noexcept { return N; }
+
+  iterator begin() noexcept { return data_.begin(); }
+  const_iterator begin() const noexcept { return data_.begin(); }
+  iterator end() noexcept { return data_.end(); }
+  const_iterator end() const noexcept { return data_.end(); }
 
  private:
   std::array<T, N> data_;
