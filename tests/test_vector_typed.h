@@ -8,10 +8,16 @@
 #include "gtest/gtest.h"
 #include "vector.h"
 
+
 template <typename T>
 class VectorTypeFixture : public ::testing::Test {
  public:
-  void SetUp() override {}
+  void SetUp() override {
+    auto start = static_cast<typename T::value_type>(0);
+    auto incr = static_cast<typename T::value_type>(1);
+    std::generate(values.begin(), values.end(),
+                  [&start, &incr]() { return start += incr; });
+  }
 
   std::array<typename T::value_type, T().Size()> values;
 };
