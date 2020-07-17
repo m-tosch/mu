@@ -10,6 +10,7 @@
 #include "gtest/gtest.h"
 #include "vector.h"
 
+
 template <typename T>
 class VectorTypeFixture : public ::testing::Test {
  public:
@@ -39,7 +40,7 @@ TYPED_TEST_P(VectorTypeFixture, ConstructorFromArray) {
   /** action */
   TypeParam obj{this->values};
   /** assert */
-  EXPECT_THAT(obj, ::testing::ContainerEq(this->values))
+  EXPECT_THAT(obj, ::testing::Pointwise(::testing::FloatEq(), this->values));
 }
 
 TYPED_TEST_P(VectorTypeFixture, ConstructorFromSingleValue) {
@@ -51,8 +52,17 @@ TYPED_TEST_P(VectorTypeFixture, ConstructorFromSingleValue) {
   EXPECT_THAT(obj, ::testing::Each(::testing::AllOf(::testing::Eq(value))));
 }
 
+TYPED_TEST_P(VectorTypeFixture, ConstructorCopy) {
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  TypeParam res{obj};
+  /** assert */
+  EXPECT_THAT(res, ::testing::ContainerEq(obj));
+}
+
 REGISTER_TYPED_TEST_SUITE_P(VectorTypeFixture, ConstructorDefault,
                             DestructorDefault, ConstructorFromArray,
-                            ConstructorFromSingleValue);
+                            ConstructorFromSingleValue, ConstructorCopy);
 
 #endif  // TESTS_TEST_VECTOR_TYPED_H_
