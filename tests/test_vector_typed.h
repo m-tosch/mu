@@ -33,8 +33,8 @@ TYPED_TEST_P(VectorTypeFixture, ConstructorFromArray) {
   /** arrange */
   TypeParam v{this->values};
   /** assert */
-  EXPECT_FLOAT_EQ(v[0], 2.0F);
-  EXPECT_FLOAT_EQ(v[1], 2.0F);
+  EXPECT_FLOAT_EQ(v[0], this->values[0]);
+  EXPECT_FLOAT_EQ(v[1], this->values[1]);
 }
 
 REGISTER_TYPED_TEST_SUITE_P(VectorTypeFixture, ConstructorDefault,
