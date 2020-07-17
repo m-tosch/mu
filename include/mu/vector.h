@@ -42,10 +42,17 @@ class Vector {
    * @brief Construct a new Vector object
    *
    */
-  Vector() = default;
+  constexpr Vector() = default;
 
   /**
-   * @brief Construct a new Vector object
+   * @brief Construct a new Vector object from an array
+   *
+   * @param data
+   */
+  explicit Vector(std::array<T, N> data) : data_(data) {}
+
+  /**
+   * @brief Construct a new Vector object from a single value
    *
    * @param value
    */
@@ -189,7 +196,7 @@ class Vector {
    *
    * @return std::size_t
    */
-  std::size_t Size() const noexcept { return N; }
+  constexpr std::size_t Size() const noexcept { return N; }
 
  private:
   std::array<T, N> data_;
