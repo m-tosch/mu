@@ -200,6 +200,7 @@ class Vector {
    * @return std::size_t
    */
   constexpr std::size_t Size() const noexcept { return N; }
+  constexpr std::size_t size() const noexcept { return N; }
 
   iterator begin() noexcept { return data_.begin(); }
   const_iterator begin() const noexcept { return data_.begin(); }
