@@ -8,7 +8,6 @@
 #include "gtest/gtest.h"
 #include "vector.h"
 
-
 template <typename T>
 class VectorTypeFixture : public ::testing::Test {
  public:
@@ -42,7 +41,16 @@ TYPED_TEST_P(VectorTypeFixture, ConstructorFromArray) {
   EXPECT_FLOAT_EQ(v[1], this->values[1]);
 }
 
+TYPED_TEST_P(VectorTypeFixture, ConstructorFromSingleValue) {
+  /** arrange */
+  TypeParam v{this->values[0]};
+  /** assert */
+  EXPECT_FLOAT_EQ(v[0], this->values[0]);
+  EXPECT_FLOAT_EQ(v[1], this->values[0]);
+}
+
 REGISTER_TYPED_TEST_SUITE_P(VectorTypeFixture, ConstructorDefault,
-                            ConstructorFromArray);
+                            DestructorDefault, ConstructorFromArray,
+                            ConstructorFromSingleValue);
 
 #endif  // TESTS_TEST_VECTOR_TYPED_H_
