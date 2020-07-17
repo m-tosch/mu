@@ -34,11 +34,15 @@ template <std::size_t N, typename T,
               typename std::enable_if<std::is_arithmetic<T>::value, T>::type>
 class Vector {
  public:
+  /* value and size type from the underlying container */
+  using value_type = typename std::array<T, N>::value_type;
+  using size_type = typename std::array<T, N>::size_type;
+
   /**
    * @brief Construct a new Vector object
    *
    */
-  explicit Vector() = default;
+  Vector() = default;
 
   /**
    * @brief Construct a new Vector object
