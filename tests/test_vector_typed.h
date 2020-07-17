@@ -1,15 +1,12 @@
 #ifndef TESTS_TEST_VECTOR_TYPED_H_
 #define TESTS_TEST_VECTOR_TYPED_H_
 
-#include <gmock/gmock-matchers.h>
-
 #include <tuple>
 #include <utility>
 
 #include "gmock/gmock.h"
 #include "gtest/gtest.h"
 #include "vector.h"
-
 
 template <typename T>
 class VectorTypeFixture : public ::testing::Test {
@@ -61,8 +58,18 @@ TYPED_TEST_P(VectorTypeFixture, ConstructorCopy) {
   EXPECT_THAT(res, ::testing::ContainerEq(obj));
 }
 
+TYPED_TEST_P(VectorTypeFixture, ConstructorMove) {
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  TypeParam res{std::move(obj)};
+  /** assert */
+  EXPECT_THAT(res, ::testing::ContainerEq(obj));
+}
+
 REGISTER_TYPED_TEST_SUITE_P(VectorTypeFixture, ConstructorDefault,
                             DestructorDefault, ConstructorFromArray,
-                            ConstructorFromSingleValue, ConstructorCopy);
+                            ConstructorFromSingleValue, ConstructorCopy,
+                            ConstructorMove);
 
 #endif  // TESTS_TEST_VECTOR_TYPED_H_
