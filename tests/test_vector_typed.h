@@ -67,9 +67,18 @@ TYPED_TEST_P(VectorTypeFixture, ConstructorMove) {
   EXPECT_THAT(res, ::testing::ContainerEq(obj));
 }
 
+TYPED_TEST_P(VectorTypeFixture, OperatorCopyAssignment) {
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  TypeParam res = obj;
+  /** assert */
+  EXPECT_THAT(res, ::testing::ContainerEq(obj));
+}
+
 REGISTER_TYPED_TEST_SUITE_P(VectorTypeFixture, ConstructorDefault,
                             DestructorDefault, ConstructorFromArray,
                             ConstructorFromSingleValue, ConstructorCopy,
-                            ConstructorMove);
+                            ConstructorMove, OperatorCopyAssignment);
 
 #endif  // TESTS_TEST_VECTOR_TYPED_H_
