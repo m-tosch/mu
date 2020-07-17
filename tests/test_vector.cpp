@@ -1,4 +1,5 @@
 #include "gtest/gtest.h"
+#include "test_vector_typed.h"
 #include "vector.h"
 
 /**
@@ -7,9 +8,14 @@
  */
 template class mu::Vector<2, float>;
 
+using VectorTypes = ::testing::Types<mu::Vector<2, float>, mu::Vector<2, int>>;
+INSTANTIATE_TYPED_TEST_SUITE_P(Vector, VectorTypeFixture, VectorTypes);
+
+/******************************************************************************/
+
 TEST(Vector, ConstructorDefault) {
   /** arrange */
-  bool c = std::is_default_constructible<mu::Vector<1, int>>::value;
+  bool c = std::is_default_constructible<mu::Vector<1, float>>::value;
   /** assert */
   EXPECT_TRUE(c);
 }
