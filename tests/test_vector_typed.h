@@ -85,10 +85,31 @@ TYPED_TEST_P(VectorTypeFixture, OperatorMoveAssignment) {
   EXPECT_THAT(res, ::testing::ContainerEq(obj));
 }
 
+TYPED_TEST_P(VectorTypeFixture, OperatorEqualsValuesMatch) {
+  /** arrange */
+  TypeParam obj1{this->values};
+  TypeParam obj2{this->values};
+  /** action */
+  bool res = (obj1 == obj2);
+  /** assert */
+  EXPECT_TRUE(res);
+}
+
+TYPED_TEST_P(VectorTypeFixture, OperatorEqualsValuesDontMatch) {
+  /** arrange */
+  TypeParam obj1{this->values};
+  TypeParam obj2{this->values[0]};
+  /** action */
+  bool res = (obj1 == obj2);
+  /** assert */
+  EXPECT_FALSE(res);
+}
+
 REGISTER_TYPED_TEST_SUITE_P(VectorTypeFixture, ConstructorDefault,
                             DestructorDefault, ConstructorFromArray,
                             ConstructorFromSingleValue, ConstructorCopy,
                             ConstructorMove, OperatorCopyAssignment,
-                            OperatorMoveAssignment);
+                            OperatorMoveAssignment, OperatorEqualsValuesMatch,
+                            OperatorEqualsValuesDontMatch);
 
 #endif  // TESTS_TEST_VECTOR_TYPED_H_
