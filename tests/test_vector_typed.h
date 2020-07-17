@@ -29,6 +29,11 @@ TYPED_TEST_P(VectorTypeFixture, ConstructorDefault) {
   EXPECT_TRUE(std::is_default_constructible<TypeParam>::value);
 }
 
+TYPED_TEST_P(VectorTypeFixture, DestructorDefault) {
+  /** assert */
+  EXPECT_TRUE(std::is_destructible<TypeParam>::value);
+}
+
 TYPED_TEST_P(VectorTypeFixture, ConstructorFromArray) {
   /** arrange */
   TypeParam v{this->values};
