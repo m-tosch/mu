@@ -1,12 +1,14 @@
 #ifndef TESTS_TEST_VECTOR_TYPED_H_
 #define TESTS_TEST_VECTOR_TYPED_H_
 
+#include <algorithm>
 #include <tuple>
 #include <utility>
 
 #include "gmock/gmock.h"
 #include "gtest/gtest.h"
 #include "vector.h"
+
 
 template <typename T>
 class VectorTypeFixture : public ::testing::Test {
@@ -105,11 +107,33 @@ TYPED_TEST_P(VectorTypeFixture, OperatorEqualsValuesDontMatch) {
   EXPECT_FALSE(res);
 }
 
+TYPED_TEST_P(VectorTypeFixture, OperatorBrackets) {
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  TypeParam res;
+  std::generate(res.begin(), res.end(),
+                [&obj, i = 0]() mutable { return obj[i++]; });
+  /** assert */
+  EXPECT_THAT(res, ::testing::ContainerEq(obj));
+}
+
+TYPED_TEST_P(VectorTypeFixture, OperatorBrackets) {
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  TypeParam res;
+  std::generate(res.begin(), res.end(),
+                [&obj, i = 0]() mutable { return obj[i++]; });
+  /** assert */
+  EXPECT_THAT(res, ::testing::ContainerEq(obj));
+}
+
 REGISTER_TYPED_TEST_SUITE_P(VectorTypeFixture, ConstructorDefault,
                             DestructorDefault, ConstructorFromArray,
                             ConstructorFromSingleValue, ConstructorCopy,
                             ConstructorMove, OperatorCopyAssignment,
                             OperatorMoveAssignment, OperatorEqualsValuesMatch,
-                            OperatorEqualsValuesDontMatch);
+                            OperatorEqualsValuesDontMatch, OperatorBrackets);
 
 #endif  // TESTS_TEST_VECTOR_TYPED_H_
