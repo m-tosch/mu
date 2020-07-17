@@ -1,6 +1,8 @@
 #ifndef TESTS_TEST_VECTOR_TYPED_H_
 #define TESTS_TEST_VECTOR_TYPED_H_
 
+#include <gmock/gmock-matchers.h>
+
 #include <tuple>
 #include <utility>
 
@@ -34,19 +36,19 @@ TYPED_TEST_P(VectorTypeFixture, DestructorDefault) {
 }
 
 TYPED_TEST_P(VectorTypeFixture, ConstructorFromArray) {
-  /** arrange */
-  TypeParam v{this->values};
+  /** action */
+  TypeParam obj{this->values};
   /** assert */
-  EXPECT_FLOAT_EQ(v[0], this->values[0]);
-  EXPECT_FLOAT_EQ(v[1], this->values[1]);
+  EXPECT_THAT(obj, ::testing::ContainerEq(this->values))
 }
 
 TYPED_TEST_P(VectorTypeFixture, ConstructorFromSingleValue) {
   /** arrange */
-  TypeParam v{this->values[0]};
+  auto value = this->values[0];
+  /** action */
+  TypeParam obj{value};
   /** assert */
-  EXPECT_FLOAT_EQ(v[0], this->values[0]);
-  EXPECT_FLOAT_EQ(v[1], this->values[0]);
+  EXPECT_THAT(obj, ::testing::Each(::testing::AllOf(::testing::Eq(value))));
 }
 
 REGISTER_TYPED_TEST_SUITE_P(VectorTypeFixture, ConstructorDefault,
