@@ -9,7 +9,6 @@
 #include "gtest/gtest.h"
 #include "vector.h"
 
-
 template <typename T>
 class VectorTypeFixture : public ::testing::Test {
  public:
@@ -129,12 +128,44 @@ TYPED_TEST_P(VectorTypeFixture, OperatorBracketsConst) {
   EXPECT_THAT(res, ::testing::ContainerEq(kObj));
 }
 
+TYPED_TEST_P(VectorTypeFixture, MemberFuncAt) {
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  TypeParam res;
+  std::generate(res.begin(), res.end(),
+                [&obj, i = 0]() mutable { return obj.At(i++); });
+  /** assert */
+  EXPECT_THAT(res, ::testing::ContainerEq(obj));
+}
+
+TYPED_TEST_P(VectorTypeFixture, MemberFuncAtConst) {
+  /** arrange */
+  const TypeParam kObj{this->values};
+  /** action */
+  TypeParam res;
+  std::generate(res.begin(), res.end(),
+                [&kObj, i = 0]() mutable { return kObj.At(i++); });
+  /** assert */
+  EXPECT_THAT(res, ::testing::ContainerEq(kObj));
+}
+
+TYPED_TEST_P(VectorTypeFixture, MemberFuncSize) {
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  typename TypeParam::size_type size = obj.Size();
+  /** assert */
+  EXPECT_EQ(size, TypeParam().Size());
+}
+
 REGISTER_TYPED_TEST_SUITE_P(VectorTypeFixture, ConstructorDefault,
                             DestructorDefault, ConstructorFromArray,
                             ConstructorFromSingleValue, ConstructorCopy,
                             ConstructorMove, OperatorCopyAssignment,
                             OperatorMoveAssignment, OperatorEqualsValuesMatch,
                             OperatorEqualsValuesDontMatch, OperatorBrackets,
-                            OperatorBracketsConst);
+                            OperatorBracketsConst, MemberFuncAt,
+                            MemberFuncAtConst, MemberFuncSize);
 
 #endif  // TESTS_TEST_VECTOR_TYPED_H_
