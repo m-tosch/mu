@@ -227,7 +227,7 @@ class Vector {
    */
   const_iterator end() const noexcept { return data_.end(); }
 
- private:
+ protected:
   std::array<T, N> data_;
 };
 
