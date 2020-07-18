@@ -1,5 +1,5 @@
-#ifndef TESTS_TEST_VECTOR_TYPED_H_
-#define TESTS_TEST_VECTOR_TYPED_H_
+#ifndef TESTS_TEST_VECTOR_TYPE_H_
+#define TESTS_TEST_VECTOR_TYPE_H_
 
 #include <algorithm>
 #include <tuple>
@@ -190,4 +190,4 @@ REGISTER_TYPED_TEST_SUITE_P(VectorTypeFixture, ConstructorDefault,
                             OperatorBracketsConst, MemberFuncAt,
                             MemberFuncAtConst, MemberFuncSize);
 
-#endif  // TESTS_TEST_VECTOR_TYPED_H_
+#endif  // TESTS_TEST_VECTOR_TYPE_H_
