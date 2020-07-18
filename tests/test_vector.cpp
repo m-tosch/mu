@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "test_vector_typed.h"
+#include "test_vector_type.h"
 #include "vector.h"
 
 /**
@@ -36,36 +36,4 @@ TEST(Vector, OperatorMinus) {
   /** assert */
   EXPECT_FLOAT_EQ(res[0], v1[0] - v2[1]);
   EXPECT_FLOAT_EQ(res[1], v1[0] - v2[1]);
-}
-
-TEST(Vector, AccessAtFunction) {
-  /** arrange */
-  mu::Vector<2, float> v{2.0F};
-  /** action */
-  float a = v.At(0);
-  float b = v.At(1);
-  /** assert */
-  EXPECT_FLOAT_EQ(a, 2.0F);
-  EXPECT_FLOAT_EQ(b, 2.0F);
-}
-
-TEST(Vector, AccessConstAtFunction) {
-  /** arrange */
-  const mu::Vector<2, float> v{2.0F};
-  /** action */
-  float a = v.At(0);
-  float b = v.At(1);
-  /** assert */
-  EXPECT_FLOAT_EQ(a, 2.0F);
-  EXPECT_FLOAT_EQ(b, 2.0F);
-}
-
-TEST(Vector, Size) {
-  /** arrange */
-  const int kMaxSize = 42;
-  mu::Vector<kMaxSize, float> v{2.0F};
-  /** action */
-  std::size_t size = v.Size();
-  /** assert */
-  EXPECT_EQ(size, kMaxSize);
 }
