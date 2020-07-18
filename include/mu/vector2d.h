@@ -45,28 +45,28 @@ class Vector2D : public Vector<2, T> {
   explicit Vector2D(T value) : Vector<2, T>(value) {}
 
   /**
-   * @brief
+   * @brief set the x value of this two dimensional vector
    *
    * @param value
    */
   void x(T value) { this->data[0] = value; }
 
   /**
-   * @brief
+   * @brief set the y value of this two dimensional vector
    *
    * @param value
    */
   void y(T value) { this->data[1] = value; }
 
   /**
-   * @brief
+   * @brief get the x value of this two dimensional vector
    *
    * @return T&
    */
   T& x() { return this->data[0]; }
 
   /**
-   * @brief
+   * @brief get the y value of this two dimensional vector
    *
    * @return T&
    */
