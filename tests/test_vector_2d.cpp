@@ -46,3 +46,21 @@ TYPED_TEST(Vector2DTypeFixture, MemberFuncGetY) {
   /** assert */
   EXPECT_EQ(y, this->values[1]);
 }
+
+TYPED_TEST(Vector2DTypeFixture, MemberFuncSetX) {
+  /** arrange */
+  TypeParam obj{};
+  /** action */
+  obj.x(this->values[0]);
+  /** assert */
+  EXPECT_EQ(obj.x(), this->values[0]);
+}
+
+TYPED_TEST(Vector2DTypeFixture, MemberFuncSetY) {
+  /** arrange */
+  TypeParam obj{};
+  /** action */
+  obj.y(this->values[1]);
+  /** assert */
+  EXPECT_EQ(obj.y(), this->values[1]);
+}
