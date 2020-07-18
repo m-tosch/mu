@@ -103,14 +103,6 @@ class Vector {
    */
   Vector &operator=(Vector &&other) noexcept = default;
 
-  /**
-   * @brief compare two objects for equality
-   *
-   * @tparam Nn size
-   * @tparam Tt type
-   * @param other
-   * @return bool
-   */
   template <std::size_t Nn, typename Tt>
   bool operator==(const Vector<Nn, Tt> &other) const {
     if (N != Nn) {
@@ -122,6 +114,11 @@ class Vector {
       }
     }
     return true;
+  }
+
+  template <std::size_t Nn, typename Tt>
+  bool operator!=(const Vector<Nn, Tt> &other) const {
+    return !this->operator==(other);
   }
 
   /**
