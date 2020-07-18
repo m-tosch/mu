@@ -6,7 +6,7 @@
 
 namespace mu {
 /**
- * @brief A generic Vector
+ * @brief A generic vector
  *
  * Can be instantiated with one of the following integral types or any
  * implementation-defined extended integer types, including any signed,

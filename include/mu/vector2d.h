@@ -5,8 +5,14 @@
 
 #include <array>
 
+
 namespace mu {
 
+/**
+ * @brief A two dimensional vector
+ *
+ * @tparam T type
+ */
 template <typename T>
 class Vector2D : Vector<2, T> {
  public:
