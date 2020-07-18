@@ -86,7 +86,7 @@ TYPED_TEST_P(VectorTypeFixture, OperatorMoveAssignment) {
   EXPECT_THAT(res, ::testing::ContainerEq(obj));
 }
 
-TYPED_TEST_P(VectorTypeFixture, OperatorEqualsValuesMatch) {
+TYPED_TEST_P(VectorTypeFixture, OperatorEqualValuesMatch) {
   /** arrange */
   TypeParam obj1{this->values};
   TypeParam obj2{this->values};
@@ -96,7 +96,7 @@ TYPED_TEST_P(VectorTypeFixture, OperatorEqualsValuesMatch) {
   EXPECT_TRUE(res);
 }
 
-TYPED_TEST_P(VectorTypeFixture, OperatorEqualsValuesDontMatch) {
+TYPED_TEST_P(VectorTypeFixture, OperatorEqualValuesDontMatch) {
   /** arrange */
   TypeParam obj1{this->values};
   TypeParam obj2{this->values[0]};
@@ -104,6 +104,26 @@ TYPED_TEST_P(VectorTypeFixture, OperatorEqualsValuesDontMatch) {
   bool res = (obj1 == obj2);
   /** assert */
   EXPECT_FALSE(res);
+}
+
+TYPED_TEST_P(VectorTypeFixture, OperatorNotEqualValuesMatch) {
+  /** arrange */
+  TypeParam obj1{this->values};
+  TypeParam obj2{this->values};
+  /** action */
+  bool res = (obj1 != obj2);
+  /** assert */
+  EXPECT_FALSE(res);
+}
+
+TYPED_TEST_P(VectorTypeFixture, OperatorNotEqualValuesDontMatch) {
+  /** arrange */
+  TypeParam obj1{this->values};
+  TypeParam obj2{this->values[0]};
+  /** action */
+  bool res = (obj1 != obj2);
+  /** assert */
+  EXPECT_TRUE(res);
 }
 
 TYPED_TEST_P(VectorTypeFixture, OperatorBrackets) {
@@ -163,8 +183,10 @@ REGISTER_TYPED_TEST_SUITE_P(VectorTypeFixture, ConstructorDefault,
                             DestructorDefault, ConstructorFromArray,
                             ConstructorFromSingleValue, ConstructorCopy,
                             ConstructorMove, OperatorCopyAssignment,
-                            OperatorMoveAssignment, OperatorEqualsValuesMatch,
-                            OperatorEqualsValuesDontMatch, OperatorBrackets,
+                            OperatorMoveAssignment, OperatorEqualValuesMatch,
+                            OperatorEqualValuesDontMatch,
+                            OperatorNotEqualValuesMatch,
+                            OperatorNotEqualValuesDontMatch, OperatorBrackets,
                             OperatorBracketsConst, MemberFuncAt,
                             MemberFuncAtConst, MemberFuncSize);
 
