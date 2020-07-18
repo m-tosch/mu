@@ -19,7 +19,7 @@ class VectorTypeFixture : public ::testing::Test {
                   [&start, &incr]() { return start += incr; });
   }
 
-  std::array<typename T::value_type, T().Size()> values;
+  std::array<typename T::value_type, T().size()> values;
 };
 
 TYPED_TEST_SUITE_P(VectorTypeFixture);
@@ -134,7 +134,7 @@ TYPED_TEST_P(VectorTypeFixture, MemberFuncAt) {
   /** action */
   TypeParam res;
   std::generate(res.begin(), res.end(),
-                [&obj, i = 0]() mutable { return obj.At(i++); });
+                [&obj, i = 0]() mutable { return obj.at(i++); });
   /** assert */
   EXPECT_THAT(res, ::testing::ContainerEq(obj));
 }
@@ -145,7 +145,7 @@ TYPED_TEST_P(VectorTypeFixture, MemberFuncAtConst) {
   /** action */
   TypeParam res;
   std::generate(res.begin(), res.end(),
-                [&kObj, i = 0]() mutable { return kObj.At(i++); });
+                [&kObj, i = 0]() mutable { return kObj.at(i++); });
   /** assert */
   EXPECT_THAT(res, ::testing::ContainerEq(kObj));
 }
@@ -154,9 +154,9 @@ TYPED_TEST_P(VectorTypeFixture, MemberFuncSize) {
   /** arrange */
   TypeParam obj{this->values};
   /** action */
-  typename TypeParam::size_type size = obj.Size();
+  typename TypeParam::size_type size = obj.size();
   /** assert */
-  EXPECT_EQ(size, TypeParam().Size());
+  EXPECT_EQ(size, TypeParam().size());
 }
 
 REGISTER_TYPED_TEST_SUITE_P(VectorTypeFixture, ConstructorDefault,

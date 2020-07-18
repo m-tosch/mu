@@ -78,14 +78,14 @@ class Vector {
    *
    * @param other
    */
-  Vector(const Vector& other) = default;
+  Vector(const Vector &other) = default;
 
   /**
    * @brief Move construct a new Vector object
    *
    * @param other
    */
-  Vector(Vector&& other) noexcept = default;
+  Vector(Vector &&other) noexcept = default;
 
   /**
    * @brief Copy assignment operator
@@ -93,7 +93,7 @@ class Vector {
    * @param other
    * @return Vector&
    */
-  Vector& operator=(const Vector& other) = default;
+  Vector &operator=(const Vector &other) = default;
 
   /**
    * @brief Move assignment operator
@@ -101,7 +101,7 @@ class Vector {
    * @param other
    * @return Vector&
    */
-  Vector& operator=(Vector&& other) noexcept = default;
+  Vector &operator=(Vector &&other) noexcept = default;
 
   /**
    * @brief compare two objects for equality
@@ -112,11 +112,11 @@ class Vector {
    * @return bool
    */
   template <std::size_t Nn, typename Tt>
-  bool operator==(const Vector<Nn, Tt>& other) const {
+  bool operator==(const Vector<Nn, Tt> &other) const {
     if (N != Nn) {
       return false;
     }
-    for (std::size_t i = 0; i < Size(); i++) {
+    for (std::size_t i = 0; i < size(); i++) {
       if (data_[i] != other[i]) {
         return false;
       }
@@ -131,10 +131,10 @@ class Vector {
    * @return Vector<N, T>
    */
   template <std::size_t Nn, typename Tt>
-  Vector<N, T> operator+(const Vector<Nn, Tt>& other) const {
+  Vector<N, T> operator+(const Vector<Nn, Tt> &other) const {
     static_assert(N == Nn, "dimension mismatch");
     Vector<N, T> res;
-    for (std::size_t i = 0; i < Size(); i++) {
+    for (std::size_t i = 0; i < size(); i++) {
       res[i] = data_[i] + other[i];
     }
     return res;
@@ -147,10 +147,10 @@ class Vector {
    * @return Vector<N, T>
    */
   template <std::size_t Nn, typename Tt>
-  Vector<N, T> operator-(const Vector<Nn, Tt>& other) const {
+  Vector<N, T> operator-(const Vector<Nn, Tt> &other) const {
     static_assert(N == Nn, "dimension mismatch");
     Vector<N, T> res;
-    for (std::size_t i = 0; i < Size(); i++) {
+    for (std::size_t i = 0; i < size(); i++) {
       res[i] = data_[i] - other[i];
     }
     return res;
@@ -164,7 +164,7 @@ class Vector {
    * @param idx
    * @return T&
    */
-  T& operator[](int idx) noexcept { return data_[idx]; }
+  T &operator[](int idx) noexcept { return data_[idx]; }
 
   /**
    * @brief const access an element within the vector
@@ -174,7 +174,7 @@ class Vector {
    * @param idx
    * @return const T&
    */
-  const T& operator[](int idx) const noexcept { return data_[idx]; }
+  const T &operator[](int idx) const noexcept { return data_[idx]; }
 
   /**
    * @brief access an element within the vector
@@ -183,7 +183,7 @@ class Vector {
    * @param idx
    * @return T&
    */
-  T& At(int idx) { return data_.at(idx); }
+  T &at(int idx) { return data_.at(idx); }
 
   /**
    * @brief const access an element within the vector
@@ -192,14 +192,13 @@ class Vector {
    * @param idx
    * @return const T&
    */
-  const T& At(int idx) const { return data_.at(idx); }
+  const T &at(int idx) const { return data_.at(idx); }
 
   /**
    * @brief returns the size of the vector
    *
    * @return std::size_t
    */
-  constexpr std::size_t Size() const noexcept { return N; }
   constexpr std::size_t size() const noexcept { return N; }
 
   iterator begin() noexcept { return data_.begin(); }
