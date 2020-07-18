@@ -49,28 +49,28 @@ class Vector2D : public Vector<2, T> {
    *
    * @param value
    */
-  void x(T value) { this->data[0] = value; }
+  void x(T value) { this->data_[0] = value; }
 
   /**
    * @brief set the y value of this two dimensional vector
    *
    * @param value
    */
-  void y(T value) { this->data[1] = value; }
+  void y(T value) { this->data_[1] = value; }
 
   /**
    * @brief get the x value of this two dimensional vector
    *
    * @return T&
    */
-  T& x() { return this->data[0]; }
+  T& x() { return this->data_[0]; }
 
   /**
    * @brief get the y value of this two dimensional vector
    *
    * @return T&
    */
-  T& y() { return this->data[1]; }
+  T& y() { return this->data_[1]; }
 };
 
 }  // namespace mu
