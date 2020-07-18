@@ -57,6 +57,20 @@ class Vector2D : public Vector<2, T> {
    * @param value
    */
   void y(T value) { this->data[1] = value; }
+
+  /**
+   * @brief
+   *
+   * @return T&
+   */
+  T& x() { return this->data[0]; }
+
+  /**
+   * @brief
+   *
+   * @return T&
+   */
+  T& y() { return this->data[1]; }
 };
 
 }  // namespace mu
