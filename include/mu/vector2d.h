@@ -43,6 +43,20 @@ class Vector2D : public Vector<2, T> {
    * @param value
    */
   explicit Vector2D(T value) : Vector<2, T>(value) {}
+
+  /**
+   * @brief
+   *
+   * @param value
+   */
+  void x(T value) { this->data[0] = value; }
+
+  /**
+   * @brief
+   *
+   * @param value
+   */
+  void y(T value) { this->data[1] = value; }
 };
 
 }  // namespace mu
