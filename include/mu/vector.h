@@ -194,6 +194,7 @@ class Vector {
    */
   const T &at(int idx) const { return data_.at(idx); }
 
+  // STL container relevant
   /**
    * @brief returns the size of the vector
    *
@@ -201,9 +202,32 @@ class Vector {
    */
   constexpr std::size_t size() const noexcept { return N; }
 
+  /**
+   * @brief
+   *
+   * @return iterator
+   */
   iterator begin() noexcept { return data_.begin(); }
+
+  /**
+   * @brief
+   *
+   * @return const_iterator
+   */
   const_iterator begin() const noexcept { return data_.begin(); }
+
+  /**
+   * @brief
+   *
+   * @return iterator
+   */
   iterator end() noexcept { return data_.end(); }
+
+  /**
+   * @brief
+   *
+   * @return const_iterator
+   */
   const_iterator end() const noexcept { return data_.end(); }
 
  private:
