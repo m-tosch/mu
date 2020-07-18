@@ -3,9 +3,6 @@
 
 #include <vector.h>
 
-#include <array>
-
-
 namespace mu {
 
 /**
@@ -14,8 +11,14 @@ namespace mu {
  * @tparam T type
  */
 template <typename T>
-class Vector2D : Vector<2, T> {
+class Vector2D : public Vector<2, T> {
  public:
+  /**
+   * @brief Construct a new Vector2D object default
+   *
+   */
+  constexpr Vector2D() = default;
+
   /**
    * @brief Construct a new Vector2D object from two values
    *
