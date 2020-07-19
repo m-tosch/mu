@@ -10,7 +10,7 @@
 #include "vector.h"
 
 /**
- * @brief types for objects of type "Vector"
+ * @brief test suite for objects of type "Vector"
  *
  * @tparam T a "Vector" type
  */
