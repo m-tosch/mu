@@ -9,6 +9,11 @@
 #include "gtest/gtest.h"
 #include "vector.h"
 
+/**
+ * @brief types for objects of type "Vector"
+ *
+ * @tparam T a "Vector" type
+ */
 template <typename T>
 class VectorTypeFixture : public ::testing::Test {
  public:
