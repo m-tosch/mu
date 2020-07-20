@@ -184,6 +184,15 @@ TYPED_TEST_P(VectorTypeFixture, MemberFuncSize) {
   EXPECT_EQ(size, TypeParam().size());
 }
 
+TYPED_TEST_P(VectorTypeFixture, MemberFuncBegin) {
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  typename TypeParam::value_type res = *obj.begin();
+  /** assert */
+  EXPECT_EQ(res, obj[0]);
+}
+
 REGISTER_TYPED_TEST_SUITE_P(VectorTypeFixture, ConstructorDefault,
                             DestructorDefault, ConstructorFromArray,
                             ConstructorFromSingleValue, ConstructorCopy,
@@ -193,6 +202,6 @@ REGISTER_TYPED_TEST_SUITE_P(VectorTypeFixture, ConstructorDefault,
                             OperatorNotEqualValuesMatch,
                             OperatorNotEqualValuesDontMatch, OperatorBrackets,
                             OperatorBracketsConst, MemberFuncAt,
-                            MemberFuncAtConst, MemberFuncSize);
+                            MemberFuncAtConst, MemberFuncSize, MemberFuncBegin);
 
 #endif  // TESTS_TEST_VECTOR_TYPE_H_
