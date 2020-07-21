@@ -17,7 +17,7 @@ class Vector2D : public Vector<2, T> {
    * @brief Construct a new Vector2D object default
    *
    */
-  constexpr Vector2D() = default;
+  constexpr Vector2D() : Vector<2, T>() {}
 
   /**
    * @brief Construct a new Vector2D object from two values
