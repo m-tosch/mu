@@ -9,6 +9,7 @@
 #include "gtest/gtest.h"
 #include "vector.h"
 
+
 /**
  * @brief test suite for objects of type "Vector"
  *
@@ -211,6 +212,15 @@ TYPED_TEST_P(VectorTypeFixture, MemberFuncEnd) {
   EXPECT_EQ(res, obj[obj.size() - 1]);
 }
 
+TYPED_TEST_P(VectorTypeFixture, MemberFuncEndConst) {
+  /** arrange */
+  const TypeParam kObj{this->values};
+  /** action */
+  typename TypeParam::value_type res = *(kObj.end() - 1);
+  /** assert */
+  EXPECT_EQ(res, kObj[kObj.size() - 1]);
+}
+
 REGISTER_TYPED_TEST_SUITE_P(
     VectorTypeFixture, ConstructorDefault, DestructorDefault,
     ConstructorFromArray, ConstructorFromSingleValue, ConstructorCopy,
@@ -218,6 +228,7 @@ REGISTER_TYPED_TEST_SUITE_P(
     OperatorEqualValuesMatch, OperatorEqualValuesDontMatch,
     OperatorNotEqualValuesMatch, OperatorNotEqualValuesDontMatch,
     OperatorBrackets, OperatorBracketsConst, MemberFuncAt, MemberFuncAtConst,
-    MemberFuncSize, MemberFuncBegin, MemberFuncBeginConst, MemberFuncEnd);
+    MemberFuncSize, MemberFuncBegin, MemberFuncBeginConst, MemberFuncEnd,
+    MemberFuncEndConst);
 
 #endif  // TESTS_TEST_VECTOR_TYPE_H_
