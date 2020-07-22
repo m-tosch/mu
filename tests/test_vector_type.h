@@ -193,15 +193,31 @@ TYPED_TEST_P(VectorTypeFixture, MemberFuncBegin) {
   EXPECT_EQ(res, obj[0]);
 }
 
-REGISTER_TYPED_TEST_SUITE_P(VectorTypeFixture, ConstructorDefault,
-                            DestructorDefault, ConstructorFromArray,
-                            ConstructorFromSingleValue, ConstructorCopy,
-                            ConstructorMove, OperatorCopyAssignment,
-                            OperatorMoveAssignment, OperatorEqualValuesMatch,
-                            OperatorEqualValuesDontMatch,
-                            OperatorNotEqualValuesMatch,
-                            OperatorNotEqualValuesDontMatch, OperatorBrackets,
-                            OperatorBracketsConst, MemberFuncAt,
-                            MemberFuncAtConst, MemberFuncSize, MemberFuncBegin);
+TYPED_TEST_P(VectorTypeFixture, MemberFuncBeginConst) {
+  /** arrange */
+  const TypeParam kObj{this->values};
+  /** action */
+  typename TypeParam::value_type res = *kObj.begin();
+  /** assert */
+  EXPECT_EQ(res, kObj[0]);
+}
+
+TYPED_TEST_P(VectorTypeFixture, MemberFuncEnd) {
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  typename TypeParam::value_type res = *(obj.end() - 1);
+  /** assert */
+  EXPECT_EQ(res, obj[obj.size() - 1]);
+}
+
+REGISTER_TYPED_TEST_SUITE_P(
+    VectorTypeFixture, ConstructorDefault, DestructorDefault,
+    ConstructorFromArray, ConstructorFromSingleValue, ConstructorCopy,
+    ConstructorMove, OperatorCopyAssignment, OperatorMoveAssignment,
+    OperatorEqualValuesMatch, OperatorEqualValuesDontMatch,
+    OperatorNotEqualValuesMatch, OperatorNotEqualValuesDontMatch,
+    OperatorBrackets, OperatorBracketsConst, MemberFuncAt, MemberFuncAtConst,
+    MemberFuncSize, MemberFuncBegin, MemberFuncBeginConst, MemberFuncEnd);
 
 #endif  // TESTS_TEST_VECTOR_TYPE_H_
