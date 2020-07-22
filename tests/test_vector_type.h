@@ -207,6 +207,7 @@ TYPED_TEST_P(VectorTypeFixture, MemberFuncEnd) {
   /** arrange */
   TypeParam obj{this->values};
   /** action */
+  // the "end" returns an iterator to the element following the last element
   typename TypeParam::value_type res = *(obj.end() - 1);
   /** assert */
   EXPECT_EQ(res, obj[obj.size() - 1]);
@@ -216,6 +217,7 @@ TYPED_TEST_P(VectorTypeFixture, MemberFuncEndConst) {
   /** arrange */
   const TypeParam kObj{this->values};
   /** action */
+  // the "end" returns an iterator to the element following the last element
   typename TypeParam::value_type res = *(kObj.end() - 1);
   /** assert */
   EXPECT_EQ(res, kObj[kObj.size() - 1]);
