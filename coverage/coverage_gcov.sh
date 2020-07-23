@@ -13,6 +13,6 @@ mkdir -p $ROOTDIR/build && cd $ROOTDIR/build && CC=gcc CXX=g++ cmake .. -G "Unix
 $ROOTDIR/build/tests/mu_tests --gtest_brief=1
 # 3. generate coverage .info (lcov uses gcov)
 # exclude all external headers then include only the ones for this project
-lcov -c --directory $WORKDIR --output-file $WORKDIR/main_coverage.info --no-external --directory $ROOTDIR/include
+lcov -c --directory $WORKDIR --output-file $WORKDIR/main_coverage.info --no-external --directory $ROOTDIR/include --rc lcov_branch_coverage=1
 # 4. generate html report
 genhtml $WORKDIR/main_coverage.info --output-directory $COVERAGEDIR/html_gcov
