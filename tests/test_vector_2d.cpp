@@ -1,4 +1,5 @@
 #include <gtest/gtest-typed-test.h>
+
 #include "gmock/gmock.h"
 #include "gtest/gtest.h"
 #include "test_vector_type.h"
@@ -28,6 +29,13 @@ class Vector2DTypeFixture : public VectorTypeFixture<T> {
 };
 
 TYPED_TEST_SUITE(Vector2DTypeFixture, Vector2DTypes);
+
+TYPED_TEST(Vector2DTypeFixture, ConstructorXandY) {
+  /** arrange */
+  TypeParam obj{this->values[0], this->values[1]};
+  /** assert */
+  EXPECT_THAT(obj, ::testing::Pointwise(::testing::Eq(), this->values));
+}
 
 TYPED_TEST(Vector2DTypeFixture, MemberFuncGetX) {
   /** arrange */
