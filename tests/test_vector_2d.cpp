@@ -25,50 +25,55 @@ class Vector2DTypeFixture : public VectorTypeFixture<T> {
   void SetUp() override {
     /* explicitly call base class setup */
     VectorTypeFixture<T>::SetUp();
+    /* variables for convenience */
+    x = this->values[0];
+    y = this->values[1];
   }
+  typename T::value_type x;
+  typename T::value_type y;
 };
 
 TYPED_TEST_SUITE(Vector2DTypeFixture, Vector2DTypes);
 
 TYPED_TEST(Vector2DTypeFixture, ConstructorXandY) {
   /** arrange */
-  TypeParam obj{this->values[0], this->values[1]};
+  TypeParam obj{this->values};
   /** assert */
   EXPECT_THAT(obj, ::testing::Pointwise(::testing::Eq(), this->values));
 }
 
 TYPED_TEST(Vector2DTypeFixture, MemberFuncGetX) {
   /** arrange */
-  TypeParam obj{this->values};
+  TypeParam obj{this->x, this->y};
   /** action */
   typename TypeParam::value_type x = obj.x();
   /** assert */
-  EXPECT_EQ(x, this->values[0]);
+  EXPECT_EQ(x, this->x);
 }
 
 TYPED_TEST(Vector2DTypeFixture, MemberFuncGetY) {
   /** arrange */
-  TypeParam obj{this->values};
+  TypeParam obj{this->x, this->y};
   /** action */
   typename TypeParam::value_type y = obj.y();
   /** assert */
-  EXPECT_EQ(y, this->values[1]);
+  EXPECT_EQ(y, this->y);
 }
 
 TYPED_TEST(Vector2DTypeFixture, MemberFuncSetX) {
   /** arrange */
   TypeParam obj{};
   /** action */
-  obj.x(this->values[0]);
+  obj.x(this->x);
   /** assert */
-  EXPECT_EQ(obj.x(), this->values[0]);
+  EXPECT_EQ(obj.x(), this->x);
 }
 
 TYPED_TEST(Vector2DTypeFixture, MemberFuncSetY) {
   /** arrange */
   TypeParam obj{};
   /** action */
-  obj.y(this->values[1]);
+  obj.y(this->y);
   /** assert */
-  EXPECT_EQ(obj.y(), this->values[1]);
+  EXPECT_EQ(obj.y(), this->y);
 }
