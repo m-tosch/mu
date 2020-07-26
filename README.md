@@ -4,7 +4,9 @@ A small, simple c++ math library
 
 ## Usage
 
+```cpp
 TODO
+```
 
 ## Installation
 
