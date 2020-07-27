@@ -65,8 +65,6 @@ class Vector {
     }
   }
 
-  // Vector(std::initializer_list<T> l) TODO
-
   /**
    * @brief Destroy the Vector object
    *
