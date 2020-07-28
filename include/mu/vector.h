@@ -101,11 +101,7 @@ class Vector {
    */
   Vector &operator=(Vector &&other) noexcept = default;
 
-  template <std::size_t Nn, typename Tt>
-  bool operator==(const Vector<Nn, Tt> &other) const {
-    if (N != Nn) {
-      return false;
-    }
+  bool operator==(const Vector<N, T> &other) const {
     for (std::size_t i = 0; i < size(); i++) {
       if (data_[i] != other[i]) {
         return false;
@@ -114,8 +110,7 @@ class Vector {
     return true;
   }
 
-  template <std::size_t Nn, typename Tt>
-  bool operator!=(const Vector<Nn, Tt> &other) const {
+  bool operator!=(const Vector<N, T> &other) const {
     return !this->operator==(other);
   }
 
@@ -125,9 +120,7 @@ class Vector {
    * @param other
    * @return Vector<N, T>
    */
-  template <std::size_t Nn, typename Tt>
-  Vector<N, T> operator+(const Vector<Nn, Tt> &other) const {
-    static_assert(N == Nn, "dimension mismatch");
+  Vector<N, T> operator+(const Vector<N, T> &other) const {
     Vector<N, T> res;
     for (std::size_t i = 0; i < size(); i++) {
       res[i] = data_[i] + other[i];
@@ -141,9 +134,7 @@ class Vector {
    * @param other
    * @return Vector<N, T>
    */
-  template <std::size_t Nn, typename Tt>
-  Vector<N, T> operator-(const Vector<Nn, Tt> &other) const {
-    static_assert(N == Nn, "dimension mismatch");
+  Vector<N, T> operator-(const Vector<N, T> &other) const {
     Vector<N, T> res;
     for (std::size_t i = 0; i < size(); i++) {
       res[i] = data_[i] - other[i];
