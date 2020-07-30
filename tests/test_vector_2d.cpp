@@ -17,7 +17,7 @@ template class mu::Vector2D<float>;
 using Vector2DTypes = ::testing::Types<mu::Vector2D<float>, mu::Vector2D<int>>;
 INSTANTIATE_TYPED_TEST_SUITE_P(Vector2D, VectorTypeFixture, Vector2DTypes);
 
-/******************************************************************************/
+/*******************************Vector2D***************************************/
 
 template <typename T>
 class Vector2DTypeFixture : public VectorTypeFixture<T> {
