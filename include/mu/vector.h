@@ -101,6 +101,12 @@ class Vector {
    */
   Vector &operator=(Vector &&other) noexcept = default;
 
+  /**
+   * @brief equality operator
+   *
+   * @param other
+   * @return bool true if equal, false if unequal
+   */
   bool operator==(const Vector<N, T> &other) const {
     for (std::size_t i = 0; i < size(); i++) {
       if (data_[i] != other[i]) {
@@ -110,6 +116,12 @@ class Vector {
     return true;
   }
 
+  /**
+   * @brief unequality operator
+   *
+   * @param other
+   * @return bool true if unequal, false if equal
+   */
   bool operator!=(const Vector<N, T> &other) const {
     return !this->operator==(other);
   }
