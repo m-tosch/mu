@@ -11,7 +11,10 @@
 #include "vector2d.h"
 
 using VectorTypeCombinations =
-    ::testing::Types<std::tuple<mu::Vector<2, float>, mu::Vector<2, float>>>;
+    ::testing::Types<std::tuple<mu::Vector<2, float>, mu::Vector<2, float>>
+                     /*, std::tuple<mu::Vector<2, float>, mu::Vector2D<float>>,
+                     std::tuple<mu::Vector2D<float>, mu::Vector<2, float>>,
+                     std::tuple<mu::Vector2D<float>, mu::Vector2D<float>>*/>;
 
 template <typename T>
 class VectorCombinationsFixture
