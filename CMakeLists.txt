@@ -13,6 +13,7 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --coverage -fno-inline -fno-inline-small-functions -fno-default-inline")
 endif()
 
+# generate "compile_commands.json"
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # set to "include" folder, so that header includes must be "mu/*.h"
@@ -22,6 +23,6 @@ include_directories(include)
 add_library(${CMAKE_PROJECT_NAME}_lib INTERFACE)
 target_include_directories(${CMAKE_PROJECT_NAME}_lib INTERFACE include/${CMAKE_PROJECT_NAME})
 
-# point to subdirectories that have their own CMakeLists.txt
+# subdirectories that have their own CMakeLists.txt
 add_subdirectory(tests)
 add_subdirectory(dependencies/googletest)
