@@ -8,7 +8,7 @@ Checks:
   performance-*,
   readability-*,
   -modernize-use-trailing-return-type,
-  -cppcoreguidelines-owning-memory
+  -cppcoreguidelines-owning-memory,
   -modernize-use-using
 
 CheckOptions:
