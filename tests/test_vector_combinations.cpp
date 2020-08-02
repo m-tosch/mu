@@ -32,8 +32,9 @@ TYPED_TEST(VectorCombinationsFixture, OperatorAddition) {
   typename TestFixture::T1 res = obj1 + obj2;
   /** assert */
   typename TestFixture::T1 comp;
-  std::generate(comp.begin(), comp.end(), [&obj1, &obj2, i = 0]() mutable {
-    return obj1[i] + obj2[i++];
+  std::generate(comp.begin(), comp.end(), [&obj1, &obj2, i = -1]() mutable {
+    i++;
+    return obj1[i] + obj2[i];
   });
   EXPECT_THAT(res, ::testing::ContainerEq(comp));
 }
@@ -46,8 +47,9 @@ TYPED_TEST(VectorCombinationsFixture, OperatorSubtraction) {
   typename TestFixture::T1 res = obj1 - obj2;
   /** assert */
   typename TestFixture::T1 comp;
-  std::generate(comp.begin(), comp.end(), [&obj1, &obj2, i = 0]() mutable {
-    return obj1[i] - obj2[i++];
+  std::generate(comp.begin(), comp.end(), [&obj1, &obj2, i = -1]() mutable {
+    i++;
+    return obj1[i] - obj2[i];
   });
   EXPECT_THAT(res, ::testing::ContainerEq(comp));
 }
