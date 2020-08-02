@@ -1,13 +1,15 @@
 #ifndef TESTS_TEST_VECTOR_TYPE_H_
 #define TESTS_TEST_VECTOR_TYPE_H_
 
+#include <gmock/gmock.h>
+#include <gtest/gtest.h>
+
 #include <algorithm>
 #include <tuple>
 #include <utility>
 
-#include "gmock/gmock.h"
-#include "gtest/gtest.h"
 #include "mu/vector.h"
+
 
 /**
  * @brief test suite for objects of type "Vector"
