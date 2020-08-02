@@ -33,9 +33,9 @@ class Vector2DTypeFixture : public VectorTypeFixture<T> {
 
 TYPED_TEST_SUITE(Vector2DTypeFixture, Vector2DTypes);
 
-TYPED_TEST(Vector2DTypeFixture, ConstructorXandY) {
+TYPED_TEST(Vector2DTypeFixture, ConstructorXY) {
   /** arrange */
-  TypeParam obj{this->values};
+  TypeParam obj{this->x, this->y};
   /** assert */
   EXPECT_THAT(obj, ::testing::Pointwise(::testing::Eq(), this->values));
 }
