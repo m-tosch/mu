@@ -2,8 +2,8 @@
 
 #include "gmock/gmock.h"
 #include "gtest/gtest.h"
+#include "mu/vector2d.h"
 #include "test_vector_type.h"
-#include "vector2d.h"
 
 /**
  * Instantiate this template class explicitly so that all functions

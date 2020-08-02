@@ -7,8 +7,7 @@
 
 #include "gmock/gmock.h"
 #include "gtest/gtest.h"
-#include "vector.h"
-
+#include "mu/vector.h"
 
 /**
  * @brief test suite for objects of type "Vector"

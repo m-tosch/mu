@@ -1,6 +1,7 @@
 #include "gtest/gtest.h"
+#include "mu/vector.h"
 #include "test_vector_type.h"
-#include "vector.h"
+
 
 /**
  * Instantiate this template class explicitly so that all functions

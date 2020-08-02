@@ -1,7 +1,7 @@
 #ifndef MU_VECTOR2D_H_
 #define MU_VECTOR2D_H_
 
-#include <vector.h>
+#include "mu/vector.h"
 
 namespace mu {
 
@@ -43,6 +43,11 @@ class Vector2D : public Vector<2, T> {
    * @param value
    */
   explicit Vector2D(T value) : Vector<2, T>(value) {}
+
+  // Vector2D<T> operator+(const Vector2D<T>& other) const {
+  //   Vector<2, T>::operator+(other);
+  //   return *this;
+  // }
 
   /**
    * @brief set the x value of this two dimensional vector

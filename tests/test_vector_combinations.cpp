@@ -6,9 +6,9 @@
 #include <algorithm>
 #include <tuple>
 
+#include "mu/vector.h"
+#include "mu/vector2d.h"
 #include "test_vector_type.h"
-#include "vector.h"
-#include "vector2d.h"
 
 using VectorTypeCombinations =
     ::testing::Types<std::tuple<mu::Vector<2, float>, mu::Vector<2, float>>
