@@ -104,12 +104,12 @@ class Vector {
   /**
    * @brief equality operator
    *
-   * @param other
+   * @param rhs
    * @return bool true if equal, false if unequal
    */
-  bool operator==(const Vector<N, T> &other) const {
+  bool operator==(const Vector<N, T> &rhs) const {
     for (std::size_t i = 0; i < size(); i++) {
-      if (data_[i] != other[i]) {
+      if (data_[i] != rhs[i]) {
         return false;
       }
     }
@@ -119,34 +119,34 @@ class Vector {
   /**
    * @brief unequality operator
    *
-   * @param other
+   * @param rhs
    * @return bool true if unequal, false if equal
    */
-  bool operator!=(const Vector<N, T> &other) const {
-    return !this->operator==(other);
+  bool operator!=(const Vector<N, T> &rhs) const {
+    return !this->operator==(rhs);
   }
 
   /**
    * @brief plus operator
    *
-   * @param other
+   * @param rhs
    * @return Vector<N, T>
    */
-  Vector<N, T> operator+(const Vector<N, T> &other) const {
+  Vector<N, T> operator+(const Vector<N, T> &rhs) const {
     Vector<N, T> ret{*this};
-    ret += other;
+    ret += rhs;
     return ret;
   }
 
   /**
    * @brief plus equal operator
    *
-   * @param other
+   * @param rhs
    * @return Vector<N, T>&
    */
-  Vector<N, T> &operator+=(const Vector<N, T> &other) {
+  Vector<N, T> &operator+=(const Vector<N, T> &rhs) {
     for (std::size_t i = 0; i < size(); i++) {
-      data_[i] = data_[i] + other[i];
+      data_[i] = data_[i] + rhs[i];
     }
     return *this;
   }
@@ -154,24 +154,24 @@ class Vector {
   /**
    * @brief minus operator
    *
-   * @param other
+   * @param rhs
    * @return Vector<N, T>
    */
-  Vector<N, T> operator-(const Vector<N, T> &other) const {
+  Vector<N, T> operator-(const Vector<N, T> &rhs) const {
     Vector<N, T> ret{*this};
-    ret -= other;
+    ret -= rhs;
     return ret;
   }
 
   /**
    * @brief minus equal operator
    *
-   * @param other
+   * @param rhs
    * @return Vector<N, T>&
    */
-  Vector<N, T> &operator-=(const Vector<N, T> &other) {
+  Vector<N, T> &operator-=(const Vector<N, T> &rhs) {
     for (std::size_t i = 0; i < size(); i++) {
-      data_[i] = data_[i] - other[i];
+      data_[i] = data_[i] - rhs[i];
     }
     return *this;
   }
