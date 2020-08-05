@@ -24,7 +24,7 @@ class VectorCombinationsFixture
 
 TYPED_TEST_SUITE(VectorCombinationsFixture, VectorTypeCombinations);
 
-TYPED_TEST(VectorCombinationsFixture, OperatorAddition) {
+TYPED_TEST(VectorCombinationsFixture, OperatorPlus) {
   /** arrange */
   typename TestFixture::T1 obj1{this->values};
   typename TestFixture::T2 obj2{this->values};
@@ -39,7 +39,7 @@ TYPED_TEST(VectorCombinationsFixture, OperatorAddition) {
   EXPECT_THAT(res, ::testing::ContainerEq(comp));
 }
 
-TYPED_TEST(VectorCombinationsFixture, OperatorSubtraction) {
+TYPED_TEST(VectorCombinationsFixture, OperatorMinus) {
   /** arrange */
   typename TestFixture::T1 obj1{this->values};
   typename TestFixture::T2 obj2{this->values};
