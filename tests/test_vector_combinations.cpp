@@ -32,7 +32,7 @@ TYPED_TEST(VectorCombinationsFixture, OperatorPlus) {
   typename TestFixture::T1 res = obj1 + obj2;
   /** assert */
   typename TestFixture::T1 comp;
-  std::generate(comp.begin(), comp.end(), [&obj1, &obj2, i = -1]() mutable {
+  std::generate(comp.begin(), comp.end(), [&, i = -1]() mutable {
     i++;
     return obj1[i] + obj2[i];
   });
@@ -62,7 +62,7 @@ TYPED_TEST(VectorCombinationsFixture, OperatorMinus) {
   typename TestFixture::T1 res = obj1 - obj2;
   /** assert */
   typename TestFixture::T1 comp;
-  std::generate(comp.begin(), comp.end(), [&obj1, &obj2, i = -1]() mutable {
+  std::generate(comp.begin(), comp.end(), [&, i = -1]() mutable {
     i++;
     return obj1[i] - obj2[i];
   });
