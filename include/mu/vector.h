@@ -133,11 +133,22 @@ class Vector {
    * @return Vector<N, T>
    */
   Vector<N, T> operator+(const Vector<N, T> &other) const {
-    Vector<N, T> res;
+    Vector<N, T> ret{*this};
+    ret += other;
+    return ret;
+  }
+
+  /**
+   * @brief plus equal operator
+   *
+   * @param other
+   * @return Vector<N, T>&
+   */
+  Vector<N, T> &operator+=(const Vector<N, T> &other) {
     for (std::size_t i = 0; i < size(); i++) {
-      res[i] = data_[i] + other[i];
+      data_[i] = data_[i] + other[i];
     }
-    return res;
+    return *this;
   }
 
   /**
