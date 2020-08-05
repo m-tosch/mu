@@ -68,3 +68,18 @@ TYPED_TEST(VectorCombinationsFixture, OperatorMinus) {
   });
   EXPECT_THAT(res, ::testing::ContainerEq(comp));
 }
+
+TYPED_TEST(VectorCombinationsFixture, OperatorMinusEqual) {
+  /** arrange */
+  typename TestFixture::T1 obj1{this->values};
+  typename TestFixture::T2 obj2{this->values};
+  /** action */
+  obj1 -= obj2;
+  /** assert */
+  typename TestFixture::T1 comp;
+  std::generate(comp.begin(), comp.end(), [&, i = -1]() mutable {
+    i++;
+    return this->values[i] - obj2[i];
+  });
+  EXPECT_THAT(obj1, ::testing::ContainerEq(comp));
+}
