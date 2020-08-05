@@ -31,12 +31,12 @@ class VectorTypeFixture : public ::testing::Test {
 TYPED_TEST_SUITE_P(VectorTypeFixture);
 
 TYPED_TEST_P(VectorTypeFixture, ConstructorDefault) {
-  /** assert */
+  /** action & assert */
   EXPECT_TRUE(std::is_default_constructible<TypeParam>::value);
 }
 
 TYPED_TEST_P(VectorTypeFixture, DestructorDefault) {
-  /** assert */
+  /** action & assert */
   EXPECT_TRUE(std::is_destructible<TypeParam>::value);
 }
 
