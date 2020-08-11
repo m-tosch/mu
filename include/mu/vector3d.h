@@ -13,11 +13,9 @@ namespace mu {
 template <typename T>
 class Vector3D : public Vector<3, T> {
  public:
-  /**
-   * @brief Construct a new Vector3D object default
-   *
-   */
-  constexpr Vector3D() : Vector<3, T>() {}
+  /* inherit base class constructors. only constructors specific to Vector2D are
+   * defined here. apply rule of zero */
+  using Vector<3, T>::Vector;
 
   /**
    * @brief Construct a new Vector3D object from three values
@@ -31,20 +29,6 @@ class Vector3D : public Vector<3, T> {
     this->data_[1] = y;
     this->data_[2] = z;
   }
-
-  /**
-   * @brief Construct a new Vector 3D object from an array
-   *
-   * @param data
-   */
-  explicit Vector3D(std::array<T, 3> data) : Vector<3, T>(data) {}
-
-  /**
-   * @brief Construct a new Vector3D object from a single value
-   *
-   * @param value
-   */
-  explicit Vector3D(T value) : Vector<3, T>(value) {}
 
   /**
    * @brief set the x value of this three dimensional vector
