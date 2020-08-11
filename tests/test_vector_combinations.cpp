@@ -6,13 +6,19 @@
 
 #include "mu/vector.h"
 #include "mu/vector2d.h"
+#include "mu/vector3d.h"
 #include "test_vector_type.h"
 
 using VectorTypeCombinations =
     ::testing::Types<std::tuple<mu::Vector<2, float>, mu::Vector<2, float>>,
+                     /* Vector2D */
                      std::tuple<mu::Vector<2, float>, mu::Vector2D<float>>,
                      std::tuple<mu::Vector2D<float>, mu::Vector<2, float>>,
-                     std::tuple<mu::Vector2D<float>, mu::Vector2D<float>>>;
+                     std::tuple<mu::Vector2D<float>, mu::Vector2D<float>>,
+                     /* Vector3D */
+                     std::tuple<mu::Vector<3, float>, mu::Vector3D<float>>,
+                     std::tuple<mu::Vector3D<float>, mu::Vector<3, float>>,
+                     std::tuple<mu::Vector3D<float>, mu::Vector3D<float>>>;
 
 template <typename T>
 class VectorCombinationsFixture
