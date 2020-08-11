@@ -13,6 +13,8 @@ namespace mu {
 template <typename T>
 class Vector2D : public Vector<2, T> {
  public:
+  /* inherit base class constructors. only constructors specific to Vector2D are
+   * defined here. apply rule of zero */
   using Vector<2, T>::Vector;
 
   /**
