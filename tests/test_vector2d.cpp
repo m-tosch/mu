@@ -40,38 +40,20 @@ TYPED_TEST(Vector2DTypeFixture, ConstructorXY) {
   EXPECT_THAT(obj, ::testing::Pointwise(::testing::Eq(), this->values));
 }
 
-TYPED_TEST(Vector2DTypeFixture, MemberFuncGetX) {
+TYPED_TEST(Vector2DTypeFixture, MemberVarX) {
   /** arrange */
   TypeParam obj{this->x, this->y};
   /** action */
-  typename TypeParam::value_type x = obj.x();
+  typename TypeParam::value_type x = obj.x;
   /** assert */
   EXPECT_EQ(x, this->x);
 }
 
-TYPED_TEST(Vector2DTypeFixture, MemberFuncGetY) {
+TYPED_TEST(Vector2DTypeFixture, MemberVarY) {
   /** arrange */
   TypeParam obj{this->x, this->y};
   /** action */
-  typename TypeParam::value_type y = obj.y();
+  typename TypeParam::value_type y = obj.y;
   /** assert */
   EXPECT_EQ(y, this->y);
-}
-
-TYPED_TEST(Vector2DTypeFixture, MemberFuncSetX) {
-  /** arrange */
-  TypeParam obj{};
-  /** action */
-  obj.x(this->x);
-  /** assert */
-  EXPECT_EQ(obj.x(), this->x);
-}
-
-TYPED_TEST(Vector2DTypeFixture, MemberFuncSetY) {
-  /** arrange */
-  TypeParam obj{};
-  /** action */
-  obj.y(this->y);
-  /** assert */
-  EXPECT_EQ(obj.y(), this->y);
 }

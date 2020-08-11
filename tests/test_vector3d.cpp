@@ -46,7 +46,7 @@ TYPED_TEST(Vector3DTypeFixture, MemberFuncGetX) {
   /** arrange */
   TypeParam obj{this->x, this->y, this->z};
   /** action */
-  typename TypeParam::value_type x = obj.x();
+  typename TypeParam::value_type x = obj.x;
   /** assert */
   EXPECT_EQ(x, this->x);
 }
@@ -55,7 +55,7 @@ TYPED_TEST(Vector3DTypeFixture, MemberFuncGetY) {
   /** arrange */
   TypeParam obj{this->x, this->y, this->z};
   /** action */
-  typename TypeParam::value_type y = obj.y();
+  typename TypeParam::value_type y = obj.y;
   /** assert */
   EXPECT_EQ(y, this->y);
 }
@@ -64,34 +64,7 @@ TYPED_TEST(Vector3DTypeFixture, MemberFuncGetZ) {
   /** arrange */
   TypeParam obj{this->x, this->y, this->z};
   /** action */
-  typename TypeParam::value_type z = obj.z();
+  typename TypeParam::value_type z = obj.z;
   /** assert */
   EXPECT_EQ(z, this->z);
-}
-
-TYPED_TEST(Vector3DTypeFixture, MemberFuncSetX) {
-  /** arrange */
-  TypeParam obj{};
-  /** action */
-  obj.x(this->x);
-  /** assert */
-  EXPECT_EQ(obj.x(), this->x);
-}
-
-TYPED_TEST(Vector3DTypeFixture, MemberFuncSetY) {
-  /** arrange */
-  TypeParam obj{};
-  /** action */
-  obj.y(this->y);
-  /** assert */
-  EXPECT_EQ(obj.y(), this->y);
-}
-
-TYPED_TEST(Vector3DTypeFixture, MemberFuncSetZ) {
-  /** arrange */
-  TypeParam obj{};
-  /** action */
-  obj.z(this->z);
-  /** assert */
-  EXPECT_EQ(obj.z(), this->z);
 }
