@@ -1,5 +1,7 @@
+#include <gmock/gmock-matchers.h>
 #include <gtest/gtest.h>
 
+#include "mu/vector.h"
 #include "mu/vector2d.h"
 #include "test_vector_type.h"
 
@@ -38,6 +40,14 @@ TYPED_TEST(Vector2DTypeFixture, ConstructorXY) {
   TypeParam obj{this->x, this->y};
   /** assert */
   EXPECT_THAT(obj, ::testing::Pointwise(::testing::Eq(), this->values));
+}
+
+TYPED_TEST(Vector2DTypeFixture, ConstructorCopyInitialization) {
+  /** arrange */
+  mu::Vector<2, typename TypeParam::value_type> obj1{this->values};
+  TypeParam obj2 = obj1;
+  /** assert */
+  EXPECT_THAT(obj1, ::testing::ContainerEq(obj2));
 }
 
 TYPED_TEST(Vector2DTypeFixture, MemberVarX) {
