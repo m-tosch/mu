@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
 
+#include "mu/vector.h"
 #include "mu/vector3d.h"
 #include "test_vector_type.h"
 
@@ -40,6 +41,14 @@ TYPED_TEST(Vector3DTypeFixture, ConstructorXYZ) {
   TypeParam obj{this->x, this->y, this->z};
   /** assert */
   EXPECT_THAT(obj, ::testing::Pointwise(::testing::Eq(), this->values));
+}
+
+TYPED_TEST(Vector3DTypeFixture, ConstructorCopyInitialization) {
+  /** arrange */
+  mu::Vector<3, typename TypeParam::value_type> obj1{this->values};
+  TypeParam obj2 = obj1;
+  /** assert */
+  EXPECT_THAT(obj1, ::testing::ContainerEq(obj2));
 }
 
 TYPED_TEST(Vector3DTypeFixture, MemberFuncGetX) {
