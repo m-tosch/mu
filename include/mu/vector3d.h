@@ -40,9 +40,9 @@ class Vector3D : public Vector<3, T> {
    */
   Vector3D(const Vector<3, T>& other) : Vector<3, T>(other) {}  // NOLINT
 
-  T x; /*!< x value */
-  T y; /*!< y value */
-  T z; /*!< z value */
+  T x; /**< x value */
+  T y; /**< y value */
+  T z; /**< z value */
 };
 
 }  // namespace mu

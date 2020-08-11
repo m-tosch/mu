@@ -38,8 +38,8 @@ class Vector2D : public Vector<2, T> {
    */
   Vector2D(const Vector<2, T>& other) : Vector<2, T>(other) {}  // NOLINT
 
-  T x; /*!< x value */
-  T y; /*!< y value */
+  T x; /**< x value */
+  T y; /**< y value */
 };
 
 }  // namespace mu
