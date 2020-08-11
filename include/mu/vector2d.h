@@ -13,11 +13,7 @@ namespace mu {
 template <typename T>
 class Vector2D : public Vector<2, T> {
  public:
-  /**
-   * @brief Construct a new Vector2D object default
-   *
-   */
-  constexpr Vector2D() : Vector<2, T>() {}
+  using Vector<2, T>::Vector;
 
   /**
    * @brief Construct a new Vector2D object from two values
@@ -29,25 +25,6 @@ class Vector2D : public Vector<2, T> {
     this->data_[0] = x;
     this->data_[1] = y;
   }
-
-  /**
-   * @brief Construct a new Vector 2D object from an array
-   *
-   * @param data
-   */
-  explicit Vector2D(std::array<T, 2> data) : Vector<2, T>(data) {}
-
-  /**
-   * @brief Construct a new Vector2D object from a single value
-   *
-   * @param value
-   */
-  explicit Vector2D(T value) : Vector<2, T>(value) {}
-
-  // Vector2D<T> operator+(const Vector2D<T>& other) const {
-  //   Vector<2, T>::operator+(other);
-  //   return *this;
-  // }
 
   /**
    * @brief set the x value of this two dimensional vector
