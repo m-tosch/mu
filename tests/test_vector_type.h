@@ -10,6 +10,7 @@
 
 #include "mu/vector.h"
 
+
 /**
  * @brief test suite for objects of type "Vector"
  *
