@@ -23,7 +23,7 @@ class Vector2D : public Vector<2, T> {
    * @param x
    * @param y
    */
-  Vector2D(T x, T y) {
+  Vector2D(T x, T y) : x(x), y(y) {
     this->data_[0] = x;
     this->data_[1] = y;
   }
@@ -38,33 +38,8 @@ class Vector2D : public Vector<2, T> {
    */
   Vector2D(const Vector<2, T>& other) : Vector<2, T>(other) {}  // NOLINT
 
-  /**
-   * @brief set the x value of this two dimensional vector
-   *
-   * @param value
-   */
-  void x(T value) { this->data_[0] = value; }
-
-  /**
-   * @brief set the y value of this two dimensional vector
-   *
-   * @param value
-   */
-  void y(T value) { this->data_[1] = value; }
-
-  /**
-   * @brief get the x value of this two dimensional vector
-   *
-   * @return T&
-   */
-  T& x() { return this->data_[0]; }
-
-  /**
-   * @brief get the y value of this two dimensional vector
-   *
-   * @return T&
-   */
-  T& y() { return this->data_[1]; }
+  T x; /*!< x value */
+  T y; /*!< y value */
 };
 
 }  // namespace mu
