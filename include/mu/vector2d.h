@@ -28,6 +28,8 @@ class Vector2D : public Vector<2, T> {
     this->data_[1] = y;
   }
 
+  Vector2D(const Vector<2, T>& other) : Vector<2, T>(other) {}
+
   /**
    * @brief set the x value of this two dimensional vector
    *

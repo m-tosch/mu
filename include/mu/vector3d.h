@@ -30,6 +30,8 @@ class Vector3D : public Vector<3, T> {
     this->data_[2] = z;
   }
 
+  Vector3D(const Vector<3, T>& other) : Vector<3, T>(other) {}
+
   /**
    * @brief set the x value of this three dimensional vector
    *
