@@ -31,11 +31,12 @@ class Vector2D : public Vector<2, T> {
   /**
    * @brief Construct a new Vector2D object from a Vector object
    *
-   * also implicitly used for copy initialization
+   * also implicitly used for copy initialization. purposely not marked
+   * "explicit" for exactly that usecase. suppress linting for this line.
    *
    * @param other
    */
-  Vector2D(const Vector<2, T>& other) : Vector<2, T>(other) {}
+  Vector2D(const Vector<2, T>& other) : Vector<2, T>(other) {}  // NOLINT
 
   /**
    * @brief set the x value of this two dimensional vector
