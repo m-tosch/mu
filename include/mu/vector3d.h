@@ -30,6 +30,13 @@ class Vector3D : public Vector<3, T> {
     this->data_[2] = z;
   }
 
+  /**
+   * @brief Construct a new Vector3D object from a Vector object
+   *
+   * also implicitly used for copy initialization
+   *
+   * @param other
+   */
   Vector3D(const Vector<3, T>& other) : Vector<3, T>(other) {}
 
   /**
