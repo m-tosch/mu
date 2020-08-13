@@ -11,7 +11,6 @@
 
 #include "mu/vector.h"
 
-
 /**
  * @brief test suite for objects of type "Vector"
  *
@@ -62,12 +61,8 @@ TYPED_TEST_P(VectorTypeFixture, ConstructorFromSingleValue) {
 }
 
 TYPED_TEST_P(VectorTypeFixture, ConstructorCopy) {
-  /** arrange */
-  TypeParam obj{this->values};
-  /** action */
-  TypeParam res{obj};
-  /** assert */
-  EXPECT_THAT(res, ::testing::ContainerEq(obj));
+  /** action & assert */
+  EXPECT_TRUE(std::is_copy_constructible<TypeParam>::value);
 }
 
 TYPED_TEST_P(VectorTypeFixture, ConstructorMove) {
