@@ -6,10 +6,10 @@
 
 #include <algorithm>
 #include <tuple>
+#include <type_traits>
 #include <utility>
 
 #include "mu/vector.h"
-
 
 /**
  * @brief test suite for objects of type "Vector"
@@ -34,6 +34,7 @@ TYPED_TEST_SUITE_P(VectorTypeFixture);
 TYPED_TEST_P(VectorTypeFixture, ConstructorDefault) {
   /** action & assert */
   EXPECT_TRUE(std::is_default_constructible<TypeParam>::value);
+  EXPECT_TRUE(std::is_nothrow_default_constructible<TypeParam>::value);
 }
 
 TYPED_TEST_P(VectorTypeFixture, DestructorDefault) {
