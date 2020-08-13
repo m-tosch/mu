@@ -38,7 +38,8 @@ class Vector3D : public Vector<3, T> {
    *
    * @param other
    */
-  Vector3D(const Vector<3, T>& other) : Vector<3, T>(other) {}  // NOLINT
+  // NOLINTNEXTLINE(runtime/explicit) implicit conversion intentional
+  Vector3D(const Vector<3, T>& other) : Vector<3, T>(other) {}
 
   T x; /**< x value */
   T y; /**< y value */

@@ -36,7 +36,8 @@ class Vector2D : public Vector<2, T> {
    *
    * @param other
    */
-  Vector2D(const Vector<2, T>& other) : Vector<2, T>(other) {}  // NOLINT
+  // NOLINTNEXTLINE(runtime/explicit) implicit conversion intentional
+  Vector2D(const Vector<2, T>& other) : Vector<2, T>(other) {}
 
   T x; /**< x value */
   T y; /**< y value */
