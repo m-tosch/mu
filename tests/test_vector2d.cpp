@@ -3,7 +3,7 @@
 
 #include "mu/vector.h"
 #include "mu/vector2d.h"
-#include "test_vector_type.h"
+#include "vector_type.h"
 
 /**
  * Instantiate this template class explicitly so that all functions

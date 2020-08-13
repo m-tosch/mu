@@ -7,7 +7,7 @@
 #include "mu/vector.h"
 #include "mu/vector2d.h"
 #include "mu/vector3d.h"
-#include "test_vector_type.h"
+#include "vector_type.h"
 
 using VectorTypeCombinations =
     ::testing::Types<std::tuple<mu::Vector<2, float>, mu::Vector<2, float>>,
