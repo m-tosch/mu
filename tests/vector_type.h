@@ -11,6 +11,7 @@
 
 #include "mu/vector.h"
 
+
 /**
  * @brief test suite for objects of type "Vector"
  *
@@ -40,6 +41,8 @@ TYPED_TEST_P(VectorTypeFixture, ConstructorDefault) {
 TYPED_TEST_P(VectorTypeFixture, DestructorDefault) {
   /** action & assert */
   EXPECT_TRUE(std::is_destructible<TypeParam>::value);
+  EXPECT_TRUE(std::is_nothrow_destructible<TypeParam>::value);
+  EXPECT_TRUE(std::is_trivially_destructible<TypeParam>::value);
 }
 
 TYPED_TEST_P(VectorTypeFixture, ConstructorFromArray) {
