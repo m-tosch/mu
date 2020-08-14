@@ -35,14 +35,9 @@ TYPED_TEST_SUITE_P(VectorTypeFixture);
 TYPED_TEST_P(VectorTypeFixture, ConstructorDefault) {
   /** action & assert */
   EXPECT_TRUE(std::is_default_constructible<TypeParam>::value);
+  /* Vector has a member that has a non-trivial default ctor (std::array)*/
+  EXPECT_FALSE(std::is_trivially_constructible<TypeParam>::value);
   EXPECT_TRUE(std::is_nothrow_default_constructible<TypeParam>::value);
-}
-
-TYPED_TEST_P(VectorTypeFixture, DestructorDefault) {
-  /** action & assert */
-  EXPECT_TRUE(std::is_destructible<TypeParam>::value);
-  EXPECT_TRUE(std::is_nothrow_destructible<TypeParam>::value);
-  EXPECT_TRUE(std::is_trivially_destructible<TypeParam>::value);
 }
 
 TYPED_TEST_P(VectorTypeFixture, ConstructorFromArray) {
@@ -61,32 +56,39 @@ TYPED_TEST_P(VectorTypeFixture, ConstructorFromSingleValue) {
   EXPECT_THAT(obj, ::testing::Each(::testing::AllOf(::testing::Eq(value))));
 }
 
+TYPED_TEST_P(VectorTypeFixture, DestructorDefault) {
+  /** action & assert */
+  EXPECT_TRUE(std::is_destructible<TypeParam>::value);
+  EXPECT_TRUE(std::is_nothrow_destructible<TypeParam>::value);
+  EXPECT_TRUE(std::is_trivially_destructible<TypeParam>::value);
+}
+
 TYPED_TEST_P(VectorTypeFixture, ConstructorCopy) {
   /** action & assert */
   EXPECT_TRUE(std::is_copy_constructible<TypeParam>::value);
+  EXPECT_TRUE(std::is_trivially_copy_constructible<TypeParam>::value);
+  EXPECT_TRUE(std::is_nothrow_copy_constructible<TypeParam>::value);
 }
 
 TYPED_TEST_P(VectorTypeFixture, ConstructorMove) {
   /** action & assert */
   EXPECT_TRUE(std::is_move_constructible<TypeParam>::value);
+  EXPECT_TRUE(std::is_trivially_move_constructible<TypeParam>::value);
+  EXPECT_TRUE(std::is_nothrow_move_constructible<TypeParam>::value);
 }
 
 TYPED_TEST_P(VectorTypeFixture, OperatorCopyAssignment) {
-  /** arrange */
-  TypeParam obj{this->values};
-  /** action */
-  TypeParam res = obj;
-  /** assert */
-  EXPECT_THAT(res, ::testing::ContainerEq(obj));
+  /** action & assert */
+  EXPECT_TRUE(std::is_copy_assignable<TypeParam>::value);
+  EXPECT_TRUE(std::is_trivially_copy_assignable<TypeParam>::value);
+  EXPECT_TRUE(std::is_nothrow_copy_assignable<TypeParam>::value);
 }
 
 TYPED_TEST_P(VectorTypeFixture, OperatorMoveAssignment) {
-  /** arrange */
-  TypeParam obj{this->values};
-  /** action */
-  TypeParam res = std::move(obj);
-  /** assert */
-  EXPECT_THAT(res, ::testing::ContainerEq(obj));
+  /** action & assert */
+  EXPECT_TRUE(std::is_move_assignable<TypeParam>::value);
+  EXPECT_TRUE(std::is_trivially_move_assignable<TypeParam>::value);
+  EXPECT_TRUE(std::is_nothrow_move_assignable<TypeParam>::value);
 }
 
 TYPED_TEST_P(VectorTypeFixture, OperatorEqualValuesMatch) {
