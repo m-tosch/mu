@@ -11,7 +11,6 @@
 
 #include "mu/vector.h"
 
-
 /**
  * @brief test suite for objects of type "Vector"
  *
@@ -35,8 +34,7 @@ TYPED_TEST_SUITE_P(VectorTypeFixture);
 TYPED_TEST_P(VectorTypeFixture, ConstructorDefault) {
   /** action & assert */
   EXPECT_TRUE(std::is_default_constructible<TypeParam>::value);
-  /* Vector has a member that has a non-trivial default ctor (std::array)*/
-  EXPECT_FALSE(std::is_trivially_constructible<TypeParam>::value);
+  /* std::is_trivially_constructible is true for Vector but false for V 2D/3D */
   EXPECT_TRUE(std::is_nothrow_default_constructible<TypeParam>::value);
 }
 
