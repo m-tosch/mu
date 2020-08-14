@@ -51,7 +51,7 @@ TYPED_TEST(Vector3DTypeFixture, ConstructorCopyInitialization) {
   EXPECT_THAT(obj1, ::testing::ContainerEq(obj2));
 }
 
-TYPED_TEST(Vector3DTypeFixture, MemberFuncGetX) {
+TYPED_TEST(Vector3DTypeFixture, MemberVarX) {
   /** arrange */
   TypeParam obj{this->x, this->y, this->z};
   /** action */
@@ -60,7 +60,7 @@ TYPED_TEST(Vector3DTypeFixture, MemberFuncGetX) {
   EXPECT_EQ(x, this->x);
 }
 
-TYPED_TEST(Vector3DTypeFixture, MemberFuncGetY) {
+TYPED_TEST(Vector3DTypeFixture, MemberVarY) {
   /** arrange */
   TypeParam obj{this->x, this->y, this->z};
   /** action */
@@ -69,7 +69,7 @@ TYPED_TEST(Vector3DTypeFixture, MemberFuncGetY) {
   EXPECT_EQ(y, this->y);
 }
 
-TYPED_TEST(Vector3DTypeFixture, MemberFuncGetZ) {
+TYPED_TEST(Vector3DTypeFixture, MemberVarZ) {
   /** arrange */
   TypeParam obj{this->x, this->y, this->z};
   /** action */
