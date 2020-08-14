@@ -1,5 +1,5 @@
-#ifndef TESTS_TEST_VECTOR_TYPE_H_
-#define TESTS_TEST_VECTOR_TYPE_H_
+#ifndef TESTS_VECTOR_TYPE_H_
+#define TESTS_VECTOR_TYPE_H_
 
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
@@ -10,6 +10,7 @@
 #include <utility>
 
 #include "mu/vector.h"
+
 
 /**
  * @brief test suite for objects of type "Vector"
@@ -229,4 +230,4 @@ REGISTER_TYPED_TEST_SUITE_P(
     MemberFuncSize, MemberFuncBegin, MemberFuncBeginConst, MemberFuncEnd,
     MemberFuncEndConst);
 
-#endif  // TESTS_TEST_VECTOR_TYPE_H_
+#endif  // TESTS_VECTOR_TYPE_H_
