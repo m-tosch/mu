@@ -22,7 +22,7 @@ INSTANTIATE_TYPED_TEST_SUITE_P(Vector2D, VectorTypeFixture, Vector2DTypes);
 template <typename T>
 class Vector2DTypeFixture : public VectorTypeFixture<T> {
  public:
-  void SetUp() override {
+  void SetUp() override {  // NOLINT gtest method naming
     /* explicitly call base class setup */
     VectorTypeFixture<T>::SetUp();
     /* variables for convenience */

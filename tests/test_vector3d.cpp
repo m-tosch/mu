@@ -21,7 +21,7 @@ INSTANTIATE_TYPED_TEST_SUITE_P(Vector3D, VectorTypeFixture, Vector3DTypes);
 template <typename T>
 class Vector3DTypeFixture : public VectorTypeFixture<T> {
  public:
-  void SetUp() override {
+  void SetUp() override {  // NOLINT gtest method naming
     /* explicitly call base class setup */
     VectorTypeFixture<T>::SetUp();
     /* variables for convenience */
