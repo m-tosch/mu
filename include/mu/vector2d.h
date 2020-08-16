@@ -17,6 +17,8 @@ class Vector2D : public Vector<2, T> {
    * defined here. apply rule of zero */
   using Vector<2, T>::Vector;
 
+  // constexpr Vector2D() : x(0), y(0) {}
+
   /**
    * @brief Construct a new Vector2D object from two values
    *
@@ -36,7 +38,7 @@ class Vector2D : public Vector<2, T> {
    *
    * @param other
    */
-  // NOLINTNEXTLINE(runtime/explicit) implicit conversion intentional
+  // NOLINTNEXTLINE(runtime/explicit) implicit conversion is intentional
   Vector2D(const Vector<2, T>& other) : Vector<2, T>(other) {}
 
   T x; /**< x value */
