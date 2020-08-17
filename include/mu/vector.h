@@ -1,7 +1,9 @@
 #ifndef MU_VECTOR_H_
 #define MU_VECTOR_H_
 
+#include <algorithm>
 #include <array>
+#include <initializer_list>
 #include <type_traits>
 
 namespace mu {
@@ -20,8 +22,8 @@ namespace mu {
  * - int
  * - long
  * - long long
- * Can be instantiated with one of the following floating-point types including
- * any cv-qualified variants.
+ * Can be instantiated with one of the following floating-point types
+ * including any cv-qualified variants.
  * - float
  * - double
  * - long double
@@ -54,16 +56,24 @@ class Vector {
    */
   explicit Vector(std::array<T, N> data) : data_(data) {}
 
+  Vector(std::initializer_list<T> l) {
+    // if (l.size() == 1) {
+    //   this(*l.begin());
+    // }
+    // static_assert(l.size() == N, "dimension mismatch");
+    std::copy(l.begin(), l.end(), data_.begin());
+  }
+
   /**
    * @brief Construct a new Vector object from a single value
    *
    * @param value
    */
-  explicit Vector(T value) {
-    for (std::size_t i = 0; i < N; i++) {
-      data_[i] = value;
-    }
-  }
+  // explicit Vector(T value) {
+  //   for (std::size_t i = 0; i < N; i++) {
+  //     data_[i] = value;
+  //   }
+  // }
 
   /**
    * @brief Destroy the Vector object

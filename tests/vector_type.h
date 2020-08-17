@@ -11,6 +11,7 @@
 
 #include "mu/vector.h"
 
+
 /**
  * @brief test suite for objects of type "Vector"
  *
@@ -45,14 +46,21 @@ TYPED_TEST_P(VectorTypeFixture, ConstructorFromArray) {
   EXPECT_THAT(obj, ::testing::Pointwise(::testing::FloatEq(), this->values));
 }
 
-TYPED_TEST_P(VectorTypeFixture, ConstructorFromSingleValue) {
-  /** arrange */
-  auto value = this->values[0];
+TYPED_TEST_P(VectorTypeFixture, ConstructorInitializerList) {
   /** action */
-  TypeParam obj{value};
+  mu::Vector<4, int> obj{2, 3, 4, 5};
   /** assert */
-  EXPECT_THAT(obj, ::testing::Each(::testing::AllOf(::testing::Eq(value))));
+  EXPECT_EQ(obj.size(), 4);
 }
+
+// TYPED_TEST_P(VectorTypeFixture, ConstructorFromSingleValue) {
+//   /** arrange */
+//   auto value = this->values[0];
+//   /** action */
+//   TypeParam obj{value};
+//   /** assert */
+//   EXPECT_THAT(obj, ::testing::Each(::testing::AllOf(::testing::Eq(value))));
+// }
 
 TYPED_TEST_P(VectorTypeFixture, DestructorDefault) {
   /** action & assert */
@@ -222,12 +230,12 @@ TYPED_TEST_P(VectorTypeFixture, MemberFuncEndConst) {
 
 REGISTER_TYPED_TEST_SUITE_P(
     VectorTypeFixture, ConstructorDefault, DestructorDefault,
-    ConstructorFromArray, ConstructorFromSingleValue, ConstructorCopy,
-    ConstructorMove, OperatorCopyAssignment, OperatorMoveAssignment,
-    OperatorEqualValuesMatch, OperatorEqualValuesDontMatch,
-    OperatorNotEqualValuesMatch, OperatorNotEqualValuesDontMatch,
-    OperatorBrackets, OperatorBracketsConst, MemberFuncAt, MemberFuncAtConst,
-    MemberFuncSize, MemberFuncBegin, MemberFuncBeginConst, MemberFuncEnd,
-    MemberFuncEndConst);
+    ConstructorFromArray, ConstructorInitializerList,
+    /*ConstructorFromSingleValue,*/ ConstructorCopy, ConstructorMove,
+    OperatorCopyAssignment, OperatorMoveAssignment, OperatorEqualValuesMatch,
+    OperatorEqualValuesDontMatch, OperatorNotEqualValuesMatch,
+    OperatorNotEqualValuesDontMatch, OperatorBrackets, OperatorBracketsConst,
+    MemberFuncAt, MemberFuncAtConst, MemberFuncSize, MemberFuncBegin,
+    MemberFuncBeginConst, MemberFuncEnd, MemberFuncEndConst);
 
 #endif  // TESTS_VECTOR_TYPE_H_
