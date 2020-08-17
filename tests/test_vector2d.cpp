@@ -35,17 +35,6 @@ class Vector2DTypeFixture : public VectorTypeFixture<T> {
 
 TYPED_TEST_SUITE(Vector2DTypeFixture, Vector2DTypes);
 
-TYPED_TEST(Vector2DTypeFixture, ZeroInitTest) {
-  /** arrange */
-  TypeParam obj{};
-  // TypeParam obj3;
-  /** assert */
-  EXPECT_EQ(obj.x(), 0);
-  EXPECT_EQ(obj.y(), 0);
-  // EXPECT_EQ(obj3.x(), 0);
-  // EXPECT_EQ(obj3.y(), 0);
-}
-
 TYPED_TEST(Vector2DTypeFixture, ConstructorXY) {
   /** arrange */
   TypeParam obj{this->x, this->y};
