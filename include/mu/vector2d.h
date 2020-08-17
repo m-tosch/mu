@@ -39,9 +39,32 @@ class Vector2D : public Vector<2, T> {
   // NOLINTNEXTLINE(runtime/explicit) implicit conversion is intentional
   Vector2D(const Vector<2, T>& other) : Vector<2, T>(other) {}
 
+  /**
+   * @brief x component
+   *
+   * @return T&
+   */
   T& x() noexcept { return this->data_[0]; }
+
+  /**
+   * @brief const x component
+   *
+   * @return const T&
+   */
   const T& x() const noexcept { return this->data_[0]; }
+
+  /**
+   * @brief y component
+   *
+   * @return T&
+   */
   T& y() noexcept { return this->data_[1]; }
+
+  /**
+   * @brief const y component
+   *
+   * @return const T&
+   */
   const T& y() const noexcept { return this->data_[1]; }
 };
 
