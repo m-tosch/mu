@@ -72,9 +72,9 @@ TYPED_TEST(Vector2DTypeFixture, MemberVarX) {
 
 TYPED_TEST(Vector2DTypeFixture, MemberVarXConst) {
   /** arrange */
-  const TypeParam obj{this->x, this->y};
+  const TypeParam kObj{this->x, this->y};
   /** action */
-  typename TypeParam::value_type x = obj.x();
+  typename TypeParam::value_type x = kObj.x();
   /** assert */
   EXPECT_EQ(x, this->x);
 }
@@ -90,7 +90,7 @@ TYPED_TEST(Vector2DTypeFixture, MemberVarY) {
 
 TYPED_TEST(Vector2DTypeFixture, MemberVarYConst) {
   /** arrange */
-  const TypeParam obj{this->x, this->y};
+  const TypeParam kObj{this->x, this->y};
   /** action */
   typename TypeParam::value_type y = obj.y();
   /** assert */
