@@ -11,7 +11,6 @@
 
 #include "mu/vector.h"
 
-
 /**
  * @brief test suite for objects of type "Vector"
  *
@@ -53,14 +52,14 @@ TYPED_TEST_P(VectorTypeFixture, ConstructorInitializerList) {
   EXPECT_EQ(obj.size(), 4);
 }
 
-// TYPED_TEST_P(VectorTypeFixture, ConstructorFromSingleValue) {
-//   /** arrange */
-//   auto value = this->values[0];
-//   /** action */
-//   TypeParam obj{value};
-//   /** assert */
-//   EXPECT_THAT(obj, ::testing::Each(::testing::AllOf(::testing::Eq(value))));
-// }
+TYPED_TEST_P(VectorTypeFixture, ConstructorFromSingleValue) {
+  /** arrange */
+  auto value = this->values[0];
+  /** action */
+  TypeParam obj{value};
+  /** assert */
+  EXPECT_THAT(obj, ::testing::Each(::testing::AllOf(::testing::Eq(value))));
+}
 
 TYPED_TEST_P(VectorTypeFixture, DestructorDefault) {
   /** action & assert */
@@ -231,7 +230,7 @@ TYPED_TEST_P(VectorTypeFixture, MemberFuncEndConst) {
 REGISTER_TYPED_TEST_SUITE_P(
     VectorTypeFixture, ConstructorDefault, DestructorDefault,
     ConstructorFromArray, ConstructorInitializerList,
-    /*ConstructorFromSingleValue,*/ ConstructorCopy, ConstructorMove,
+    ConstructorFromSingleValue, ConstructorCopy, ConstructorMove,
     OperatorCopyAssignment, OperatorMoveAssignment, OperatorEqualValuesMatch,
     OperatorEqualValuesDontMatch, OperatorNotEqualValuesMatch,
     OperatorNotEqualValuesDontMatch, OperatorBrackets, OperatorBracketsConst,

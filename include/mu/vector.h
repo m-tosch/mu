@@ -57,10 +57,8 @@ class Vector {
   explicit Vector(std::array<T, N> data) : data_(data) {}
 
   Vector(std::initializer_list<T> l) {
-    // if (l.size() == 1) {
-    //   this(*l.begin());
-    // }
-    // static_assert(l.size() == N, "dimension mismatch");
+    // static_assert(l.size() == N, "dimension mismatch")
+    assert(l.size() == N);
     std::copy(l.begin(), l.end(), data_.begin());
   }
 
