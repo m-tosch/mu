@@ -92,7 +92,7 @@ TYPED_TEST(Vector2DTypeFixture, MemberVarYConst) {
   /** arrange */
   const TypeParam kObj{this->x, this->y};
   /** action */
-  typename TypeParam::value_type y = obj.y();
+  typename TypeParam::value_type y = kObj.y();
   /** assert */
   EXPECT_EQ(y, this->y);
 }
