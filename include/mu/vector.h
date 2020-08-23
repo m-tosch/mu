@@ -56,22 +56,16 @@ class Vector {
    */
   explicit Vector(std::array<T, N> data) : data_(data) {}
 
-  Vector(std::initializer_list<T> l) {
-    // static_assert(l.size() == N, "dimension mismatch")
-    assert(l.size() == N);
-    std::copy(l.begin(), l.end(), data_.begin());
-  }
-
   /**
    * @brief Construct a new Vector object from a single value
    *
    * @param value
    */
-  // explicit Vector(T value) {
-  //   for (std::size_t i = 0; i < N; i++) {
-  //     data_[i] = value;
-  //   }
-  // }
+  explicit Vector(T value) {
+    for (std::size_t i = 0; i < N; i++) {
+      data_[i] = value;
+    }
+  }
 
   /**
    * @brief Destroy the Vector object
