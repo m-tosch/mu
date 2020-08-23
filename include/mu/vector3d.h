@@ -18,6 +18,17 @@ class Vector3D : public Vector<3, T> {
   using Vector<3, T>::Vector;
 
   /**
+   * @brief Construct a new Vector3D object from a Vector object
+   *
+   * also implicitly used for copy initialization. purposely not marked
+   * "explicit" for exactly that usecase. suppress linting for this line.
+   *
+   * @param other
+   */
+  // NOLINTNEXTLINE(runtime/explicit) implicit conversion is intentional
+  Vector3D(const Vector<3, T>& other) : Vector<3, T>(other) {}
+
+  /**
    * @brief Construct a new Vector3D object from three values
    *
    * @param x
@@ -29,17 +40,6 @@ class Vector3D : public Vector<3, T> {
     this->data_[1] = y;
     this->data_[2] = z;
   }
-
-  /**
-   * @brief Construct a new Vector3D object from a Vector object
-   *
-   * also implicitly used for copy initialization. purposely not marked
-   * "explicit" for exactly that usecase. suppress linting for this line.
-   *
-   * @param other
-   */
-  // NOLINTNEXTLINE(runtime/explicit) implicit conversion is intentional
-  Vector3D(const Vector<3, T>& other) : Vector<3, T>(other) {}
 
   /**
    * @brief x component
