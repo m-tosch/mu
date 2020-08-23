@@ -23,10 +23,10 @@ class Vector2D : public Vector<2, T> {
    * @param x
    * @param y
    */
-  // Vector2D(T x, T y) {
-  //   this->data_[0] = x;
-  //   this->data_[1] = y;
-  // }
+  Vector2D(T x, T y) {
+    this->data_[0] = x;
+    this->data_[1] = y;
+  }
 
   /**
    * @brief Construct a new Vector2D object from a Vector object
