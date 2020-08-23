@@ -9,8 +9,6 @@
 #include <type_traits>
 #include <utility>
 
-#include "mu/vector.h"
-
 /**
  * @brief test suite for objects of type "Vector"
  *
@@ -43,13 +41,6 @@ TYPED_TEST_P(VectorTypeFixture, ConstructorFromArray) {
   TypeParam obj{this->values};
   /** assert */
   EXPECT_THAT(obj, ::testing::Pointwise(::testing::FloatEq(), this->values));
-}
-
-TYPED_TEST_P(VectorTypeFixture, ConstructorInitializerList) {
-  /** action */
-  mu::Vector<4, int> obj{2, 3, 4, 5};
-  /** assert */
-  EXPECT_EQ(obj.size(), 4);
 }
 
 TYPED_TEST_P(VectorTypeFixture, ConstructorFromSingleValue) {
@@ -109,7 +100,8 @@ TYPED_TEST_P(VectorTypeFixture, OperatorEqualValuesMatch) {
 TYPED_TEST_P(VectorTypeFixture, OperatorEqualValuesDontMatch) {
   /** arrange */
   TypeParam obj1{this->values};
-  TypeParam obj2{this->values[0]};
+  TypeParam obj2{this->values};
+  obj2[0] = 0;
   /** action */
   bool res = (obj1 == obj2);
   /** assert */
@@ -129,7 +121,8 @@ TYPED_TEST_P(VectorTypeFixture, OperatorNotEqualValuesMatch) {
 TYPED_TEST_P(VectorTypeFixture, OperatorNotEqualValuesDontMatch) {
   /** arrange */
   TypeParam obj1{this->values};
-  TypeParam obj2{this->values[0]};
+  TypeParam obj2{this->values};
+  obj2[0] = 0;
   /** action */
   bool res = (obj1 != obj2);
   /** assert */
@@ -229,12 +222,12 @@ TYPED_TEST_P(VectorTypeFixture, MemberFuncEndConst) {
 
 REGISTER_TYPED_TEST_SUITE_P(
     VectorTypeFixture, ConstructorDefault, DestructorDefault,
-    ConstructorFromArray, ConstructorInitializerList,
-    ConstructorFromSingleValue, ConstructorCopy, ConstructorMove,
-    OperatorCopyAssignment, OperatorMoveAssignment, OperatorEqualValuesMatch,
-    OperatorEqualValuesDontMatch, OperatorNotEqualValuesMatch,
-    OperatorNotEqualValuesDontMatch, OperatorBrackets, OperatorBracketsConst,
-    MemberFuncAt, MemberFuncAtConst, MemberFuncSize, MemberFuncBegin,
-    MemberFuncBeginConst, MemberFuncEnd, MemberFuncEndConst);
+    ConstructorFromArray, ConstructorFromSingleValue, ConstructorCopy,
+    ConstructorMove, OperatorCopyAssignment, OperatorMoveAssignment,
+    OperatorEqualValuesMatch, OperatorEqualValuesDontMatch,
+    OperatorNotEqualValuesMatch, OperatorNotEqualValuesDontMatch,
+    OperatorBrackets, OperatorBracketsConst, MemberFuncAt, MemberFuncAtConst,
+    MemberFuncSize, MemberFuncBegin, MemberFuncBeginConst, MemberFuncEnd,
+    MemberFuncEndConst);
 
 #endif  // TESTS_VECTOR_TYPE_H_
