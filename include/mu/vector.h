@@ -61,11 +61,7 @@ class Vector {
    *
    * @param value
    */
-  explicit Vector(T value) {
-    for (std::size_t i = 0; i < N; i++) {
-      data_[i] = value;
-    }
-  }
+  explicit Vector(T value) { data_.fill(value); }
 
   /**
    * @brief Destroy the Vector object
