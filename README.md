@@ -16,10 +16,10 @@ TODO
 
 The documentation can be found [TODO](https://github.com)
 
-You can generate the documentation locally from the command line:
+You can generate the documentation locally from the command line inside the `doc` folder:
 
 ```cmd
-cd doc && doxygen Doxyfile
+doxygen Doxyfile
 ```
 
 The documentation will be generated in html form inside a  doc/html folder. View the report by opening the index.html file inside that folder in a browser.
@@ -28,10 +28,10 @@ The documentation will be generated in html form inside a  doc/html folder. View
 
 The unit tests are written using [googletest](https://github.com/google/googletest)
 
-After successfully building the project (with cmake), you can run the unit tests locally from the command line:
+After successfully building the project (with cmake), you can run the unit tests locally from the command line inside the generated `build/tests` folder:
 
 ```cmd
-cd build/tests && ./mu_tests
+./mu_tests
 ```
 
 If you want to only print the overall test results, run the test executable like this:
