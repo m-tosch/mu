@@ -48,18 +48,18 @@ The coverage can be found [TODO](https://github.com)
 
 The code coverage can be generated using [gcov](https://gcc.gnu.org/onlinedocs/gcc/Gcov.html) or [llvm-cov](https://clang.llvm.org/docs/SourceBasedCodeCoverage.html). gcov uses the gcc compiler while llvm-cov uses clang. The latter was implemented to be able to inspect branch coverage through what llvm calls "region coverage".
 
-You can generate both coverage reports locally from the command line:
+You can generate both coverage reports locally from the command line inside the `coverage` folder:
 
 For gcov (requires gcc)
 
 ```cmd
-cd coverage && ./coverage_gcov.sh
+./coverage_gcov.sh
 ```
 
 For llvm-cov (requires clang)
 
 ```cmd
-cd coverage && ./coverage_llvm.sh
+./coverage_llvm.sh
 ```
 
 The coverage report will be generated in html form in a coverage/html_gcov or a coverage/html_llvm folder respectively. View the report by opening the index.html file inside that folder in a browser.
