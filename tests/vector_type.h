@@ -24,7 +24,10 @@ class VectorTypeFixture : public ::testing::Test {
                   [&start, &incr]() { return start += incr; });
   }
 
-  std::array<typename T::value_type, T().size()> values;
+  /* dummy just for getting size at compile time (inline variable c++17) */
+  static inline T dummy;
+  /* test values. exact length of the corresponding vector-under-test */
+  std::array<typename T::value_type, dummy.size()> values;
 };
 
 TYPED_TEST_SUITE_P(VectorTypeFixture);
