@@ -29,9 +29,12 @@
       "problemMatcher": []
     },
     {
-      "label": "generate doc",
+      "label": "generate doc (doxygen)",
       "type": "shell",
-      "command": "cd ${workspaceRoot}/doc && doxygen Doxyfile",
+      "command": "doxygen Doxyfile",
+      "options": {
+        "cwd": "${workspaceRoot}/doc"
+      },
       "group": "build",
       "problemMatcher": []
     },
