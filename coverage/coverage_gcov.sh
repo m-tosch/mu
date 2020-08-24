@@ -1,5 +1,5 @@
 # project root directory relative to the location of this script
-ROOTDIR=".."
+ROOTDIR="$PWD/.."
 # working directory for intermediate coverage files
 WORKDIR="$ROOTDIR/build/tests/CMakeFiles/mu_tests.dir"
 # coverage directory for a /html report to be generated in
