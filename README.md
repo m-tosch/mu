@@ -62,4 +62,4 @@ For llvm-cov (requires clang)
 ./coverage_llvm.sh
 ```
 
-The coverage report will be generated in html form in a coverage/html_gcov or a coverage/html_llvm folder respectively. View the report by opening the index.html file inside that folder in a browser.
+The coverage report will be generated in html form in a `coverage/html_gcov` or a `coverage/html_llvm` folder respectively. View the report by opening the index.html file inside that folder in a browser.
