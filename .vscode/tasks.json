@@ -38,14 +38,20 @@
     {
       "label": "generate coverage (gcov)",
       "type": "shell",
-      "command": "cd ${workspaceRoot}/coverage && ./coverage_gcov.sh",
+      "command": "./coverage_gcov.sh",
+      "options": {
+        "cwd": "${workspaceRoot}/coverage"
+      },
       "group": "build",
       "problemMatcher": [],
     },
     {
       "label": "generate coverage (llvm)",
       "type": "shell",
-      "command": "cd ${workspaceRoot}/coverage && ./coverage_llvm.sh",
+      "command": " ./coverage_llvm.sh",
+      "options": {
+        "cwd": "${workspaceRoot}/coverage"
+      },
       "group": "build",
       "problemMatcher": [],
     }
