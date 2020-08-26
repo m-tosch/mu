@@ -35,8 +35,8 @@ class Vector2D : public Vector<2, T> {
    * @param y
    */
   Vector2D(T x, T y) {
-    this->data_[0] = x;
-    this->data_[1] = y;
+    Vector<2, T>::data_[0] = x;
+    Vector<2, T>::data_[1] = y;
   }
 
   /**
@@ -44,28 +44,28 @@ class Vector2D : public Vector<2, T> {
    *
    * @return T&
    */
-  T& x() noexcept { return this->data_[0]; }
+  T& x() noexcept { return Vector<2, T>::data_[0]; }
 
   /**
    * @brief const x component
    *
    * @return const T&
    */
-  const T& x() const noexcept { return this->data_[0]; }
+  const T& x() const noexcept { return Vector<2, T>::data_[0]; }
 
   /**
    * @brief y component
    *
    * @return T&
    */
-  T& y() noexcept { return this->data_[1]; }
+  T& y() noexcept { return Vector<2, T>::data_[1]; }
 
   /**
    * @brief const y component
    *
    * @return const T&
    */
-  const T& y() const noexcept { return this->data_[1]; }
+  const T& y() const noexcept { return Vector<2, T>::data_[1]; }
 };
 
 }  // namespace mu

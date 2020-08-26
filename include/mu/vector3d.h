@@ -36,9 +36,9 @@ class Vector3D : public Vector<3, T> {
    * @param z
    */
   Vector3D(T x, T y, T z) {
-    this->data_[0] = x;
-    this->data_[1] = y;
-    this->data_[2] = z;
+    Vector<3, T>::data_[0] = x;
+    Vector<3, T>::data_[1] = y;
+    Vector<3, T>::data_[2] = z;
   }
 
   /**
@@ -46,42 +46,42 @@ class Vector3D : public Vector<3, T> {
    *
    * @return T&
    */
-  T& x() noexcept { return this->data_[0]; }
+  T& x() noexcept { return Vector<3, T>::data_[0]; }
 
   /**
    * @brief const x component
    *
    * @return const T&
    */
-  const T& x() const noexcept { return this->data_[0]; }
+  const T& x() const noexcept { return Vector<3, T>::data_[0]; }
 
   /**
    * @brief y component
    *
    * @return T&
    */
-  T& y() noexcept { return this->data_[1]; }
+  T& y() noexcept { return Vector<3, T>::data_[1]; }
 
   /**
    * @brief const y component
    *
    * @return const T&
    */
-  const T& y() const noexcept { return this->data_[1]; }
+  const T& y() const noexcept { return Vector<3, T>::data_[1]; }
 
   /**
    * @brief z component
    *
    * @return T&
    */
-  T& z() noexcept { return this->data_[2]; }
+  T& z() noexcept { return Vector<3, T>::data_[2]; }
 
   /**
    * @brief const z component
    *
    * @return const T&
    */
-  const T& z() const noexcept { return this->data_[2]; }
+  const T& z() const noexcept { return Vector<3, T>::data_[2]; }
 };
 
 }  // namespace mu
