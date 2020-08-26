@@ -37,6 +37,8 @@ template <std::size_t N, typename T,
           typename =
               typename std::enable_if<std::is_arithmetic<T>::value, T>::type>
 class Vector {
+  static_assert(N != 0, "vector dimension cannot be zero");
+
  public:
   /* value and size type from the underlying container */
   using value_type = typename std::array<T, N>::value_type;
