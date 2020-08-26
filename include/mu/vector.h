@@ -106,7 +106,7 @@ class Vector {
    * @return bool true if equal, false if unequal
    */
   bool operator==(const Vector<N, T> &rhs) const {
-    for (std::size_t i = 0; i < size(); i++) {
+    for (std::size_t i = 0; i < N; i++) {
       if (data_[i] != rhs[i]) {
         return false;
       }
@@ -120,9 +120,7 @@ class Vector {
    * @param rhs
    * @return bool true if unequal, false if equal
    */
-  bool operator!=(const Vector<N, T> &rhs) const {
-    return !this->operator==(rhs);
-  }
+  bool operator!=(const Vector<N, T> &rhs) const { return !operator==(rhs); }
 
   /**
    * @brief plus operator
@@ -131,9 +129,7 @@ class Vector {
    * @return Vector<N, T>
    */
   Vector<N, T> operator+(const Vector<N, T> &rhs) const {
-    Vector<N, T> ret{*this};
-    ret += rhs;
-    return ret;
+    return Vector<N, T>(*this) += rhs;
   }
 
   /**
@@ -143,7 +139,7 @@ class Vector {
    * @return Vector<N, T>&
    */
   Vector<N, T> &operator+=(const Vector<N, T> &rhs) {
-    for (std::size_t i = 0; i < size(); i++) {
+    for (std::size_t i = 0; i < N; i++) {
       data_[i] = data_[i] + rhs[i];
     }
     return *this;
@@ -156,9 +152,7 @@ class Vector {
    * @return Vector<N, T>
    */
   Vector<N, T> operator-(const Vector<N, T> &rhs) const {
-    Vector<N, T> ret{*this};
-    ret -= rhs;
-    return ret;
+    return Vector<N, T>(*this) -= rhs;
   }
 
   /**
@@ -168,7 +162,7 @@ class Vector {
    * @return Vector<N, T>&
    */
   Vector<N, T> &operator-=(const Vector<N, T> &rhs) {
-    for (std::size_t i = 0; i < size(); i++) {
+    for (std::size_t i = 0; i < N; i++) {
       data_[i] = data_[i] - rhs[i];
     }
     return *this;
