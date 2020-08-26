@@ -6,6 +6,8 @@
 #include <initializer_list>
 #include <type_traits>
 
+#include "mu/typetraits.h"
+
 namespace mu {
 /**
  * @brief A generic vector
@@ -107,7 +109,7 @@ class Vector {
    */
   bool operator==(const Vector<N, T> &rhs) const {
     for (std::size_t i = 0; i < N; i++) {
-      if (data_[i] != rhs[i]) {
+      if (!TypeTraits<T>::equals(data_[i], rhs.data_[i])) {
         return false;
       }
     }
