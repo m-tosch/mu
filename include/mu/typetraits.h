@@ -4,35 +4,46 @@
 #include <cmath>
 #include <cstdlib>
 
+/* use compile time checks as much as possible :) */
+
 namespace mu {
 
 template <class T>
 struct TypeTraits {
   TypeTraits() = delete;
-  constexpr static T epsilon() { return T(1); }
+  constexpr static float epsilon() { return T(1); }
   static bool equals(T lhs, T rhs) { return lhs == rhs; }
 };
 
-template <>
-struct TypeTraits<float> {
-  constexpr static float epsilon() { return 1.0e-5F; }
-  static bool equals(const float& lhs, const float& rhs) {
-    if (lhs == rhs) {
-      return true;
-    }
-    return std::fabs(lhs - rhs) < TypeTraits<float>::epsilon();
-  }
+template <class T>
+struct TypeTraitsFloatingPoint {
+  TypeTraitsFloatingPoint() = delete;
+  static bool equals(T lhs, T rhs);
 };
 
-/* ^TODO more generic solution. the equals check that is currently in the float
- * TypeTraits class should be available for all floating point types */
-// template <class T>
-// bool TypeTraits<T>::equals(const T lhs, const T rhs) {
-//   if (lhs == rhs) {
-//     return true;
-//   }
-//   return std::fabs(lhs - rhs) < TypeTraits<T>::epsilon();
-// }
+template <>
+struct TypeTraits<float> : TypeTraitsFloatingPoint<float> {
+  constexpr static float epsilon() { return 1.0e-5F; }  // NOLINT
+};
 
-}  // namespace mu
+template <>
+struct TypeTraits<double> : TypeTraitsFloatingPoint<double> {
+  constexpr static double epsilon() { return 1.0e-14; }  // NOLINT
+};
+
+template <>
+struct TypeTraits<long double> : TypeTraitsFloatingPoint<long double> {
+  constexpr static long double epsilon() { return 1.0e-14L; }  // NOLINT
+};
+
+template <class T>
+bool TypeTraitsFloatingPoint<T>::equals(const T lhs, const T rhs) {
+  /* short cut. also for inf. values */
+  if (lhs == rhs) {
+    return true;
+  }
+  return std::fabs(lhs - rhs) < TypeTraits<T>::epsilon();
+}
+
+};      // namespace mu
 #endif  // MU_TYPETRAITS_H_
