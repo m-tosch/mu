@@ -20,8 +20,7 @@ namespace mu {
 template <class T>
 struct TypeTraits {
   TypeTraits() = delete;
-  // constexpr static float epsilon() { return T(1); }
-  static bool equals(T lhs, T rhs) { return lhs == rhs; }
+  constexpr static bool equals(T lhs, T rhs) { return lhs == rhs; }
 };
 
 /**
@@ -36,7 +35,7 @@ struct TypeTraits {
 template <class T>
 struct TypeTraitsFloatingPoint {
   TypeTraitsFloatingPoint() = delete;
-  static bool equals(T lhs, T rhs);
+  constexpr static bool equals(T lhs, T rhs);
 };
 
 /** explicit template instantiations of TypeTraits for floating point types.
@@ -59,7 +58,7 @@ struct TypeTraits<long double> : TypeTraitsFloatingPoint<long double> {
 
 /* equality check for floating point types according to their epsilon */
 template <class T>
-bool TypeTraitsFloatingPoint<T>::equals(const T lhs, const T rhs) {
+constexpr bool TypeTraitsFloatingPoint<T>::equals(const T lhs, const T rhs) {
   /* short cut. also for inf. values */
   if (lhs == rhs) {
     return true;
