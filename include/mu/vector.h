@@ -8,6 +8,7 @@
 
 #include "mu/typetraits.h"
 
+
 namespace mu {
 /**
  * @brief A generic vector
@@ -245,9 +246,25 @@ class Vector {
    */
   const_iterator end() const noexcept { return data_.end(); }
 
+  /**
+   * @brief get the min value inside the vector
+   *
+   * @return T
+   */
+  T min() const;
+
  protected:
   std::array<T, N> data_;
 };
+
+template <std::size_t N, class T>
+T Vector<N, T>::min() const {
+  T ret(data_[0]);
+  for (std::size_t i = 1; i < N; i++) {
+    ret = std::min(ret, data_[i]);
+  }
+  return ret;
+}
 
 }  // namespace mu
 #endif  // MU_VECTOR_H_
