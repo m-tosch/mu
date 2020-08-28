@@ -9,6 +9,7 @@
 #include <type_traits>
 #include <utility>
 
+
 /**
  * @brief test suite for objects of type "Vector"
  *
@@ -232,6 +233,15 @@ TYPED_TEST_P(VectorTypeFixture, MemberFuncMin) {
   EXPECT_EQ(min, *std::min_element(this->values.begin(), this->values.end()));
 }
 
+TYPED_TEST_P(VectorTypeFixture, MemberFuncMax) {
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  typename TypeParam::value_type max = obj.max();
+  /** assert */
+  EXPECT_EQ(max, *std::max_element(this->values.begin(), this->values.end()));
+}
+
 REGISTER_TYPED_TEST_SUITE_P(
     VectorTypeFixture, ConstructorDefault, DestructorDefault,
     ConstructorFromArray, ConstructorFromSingleValue, ConstructorCopy,
@@ -240,6 +250,6 @@ REGISTER_TYPED_TEST_SUITE_P(
     OperatorNotEqualValuesMatch, OperatorNotEqualValuesDontMatch,
     OperatorBrackets, OperatorBracketsConst, MemberFuncAt, MemberFuncAtConst,
     MemberFuncSize, MemberFuncBegin, MemberFuncBeginConst, MemberFuncEnd,
-    MemberFuncEndConst, MemberFuncMin);
+    MemberFuncEndConst, MemberFuncMin, MemberFuncMax);
 
 #endif  // TESTS_VECTOR_TYPE_H_
