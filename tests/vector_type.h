@@ -223,6 +223,15 @@ TYPED_TEST_P(VectorTypeFixture, MemberFuncEndConst) {
   EXPECT_EQ(res, kObj[kObj.size() - 1]);
 }
 
+TYPED_TEST_P(VectorTypeFixture, MemberFuncMin) {
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  typename TypeParam::value_type min = obj.min();
+  /** assert */
+  EXPECT_EQ(min, *std::min_element(this->values.begin(), this->values.end()));
+}
+
 REGISTER_TYPED_TEST_SUITE_P(
     VectorTypeFixture, ConstructorDefault, DestructorDefault,
     ConstructorFromArray, ConstructorFromSingleValue, ConstructorCopy,
@@ -231,6 +240,6 @@ REGISTER_TYPED_TEST_SUITE_P(
     OperatorNotEqualValuesMatch, OperatorNotEqualValuesDontMatch,
     OperatorBrackets, OperatorBracketsConst, MemberFuncAt, MemberFuncAtConst,
     MemberFuncSize, MemberFuncBegin, MemberFuncBeginConst, MemberFuncEnd,
-    MemberFuncEndConst);
+    MemberFuncEndConst, MemberFuncMin);
 
 #endif  // TESTS_VECTOR_TYPE_H_
