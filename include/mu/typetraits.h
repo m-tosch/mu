@@ -3,6 +3,7 @@
 
 #include <cmath>
 #include <cstdlib>
+#include <limits>
 
 namespace mu {
 
@@ -56,14 +57,27 @@ struct TypeTraits<long double> : TypeTraitsFloatingPoint<long double> {
   constexpr static long double epsilon() { return 1.0e-14L; }  // NOLINT
 };
 
-/* equality check for floating point types according to their epsilon */
+/* relativ equality check for floating point types according to their epsilon.
+ * source
+ * https://stackoverflow.com/questions/4915462/how-should-i-do-floating-point-comparison
+ */
 template <class T>
 constexpr bool TypeTraitsFloatingPoint<T>::equals(const T lhs, const T rhs) {
-  /* short cut. also for inf. values */
+  /* shortcut. also for inf. values */
   if (lhs == rhs) {
     return true;
   }
-  return std::fabs(lhs - rhs) < TypeTraits<T>::epsilon();
+  const T kAbsLhs = std::abs(lhs);
+  const T kAbsRhs = std::abs(rhs);
+  const T kAbsDiff = std::abs(lhs - rhs);
+  /* Either value is zero or extremely close to it, relative error is less
+   * meaningful here */
+  if (lhs == 0 || rhs == 0 || kAbsDiff < std::numeric_limits<T>::min()) {
+    return kAbsDiff <
+           (TypeTraits<T>::epsilon() * std::numeric_limits<T>::min());
+  }
+  /* relative error */
+  return (kAbsDiff / (kAbsLhs + kAbsRhs)) < TypeTraits<T>::epsilon();
 }
 
 }  // namespace mu
