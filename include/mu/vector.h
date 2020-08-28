@@ -33,11 +33,10 @@ namespace mu {
  * @tparam N size
  * @tparam T type
  */
-template <std::size_t N, typename T,
-          typename =
-              typename std::enable_if<std::is_arithmetic<T>::value, T>::type>
+template <std::size_t N, typename T>
 class Vector {
   static_assert(N != 0, "vector dimension cannot be zero");
+  static_assert(std::is_arithmetic<T>::value, "type T must be an arithmetic");
 
  public:
   /* value and size type from the underlying container */
