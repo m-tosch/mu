@@ -247,11 +247,18 @@ class Vector {
   const_iterator end() const noexcept { return data_.end(); }
 
   /**
-   * @brief get the min value inside the vector
+   * @brief get the min value of the vector
    *
    * @return T
    */
   T min() const;
+
+  /**
+   * @brief get the max value of the vector
+   *
+   * @return T
+   */
+  T max() const;
 
  protected:
   std::array<T, N> data_;
@@ -262,6 +269,15 @@ T Vector<N, T>::min() const {
   T ret(data_[0]);
   for (std::size_t i = 1; i < N; i++) {
     ret = std::min(ret, data_[i]);
+  }
+  return ret;
+}
+
+template <std::size_t N, class T>
+T Vector<N, T>::max() const {
+  T ret(data_[0]);
+  for (std::size_t i = 1; i < N; i++) {
+    ret = std::max(ret, data_[i]);
   }
   return ret;
 }
