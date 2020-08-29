@@ -29,19 +29,6 @@ class Vector3D : public Vector<3, T> {
   Vector3D(const Vector<3, T>& other) : Vector<3, T>(other) {}
 
   /**
-   * @brief Construct a new Vector3D object from three values
-   *
-   * @param x
-   * @param y
-   * @param z
-   */
-  Vector3D(T x, T y, T z) {
-    Vector<3, T>::data_[0] = x;
-    Vector<3, T>::data_[1] = y;
-    Vector<3, T>::data_[2] = z;
-  }
-
-  /**
    * @brief x component
    *
    * @return T&

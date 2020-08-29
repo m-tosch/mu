@@ -1,7 +1,10 @@
 #ifndef MU_VECTOR2D_H_
 #define MU_VECTOR2D_H_
 
+#include <utility>
+
 #include "mu/vector.h"
+
 
 namespace mu {
 
@@ -27,17 +30,6 @@ class Vector2D : public Vector<2, T> {
    */
   // NOLINTNEXTLINE(runtime/explicit) implicit conversion is intentional
   Vector2D(const Vector<2, T>& other) : Vector<2, T>(other) {}
-
-  /**
-   * @brief Construct a new Vector2D object from two values
-   *
-   * @param x
-   * @param y
-   */
-  Vector2D(T x, T y) {
-    Vector<2, T>::data_[0] = x;
-    Vector<2, T>::data_[1] = y;
-  }
 
   /**
    * @brief x component

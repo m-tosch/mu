@@ -12,7 +12,8 @@ namespace mu {
 /**
  * @brief A generic vector
  *
- * Can be instantiated an arithmetic type as defined by the standard library.
+ * Can be instantiated with an arithmetic type as defined by the standard
+ * library.
  * - implementation-defined extended integer types, including any signed,
  *   unsigned, and cv-qualified variants. (bool, char, int, long ...)
  * - implementation-defined extended floating-point types including any
@@ -41,11 +42,16 @@ class Vector {
   constexpr Vector() = default;
 
   /**
-   * @brief Construct a new Vector object from an array
+   * @brief Construct a new Vector object from an arbitrary amount of values
+   *
+   * the amount of values must match the static size of this Vector object.
+   * allows object construction as "v{1,2,3}" AND "v = {1,2,3}"
    *
    * @param data
    */
-  explicit Vector(std::array<T, N> data) : data_(data) {}
+  template <typename... Args>
+  // NOLINTNEXTLINE(runtime/explicit) implicit conversion is intentional
+  Vector(Args... args) : data_({args...}) {}
 
   /**
    * @brief Construct a new Vector object from a single value
