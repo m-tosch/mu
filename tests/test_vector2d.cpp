@@ -45,6 +45,7 @@ TYPED_TEST(Vector2DTypeFixture, ConstructorXY) {
 TYPED_TEST(Vector2DTypeFixture, ConstructorCopyInitialization) {
   /** arrange */
   mu::Vector<2, typename TypeParam::value_type> obj1{this->values};
+  /** action */
   TypeParam obj2 = obj1;
   /** assert */
   EXPECT_THAT(obj1, ::testing::ContainerEq(obj2));
