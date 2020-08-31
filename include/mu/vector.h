@@ -8,6 +8,7 @@
 
 #include "mu/typetraits.h"
 
+
 namespace mu {
 /**
  * @brief A generic vector
@@ -137,7 +138,7 @@ class Vector {
    */
   Vector<N, T> &operator+=(const Vector<N, T> &rhs) {
     for (std::size_t i = 0; i < N; i++) {
-      data_[i] = data_[i] + rhs[i];
+      data_[i] += rhs[i];
     }
     return *this;
   }
@@ -160,7 +161,7 @@ class Vector {
    */
   Vector<N, T> &operator-=(const Vector<N, T> &rhs) {
     for (std::size_t i = 0; i < N; i++) {
-      data_[i] = data_[i] - rhs[i];
+      data_[i] -= rhs[i];
     }
     return *this;
   }
@@ -258,7 +259,7 @@ class Vector {
 };
 
 template <std::size_t N, class T>
-T Vector<N, T>::min() const {
+inline T Vector<N, T>::min() const {
   T ret(data_[0]);
   for (std::size_t i = 1; i < N; i++) {
     ret = std::min(ret, data_[i]);
@@ -267,7 +268,7 @@ T Vector<N, T>::min() const {
 }
 
 template <std::size_t N, class T>
-T Vector<N, T>::max() const {
+inline T Vector<N, T>::max() const {
   T ret(data_[0]);
   for (std::size_t i = 1; i < N; i++) {
     ret = std::max(ret, data_[i]);
