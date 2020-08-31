@@ -1,13 +1,15 @@
 #ifndef MU_VECTOR_H_
 #define MU_VECTOR_H_
 
+#include <bits/c++config.h>
+
 #include <algorithm>
 #include <array>
 #include <initializer_list>
+#include <numeric>
 #include <type_traits>
 
 #include "mu/typetraits.h"
-
 
 namespace mu {
 /**
@@ -254,6 +256,13 @@ class Vector {
    */
   T max() const;
 
+  /**
+   * @brief sum up all the elements of the vector
+   *
+   * @return T
+   */
+  T sum() const;
+
  protected:
   std::array<T, N> data_;
 };
@@ -274,6 +283,11 @@ inline T Vector<N, T>::max() const {
     ret = std::max(ret, data_[i]);
   }
   return ret;
+}
+
+template <std::size_t N, class T>
+inline T Vector<N, T>::sum() const {
+  return std::accumulate(data_.begin(), data_.end(), 0);
 }
 
 }  // namespace mu
