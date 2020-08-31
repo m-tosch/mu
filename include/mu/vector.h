@@ -11,6 +11,7 @@
 
 #include "mu/typetraits.h"
 
+
 namespace mu {
 /**
  * @brief A generic vector
@@ -263,6 +264,14 @@ class Vector {
    */
   T sum() const;
 
+  /**
+   * @brief dot product of two vectors
+   *
+   * @param other
+   * @return T
+   */
+  T dot(const Vector<N, T> &other) const;
+
  protected:
   std::array<T, N> data_;
 };
@@ -287,7 +296,20 @@ inline T Vector<N, T>::max() const {
 
 template <std::size_t N, class T>
 inline T Vector<N, T>::sum() const {
-  return std::accumulate(data_.begin(), data_.end(), 0);
+  T ret(data_[0]);
+  for (std::size_t i = 1; i < N; i++) {
+    ret += data_[i];
+  }
+  return ret;
+}
+
+template <std::size_t N, class T>
+inline T Vector<N, T>::dot(const Vector<N, T> &other) const {
+  T ret{};
+  for (std::size_t i = 0; i < N; i++) {
+    ret += data_[i] * other.data_[i];
+  }
+  return ret;
 }
 
 }  // namespace mu
