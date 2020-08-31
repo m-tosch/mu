@@ -10,3 +10,4 @@
 # coverage
 /coverage/html_gcov
 /coverage/html_llvm
+*.profraw
