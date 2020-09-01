@@ -5,10 +5,12 @@
 #include <gtest/gtest.h>
 
 #include <algorithm>
+#include <cmath>
 #include <numeric>
 #include <tuple>
 #include <type_traits>
 #include <utility>
+
 
 /**
  * @brief test suite for objects of type "Vector"
@@ -251,6 +253,17 @@ TYPED_TEST_P(VectorTypeFixture, MemberFuncSum) {
   EXPECT_EQ(sum, std::accumulate(this->values.begin(), this->values.end(), 0));
 }
 
+TYPED_TEST_P(VectorTypeFixture, MemberFuncLength) {
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  typename TypeParam::value_type len = obj.length();
+  /** assert */
+  typename TypeParam::value_type comp =
+      std::sqrt(std::inner_product(obj.begin(), obj.end(), obj.begin(), 0));
+  EXPECT_EQ(len, comp);
+}
+
 REGISTER_TYPED_TEST_SUITE_P(
     VectorTypeFixture, ConstructorDefault, DestructorDefault,
     ConstructorFromArray, ConstructorFromSingleValue, ConstructorCopy,
@@ -259,6 +272,7 @@ REGISTER_TYPED_TEST_SUITE_P(
     OperatorNotEqualValuesMatch, OperatorNotEqualValuesDontMatch,
     OperatorBrackets, OperatorBracketsConst, MemberFuncAt, MemberFuncAtConst,
     MemberFuncSize, MemberFuncBegin, MemberFuncBeginConst, MemberFuncEnd,
-    MemberFuncEndConst, MemberFuncMin, MemberFuncMax, MemberFuncSum);
+    MemberFuncEndConst, MemberFuncMin, MemberFuncMax, MemberFuncSum,
+    MemberFuncLength);
 
 #endif  // TESTS_VECTOR_TYPE_H_
