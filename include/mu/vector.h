@@ -5,6 +5,7 @@
 
 #include <algorithm>
 #include <array>
+#include <cmath>
 #include <initializer_list>
 #include <numeric>
 #include <type_traits>
@@ -271,6 +272,15 @@ class Vector {
    * @return T
    */
   T dot(const Vector<N, T> &other) const;
+
+  /**
+   * @brief euclidean vector length
+   *
+   * result may not be precise for non-floating point types.
+   *
+   * @return T
+   */
+  T length() const { return T(std::sqrt(dot(*this))); }
 
  protected:
   std::array<T, N> data_;
