@@ -86,3 +86,17 @@ TYPED_TEST(Vector2DTypeFixture, MemberVarYConst) {
   /** assert */
   EXPECT_EQ(y, this->y);
 }
+
+//  // TODO
+// TYPED_TEST(Vector2DTypeFixture, MemberFuncRotate) {
+
+//   if constexpr (std::is_floating_point_v<typename TypeParam::value_type>) {
+//     /** arrange */
+//     TypeParam obj{1, 0};
+//     /** action */
+//     obj.rotate(1.57F);
+//     /** assert */
+//     EXPECT_FLOAT_EQ(obj.x(), 0);
+//     EXPECT_FLOAT_EQ(obj.y(), 1);
+//   }
+// }
