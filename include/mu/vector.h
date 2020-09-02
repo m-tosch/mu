@@ -12,7 +12,6 @@
 
 #include "mu/typetraits.h"
 
-
 namespace mu {
 /**
  * @brief A generic vector
@@ -287,6 +286,12 @@ class Vector {
       const {
     return T(std::sqrt(dot(*this)));
   }
+
+  /**
+   * @brief flips this vector, i.e. reverses its elements
+   *
+   */
+  void flip() { std::reverse(begin(), end()); }
 
  protected:
   std::array<T, N> data_;
