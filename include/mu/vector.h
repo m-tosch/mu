@@ -177,7 +177,7 @@ class Vector {
    * @param idx
    * @return T&
    */
-  T &operator[](int idx) noexcept { return data_[idx]; }
+  T &operator[](std::size_t idx) noexcept { return data_[idx]; }
 
   /**
    * @brief const access an element within the vector
@@ -187,7 +187,7 @@ class Vector {
    * @param idx
    * @return const T&
    */
-  const T &operator[](int idx) const noexcept { return data_[idx]; }
+  const T &operator[](std::size_t idx) const noexcept { return data_[idx]; }
 
   /**
    * @brief access an element within the vector
@@ -196,7 +196,7 @@ class Vector {
    * @param idx
    * @return T&
    */
-  T &at(int idx) { return data_.at(idx); }
+  T &at(std::size_t idx) { return data_.at(idx); }
 
   /**
    * @brief const access an element within the vector
@@ -205,7 +205,7 @@ class Vector {
    * @param idx
    * @return const T&
    */
-  const T &at(int idx) const { return data_.at(idx); }
+  const T &at(std::size_t idx) const { return data_.at(idx); }
 
   // STL container relevant
   /**
