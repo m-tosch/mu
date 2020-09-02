@@ -13,6 +13,7 @@
 
 #include "vector.h"
 
+
 /**
  * @brief test suite for objects of type "Vector"
  *
@@ -278,6 +279,17 @@ TYPED_TEST_P(VectorTypeFixture, MemberFuncFlip) {
   EXPECT_THAT(obj, ::testing::ContainerEq(comp));
 }
 
+TYPED_TEST_P(VectorTypeFixture, MemberFuncFlipped) {
+  /** arrange */
+  TypeParam obj1{this->values};
+  /** action */
+  TypeParam obj2 = obj1.flipped();
+  /** assert */
+  TypeParam comp{this->values};
+  std::reverse(comp.begin(), comp.end());
+  EXPECT_THAT(obj2, ::testing::ContainerEq(comp));
+}
+
 REGISTER_TYPED_TEST_SUITE_P(
     VectorTypeFixture, ConstructorDefault, DestructorDefault,
     ConstructorFromArray, ConstructorFromSingleValue, ConstructorCopy,
@@ -287,6 +299,6 @@ REGISTER_TYPED_TEST_SUITE_P(
     OperatorBrackets, OperatorBracketsConst, MemberFuncAt, MemberFuncAtConst,
     MemberFuncSize, MemberFuncBegin, MemberFuncBeginConst, MemberFuncEnd,
     MemberFuncEndConst, MemberFuncMin, MemberFuncMax, MemberFuncSum,
-    MemberFuncLength, MemberFuncFlip);
+    MemberFuncLength, MemberFuncFlip, MemberFuncFlipped);
 
 #endif  // TESTS_VECTOR_TYPE_H_
