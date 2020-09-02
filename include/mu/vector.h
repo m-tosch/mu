@@ -12,6 +12,7 @@
 
 #include "mu/typetraits.h"
 
+
 namespace mu {
 /**
  * @brief A generic vector
@@ -290,8 +291,21 @@ class Vector {
   /**
    * @brief flips this vector, i.e. reverses its elements
    *
+   * For example: (1,2,3) becomes (3,2,1)
    */
   void flip() { std::reverse(begin(), end()); }
+
+  /**
+   * @brief returns a flipped vector
+   *
+   * @see @ref flip()
+   * @return Vector<N, T>
+   */
+  Vector<N, T> flipped() {
+    Vector<N, T> ret(*this);
+    ret.flip();
+    return ret;
+  }
 
  protected:
   std::array<T, N> data_;
