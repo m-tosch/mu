@@ -71,6 +71,14 @@ class Vector2D : public Vector<2, T> {
     Vector<2, T>::data_[0] = ((kX * std::cos(angle)) - (kY * std::sin(angle)));
     Vector<2, T>::data_[1] = ((kX * std::sin(angle)) + (kY * std::cos(angle)));
   }
+
+  template <class U = T>
+  typename std::enable_if<std::is_floating_point<U>::value, Vector2D<T>>::type
+  rotated(T angle) {
+    Vector2D<T> ret(*this);
+    ret.rotate(angle);
+    return ret;
+  }
 };
 
 }  // namespace mu
