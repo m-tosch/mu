@@ -72,6 +72,14 @@ class Vector2D : public Vector<2, T> {
     Vector<2, T>::data_[1] = ((kX * std::sin(angle)) + (kY * std::cos(angle)));
   }
 
+  /**
+   * @brief returns a rotated Vector2D
+   *
+   * @see @ref rotate()
+   * @tparam T
+   * @param angle
+   * @return std::enable_if<std::is_floating_point<U>::value, Vector2D<T>>::type
+   */
   template <class U = T>
   typename std::enable_if<std::is_floating_point<U>::value, Vector2D<T>>::type
   rotated(T angle) {
