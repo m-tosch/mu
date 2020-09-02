@@ -12,7 +12,6 @@
 
 #include "mu/typetraits.h"
 
-
 namespace mu {
 /**
  * @brief A generic vector
@@ -280,10 +279,10 @@ class Vector {
    * this vector
    *
    * @tparam T
-   * @return std::enable_if<std::is_floating_point<F>::value, T>::type
+   * @return std::enable_if<std::is_floating_point<U>::value, T>::type
    */
-  template <class F = T>
-  typename std::enable_if<std::is_floating_point<F>::value, T>::type length()
+  template <class U = T>
+  typename std::enable_if<std::is_floating_point<U>::value, T>::type length()
       const {
     return T(std::sqrt(dot(*this)));
   }
