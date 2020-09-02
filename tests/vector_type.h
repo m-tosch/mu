@@ -267,6 +267,17 @@ TYPED_TEST_P(VectorTypeFixture, MemberFuncLength) {
   }
 }
 
+TYPED_TEST_P(VectorTypeFixture, MemberFuncFlip) {
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  obj.flip();
+  /** assert */
+  TypeParam comp{this->values};
+  std::reverse(comp.begin(), comp.end());
+  EXPECT_THAT(obj, ::testing::ContainerEq(comp));
+}
+
 REGISTER_TYPED_TEST_SUITE_P(
     VectorTypeFixture, ConstructorDefault, DestructorDefault,
     ConstructorFromArray, ConstructorFromSingleValue, ConstructorCopy,
@@ -276,6 +287,6 @@ REGISTER_TYPED_TEST_SUITE_P(
     OperatorBrackets, OperatorBracketsConst, MemberFuncAt, MemberFuncAtConst,
     MemberFuncSize, MemberFuncBegin, MemberFuncBeginConst, MemberFuncEnd,
     MemberFuncEndConst, MemberFuncMin, MemberFuncMax, MemberFuncSum,
-    MemberFuncLength);
+    MemberFuncLength, MemberFuncFlip);
 
 #endif  // TESTS_VECTOR_TYPE_H_
