@@ -12,6 +12,7 @@
 
 #include "mu/typetraits.h"
 
+
 namespace mu {
 /**
  * @brief A generic vector
@@ -275,11 +276,17 @@ class Vector {
   /**
    * @brief euclidean vector length
    *
-   * result may not be precise for non-floating point types.
+   * only enabled for floating point types. returns the length as the type of
+   * this vector
    *
-   * @return T
+   * @tparam T
+   * @return std::enable_if<std::is_floating_point<F>::value, T>::type
    */
-  T length() const { return T(std::sqrt(dot(*this))); }
+  template <class F = T>
+  typename std::enable_if<std::is_floating_point<F>::value, T>::type length()
+      const {
+    return T(std::sqrt(dot(*this)));
+  }
 
  protected:
   std::array<T, N> data_;
