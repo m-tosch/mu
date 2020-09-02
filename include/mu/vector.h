@@ -12,7 +12,6 @@
 
 #include "mu/typetraits.h"
 
-
 namespace mu {
 /**
  * @brief A generic vector
@@ -320,6 +319,13 @@ inline T Vector<N, T>::dot(const Vector<N, T> &other) const {
     ret += data_[i] * other.data_[i];
   }
   return ret;
+}
+
+/************************** convenience functions *****************************/
+
+template <std::size_t N, class T>
+inline T dot(const Vector<N, T> &lhs, const Vector<N, T> &rhs) {
+  return lhs.dot(rhs);
 }
 
 }  // namespace mu
