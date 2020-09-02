@@ -55,6 +55,22 @@ class Vector2D : public Vector<2, T> {
    * @return const T&
    */
   const T& y() const noexcept { return Vector<2, T>::data_[1]; }
+
+  /**
+   * @brief rotates this vector by an angle [rad]
+   *
+   * @tparam T
+   * @param angle
+   * @return std::enable_if<std::is_floating_point<U>::value, void>::type
+   */
+  template <class U = T>
+  typename std::enable_if<std::is_floating_point<U>::value, void>::type rotate(
+      T angle) {
+    const T kX = x();
+    const T kY = y();
+    Vector<2, T>::data_[0] = ((kX * std::cos(angle)) - (kY * std::sin(angle)));
+    Vector<2, T>::data_[1] = ((kX * std::sin(angle)) + (kY * std::cos(angle)));
+  }
 };
 
 }  // namespace mu
