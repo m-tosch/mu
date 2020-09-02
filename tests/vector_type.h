@@ -11,6 +11,7 @@
 #include <type_traits>
 #include <utility>
 
+#include "vector.h"
 
 /**
  * @brief test suite for objects of type "Vector"
@@ -254,14 +255,16 @@ TYPED_TEST_P(VectorTypeFixture, MemberFuncSum) {
 }
 
 TYPED_TEST_P(VectorTypeFixture, MemberFuncLength) {
-  /** arrange */
-  TypeParam obj{this->values};
-  /** action */
-  typename TypeParam::value_type len = obj.length();
-  /** assert */
-  typename TypeParam::value_type comp =
-      std::sqrt(std::inner_product(obj.begin(), obj.end(), obj.begin(), 0));
-  EXPECT_EQ(len, comp);
+  if constexpr (std::is_floating_point_v<typename TypeParam::value_type>) {
+    /** arrange */
+    TypeParam obj{this->values};
+    /** action */
+    typename TypeParam::value_type len = obj.length();
+    /** assert */
+    typename TypeParam::value_type comp =
+        std::sqrt(std::inner_product(obj.begin(), obj.end(), obj.begin(), 0));
+    EXPECT_EQ(len, comp);
+  }
 }
 
 REGISTER_TYPED_TEST_SUITE_P(
