@@ -99,3 +99,13 @@ TYPED_TEST(VectorCombinationsFixture, MemberFuncDot) {
   /** assert */
   EXPECT_EQ(res, std::inner_product(obj1.begin(), obj1.end(), obj2.begin(), 0));
 }
+
+TYPED_TEST(VectorCombinationsFixture, UtilityFuncDot) {
+  /** arrange */
+  typename TestFixture::T1 obj1{this->values};
+  typename TestFixture::T2 obj2{this->values};
+  /** action */
+  typename TestFixture::T1::value_type res = dot(obj1, obj2);
+  /** assert */
+  EXPECT_EQ(res, std::inner_product(obj1.begin(), obj1.end(), obj2.begin(), 0));
+}
