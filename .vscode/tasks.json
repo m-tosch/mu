@@ -51,7 +51,7 @@
     {
       "label": "generate coverage (llvm)",
       "type": "shell",
-      "command": " ./coverage_llvm.sh",
+      "command": "./coverage_llvm.sh",
       "options": {
         "cwd": "${workspaceRoot}/coverage"
       },
