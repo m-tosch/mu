@@ -1,7 +1,7 @@
 # <font size="7"> μ </font>
 
 [![](https://github.com/m-tosch/mu/workflows/cmake/badge.svg)](https://github.com/m-tosch/mu/actions?query=workflow%3ACMake)
-[![](https://github.com/m-tosch/mu/workflows/doc/badge.svg)](https://github.com/m-tosch/mu/actions?query=workflow%3Adoc)
+[![](https://github.com/m-tosch/mu/workflows/doc/badge.svg)](https://m-tosch.github.io/mu/index.html)
 
 A small, simple c++ math library
 
