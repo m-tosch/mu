@@ -5,7 +5,7 @@
 .clangd
 
 # docs
-doc/html/
+#/doc/html
 
 # coverage
 /coverage/html_gcov
