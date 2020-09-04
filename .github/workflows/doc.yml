@@ -1,0 +1,32 @@
+name: doc
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build doxygen
+        uses: mattnotmitt/doxygen-action@v1
+        with:
+          working-directory: '.'
+          doxyfile-path: 'doc'
+
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          personal_token: ${{ secrets.DEPLOY_TOKEN }}
+          publish_dir: ./doc/html
+          publish_branch: gh-pages
+          allow_empty_commit: false
+          keep_files: false
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          commit_message: ${{ github.event.head_commit.message }}
