@@ -12,6 +12,7 @@
 
 #include "mu/typetraits.h"
 
+
 namespace mu {
 /**
  * @brief A generic vector
@@ -112,7 +113,7 @@ class Vector {
         return false;
       }
     }
-    return true;
+    return true
   }
 
   /**
