@@ -16,7 +16,6 @@ jobs:
         run: |
           sudo apt-get install -y doxygen
           sudo apt-get install -y graphviz
-          sudo apt-get install -y ttf-freefont
           cd doc/
           doxygen Doxyfile
 
