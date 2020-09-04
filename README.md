@@ -1,5 +1,7 @@
 # <font size="7"> μ </font>
 
+![build](https://github.com/m-tosch/mu/workflows/CMake/badge.svg)
+
 A small, simple c++ math library
 
 ## Usage
