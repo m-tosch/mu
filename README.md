@@ -17,7 +17,7 @@ TODO
 
 ## Documentation
 
-The documentation can be found [TODO](https://github.com)
+The documentation can be found [here](https://m-tosch.github.io/mu/index.html)
 
 You can generate the documentation locally from the command line inside the `doc` folder:
 
