@@ -6,10 +6,11 @@
 #include "vector_type.h"
 
 /**
- * Instantiate this template class explicitly so that all functions
- * are generated and thus, the coverage report is complete.
+ * Instantiate this template class and template functions explicitly so that all
+ * functions are generated and thus, the coverage report is accurate.
  */
 template class mu::Vector2D<float>;
+template void mu::Vector2D<float>::rotate<float>(float);
 
 /**
  * Instantiate the Vector test suite
@@ -34,6 +35,16 @@ class Vector2DTypeFixture : public VectorTypeFixture<T> {
 };
 
 TYPED_TEST_SUITE(Vector2DTypeFixture, Vector2DTypes);
+
+// TYPED_TEST(Vector2DTypeFixture, testTestTestTest) {
+//   /** arrange */
+//   mu::Vector2D<int> a = {1, 2};
+//   // float len1 = a.length();
+//   mu::Vector2D<float> b{a};
+//   float len2 = b.length();
+//   /** assert */
+//   EXPECT_TRUE(true);
+// }
 
 TYPED_TEST(Vector2DTypeFixture, ConstructorXY) {
   /** arrange */
