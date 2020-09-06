@@ -108,7 +108,7 @@ class Vector {
    */
   bool operator==(const Vector<N, T> &rhs) const {
     for (std::size_t i = 0; i < N; i++) {
-      if (!TypeTraits<T>::equals(data_[i], rhs.data_[i])) {
+      if (!mu::TypeTraits<T>::equals(data_[i], rhs.data_[i])) {
         return false;
       }
     }
@@ -308,7 +308,7 @@ class Vector {
 
  protected:
   std::array<T, N> data_;
-};
+};  // namespace mu
 
 template <std::size_t N, class T>
 inline T Vector<N, T>::min() const {
