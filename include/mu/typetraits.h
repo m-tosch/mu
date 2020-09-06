@@ -72,7 +72,6 @@ constexpr bool TypeTraitsFloatingPoint<T>::equals(const T lhs, const T rhs) {
   const T kAbsDiff = std::abs(lhs - rhs);
   /* Either value is zero or extremely close to it, relative error is less
    * meaningful here */
-  const T foo = std::numeric_limits<T>::min();
   if (lhs == 0 || rhs == 0 || kAbsDiff < std::numeric_limits<T>::min()) {
     return kAbsDiff <
            (TypeTraits<T>::epsilon() * std::numeric_limits<T>::min());
