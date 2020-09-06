@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['length',['length',['../classmu_1_1Vector.html#ae5369ec700e2bbe32386850fea7adc1f',1,'mu::Vector']]]
+  ['length',['length',['../classmu_1_1Vector.html#afe4d3c4dfa03eb4c8f9240f89c7f6139',1,'mu::Vector']]]
 ];
