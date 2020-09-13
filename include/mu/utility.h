@@ -6,12 +6,26 @@
 
 namespace mu {
 
+/**
+ * @brief sine
+ *
+ * @tparam T floating point type
+ * @param value
+ * @return std::enable_if<std::is_floating_point<T>::value, T>::type
+ */
 template <typename T>
 typename std::enable_if<std::is_floating_point<T>::value, T>::type sin(
     T value) {
   return std::sin(value);
 }
 
+/**
+ * @brief cosine
+ *
+ * @tparam T floating point type
+ * @param value
+ * @return std::enable_if<std::is_floating_point<T>::value, T>::type
+ */
 template <typename T>
 typename std::enable_if<std::is_floating_point<T>::value, T>::type cos(
     T value) {
