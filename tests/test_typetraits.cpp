@@ -26,7 +26,7 @@ TYPED_TEST(TypeTraitsFixture, EqualsAbsolute) {
   /** arrange */
   TypeParam lhs = 1.0;
   TypeParam rhs = 1.0;
-  /** \action */
+  /** action */
   bool res = mu::TypeTraits<TypeParam>::equals(lhs, rhs);
   /** assert */
   EXPECT_TRUE(res);
@@ -39,7 +39,7 @@ TYPED_TEST(TypeTraitsFixture, EqualsCloseToZero) {
    * correct condition (close to zero)*/
   TypeParam lhs = 0.1 * std::numeric_limits<TypeParam>::min();
   TypeParam rhs = 0.2 * std::numeric_limits<TypeParam>::min();
-  /** \action */
+  /** action */
   bool res = mu::TypeTraits<TypeParam>::equals(lhs, rhs);
   /** assert */
   EXPECT_FALSE(res);
@@ -52,7 +52,7 @@ TYPED_TEST(TypeTraitsFixture, EqualsRelative) {
    * correct condition (relative error)*/
   TypeParam lhs = 100 * std::numeric_limits<TypeParam>::min();
   TypeParam rhs = 200 * std::numeric_limits<TypeParam>::min();
-  /** \action */
+  /** action */
   bool res = mu::TypeTraits<TypeParam>::equals(lhs, rhs);
   /** assert */
   EXPECT_FALSE(res);
