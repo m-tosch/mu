@@ -2,6 +2,7 @@ var hierarchy =
 [
     [ "Test", null, [
       [ "TypeTraitsFixture< T >", "classTypeTraitsFixture.html", null ],
+      [ "UtilityFixture< T >", "classUtilityFixture.html", null ],
       [ "VectorTypeFixture< T >", "classVectorTypeFixture.html", [
         [ "Vector2DTypeFixture< T >", "classVector2DTypeFixture.html", null ],
         [ "Vector3DTypeFixture< T >", "classVector3DTypeFixture.html", null ]
