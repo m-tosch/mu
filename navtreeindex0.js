@@ -80,6 +80,7 @@ var NAVTREEINDEX0 =
 "functions_func.html":[1,3,1],
 "hierarchy.html":[1,2],
 "index.html":[],
+"literals_8h_source.html":[2,0,0,0,0],
 "md__home_runner_work_mu_mu_README.html":[0],
 "pages.html":[],
 "structmu_1_1TypeTraits.html":[1,0,0,0],
@@ -89,10 +90,10 @@ var NAVTREEINDEX0 =
 "structmu_1_1TypeTraits_3_01double_01_4.html":[1,0,0,1],
 "structmu_1_1TypeTraits_3_01float_01_4.html":[1,0,0,2],
 "structmu_1_1TypeTraits_3_01long_01double_01_4.html":[1,0,0,3],
-"typetraits_8h_source.html":[2,0,0,0,0],
-"utility_8h_source.html":[2,0,0,0,1],
-"vector2d_8h_source.html":[2,0,0,0,3],
-"vector3d_8h_source.html":[2,0,0,0,4],
-"vector_8h_source.html":[2,0,0,0,2],
+"typetraits_8h_source.html":[2,0,0,0,1],
+"utility_8h_source.html":[2,0,0,0,2],
+"vector2d_8h_source.html":[2,0,0,0,4],
+"vector3d_8h_source.html":[2,0,0,0,5],
+"vector_8h_source.html":[2,0,0,0,3],
 "vector__type_8h_source.html":[2,0,1,0]
 };
