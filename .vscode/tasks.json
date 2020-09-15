@@ -4,7 +4,7 @@
     {
       "label": "build",
       "type": "shell",
-      "command": "mkdir -p ${workspaceRoot}/build && cd ${workspaceRoot}/build && cmake .. -G \"Unix Makefiles\" && cmake --build .",
+      "command": "mkdir -p ${workspaceRoot}/build && cd ${workspaceRoot}/build && cmake .. -G \"Unix Makefiles\" && cmake --build . -- -j8",
       "group": {
         "kind": "build",
         "isDefault": true
