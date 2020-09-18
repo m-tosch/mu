@@ -5,7 +5,9 @@
 
 namespace mu {
 
-const double pi = std::acos(-1);
+constexpr float kPI = M_PI;
+constexpr float kPI2 = M_PI_2;
+constexpr float kPI4 = M_PI_4;
 
 }  // namespace mu
 
