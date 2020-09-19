@@ -9,6 +9,8 @@ namespace mu {
 /**
  * @brief sine
  *
+ * computes the sine of the input value in radians
+ *
  * @tparam T floating point type
  * @param value
  * @return std::enable_if<std::is_floating_point<T>::value, T>::type
@@ -21,6 +23,8 @@ typename std::enable_if<std::is_floating_point<T>::value, T>::type sin(
 
 /**
  * @brief cosine
+ *
+ * computes the cosine of the input value in radians
  *
  * @tparam T floating point type
  * @param value
