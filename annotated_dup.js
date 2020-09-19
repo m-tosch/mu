@@ -11,7 +11,7 @@ var annotated_dup =
       [ "Vector3D", "classmu_1_1Vector3D.html", "classmu_1_1Vector3D" ]
     ] ],
     [ "TypeTraitsFixture", "classTypeTraitsFixture.html", null ],
-    [ "UtilityFixture", "classUtilityFixture.html", null ],
+    [ "UtilityFixture", "classUtilityFixture.html", "classUtilityFixture" ],
     [ "Vector2DTypeFixture", "classVector2DTypeFixture.html", "classVector2DTypeFixture" ],
     [ "Vector3DTypeFixture", "classVector3DTypeFixture.html", "classVector3DTypeFixture" ],
     [ "VectorCombinationsFixture", "classVectorCombinationsFixture.html", "classVectorCombinationsFixture" ],

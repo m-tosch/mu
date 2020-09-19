@@ -2,6 +2,7 @@ var hierarchy =
 [
     [ "Test", null, [
       [ "TypeTraitsFixture< T >", "classTypeTraitsFixture.html", null ],
+      [ "UtilityFixture< T >", "classUtilityFixture.html", null ],
       [ "VectorTypeFixture< T >", "classVectorTypeFixture.html", [
         [ "Vector2DTypeFixture< T >", "classVector2DTypeFixture.html", null ],
         [ "Vector3DTypeFixture< T >", "classVector3DTypeFixture.html", null ]
@@ -9,9 +10,6 @@ var hierarchy =
       [ "VectorTypeFixture< std::tuple_element< 0, T >::type >", "classVectorTypeFixture.html", [
         [ "VectorCombinationsFixture< T >", "classVectorCombinationsFixture.html", null ]
       ] ]
-    ] ],
-    [ "TestWithParam", null, [
-      [ "UtilityFixture", "classUtilityFixture.html", null ]
     ] ],
     [ "mu::TypeTraits< T >", "structmu_1_1TypeTraits.html", null ],
     [ "mu::TypeTraitsFloatingPoint< T >", "structmu_1_1TypeTraitsFloatingPoint.html", null ],
