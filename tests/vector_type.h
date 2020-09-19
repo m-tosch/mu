@@ -5,6 +5,7 @@
 #include <gtest/gtest.h>
 
 #include <algorithm>
+#include <array>
 #include <cmath>
 #include <numeric>
 #include <tuple>
@@ -12,7 +13,6 @@
 #include <utility>
 
 #include "vector.h"
-
 
 /**
  * @brief test suite for objects of type "Vector"
