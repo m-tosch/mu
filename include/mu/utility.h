@@ -37,6 +37,21 @@ typename std::enable_if<std::is_floating_point<T>::value, T>::type cos(
 }
 
 /**
+ * @brief tangens
+ *
+ * computes the tangens of the input value in radians
+ *
+ * @tparam T floating point type
+ * @param value
+ * @return std::enable_if<std::is_floating_point<T>::value, T>::type
+ */
+template <typename T>
+typename std::enable_if<std::is_floating_point<T>::value, T>::type tan(
+    T value) {
+  return std::tan(value);
+}
+
+/**
  * @brief arc sine
  *
  * computes the arc sine of the input value in radians
