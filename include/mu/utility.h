@@ -96,6 +96,22 @@ typename std::enable_if<std::is_floating_point<T>::value, T>::type atan(
   return std::atan(value);
 }
 
+/**
+ * @brief arc tangent 2
+ *
+ * computes the arc tangent of y/x using the signs of arguments to determine the
+ * correct quadrant
+ *
+ * @tparam T floating point type
+ * @param value
+ * @return std::enable_if<std::is_floating_point<T>::value, T>::type
+ */
+template <typename T>
+typename std::enable_if<std::is_floating_point<T>::value, T>::type atan2(T y,
+                                                                         T x) {
+  return std::atan2(y, x);
+}
+
 }  // namespace mu
 
 #endif  // MU_UTILITY_H_

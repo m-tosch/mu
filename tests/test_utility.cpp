@@ -17,7 +17,7 @@ template float mu::tan<float>(float);
 template float mu::asin<float>(float);
 template float mu::acos<float>(float);
 template float mu::atan<float>(float);
-template float mu::atan2<float>(float);
+template float mu::atan2<float>(float, float);
 
 /*
  * floating point types
