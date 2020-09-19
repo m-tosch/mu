@@ -13,8 +13,10 @@
  */
 template float mu::sin<float>(float);
 template float mu::cos<float>(float);
+template float mu::tan<float>(float);
 template float mu::asin<float>(float);
 template float mu::acos<float>(float);
+template float mu::atan<float>(float);
 
 /*
  * floating point types
