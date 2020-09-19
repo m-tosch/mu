@@ -51,6 +51,21 @@ typename std::enable_if<std::is_floating_point<T>::value, T>::type asin(
   return std::asin(value);
 }
 
+/**
+ * @brief arc cosine
+ *
+ * computes the arc cosine of the input value in radians
+ *
+ * @tparam T floating point type
+ * @param value
+ * @return std::enable_if<std::is_floating_point<T>::value, T>::type
+ */
+template <typename T>
+typename std::enable_if<std::is_floating_point<T>::value, T>::type acos(
+    T value) {
+  return std::acos(value);
+}
+
 }  // namespace mu
 
 #endif  // MU_UTILITY_H_
