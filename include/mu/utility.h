@@ -37,9 +37,9 @@ typename std::enable_if<std::is_floating_point<T>::value, T>::type cos(
 }
 
 /**
- * @brief tangens
+ * @brief tangent
  *
- * computes the tangens of the input value in radians
+ * computes the tangent of the input value in radians
  *
  * @tparam T floating point type
  * @param value
@@ -79,6 +79,21 @@ template <typename T>
 typename std::enable_if<std::is_floating_point<T>::value, T>::type acos(
     T value) {
   return std::acos(value);
+}
+
+/**
+ * @brief arc tangent
+ *
+ * computes the arc tangent of the input value in radians
+ *
+ * @tparam T floating point type
+ * @param value
+ * @return std::enable_if<std::is_floating_point<T>::value, T>::type
+ */
+template <typename T>
+typename std::enable_if<std::is_floating_point<T>::value, T>::type atan(
+    T value) {
+  return std::atan(value);
 }
 
 }  // namespace mu
