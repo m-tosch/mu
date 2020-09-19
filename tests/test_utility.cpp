@@ -31,10 +31,12 @@ class UtilityFixture : public ::testing::Test {
 
 TYPED_TEST_SUITE(UtilityFixture, FloatingPointTypes);
 
+/* some of the tests use mu TypeTraits to ensure the correct comparison of
+ * floating point types as opposed to e.g. using gtest's EXPECT_FLOAT_EQ which
+ * is designed to compare float values*/
+
 TYPED_TEST(UtilityFixture, Sin) {
   /** action & assert */
-  /* using mu TypeTraits ensures the correct comparison of floating point types
-   * as opposed to e.g. gtest's EXPECT_FLOAT_EQ */
   for (TypeParam value : this->pi_values) {
     EXPECT_TRUE(
         mu::TypeTraits<TypeParam>::equals(mu::sin(value), std::sin(value)));
@@ -43,8 +45,6 @@ TYPED_TEST(UtilityFixture, Sin) {
 
 TYPED_TEST(UtilityFixture, Cos) {
   /** action & assert */
-  /* using mu TypeTraits ensures the correct comparison of floating point types
-   * as opposed to e.g. gtest's EXPECT_FLOAT_EQ */
   for (TypeParam value : this->pi_values) {
     EXPECT_TRUE(
         mu::TypeTraits<TypeParam>::equals(mu::cos(value), std::cos(value)));
