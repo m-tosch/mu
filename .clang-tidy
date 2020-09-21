@@ -33,3 +33,7 @@ CheckOptions:
   - { key: readability-identifier-naming.ClassConstantPrefix,    value: 'k'        }
   - { key: readability-identifier-naming.LocalConstantCase,      value: CamelCase  }
   - { key: readability-identifier-naming.LocalConstantPrefix,    value: 'k'        }
+  - { key: readability-identifier-naming.ConstexprVariableCase,    value: 'UPPER_CASE' }
+  - { key: readability-identifier-naming.ConstexprVariablePrefix,  value: ''           }
+   
+   
