@@ -30,8 +30,8 @@ template <typename T>
 class UtilityFixture : public ::testing::Test {
  public:
   /* [-2pi | -pi | -pi/2 | -pi/4 | 0 | pi/4 | pi/2 | pi | 2pi] */
-  std::vector<T> pi_values = {-2 * mu::PI, -mu::PI, -mu::PI2, -mu::PI4,  0,
-                              mu::PI4,     mu::PI2, mu::PI,   2 * mu::PI};
+  std::vector<T> pi_values = {-2 * mu::pi, -mu::pi, -mu::pi2, -mu::pi4,  0,
+                              mu::pi4,     mu::pi2, mu::pi,   2 * mu::pi};
 };
 
 TYPED_TEST_SUITE(UtilityFixture, FloatingPointTypes);
