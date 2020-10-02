@@ -14,6 +14,7 @@
 
 #include "vector.h"
 
+
 /**
  * @brief test suite for objects of type "Vector"
  *
@@ -146,6 +147,7 @@ TYPED_TEST_P(VectorTypeFixture, OperatorBrackets) {
                 [&obj, i = 0]() mutable { return obj[i++]; });
   /** assert */
   EXPECT_THAT(res, ::testing::ContainerEq(obj));
+  EXPECT_TRUE(noexcept(obj[0]));
 }
 
 TYPED_TEST_P(VectorTypeFixture, OperatorBracketsConst) {
@@ -157,6 +159,7 @@ TYPED_TEST_P(VectorTypeFixture, OperatorBracketsConst) {
                 [&kObj, i = 0]() mutable { return kObj[i++]; });
   /** assert */
   EXPECT_THAT(res, ::testing::ContainerEq(kObj));
+  EXPECT_TRUE(noexcept(kObj[0]));
 }
 
 TYPED_TEST_P(VectorTypeFixture, MemberFuncAt) {
@@ -188,6 +191,7 @@ TYPED_TEST_P(VectorTypeFixture, MemberFuncSize) {
   typename TypeParam::size_type size = obj.size();
   /** assert */
   EXPECT_EQ(size, TypeParam().size());
+  EXPECT_TRUE(noexcept(obj.size()));
 }
 
 TYPED_TEST_P(VectorTypeFixture, MemberFuncBegin) {
@@ -197,6 +201,7 @@ TYPED_TEST_P(VectorTypeFixture, MemberFuncBegin) {
   typename TypeParam::value_type res = *obj.begin();
   /** assert */
   EXPECT_EQ(res, obj[0]);
+  EXPECT_TRUE(noexcept(*obj.begin()));
 }
 
 TYPED_TEST_P(VectorTypeFixture, MemberFuncBeginConst) {
@@ -206,6 +211,7 @@ TYPED_TEST_P(VectorTypeFixture, MemberFuncBeginConst) {
   typename TypeParam::value_type res = *kObj.begin();
   /** assert */
   EXPECT_EQ(res, kObj[0]);
+  EXPECT_TRUE(noexcept(*kObj.begin()));
 }
 
 TYPED_TEST_P(VectorTypeFixture, MemberFuncEnd) {
@@ -216,6 +222,7 @@ TYPED_TEST_P(VectorTypeFixture, MemberFuncEnd) {
   typename TypeParam::value_type res = *(obj.end() - 1);
   /** assert */
   EXPECT_EQ(res, obj[obj.size() - 1]);
+  EXPECT_TRUE(noexcept(*(obj.end() - 1)));
 }
 
 TYPED_TEST_P(VectorTypeFixture, MemberFuncEndConst) {
@@ -226,6 +233,7 @@ TYPED_TEST_P(VectorTypeFixture, MemberFuncEndConst) {
   typename TypeParam::value_type res = *(kObj.end() - 1);
   /** assert */
   EXPECT_EQ(res, kObj[kObj.size() - 1]);
+  EXPECT_TRUE(noexcept(*(kObj.end() - 1)));
 }
 
 TYPED_TEST_P(VectorTypeFixture, MemberFuncMin) {
