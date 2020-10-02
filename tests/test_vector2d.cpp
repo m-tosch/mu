@@ -69,6 +69,7 @@ TYPED_TEST(Vector2DTypeFixture, MemberVarX) {
   typename TypeParam::value_type x = obj.x();
   /** assert */
   EXPECT_EQ(x, this->x);
+  EXPECT_TRUE(noexcept(obj.x()));
 }
 
 TYPED_TEST(Vector2DTypeFixture, MemberVarXConst) {
@@ -78,6 +79,7 @@ TYPED_TEST(Vector2DTypeFixture, MemberVarXConst) {
   typename TypeParam::value_type x = kObj.x();
   /** assert */
   EXPECT_EQ(x, this->x);
+  EXPECT_TRUE(noexcept(kObj.x()));
 }
 
 TYPED_TEST(Vector2DTypeFixture, MemberVarY) {
@@ -87,6 +89,7 @@ TYPED_TEST(Vector2DTypeFixture, MemberVarY) {
   typename TypeParam::value_type y = obj.y();
   /** assert */
   EXPECT_EQ(y, this->y);
+  EXPECT_TRUE(noexcept(obj.y()));
 }
 
 TYPED_TEST(Vector2DTypeFixture, MemberVarYConst) {
@@ -96,6 +99,7 @@ TYPED_TEST(Vector2DTypeFixture, MemberVarYConst) {
   typename TypeParam::value_type y = kObj.y();
   /** assert */
   EXPECT_EQ(y, this->y);
+  EXPECT_TRUE(noexcept(kObj.y()));
 }
 
 //  // TODO
