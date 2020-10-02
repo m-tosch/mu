@@ -58,6 +58,7 @@ TYPED_TEST(Vector3DTypeFixture, MemberVarX) {
   typename TypeParam::value_type x = obj.x();
   /** assert */
   EXPECT_EQ(x, this->x);
+  EXPECT_TRUE(noexcept(obj.x()));
 }
 
 TYPED_TEST(Vector3DTypeFixture, MemberVarXConst) {
@@ -67,6 +68,7 @@ TYPED_TEST(Vector3DTypeFixture, MemberVarXConst) {
   typename TypeParam::value_type x = kObj.x();
   /** assert */
   EXPECT_EQ(x, this->x);
+  EXPECT_TRUE(noexcept(kObj.x()));
 }
 
 TYPED_TEST(Vector3DTypeFixture, MemberVarY) {
@@ -76,6 +78,7 @@ TYPED_TEST(Vector3DTypeFixture, MemberVarY) {
   typename TypeParam::value_type y = obj.y();
   /** assert */
   EXPECT_EQ(y, this->y);
+  EXPECT_TRUE(noexcept(obj.y()));
 }
 
 TYPED_TEST(Vector3DTypeFixture, MemberVarYConst) {
@@ -85,6 +88,7 @@ TYPED_TEST(Vector3DTypeFixture, MemberVarYConst) {
   typename TypeParam::value_type y = kObj.y();
   /** assert */
   EXPECT_EQ(y, this->y);
+  EXPECT_TRUE(noexcept(kObj.y()));
 }
 
 TYPED_TEST(Vector3DTypeFixture, MemberVarZ) {
@@ -94,6 +98,7 @@ TYPED_TEST(Vector3DTypeFixture, MemberVarZ) {
   typename TypeParam::value_type z = obj.z();
   /** assert */
   EXPECT_EQ(z, this->z);
+  EXPECT_TRUE(noexcept(obj.z()));
 }
 
 TYPED_TEST(Vector3DTypeFixture, MemberVarZConst) {
@@ -103,4 +108,5 @@ TYPED_TEST(Vector3DTypeFixture, MemberVarZConst) {
   typename TypeParam::value_type z = kObj.z();
   /** assert */
   EXPECT_EQ(z, this->z);
+  EXPECT_TRUE(noexcept(kObj.z()));
 }
