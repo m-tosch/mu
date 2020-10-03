@@ -34,11 +34,35 @@ TYPED_TEST_SUITE(UtilityFixture, FloatingPointTypes);
  * floating point types as opposed to e.g. using gtest's EXPECT_FLOAT_EQ which
  * is designed to compare float values*/
 
-TYPED_TEST(UtilityFixture, Sin) {
+TYPED_TEST(UtilityFixture, ACos) {
+  /** action & assert */
+  for (TypeParam i = -1.0; i <= 1.0; i += 1.0) {
+    EXPECT_TRUE(mu::TypeTraits<TypeParam>::equals(mu::acos(i), std::acos(i)));
+  }
+}
+
+TYPED_TEST(UtilityFixture, ASin) {
+  /** action & assert */
+  for (TypeParam i = -1.0; i <= 1.0; i += 1.0) {
+    EXPECT_TRUE(mu::TypeTraits<TypeParam>::equals(mu::asin(i), std::asin(i)));
+  }
+}
+
+TYPED_TEST(UtilityFixture, ATan) {
   /** action & assert */
   for (TypeParam value : this->pi_values) {
     EXPECT_TRUE(
-        mu::TypeTraits<TypeParam>::equals(mu::sin(value), std::sin(value)));
+        mu::TypeTraits<TypeParam>::equals(mu::atan(value), std::atan(value)));
+  }
+}
+
+TYPED_TEST(UtilityFixture, ATan2) {
+  /** action & assert */
+  for (TypeParam i = 1.0; i >= -1.0; i -= 2.0) {
+    for (TypeParam j = -1.0; j <= 1.0; j += 2.0) {
+      EXPECT_TRUE(
+          mu::TypeTraits<TypeParam>::equals(mu::atan2(i, j), std::atan2(i, j)));
+    }
   }
 }
 
@@ -47,5 +71,21 @@ TYPED_TEST(UtilityFixture, Cos) {
   for (TypeParam value : this->pi_values) {
     EXPECT_TRUE(
         mu::TypeTraits<TypeParam>::equals(mu::cos(value), std::cos(value)));
+  }
+}
+
+TYPED_TEST(UtilityFixture, Sin) {
+  /** action & assert */
+  for (TypeParam value : this->pi_values) {
+    EXPECT_TRUE(
+        mu::TypeTraits<TypeParam>::equals(mu::sin(value), std::sin(value)));
+  }
+}
+
+TYPED_TEST(UtilityFixture, Tan) {
+  /** action & assert */
+  for (TypeParam value : this->pi_values) {
+    EXPECT_TRUE(
+        mu::TypeTraits<TypeParam>::equals(mu::tan(value), std::tan(value)));
   }
 }
