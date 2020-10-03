@@ -1,116 +1,29 @@
 #ifndef MU_UTILITY_H_
 #define MU_UTILITY_H_
 
+#include <algorithm>
 #include <cmath>
-#include <type_traits>
 
 namespace mu {
 
-/**
- * @brief sine
- *
- * computes the sine of the input value in radians
- *
- * @tparam T floating point type
- * @param value
- * @return std::enable_if<std::is_floating_point<T>::value, T>::type
- */
-template <typename T>
-typename std::enable_if<std::is_floating_point<T>::value, T>::type sin(
-    T value) {
-  return std::sin(value);
-}
+  /* the purpose of this file is to use some general purpose math
+   * functions from inside the mu namespace. currently, std functions are used
+   * but the implementation may/can change through this abstraction.
+   * since the functions are "imported" using the "using" mechanism, they can't
+   * be explicitly instantiated. thus, no coverage is available. */
 
-/**
- * @brief cosine
- *
- * computes the cosine of the input value in radians
- *
- * @tparam T floating point type
- * @param value
- * @return std::enable_if<std::is_floating_point<T>::value, T>::type
- */
-template <typename T>
-typename std::enable_if<std::is_floating_point<T>::value, T>::type cos(
-    T value) {
-  return std::cos(value);
-}
+  /* algorithm */
+  using std::max;
+  using std::min;
 
-/**
- * @brief tangent
- *
- * computes the tangent of the input value in radians
- *
- * @tparam T floating point type
- * @param value
- * @return std::enable_if<std::is_floating_point<T>::value, T>::type
- */
-template <typename T>
-typename std::enable_if<std::is_floating_point<T>::value, T>::type tan(
-    T value) {
-  return std::tan(value);
-}
-
-/**
- * @brief arc sine
- *
- * computes the arc sine of the input value in radians
- *
- * @tparam T floating point type
- * @param value
- * @return std::enable_if<std::is_floating_point<T>::value, T>::type
- */
-template <typename T>
-typename std::enable_if<std::is_floating_point<T>::value, T>::type asin(
-    T value) {
-  return std::asin(value);
-}
-
-/**
- * @brief arc cosine
- *
- * computes the arc cosine of the input value in radians
- *
- * @tparam T floating point type
- * @param value
- * @return std::enable_if<std::is_floating_point<T>::value, T>::type
- */
-template <typename T>
-typename std::enable_if<std::is_floating_point<T>::value, T>::type acos(
-    T value) {
-  return std::acos(value);
-}
-
-/**
- * @brief arc tangent
- *
- * computes the arc tangent of the input value in radians
- *
- * @tparam T floating point type
- * @param value
- * @return std::enable_if<std::is_floating_point<T>::value, T>::type
- */
-template <typename T>
-typename std::enable_if<std::is_floating_point<T>::value, T>::type atan(
-    T value) {
-  return std::atan(value);
-}
-
-/**
- * @brief arc tangent 2
- *
- * computes the arc tangent of y/x using the signs of arguments to determine the
- * correct quadrant
- *
- * @tparam T floating point type
- * @param value
- * @return std::enable_if<std::is_floating_point<T>::value, T>::type
- */
-template <typename T>
-typename std::enable_if<std::is_floating_point<T>::value, T>::type atan2(T y,
-                                                                         T x) {
-  return std::atan2(y, x);
-}
+  /* cmath */
+  using std::acos;
+  using std::asin;
+  using std::atan;
+  using std::atan2;
+  using std::cos;
+  using std::sin;
+  using std::tan;
 
 }  // namespace mu
 

@@ -11,13 +11,7 @@
  * Instantiate the template functions explicitly so that all
  * functions are generated and thus, the coverage report is accurate.
  */
-template float mu::sin<float>(float);
-template float mu::cos<float>(float);
-template float mu::tan<float>(float);
-template float mu::asin<float>(float);
-template float mu::acos<float>(float);
-template float mu::atan<float>(float);
-template float mu::atan2<float>(float, float);
+// can't be done since currently, functions from the std namespace are used
 
 /*
  * floating point types
