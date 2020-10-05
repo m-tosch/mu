@@ -41,7 +41,7 @@ TYPED_TEST_SUITE(UtilityFixture, FloatingPointTypes);
  * floating point types as opposed to e.g. using gtest's EXPECT_FLOAT_EQ which
  * is designed to compare float values*/
 
-/*********************************algorithm************************************/
+/********************************<algorithm>***********************************/
 TYPED_TEST(UtilityFixture, max) {
   for (TypeParam v : this->minus_one_to_one) {
     for (TypeParam w : this->one_to_minus_one) {
@@ -60,7 +60,7 @@ TYPED_TEST(UtilityFixture, min) {
   }
 }
 
-/***********************************cmath**************************************/
+/**********************************<cmath>*************************************/
 TYPED_TEST(UtilityFixture, acos) {
   for (TypeParam v : this->minus_one_to_one) {
     EXPECT_TRUE(mu::TypeTraits<TypeParam>::equals(mu::acos(v), std::acos(v)));
