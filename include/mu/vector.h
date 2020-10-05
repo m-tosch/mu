@@ -8,10 +8,12 @@
 #include <cmath>
 #include <initializer_list>
 #include <numeric>
+#include <ostream>
 #include <type_traits>
 
 #include "mu/typetraits.h"
 #include "mu/utility.h"
+
 
 namespace mu {
 /**
@@ -324,6 +326,16 @@ class Vector {
   template <typename Compare>
   void sort(const Compare comp) {
     std::sort(begin(), end(), comp);
+  }
+
+  friend std::ostream &operator<<(std::ostream &os,
+                                  const Vector<N, T> &vector) {
+    os << "[ ";
+    for (auto v : vector.data_) {
+      os << v << " ";
+    }
+    os << "]";
+    return os;
   }
 
  protected:
