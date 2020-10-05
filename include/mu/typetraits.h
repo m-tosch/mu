@@ -5,6 +5,8 @@
 #include <cstdlib>
 #include <limits>
 
+#include "mu/utility.h"
+
 namespace mu {
 
 /**
@@ -67,9 +69,9 @@ constexpr bool TypeTraitsFloatingPoint<T>::equals(const T lhs, const T rhs) {
   if (lhs == rhs) {
     return true;
   }
-  const T kAbsLhs = std::abs(lhs);
-  const T kAbsRhs = std::abs(rhs);
-  const T kAbsDiff = std::abs(lhs - rhs);
+  const T kAbsLhs = mu::abs(lhs);
+  const T kAbsRhs = mu::abs(rhs);
+  const T kAbsDiff = mu::abs(lhs - rhs);
   /* Either value is zero or extremely close to it, relative error is less
    * meaningful here */
   if (lhs == 0 || rhs == 0 || kAbsDiff < std::numeric_limits<T>::min()) {

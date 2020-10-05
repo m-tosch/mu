@@ -13,6 +13,7 @@
 #include "mu/typetraits.h"
 #include "mu/utility.h"
 
+
 namespace mu {
 /**
  * @brief A generic vector
@@ -285,7 +286,7 @@ class Vector {
   template <class U = T>
   typename std::enable_if<std::is_floating_point<U>::value, T>::type length()
       const {
-    return T(std::sqrt(dot(*this)));
+    return T(mu::sqrt(dot(*this)));
   }
 
   /**
