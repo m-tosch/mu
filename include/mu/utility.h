@@ -17,12 +17,18 @@ using std::max;
 using std::min;
 
 /* cmath */
+using std::abs;
 using std::acos;
 using std::asin;
 using std::atan;
 using std::atan2;
 using std::cos;
+using std::exp;
+using std::exp2;
+using std::log;
+using std::log2;
 using std::sin;
+using std::sqrt;
 using std::tan;
 
 }  // namespace mu
