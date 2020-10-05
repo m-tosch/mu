@@ -26,6 +26,10 @@ class UtilityFixture : public ::testing::Test {
   /* [-2pi | -pi | -pi/2 | -pi/4 | 0 | pi/4 | pi/2 | pi | 2pi] */
   std::vector<T> pi_values = {-2 * mu::pi, -mu::pi, -mu::pi2, -mu::pi4,  0,
                               mu::pi4,     mu::pi2, mu::pi,   2 * mu::pi};
+  /* [-1 | 0 | 1] */
+  std::vector<T> minus_one_to_one = {-1, 0, 1};
+  /* [1 | 0 | -1] */
+  std::vector<T> one_to_minus_one = {1, 0, -1};
 };
 
 TYPED_TEST_SUITE(UtilityFixture, FloatingPointTypes);
@@ -35,39 +39,33 @@ TYPED_TEST_SUITE(UtilityFixture, FloatingPointTypes);
  * is designed to compare float values*/
 
 TYPED_TEST(UtilityFixture, acos) {
-  /** action & assert */
-  for (TypeParam i = -1.0; i <= 1.0; i += 1.0) {
-    EXPECT_TRUE(mu::TypeTraits<TypeParam>::equals(mu::acos(i), std::acos(i)));
+  for (TypeParam v : this->minus_one_to_one) {
+    EXPECT_TRUE(mu::TypeTraits<TypeParam>::equals(mu::acos(v), std::acos(v)));
   }
 }
 
 TYPED_TEST(UtilityFixture, asin) {
-  /** action & assert */
-  for (TypeParam i = -1.0; i <= 1.0; i += 1.0) {
-    EXPECT_TRUE(mu::TypeTraits<TypeParam>::equals(mu::asin(i), std::asin(i)));
+  for (TypeParam v : this->minus_one_to_one) {
+    EXPECT_TRUE(mu::TypeTraits<TypeParam>::equals(mu::asin(v), std::asin(v)));
   }
 }
 
 TYPED_TEST(UtilityFixture, atan) {
-  /** action & assert */
-  for (TypeParam value : this->pi_values) {
-    EXPECT_TRUE(
-        mu::TypeTraits<TypeParam>::equals(mu::atan(value), std::atan(value)));
+  for (TypeParam v : this->pi_values) {
+    EXPECT_TRUE(mu::TypeTraits<TypeParam>::equals(mu::atan(v), std::atan(v)));
   }
 }
 
 TYPED_TEST(UtilityFixture, atan2) {
-  /** action & assert */
-  for (TypeParam i = 1.0; i >= -1.0; i -= 2.0) {
-    for (TypeParam j = -1.0; j <= 1.0; j += 2.0) {
+  for (TypeParam v : this->minus_one_to_one) {
+    for (TypeParam w : this->minus_one_to_one) {
       EXPECT_TRUE(
-          mu::TypeTraits<TypeParam>::equals(mu::atan2(i, j), std::atan2(i, j)));
+          mu::TypeTraits<TypeParam>::equals(mu::atan2(v, w), std::atan2(v, w)));
     }
   }
 }
 
 TYPED_TEST(UtilityFixture, cos) {
-  /** action & assert */
   for (TypeParam value : this->pi_values) {
     EXPECT_TRUE(
         mu::TypeTraits<TypeParam>::equals(mu::cos(value), std::cos(value)));
@@ -75,7 +73,6 @@ TYPED_TEST(UtilityFixture, cos) {
 }
 
 TYPED_TEST(UtilityFixture, sin) {
-  /** action & assert */
   for (TypeParam value : this->pi_values) {
     EXPECT_TRUE(
         mu::TypeTraits<TypeParam>::equals(mu::sin(value), std::sin(value)));
@@ -83,7 +80,6 @@ TYPED_TEST(UtilityFixture, sin) {
 }
 
 TYPED_TEST(UtilityFixture, tan) {
-  /** action & assert */
   for (TypeParam value : this->pi_values) {
     EXPECT_TRUE(
         mu::TypeTraits<TypeParam>::equals(mu::tan(value), std::tan(value)));
