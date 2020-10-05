@@ -6,24 +6,24 @@
 
 namespace mu {
 
-  /* the purpose of this file is to use some general purpose math
-   * functions from inside the mu namespace. currently, std functions are used
-   * but the implementation may/can change through this abstraction.
-   * since the functions are "imported" using the "using" mechanism, they can't
-   * be explicitly instantiated. thus, no coverage is available. */
+/* the purpose of this file is to use some general purpose math
+ * functions from inside the mu namespace. currently, std functions are used
+ * but the implementation may/can change through this abstraction.
+ * since the functions are "imported" using the "using" mechanism, they can't
+ * be explicitly instantiated. thus, no coverage is available. */
 
-  /* algorithm */
-  using std::max;
-  using std::min;
+/* algorithm */
+using std::max;
+using std::min;
 
-  /* cmath */
-  using std::acos;
-  using std::asin;
-  using std::atan;
-  using std::atan2;
-  using std::cos;
-  using std::sin;
-  using std::tan;
+/* cmath */
+using std::acos;
+using std::asin;
+using std::atan;
+using std::atan2;
+using std::cos;
+using std::sin;
+using std::tan;
 
 }  // namespace mu
 

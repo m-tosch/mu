@@ -13,8 +13,8 @@ namespace mu {
 template <typename T>
 class Vector3D : public Vector<3, T> {
  public:
-  /* inherit base class constructors. only constructors specific to Vector2D are
-   * defined here. apply rule of zero */
+  /* inherit base class constructors. only constructors specific to Vector2D
+   * are defined here. apply rule of zero */
   using Vector<3, T>::Vector;
 
   /**

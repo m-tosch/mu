@@ -10,11 +10,11 @@ namespace mu {
 /**
  * @brief Basic type trait class
  *
- * equality can be checked directly through ==. The basic type trait is used for
- * integral types (bool, char, int etc.). For floating point numbers there is a
- * margin of error (epsilon) in which two values are still considered equal.
- * Epsilon is different for float, double etc. The algorithm for the equality
- * check is the same for all floating point types.
+ * equality can be checked directly through ==. The basic type trait is used
+ * for integral types (bool, char, int etc.). For floating point numbers there
+ * is a margin of error (epsilon) in which two values are still considered
+ * equal. Epsilon is different for float, double etc. The algorithm for the
+ * equality check is the same for all floating point types.
  *
  * @tparam T type
  */
@@ -28,8 +28,8 @@ struct TypeTraits {
  * @brief Floating point type trait class
  *
  * enables it's derived classes to use different methods than the ones in
- * the TypeTraits class. This is better than overloading since it's all done at
- * compile time.
+ * the TypeTraits class. This is better than overloading since it's all done
+ * at compile time.
  *
  * @tparam T floating point type
  */
