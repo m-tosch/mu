@@ -13,7 +13,6 @@
 #include "mu/typetraits.h"
 #include "mu/utility.h"
 
-
 namespace mu {
 /**
  * @brief A generic vector
@@ -306,6 +305,25 @@ class Vector {
     Vector<N, T> ret(*this);
     ret.flip();
     return ret;
+  }
+
+  /**
+   * @brief sort vector elements in ascending order
+   *
+   */
+  void sort() { std::sort(begin(), end()); }
+
+  /**
+   * @brief sort vector elements by providing a condition
+   *
+   * the condition should be a lambda function. it mus return a bool
+   *
+   * @tparam Compare
+   * @param comp
+   */
+  template <typename Compare>
+  void sort(const Compare comp) {
+    std::sort(begin(), end(), comp);
   }
 
  protected:
