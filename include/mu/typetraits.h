@@ -5,6 +5,7 @@
 #include <cstdlib>
 #include <limits>
 
+#include "mu/literals.h"
 #include "mu/utility.h"
 
 namespace mu {
@@ -46,17 +47,17 @@ struct TypeTraitsFloatingPoint {
 
 template <>
 struct TypeTraits<float> : TypeTraitsFloatingPoint<float> {
-  constexpr static float epsilon() { return 1.0e-5F; }  // NOLINT
+  constexpr static float epsilon() { return mu::eps_float; }
 };
 
 template <>
 struct TypeTraits<double> : TypeTraitsFloatingPoint<double> {
-  constexpr static double epsilon() { return 1.0e-14; }  // NOLINT
+  constexpr static double epsilon() { return mu::eps_double; }
 };
 
 template <>
 struct TypeTraits<long double> : TypeTraitsFloatingPoint<long double> {
-  constexpr static long double epsilon() { return 1.0e-14L; }  // NOLINT
+  constexpr static long double epsilon() { return mu::eps_long_double; }
 };
 
 /* relativ equality check for floating point types according to their epsilon.
