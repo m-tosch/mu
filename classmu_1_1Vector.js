@@ -33,6 +33,9 @@ var classmu_1_1Vector =
     [ "operator[]", "classmu_1_1Vector.html#ad2d9dcc7372c2b9f12ef89da01a0a90c", null ],
     [ "operator[]", "classmu_1_1Vector.html#aebbac1b438b8b0286aef3a464a30b9b4", null ],
     [ "size", "classmu_1_1Vector.html#a1c1ca79a4b390b9dce726b71c9b8d764", null ],
+    [ "sort", "classmu_1_1Vector.html#a3274e01fb6a31b8e750ef2bd32cf61a3", null ],
+    [ "sort", "classmu_1_1Vector.html#a1293ec47d16f9085c0b8e88287ad912e", null ],
     [ "sum", "classmu_1_1Vector.html#a5aaede8fa7e0cfa50b044fcaf89cf1f2", null ],
+    [ "operator<<", "classmu_1_1Vector.html#a11f8f6b0fff070e31ed8bd24c3ac1123", null ],
     [ "data_", "classmu_1_1Vector.html#ab69c10480bdde6f434244271de791219", null ]
 ];

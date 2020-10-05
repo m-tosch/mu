@@ -89,6 +89,7 @@ $(document).ready(function(){initNavTree('classmu_1_1Vector.html','');});
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="classmu_1_1Vector-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">mu::Vector&lt; N, T &gt; Class Template Reference</div>  </div>
@@ -207,12 +208,26 @@ constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href=
 <tr class="memitem:add85421103d3643d8183a6d3145d4cd0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#add85421103d3643d8183a6d3145d4cd0">flipped</a> ()</td></tr>
 <tr class="memdesc:add85421103d3643d8183a6d3145d4cd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns a flipped vector  <a href="#add85421103d3643d8183a6d3145d4cd0">More...</a><br /></td></tr>
 <tr class="separator:add85421103d3643d8183a6d3145d4cd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3274e01fb6a31b8e750ef2bd32cf61a3"><td class="memItemLeft" align="right" valign="top"><a id="a3274e01fb6a31b8e750ef2bd32cf61a3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#a3274e01fb6a31b8e750ef2bd32cf61a3">sort</a> ()</td></tr>
+<tr class="memdesc:a3274e01fb6a31b8e750ef2bd32cf61a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">sort vector elements in ascending order <br /></td></tr>
+<tr class="separator:a3274e01fb6a31b8e750ef2bd32cf61a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1293ec47d16f9085c0b8e88287ad912e"><td class="memTemplParams" colspan="2">template&lt;typename Compare &gt; </td></tr>
+<tr class="memitem:a1293ec47d16f9085c0b8e88287ad912e"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#a1293ec47d16f9085c0b8e88287ad912e">sort</a> (const Compare comp)</td></tr>
+<tr class="memdesc:a1293ec47d16f9085c0b8e88287ad912e"><td class="mdescLeft">&#160;</td><td class="mdescRight">sort vector elements by providing a condition  <a href="#a1293ec47d16f9085c0b8e88287ad912e">More...</a><br /></td></tr>
+<tr class="separator:a1293ec47d16f9085c0b8e88287ad912e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:ab69c10480bdde6f434244271de791219"><td class="memItemLeft" align="right" valign="top"><a id="ab69c10480bdde6f434244271de791219"></a>
 std::array&lt; T, N &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>data_</b></td></tr>
 <tr class="separator:ab69c10480bdde6f434244271de791219"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a11f8f6b0fff070e31ed8bd24c3ac1123"><td class="memItemLeft" align="right" valign="top"><a id="a11f8f6b0fff070e31ed8bd24c3ac1123"></a>
+std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ostream &amp;os, const <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, T &gt; &amp;vector)</td></tr>
+<tr class="separator:a11f8f6b0fff070e31ed8bd24c3ac1123"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;std::size_t N, typename T&gt;<br />
@@ -496,6 +511,7 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="classmu_1_1Vector_a7d9d1c3218082522712fea2d5bc32868_icgraph.png" border="0" usemap="#classmu_1_1Vector_a7d9d1c3218082522712fea2d5bc32868_icgraph" alt=""/></div>
 <map name="classmu_1_1Vector_a7d9d1c3218082522712fea2d5bc32868_icgraph" id="classmu_1_1Vector_a7d9d1c3218082522712fea2d5bc32868_icgraph">
 <area shape="rect" id="node2" href="classmu_1_1Vector.html#a597ca2de6348a91e896f3f2296a5bcd2" title="flips this vector, i.e. reverses its elements " alt="" coords="179,5,312,47"/>
+<area shape="rect" id="node3" href="classmu_1_1Vector.html#a3274e01fb6a31b8e750ef2bd32cf61a3" title="sort vector elements in ascending order " alt="" coords="179,71,312,112"/>
 </map>
 </div>
 
@@ -606,6 +622,7 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="classmu_1_1Vector_a2caa4d33d64d146ca8c101d5005e025e_icgraph.png" border="0" usemap="#classmu_1_1Vector_a2caa4d33d64d146ca8c101d5005e025e_icgraph" alt=""/></div>
 <map name="classmu_1_1Vector_a2caa4d33d64d146ca8c101d5005e025e_icgraph" id="classmu_1_1Vector_a2caa4d33d64d146ca8c101d5005e025e_icgraph">
 <area shape="rect" id="node2" href="classmu_1_1Vector.html#a597ca2de6348a91e896f3f2296a5bcd2" title="flips this vector, i.e. reverses its elements " alt="" coords="168,5,301,47"/>
+<area shape="rect" id="node3" href="classmu_1_1Vector.html#a3274e01fb6a31b8e750ef2bd32cf61a3" title="sort vector elements in ascending order " alt="" coords="168,71,301,112"/>
 </map>
 </div>
 
@@ -1238,6 +1255,51 @@ template&lt;std::size_t N, typename T&gt; </div>
 
 <p>returns the size of the vector </p>
 <dl class="section return"><dt>Returns</dt><dd>std::size_t </dd></dl>
+
+</div>
+</div>
+<a id="a1293ec47d16f9085c0b8e88287ad912e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1293ec47d16f9085c0b8e88287ad912e">&#9670;&nbsp;</a></span>sort()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, typename T&gt; </div>
+<div class="memtemplate">
+template&lt;typename Compare &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classmu_1_1Vector.html">mu::Vector</a>&lt; N, T &gt;::sort </td>
+          <td>(</td>
+          <td class="paramtype">const Compare&#160;</td>
+          <td class="paramname"><em>comp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>sort vector elements by providing a condition </p>
+<p>the condition should be a lambda function. it mus return a bool</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Compare</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">comp</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
