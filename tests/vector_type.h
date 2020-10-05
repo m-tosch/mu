@@ -14,7 +14,6 @@
 
 #include "vector.h"
 
-
 /**
  * @brief test suite for objects of type "Vector"
  *
@@ -298,6 +297,29 @@ TYPED_TEST_P(VectorTypeFixture, MemberFuncFlipped) {
   EXPECT_THAT(obj2, ::testing::ContainerEq(comp));
 }
 
+TYPED_TEST_P(VectorTypeFixture, MemberFuncSort) {
+  /** arrange */
+  TypeParam obj{this->values};
+  obj.flip();  // flip first because object is already sorted
+  /** action */
+  obj.sort();  // ascending
+  /** assert */
+  TypeParam comp{this->values};
+  EXPECT_THAT(obj, ::testing::ContainerEq(comp));
+}
+
+TYPED_TEST_P(VectorTypeFixture, MemberFuncSortLambda) {
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  using vtype = typename TypeParam::value_type;
+  obj.sort([](vtype a, vtype b) { return a > b; });  // descending
+  /** assert */
+  TypeParam comp{this->values};
+  std::reverse(comp.begin(), comp.end());
+  EXPECT_THAT(obj, ::testing::ContainerEq(comp));
+}
+
 REGISTER_TYPED_TEST_SUITE_P(
     VectorTypeFixture, ConstructorDefault, DestructorDefault,
     ConstructorFromArray, ConstructorFromSingleValue, ConstructorCopy,
@@ -307,6 +329,7 @@ REGISTER_TYPED_TEST_SUITE_P(
     OperatorBrackets, OperatorBracketsConst, MemberFuncAt, MemberFuncAtConst,
     MemberFuncSize, MemberFuncBegin, MemberFuncBeginConst, MemberFuncEnd,
     MemberFuncEndConst, MemberFuncMin, MemberFuncMax, MemberFuncSum,
-    MemberFuncLength, MemberFuncFlip, MemberFuncFlipped);
+    MemberFuncLength, MemberFuncFlip, MemberFuncFlipped, MemberFuncSort,
+    MemberFuncSortLambda);
 
 #endif  // TESTS_VECTOR_TYPE_H_
