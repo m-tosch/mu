@@ -3,7 +3,6 @@
 #include "mu/vector.h"
 #include "vector_type.h"
 
-
 /**
  * Instantiate this template class and template functions explicitly so that all
  * functions are generated and thus, the coverage report is accurate.
