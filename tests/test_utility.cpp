@@ -12,14 +12,14 @@
  * Instantiate the template functions explicitly so that all
  * functions are generated and thus, the coverage report is accurate.
  */
-// can't be done since currently, functions from the std namespace are used
+// cannot be done since currently, functions from the std namespace are used
 
 /*
  * floating point types
  */
 using FloatingPointTypes = ::testing::Types<float, double, long double>;
 
-/********************************Utility***************************************/
+/********************************utility***************************************/
 
 template <typename T>
 class UtilityFixture : public ::testing::Test {
