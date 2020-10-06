@@ -19,7 +19,7 @@
  */
 using FloatingPointTypes = ::testing::Types<float, double, long double>;
 
-/********************************Utility***************************************/
+/********************************utility***************************************/
 
 template <typename T>
 class UtilityFixture : public ::testing::Test {
