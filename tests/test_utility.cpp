@@ -107,6 +107,15 @@ TYPED_TEST(UtilityFixture, exp2) {
   }
 }
 
+TYPED_TEST(UtilityFixture, hypot) {
+  for (TypeParam v : this->minus_one_to_one) {
+    for (TypeParam w : this->minus_one_to_one) {
+      EXPECT_TRUE(
+          mu::TypeTraits<TypeParam>::equals(mu::hypot(v, w), std::hypot(v, w)));
+    }
+  }
+}
+
 TYPED_TEST(UtilityFixture, log) {
   for (TypeParam v : this->zero_to_one) {
     EXPECT_TRUE(mu::TypeTraits<TypeParam>::equals(mu::log(v), std::log(v)));
