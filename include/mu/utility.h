@@ -25,6 +25,7 @@ using std::atan2;
 using std::cos;
 using std::exp;
 using std::exp2;
+using std::hypot;
 using std::log;
 using std::log2;
 using std::sin;
