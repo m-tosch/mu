@@ -1,8 +1,6 @@
 #ifndef MU_VECTOR_H_
 #define MU_VECTOR_H_
 
-#include <bits/c++config.h>
-
 #include <algorithm>
 #include <array>
 #include <cmath>
@@ -13,7 +11,6 @@
 
 #include "mu/typetraits.h"
 #include "mu/utility.h"
-
 
 namespace mu {
 /**

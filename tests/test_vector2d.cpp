@@ -1,6 +1,5 @@
-#include <gmock/gmock-matchers.h>
-#include <gtest/gtest.h>
-
+#include "gmock/gmock-matchers.h"
+#include "gtest/gtest.h"
 #include "mu/vector.h"
 #include "mu/vector2d.h"
 #include "vector_type.h"
