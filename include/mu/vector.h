@@ -325,19 +325,39 @@ class Vector {
     std::sort(begin(), end(), comp);
   }
 
-  friend std::ostream &operator<<(std::ostream &os,
-                                  const Vector<N, T> &vector) {
+  friend std::ostream &operator<<(std::ostream &os, const Vector<N, T> &vec) {
     os << "[ ";
-    for (auto v : vector.data_) {
+    for (auto v : vec.data_) {
       os << v << " ";
     }
     os << "]";
     return os;
   }
 
+  /**************************** vector <> scalar ******************************/
+
+  Vector<N, T> &operator+=(const T &scalar) {
+    for (std::size_t i = 0; i < N; i++) {
+      data_[i] += scalar;
+    }
+    return *this;
+  }
+
+  /****************************************************************************/
+
  protected:
   std::array<T, N> data_;
 };  // namespace mu
+
+template <std::size_t N, class T>
+inline Vector<N, T> operator+(const Vector<N, T> &lhs, const T &rhs) {
+  return Vector<N, T>(lhs) += rhs;
+}
+
+template <std::size_t N, class T>
+inline Vector<N, T> operator+(const T &lhs, const Vector<N, T> &rhs) {
+  return Vector<N, T>(rhs) += lhs;
+}
 
 template <std::size_t N, class T>
 inline T Vector<N, T>::min() const {
@@ -375,7 +395,7 @@ inline T Vector<N, T>::dot(const Vector<N, T> &other) const {
   return ret;
 }
 
-/************************* convenience functions*****************************/
+/************************** convenience functions *****************************/
 
 template <std::size_t N, class T>
 inline T dot(const Vector<N, T> &lhs, const Vector<N, T> &rhs) {
