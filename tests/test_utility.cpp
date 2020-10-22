@@ -1,9 +1,8 @@
-#include <gtest/gtest.h>
-
 #include <algorithm>
 #include <cmath>
 #include <vector>
 
+#include "gtest/gtest.h"
 #include "mu/literals.h"
 #include "mu/utility.h"
 #include "typetraits.h"
@@ -12,7 +11,7 @@
  * Instantiate the template functions explicitly so that all
  * functions are generated and thus, the coverage report is accurate.
  *
- * cannot be done since currently, functions from the std namespace are used.
+ * cannot be done since currently, functions from the std namespace are used
  */
 
 /*
@@ -104,6 +103,15 @@ TYPED_TEST(UtilityFixture, exp) {
 TYPED_TEST(UtilityFixture, exp2) {
   for (TypeParam v : this->minus_one_to_one) {
     EXPECT_TRUE(mu::TypeTraits<TypeParam>::equals(mu::exp2(v), std::exp2(v)));
+  }
+}
+
+TYPED_TEST(UtilityFixture, hypot) {
+  for (TypeParam v : this->minus_one_to_one) {
+    for (TypeParam w : this->minus_one_to_one) {
+      EXPECT_TRUE(
+          mu::TypeTraits<TypeParam>::equals(mu::hypot(v, w), std::hypot(v, w)));
+    }
   }
 }
 

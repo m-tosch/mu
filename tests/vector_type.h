@@ -1,9 +1,6 @@
 #ifndef TESTS_VECTOR_TYPE_H_
 #define TESTS_VECTOR_TYPE_H_
 
-#include <gmock/gmock.h>
-#include <gtest/gtest.h>
-
 #include <algorithm>
 #include <array>
 #include <cmath>
@@ -12,8 +9,9 @@
 #include <type_traits>
 #include <utility>
 
+#include "gmock/gmock.h"
+#include "gtest/gtest.h"
 #include "vector.h"
-
 
 /**
  * @brief test suite for objects of type "Vector"
