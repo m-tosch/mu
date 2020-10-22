@@ -1,9 +1,8 @@
-#include <gtest/gtest.h>
-
 #include <algorithm>
 #include <cmath>
 #include <vector>
 
+#include "gtest/gtest.h"
 #include "mu/literals.h"
 #include "mu/utility.h"
 #include "typetraits.h"

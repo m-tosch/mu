@@ -1,9 +1,8 @@
-#include <gmock/gmock.h>
-#include <gtest/gtest.h>
-
 #include <algorithm>
 #include <tuple>
 
+#include "gmock/gmock.h"
+#include "gtest/gtest.h"
 #include "mu/vector.h"
 #include "mu/vector2d.h"
 #include "mu/vector3d.h"
