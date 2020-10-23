@@ -336,28 +336,79 @@ class Vector {
 
   /**************************** vector <> scalar ******************************/
 
-  Vector<N, T> &operator+=(const T &scalar) {
+  /* placed inside this class because write access to member data is required */
+  template <class ScalarT>
+  typename std::enable_if<std::is_arithmetic<ScalarT>::value,
+                          Vector<N, T> &>::type
+  operator+=(const ScalarT &scalar) {
+    static_assert(
+        std::is_same<T, ScalarT>::value,
+        "the scalar must be of the same type that the Vector contains");
     for (std::size_t i = 0; i < N; i++) {
       data_[i] += scalar;
     }
     return *this;
   }
-
   /****************************************************************************/
 
  protected:
   std::array<T, N> data_;
 };  // namespace mu
 
-template <std::size_t N, class T>
-inline Vector<N, T> operator+(const Vector<N, T> &lhs, const T &rhs) {
+/***************************** vector <> scalar *******************************/
+
+/**
+ * @brief vector and scalar addition
+ *
+ * - enable_if to check for an arithmetic type at compile time since it's the
+ * only type "family" that is allowed inside a Vector. Here, one could check if
+ * the scalar is of the same type as the one inside the Vector directly instead.
+ * ..but that gives really unprecise error messages (something pointing to the
+ * constructor) in case of a mismatch.
+ * the enable_if is also needed to only provide this function to scalars
+ * - the static assert provides a more useful error message to the user at
+ * compile time. It enforces the type equality requirement!
+ *
+ * @tparam N
+ * @tparam T
+ * @tparam ScalarT
+ * @param lhs
+ * @param rhs
+ * @return std::enable_if<std::is_arithmetic<ScalarT>::value,
+ * Vector<N, T>>::type
+ */
+template <std::size_t N, class T, class ScalarT>
+typename std::enable_if<std::is_arithmetic<ScalarT>::value,
+                        Vector<N, T>>::type inline
+operator+(const Vector<N, T> &lhs, const ScalarT &rhs) {
+  static_assert(std::is_same<T, ScalarT>::value,
+                "the scalar must be of the same type that the Vector contains");
   return Vector<N, T>(lhs) += rhs;
 }
 
-template <std::size_t N, class T>
-inline Vector<N, T> operator+(const T &lhs, const Vector<N, T> &rhs) {
+/**
+ * @brief
+ *
+ * see operator+(Vector, Scalar)
+ *
+ * @tparam N
+ * @tparam T
+ * @tparam ScalarT
+ * @param lhs
+ * @param rhs
+ * @return std::enable_if<std::is_arithmetic<ScalarT>::value,
+ * Vector<N, T>>::type
+ */
+template <std::size_t N, class T, class ScalarT>
+typename std::enable_if<std::is_arithmetic<ScalarT>::value,
+                        Vector<N, T>>::type inline
+operator+(const ScalarT &lhs, const Vector<N, T> &rhs) {
+  static_assert(std::is_same<T, ScalarT>::value,
+                "the scalar must be of the same type that the Vector contains");
   return Vector<N, T>(rhs) += lhs;
 }
+
+/******************************************************************************/
 
 template <std::size_t N, class T>
 inline T Vector<N, T>::min() const {
@@ -401,6 +452,8 @@ template <std::size_t N, class T>
 inline T dot(const Vector<N, T> &lhs, const Vector<N, T> &rhs) {
   return lhs.dot(rhs);
 }
+
+/******************************************************************************/
 
 }  // namespace mu
 #endif  // MU_VECTOR_H_
