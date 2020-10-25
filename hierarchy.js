@@ -8,7 +8,8 @@ var hierarchy =
         [ "Vector3DTypeFixture< T >", "classVector3DTypeFixture.html", null ]
       ] ],
       [ "VectorTypeFixture< std::tuple_element< 0, T >::type >", "classVectorTypeFixture.html", [
-        [ "VectorCombinationsFixture< T >", "classVectorCombinationsFixture.html", null ]
+        [ "VectorCombinationsFixture< T >", "classVectorCombinationsFixture.html", null ],
+        [ "VectorScalarCombinationsFixture< T >", "classVectorScalarCombinationsFixture.html", null ]
       ] ]
     ] ],
     [ "mu::TypeTraits< T >", "structmu_1_1TypeTraits.html", null ],
