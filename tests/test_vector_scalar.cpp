@@ -19,6 +19,9 @@ template mu::Vector<2, float> mu::operator+
 template mu::Vector<2, float> mu::operator+
     <2, float, float>(const float&, const mu::Vector<2, float>&);
 
+/**
+ * Vector <> Scalar test combinations
+ */
 using VectorScalarCombinations =
     ::testing::Types</* Vector */
                      std::tuple<mu::Vector<2, int>, int>,
