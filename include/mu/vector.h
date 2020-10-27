@@ -328,7 +328,7 @@ class Vector {
   /********************************** I/O *************************************/
 
   /**
-   * @brief print Vector values
+   * @brief print vector values
    *
    * @tparam Nn
    * @tparam Tt
@@ -341,7 +341,16 @@ class Vector {
 
   /**************************** vector <> scalar ******************************/
 
-  /* placed inside this class because write access to member data is required */
+  /**
+   * @brief add a scalar to this vector
+   *
+   * placed inside this class because write access to member data is required
+   *
+   * @tparam ScalarT
+   * @param scalar
+   * @return std::enable_if<std::is_arithmetic<ScalarT>::value,
+   * Vector<N, T> &>::type
+   */
   template <class ScalarT>
   typename std::enable_if<std::is_arithmetic<ScalarT>::value,
                           Vector<N, T> &>::type
