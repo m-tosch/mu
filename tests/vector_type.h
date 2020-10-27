@@ -5,9 +5,12 @@
 #include <array>
 #include <cmath>
 #include <numeric>
+#include <sstream>
+#include <string>
 #include <tuple>
 #include <type_traits>
 #include <utility>
+#include <vector>
 
 #include "gmock/gmock.h"
 #include "gtest/gtest.h"
@@ -319,6 +322,30 @@ TYPED_TEST_P(VectorTypeFixture, MemberFuncSortLambda) {
   EXPECT_THAT(obj, ::testing::ContainerEq(comp));
 }
 
+TYPED_TEST_P(VectorTypeFixture, OperatorStreamOut) {
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  /* 1. read vector ostream in a stringstream */
+  std::stringstream ss;
+  ss << obj;
+  /* 2. remove first and last character */
+  std::string s = ss.str().substr(1, ss.str().size() - 2);
+  std::stringstream sss;
+  sss << s;
+  /* 3. put values from string(stream) in a vector */
+  using vtype = typename TypeParam::value_type;
+  std::vector<vtype> v;
+  std::copy(std::istream_iterator<vtype>(sss), std::istream_iterator<vtype>(),
+            std::back_inserter(v));
+  /* 4. copy vector to array for easier comparison via gtest macro */
+  static TypeParam dummy;
+  std::array<vtype, dummy.size()> arr;
+  std::copy_n(v.begin(), dummy.size(), arr.begin());
+  /** assert */
+  EXPECT_THAT(this->values, ::testing::ContainerEq(arr));
+}
+
 REGISTER_TYPED_TEST_SUITE_P(
     VectorTypeFixture, ConstructorDefault, DestructorDefault,
     ConstructorFromArray, ConstructorFromSingleValue, ConstructorCopy,
@@ -329,6 +356,6 @@ REGISTER_TYPED_TEST_SUITE_P(
     MemberFuncSize, MemberFuncBegin, MemberFuncBeginConst, MemberFuncEnd,
     MemberFuncEndConst, MemberFuncMin, MemberFuncMax, MemberFuncSum,
     MemberFuncLength, MemberFuncFlip, MemberFuncFlipped, MemberFuncSort,
-    MemberFuncSortLambda);
+    MemberFuncSortLambda, OperatorStreamOut);
 
 #endif  // TESTS_VECTOR_TYPE_H_
