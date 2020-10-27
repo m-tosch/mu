@@ -325,6 +325,11 @@ class Vector {
     std::sort(begin(), end(), comp);
   }
 
+  /********************************** I/O *************************************/
+
+  template <std::size_t Nn, class Tt>
+  friend std::ostream &operator<<(std::ostream &os, const Vector<Nn, Tt> &vec);
+
   /**************************** vector <> scalar ******************************/
 
   /* placed inside this class because write access to member data is required */
@@ -343,18 +348,21 @@ class Vector {
 
   /****************************************************************************/
 
-  friend std::ostream &operator<<(std::ostream &os, const Vector<N, T> &vec) {
-    os << "[ ";
-    for (auto v : vec.data_) {
-      os << v << " ";
-    }
-    os << "]";
-    return os;
-  }
-
  protected:
   std::array<T, N> data_;
 };
+
+/*********************************** I/O **************************************/
+
+template <std::size_t Nn, class Tt>
+std::ostream &operator<<(std::ostream &os, const Vector<Nn, Tt> &vec) {
+  os << "[ ";
+  for (auto v : vec.data_) {
+    os << v << " ";
+  }
+  os << "]";
+  return os;
+}
 
 /***************************** vector <> scalar *******************************/
 
