@@ -216,10 +216,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a1293ec47d16f9085c0b8e88287ad912e"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#a1293ec47d16f9085c0b8e88287ad912e">sort</a> (const Compare comp)</td></tr>
 <tr class="memdesc:a1293ec47d16f9085c0b8e88287ad912e"><td class="mdescLeft">&#160;</td><td class="mdescRight">sort vector elements by providing a condition  <a href="#a1293ec47d16f9085c0b8e88287ad912e">More...</a><br /></td></tr>
 <tr class="separator:a1293ec47d16f9085c0b8e88287ad912e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7007b086679dfbaef0a9dc8cfda3d32"><td class="memTemplParams" colspan="2"><a id="ab7007b086679dfbaef0a9dc8cfda3d32"></a>
-template&lt;class ScalarT &gt; </td></tr>
-<tr class="memitem:ab7007b086679dfbaef0a9dc8cfda3d32"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt; std::is_arithmetic&lt; ScalarT &gt;::value, <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, T &gt; &amp; &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator+=</b> (const ScalarT &amp;scalar)</td></tr>
-<tr class="separator:ab7007b086679dfbaef0a9dc8cfda3d32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ba01c248a660e2bdb5e8c0cc88ba3b0"><td class="memTemplParams" colspan="2">template&lt;class TScalar &gt; </td></tr>
+<tr class="memitem:a1ba01c248a660e2bdb5e8c0cc88ba3b0"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt; std::is_arithmetic&lt; TScalar &gt;::value, <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, T &gt; &amp; &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#a1ba01c248a660e2bdb5e8c0cc88ba3b0">operator+=</a> (const TScalar &amp;scalar)</td></tr>
+<tr class="memdesc:a1ba01c248a660e2bdb5e8c0cc88ba3b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">add a scalar to this vector  <a href="#a1ba01c248a660e2bdb5e8c0cc88ba3b0">More...</a><br /></td></tr>
+<tr class="separator:a1ba01c248a660e2bdb5e8c0cc88ba3b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -229,9 +229,10 @@ std::array&lt; T, N &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>d
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:a7933dd1454162c1f21ae58fdbe1ccfda"><td class="memItemLeft" align="right" valign="top"><a id="a7933dd1454162c1f21ae58fdbe1ccfda"></a>
-std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ostream &amp;os, const <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, T &gt; &amp;vec)</td></tr>
-<tr class="separator:a7933dd1454162c1f21ae58fdbe1ccfda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3df834ec75c18339d468034b5881404c"><td class="memTemplParams" colspan="2">template&lt;std::size_t Nn, class Tt &gt; </td></tr>
+<tr class="memitem:a3df834ec75c18339d468034b5881404c"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#a3df834ec75c18339d468034b5881404c">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; Nn, Tt &gt; &amp;vec)</td></tr>
+<tr class="memdesc:a3df834ec75c18339d468034b5881404c"><td class="mdescLeft">&#160;</td><td class="mdescRight">print vector values  <a href="#a3df834ec75c18339d468034b5881404c">More...</a><br /></td></tr>
+<tr class="separator:a3df834ec75c18339d468034b5881404c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;std::size_t N, typename T&gt;<br />
@@ -915,19 +916,11 @@ template&lt;std::size_t N, typename T&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Vector&lt;N, T&gt; </dd></dl>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classmu_1_1Vector_a76fa055c5338afbe60c89ba02ba94c7f_icgraph.png" border="0" usemap="#classmu_1_1Vector_a76fa055c5338afbe60c89ba02ba94c7f_icgraph" alt=""/></div>
-<map name="classmu_1_1Vector_a76fa055c5338afbe60c89ba02ba94c7f_icgraph" id="classmu_1_1Vector_a76fa055c5338afbe60c89ba02ba94c7f_icgraph">
-<area shape="rect" id="node2" href="classmu_1_1Vector.html#a1293ec47d16f9085c0b8e88287ad912e" title="sort vector elements by providing a condition " alt="" coords="203,5,336,47"/>
-</map>
-</div>
 
 </div>
 </div>
 <a id="a8dccd86e64c7e17604bb1821e0bdcaf2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8dccd86e64c7e17604bb1821e0bdcaf2">&#9670;&nbsp;</a></span>operator+=()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8dccd86e64c7e17604bb1821e0bdcaf2">&#9670;&nbsp;</a></span>operator+=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -960,14 +953,52 @@ template&lt;std::size_t N, typename T&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Vector&lt;N, T&gt;&amp; </dd></dl>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classmu_1_1Vector_a8dccd86e64c7e17604bb1821e0bdcaf2_icgraph.png" border="0" usemap="#classmu_1_1Vector_a8dccd86e64c7e17604bb1821e0bdcaf2_icgraph" alt=""/></div>
-<map name="classmu_1_1Vector_a8dccd86e64c7e17604bb1821e0bdcaf2_icgraph" id="classmu_1_1Vector_a8dccd86e64c7e17604bb1821e0bdcaf2_icgraph">
-<area shape="rect" id="node2" href="classmu_1_1Vector.html#a1293ec47d16f9085c0b8e88287ad912e" title="sort vector elements by providing a condition " alt="" coords="211,5,344,47"/>
-</map>
+
 </div>
+</div>
+<a id="a1ba01c248a660e2bdb5e8c0cc88ba3b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ba01c248a660e2bdb5e8c0cc88ba3b0">&#9670;&nbsp;</a></span>operator+=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, typename T&gt; </div>
+<div class="memtemplate">
+template&lt;class TScalar &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::enable_if&lt;std::is_arithmetic&lt;TScalar&gt;::value, <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt;N, T&gt; &amp;&gt;::type <a class="el" href="classmu_1_1Vector.html">mu::Vector</a>&lt; N, T &gt;::operator+= </td>
+          <td>(</td>
+          <td class="paramtype">const TScalar &amp;&#160;</td>
+          <td class="paramname"><em>scalar</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>add a scalar to this vector </p>
+<p>placed inside this class because write access to member data is required</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">TScalar</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scalar</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::enable_if&lt;std::is_arithmetic&lt;TScalar&gt;::value, Vector&lt;N, T&gt; &amp;&gt;::type </dd></dl>
 
 </div>
 </div>
@@ -1358,6 +1389,64 @@ Here is the caller graph for this function:</div>
 <area shape="rect" id="node2" href="classmu_1_1Vector.html#a3c733864c02356902b5d92e8fe2cd56c" title="mu::Vector\&lt; 2, T \&gt;::end" alt="" coords="172,5,335,32"/>
 </map>
 </div>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="a3df834ec75c18339d468034b5881404c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3df834ec75c18339d468034b5881404c">&#9670;&nbsp;</a></span>operator<<</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, typename T&gt; </div>
+<div class="memtemplate">
+template&lt;std::size_t Nn, class Tt &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; Nn, Tt &gt; &amp;&#160;</td>
+          <td class="paramname"><em>vec</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>print vector values </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Nn</td><td></td></tr>
+    <tr><td class="paramname">Tt</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">os</td><td></td></tr>
+    <tr><td class="paramname">vec</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::ostream&amp; </dd></dl>
 
 </div>
 </div>
