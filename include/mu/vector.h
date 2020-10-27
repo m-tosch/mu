@@ -346,17 +346,17 @@ class Vector {
    *
    * placed inside this class because write access to member data is required
    *
-   * @tparam ScalarT
+   * @tparam TScalar
    * @param scalar
-   * @return std::enable_if<std::is_arithmetic<ScalarT>::value,
+   * @return std::enable_if<std::is_arithmetic<TScalar>::value,
    * Vector<N, T> &>::type
    */
-  template <class ScalarT>
-  typename std::enable_if<std::is_arithmetic<ScalarT>::value,
+  template <class TScalar>
+  typename std::enable_if<std::is_arithmetic<TScalar>::value,
                           Vector<N, T> &>::type
-  operator+=(const ScalarT &scalar) {
+  operator+=(const TScalar &scalar) {
     static_assert(
-        std::is_same<T, ScalarT>::value,
+        std::is_same<T, TScalar>::value,
         "the scalar must be of the same type that the Vector contains");
     for (std::size_t i = 0; i < N; i++) {
       data_[i] += scalar;
@@ -398,17 +398,17 @@ std::ostream &operator<<(std::ostream &os, const Vector<Nn, Tt> &vec) {
  *
  * @tparam N
  * @tparam T
- * @tparam ScalarT
+ * @tparam TScalar
  * @param lhs
  * @param rhs
- * @return std::enable_if<std::is_arithmetic<ScalarT>::value,
+ * @return std::enable_if<std::is_arithmetic<TScalar>::value,
  * Vector<N, T>>::type
  */
-template <std::size_t N, class T, class ScalarT>
-typename std::enable_if<std::is_arithmetic<ScalarT>::value,
+template <std::size_t N, class T, class TScalar>
+typename std::enable_if<std::is_arithmetic<TScalar>::value,
                         Vector<N, T>>::type inline
-operator+(const Vector<N, T> &lhs, const ScalarT &rhs) {
-  static_assert(std::is_same<T, ScalarT>::value,
+operator+(const Vector<N, T> &lhs, const TScalar &rhs) {
+  static_assert(std::is_same<T, TScalar>::value,
                 "the scalar must be of the same type that the Vector contains");
   return Vector<N, T>(lhs) += rhs;
 }
@@ -420,17 +420,17 @@ operator+(const Vector<N, T> &lhs, const ScalarT &rhs) {
  *
  * @tparam N
  * @tparam T
- * @tparam ScalarT
+ * @tparam TScalar
  * @param lhs
  * @param rhs
- * @return std::enable_if<std::is_arithmetic<ScalarT>::value,
+ * @return std::enable_if<std::is_arithmetic<TScalar>::value,
  * Vector<N, T>>::type
  */
-template <std::size_t N, class T, class ScalarT>
-typename std::enable_if<std::is_arithmetic<ScalarT>::value,
+template <std::size_t N, class T, class TScalar>
+typename std::enable_if<std::is_arithmetic<TScalar>::value,
                         Vector<N, T>>::type inline
-operator+(const ScalarT &lhs, const Vector<N, T> &rhs) {
-  static_assert(std::is_same<T, ScalarT>::value,
+operator+(const TScalar &lhs, const Vector<N, T> &rhs) {
+  static_assert(std::is_same<T, TScalar>::value,
                 "the scalar must be of the same type that the Vector contains");
   return Vector<N, T>(rhs) += lhs;
 }
