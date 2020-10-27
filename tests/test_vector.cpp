@@ -8,6 +8,8 @@
  */
 template class mu::Vector<2, float>;
 template float mu::Vector<2, float>::length<float>() const;
+template std::ostream &mu::operator<<<2, float>(std::ostream &,
+                                                const mu::Vector<2, float> &);
 
 /**
  * Instantiate the Vector test suite
