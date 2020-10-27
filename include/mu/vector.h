@@ -327,6 +327,15 @@ class Vector {
 
   /********************************** I/O *************************************/
 
+  /**
+   * @brief print Vector values
+   *
+   * @tparam Nn
+   * @tparam Tt
+   * @param os
+   * @param vec
+   * @return std::ostream&
+   */
   template <std::size_t Nn, class Tt>
   friend std::ostream &operator<<(std::ostream &os, const Vector<Nn, Tt> &vec);
 
