@@ -57,6 +57,14 @@ class Vector {
   // NOLINTNEXTLINE(runtime/explicit) implicit conversion is intentional
   Vector(Args... args) : data_({args...}) {}
 
+  template <class Tt>
+  // NOLINTNEXTLINE(runtime/explicit) implicit conversion is intentional
+  Vector(const Vector<N, Tt> other) {
+    for (std::size_t i = 0; i < N; i++) {
+      data_[i] = static_cast<T>(other[i]);
+    }
+  }
+
   /**
    * @brief Construct a new Vector object from a single value
    *
