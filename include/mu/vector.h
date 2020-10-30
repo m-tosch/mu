@@ -57,20 +57,6 @@ class Vector {
   // NOLINTNEXTLINE(runtime/explicit) implicit conversion is intentional
   Vector(Args... args) : data_({args...}) {}
 
-  /**
-   * @brief Construct a new Vector from an existing Vector of a different type
-   *
-   * Example:
-   * @code
-   * mu::Vector<2, int> a = {1, 2};
-   * mu::Vector<2, double> b = {a};
-   * @endcode
-   *
-   * IMPORTANT implicit narrowing is applied
-   *
-   * @tparam Tt
-   * @param other
-   */
   template <class Tt>
   // NOLINTNEXTLINE(runtime/explicit) implicit conversion is intentional
   Vector(const Vector<N, Tt> other) {
