@@ -60,20 +60,23 @@ class Vector {
   /**
    * @brief Construct a new Vector from an existing Vector of a different type
    *
+   * IMPORTANT implicit narrowing is applied
+   * it is checked that the Vector sizes are the same
+   *
    * Example:
    * @code
    * mu::Vector<2, int> a = {1, 2};
    * mu::Vector<2, double> b = {a};
    * @endcode
    *
-   * IMPORTANT implicit narrowing is applied
-   *
+   * @tparam Nn
    * @tparam Tt
    * @param other
    */
-  template <class Tt>
+  template <std::size_t Nn, class Tt>
   // NOLINTNEXTLINE(runtime/explicit) implicit conversion is intentional
-  Vector(const Vector<N, Tt> other) {
+  Vector(const Vector<Nn, Tt> &other) {
+    static_assert(N == Nn, "Vector size mismatch");
     for (std::size_t i = 0; i < N; i++) {
       data_[i] = static_cast<T>(other[i]);
     }
