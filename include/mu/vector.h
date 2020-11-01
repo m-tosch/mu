@@ -369,6 +369,16 @@ class Vector {
   /**
    * @brief add a scalar to this vector
    *
+   * - enable_if to check for an arithmetic type at compile time since it's the
+   * only type "family" that is allowed inside a Vector. Here, one could check
+   * if the scalar is of the same type as the one inside the Vector directly
+   * instead.
+   * ..but that gives really unprecise error messages (something pointing to the
+   * constructor) in case of a mismatch.
+   * the enable_if is also needed to only provide this function to scalars
+   * - the static assert provides a more useful error message to the user at
+   * compile time. It enforces the type equality requirement!
+   *
    * placed inside this class because write access to member data is required
    *
    * @tparam TScalar
@@ -412,14 +422,7 @@ std::ostream &operator<<(std::ostream &os, const Vector<Nn, Tt> &vec) {
 /**
  * @brief vector and scalar addition
  *
- * - enable_if to check for an arithmetic type at compile time since it's the
- * only type "family" that is allowed inside a Vector. Here, one could check if
- * the scalar is of the same type as the one inside the Vector directly instead.
- * ..but that gives really unprecise error messages (something pointing to the
- * constructor) in case of a mismatch.
- * the enable_if is also needed to only provide this function to scalars
- * - the static assert provides a more useful error message to the user at
- * compile time. It enforces the type equality requirement!
+ * see operator+=(scalar)
  *
  * @tparam N
  * @tparam T
@@ -433,15 +436,13 @@ template <std::size_t N, class T, class TScalar>
 typename std::enable_if<std::is_arithmetic<TScalar>::value,
                         Vector<N, T>>::type inline
 operator+(const Vector<N, T> &lhs, const TScalar &rhs) {
-  static_assert(std::is_same<T, TScalar>::value,
-                "the scalar must be of the same type that the Vector contains");
   return Vector<N, T>(lhs) += rhs;
 }
 
 /**
  * @brief
  *
- * see operator+(Vector, Scalar)
+ * see operator+(Vector, scalar)
  *
  * @tparam N
  * @tparam T
@@ -455,8 +456,6 @@ template <std::size_t N, class T, class TScalar>
 typename std::enable_if<std::is_arithmetic<TScalar>::value,
                         Vector<N, T>>::type inline
 operator+(const TScalar &lhs, const Vector<N, T> &rhs) {
-  static_assert(std::is_same<T, TScalar>::value,
-                "the scalar must be of the same type that the Vector contains");
   return Vector<N, T>(rhs) += lhs;
 }
 
