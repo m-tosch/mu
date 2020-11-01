@@ -8,6 +8,8 @@
  * functions are generated and thus, the coverage report is accurate.
  */
 template class mu::Vector3D<float>;
+/* constructors */
+template mu::Vector3D<float>::Vector3D(const mu::Vector3D<int> &);
 
 /**
  * Instantiate the Vector test suite

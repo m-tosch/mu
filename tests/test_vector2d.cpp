@@ -9,6 +9,9 @@
  * functions are generated and thus, the coverage report is accurate.
  */
 template class mu::Vector2D<float>;
+/* constructors */
+template mu::Vector2D<float>::Vector2D(const mu::Vector2D<int> &);
+/* functions */
 template void mu::Vector2D<float>::rotate<float>(float);
 
 /**
@@ -34,16 +37,6 @@ class Vector2DTypeFixture : public VectorTypeFixture<T> {
 };
 
 TYPED_TEST_SUITE(Vector2DTypeFixture, Vector2DTypes);
-
-// TYPED_TEST(Vector2DTypeFixture, testTestTestTest) {
-//   /** arrange */
-//   mu::Vector2D<int> a = {1, 2};
-//   // float len1 = a.length();
-//   mu::Vector2D<float> b{a};
-//   float len2 = b.length();
-//   /** assert */
-//   EXPECT_TRUE(true);
-// }
 
 TYPED_TEST(Vector2DTypeFixture, ConstructorXY) {
   /** arrange */
