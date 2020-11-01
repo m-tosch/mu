@@ -30,6 +30,28 @@ class Vector2D : public Vector<2, T> {
   Vector2D(const Vector<2, T>& other) : Vector<2, T>(other) {}
 
   /**
+   * @brief Construct a new Vector2D from an existing Vector2D of a different
+   * type
+   *
+   * IMPORTANT implicit narrowing is applied
+   *
+   * Example:
+   * @code
+   * mu::Vector2D<int> a = {1, 2};
+   * mu::Vector2D<double> b = {a};
+   * @endcode
+
+   * @tparam Tt
+   * @param other
+   */
+  template <class Tt>
+  Vector2D(const Vector2D<Tt>& other) {
+    for (std::size_t i = 0; i < 2; i++) {
+      Vector<2, T>::data_[i] = static_cast<T>(other[i]);
+    }
+  }
+
+  /**
    * @brief x component
    *
    * @return T&
