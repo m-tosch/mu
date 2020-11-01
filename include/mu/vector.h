@@ -53,9 +53,9 @@ class Vector {
    *
    * @param data
    */
-  template <typename... Args>
+  template <typename... TArgs>
   // NOLINTNEXTLINE(runtime/explicit) implicit conversion is intentional
-  Vector(Args... args) : data_({args...}) {}
+  Vector(TArgs... args) : data_({args...}) {}
 
   /**
    * @brief Construct a new Vector from an existing Vector of a different type
