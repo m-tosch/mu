@@ -126,6 +126,10 @@ constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href=
 <tr class="memitem:a02e3cd2a10436fcd17f8d994f76f712b"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#a02e3cd2a10436fcd17f8d994f76f712b">Vector</a> (Args... args)</td></tr>
 <tr class="memdesc:a02e3cd2a10436fcd17f8d994f76f712b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> object from an arbitrary amount of values.  <a href="#a02e3cd2a10436fcd17f8d994f76f712b">More...</a><br /></td></tr>
 <tr class="separator:a02e3cd2a10436fcd17f8d994f76f712b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a804e1cc69479d06a6a1d68c0179829b8"><td class="memTemplParams" colspan="2">template&lt;std::size_t Nn, class Tt &gt; </td></tr>
+<tr class="memitem:a804e1cc69479d06a6a1d68c0179829b8"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#a804e1cc69479d06a6a1d68c0179829b8">Vector</a> (const <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; Nn, Tt &gt; &amp;other)</td></tr>
+<tr class="memdesc:a804e1cc69479d06a6a1d68c0179829b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> from an existing <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> of a different type.  <a href="#a804e1cc69479d06a6a1d68c0179829b8">More...</a><br /></td></tr>
+<tr class="separator:a804e1cc69479d06a6a1d68c0179829b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae316fed85e71693ac86020631e74ff61"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#ae316fed85e71693ac86020631e74ff61">Vector</a> (T value)</td></tr>
 <tr class="memdesc:ae316fed85e71693ac86020631e74ff61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> object from a single value.  <a href="#ae316fed85e71693ac86020631e74ff61">More...</a><br /></td></tr>
 <tr class="separator:ae316fed85e71693ac86020631e74ff61"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -252,7 +256,7 @@ class mu::Vector&lt; N, T &gt;</h3>
 </dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a02e3cd2a10436fcd17f8d994f76f712b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a02e3cd2a10436fcd17f8d994f76f712b">&#9670;&nbsp;</a></span>Vector() <span class="overload">[1/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a02e3cd2a10436fcd17f8d994f76f712b">&#9670;&nbsp;</a></span>Vector() <span class="overload">[1/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -290,8 +294,54 @@ template&lt;typename... Args&gt; </div>
 
 </div>
 </div>
+<a id="a804e1cc69479d06a6a1d68c0179829b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a804e1cc69479d06a6a1d68c0179829b8">&#9670;&nbsp;</a></span>Vector() <span class="overload">[2/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, typename T&gt; </div>
+<div class="memtemplate">
+template&lt;std::size_t Nn, class Tt &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmu_1_1Vector.html">mu::Vector</a>&lt; N, T &gt;::<a class="el" href="classmu_1_1Vector.html">Vector</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; Nn, Tt &gt; &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Construct a new <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> from an existing <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> of a different type. </p>
+<p>IMPORTANT implicit narrowing is applied it is checked that the <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> sizes are the same</p>
+<p>Example: </p><div class="fragment"><div class="line"><a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> a = {1, 2};</div><div class="line"><a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, double&gt;</a> b = {a};</div></div><!-- fragment --><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Nn</td><td></td></tr>
+    <tr><td class="paramname">Tt</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ae316fed85e71693ac86020631e74ff61"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae316fed85e71693ac86020631e74ff61">&#9670;&nbsp;</a></span>Vector() <span class="overload">[2/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae316fed85e71693ac86020631e74ff61">&#9670;&nbsp;</a></span>Vector() <span class="overload">[3/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -327,7 +377,7 @@ template&lt;std::size_t N, typename T&gt; </div>
 </div>
 </div>
 <a id="a0685dd9a3b39d92caa55c7e2f4336e37"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0685dd9a3b39d92caa55c7e2f4336e37">&#9670;&nbsp;</a></span>Vector() <span class="overload">[3/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0685dd9a3b39d92caa55c7e2f4336e37">&#9670;&nbsp;</a></span>Vector() <span class="overload">[4/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -363,7 +413,7 @@ template&lt;std::size_t N, typename T&gt; </div>
 </div>
 </div>
 <a id="ad3a6a139b333da003ccfc49c01bf60eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad3a6a139b333da003ccfc49c01bf60eb">&#9670;&nbsp;</a></span>Vector() <span class="overload">[4/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3a6a139b333da003ccfc49c01bf60eb">&#9670;&nbsp;</a></span>Vector() <span class="overload">[5/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
