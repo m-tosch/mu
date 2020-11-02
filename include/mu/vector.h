@@ -28,8 +28,9 @@ namespace mu {
  */
 template <std::size_t N, typename T>
 class Vector {
-  static_assert(N != 0, "vector dimension cannot be zero");
-  static_assert(std::is_arithmetic<T>::value, "type T must be an arithmetic");
+  static_assert(N != 0, "Vector dimension cannot be zero");
+  static_assert(std::is_arithmetic<T>::value,
+                "Vector type T must be an arithmetic");
 
  public:
   /* value and size type from the underlying container */
@@ -53,7 +54,11 @@ class Vector {
    *
    * @param data
    */
-  template <typename... TArgs>
+
+  template <typename... TArgs,
+            std::enable_if_t<sizeof...(TArgs) == N ||
+                                 (!std::is_base_of_v<Vector, TArgs> && ...),
+                             int> = 0>
   // NOLINTNEXTLINE(runtime/explicit) implicit conversion is intentional
   Vector(TArgs... args) : data_({args...}) {}
 
