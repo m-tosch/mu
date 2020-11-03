@@ -47,20 +47,27 @@ class Vector {
   constexpr Vector() = default;
 
   /**
-   * @brief Construct a new Vector object from an arbitrary amount of values
+   * @brief Construct a new Vector object from an amount of N values
    *
    * the amount of values must match the static size of this Vector object.
    * allows object construction as "v{1,2,3}" AND "v = {1,2,3}"
    *
-   * @param data
+   * @tparam TArgs
+   * @param args
    */
-
-  template <typename... TArgs,
-            std::enable_if_t<sizeof...(TArgs) == N ||
-                                 (!std::is_base_of_v<Vector, TArgs> && ...),
-                             int> = 0>
+  template <
+      typename... TArgs,
+      std::enable_if_t<
+          sizeof...(TArgs) == N && (std::is_same_v<T, TArgs> && ...), int> = 0>
   // NOLINTNEXTLINE(runtime/explicit) implicit conversion is intentional
   Vector(TArgs... args) : data_({args...}) {}
+
+  /**
+   * @brief Construct a new Vector object from an std::array
+   *
+   * @param arr
+   */
+  explicit Vector(std::array<T, N> arr) : data_(arr) {}
 
   /**
    * @brief Construct a new Vector from an existing Vector of a different type
@@ -369,18 +376,18 @@ class Vector {
   template <std::size_t Nn, class Tt>
   friend std::ostream &operator<<(std::ostream &os, const Vector<Nn, Tt> &vec);
 
-  /**************************** vector <> scalar ******************************/
+  /**************************** vector <> scalar *****************************/
 
   /**
    * @brief add a scalar to this vector
    *
-   * - enable_if to check for an arithmetic type at compile time since it's the
-   * only type "family" that is allowed inside a Vector. Here, one could check
-   * if the scalar is of the same type as the one inside the Vector directly
-   * instead.
-   * ..but that gives really unprecise error messages (something pointing to the
-   * constructor) in case of a mismatch.
-   * the enable_if is also needed to only provide this function to scalars
+   * - enable_if to check for an arithmetic type at compile time since it's
+   * the only type "family" that is allowed inside a Vector. Here, one could
+   * check if the scalar is of the same type as the one inside the Vector
+   * directly instead.
+   * ..but that gives really unprecise error messages (something pointing to
+   * the constructor) in case of a mismatch. the enable_if is also needed to
+   * only provide this function to scalars
    * - the static assert provides a more useful error message to the user at
    * compile time. It enforces the type equality requirement!
    *
