@@ -46,6 +46,8 @@ TYPED_TEST_P(VectorTypeFixture, ConstructorDefault) {
   EXPECT_TRUE(std::is_nothrow_default_constructible<TypeParam>::value);
 }
 
+/* note: type casting constructor is tested in the vector-combinations file! */
+
 TYPED_TEST_P(VectorTypeFixture, ConstructorFromArray) {
   /** action */
   TypeParam obj{this->values};
