@@ -9,8 +9,6 @@
  * functions are generated and thus, the coverage report is accurate.
  */
 template class mu::Vector2D<float>;
-/* constructors */
-template mu::Vector2D<float>::Vector2D(const mu::Vector2D<int> &);
 /* functions */
 template void mu::Vector2D<float>::rotate<float>(float);
 
@@ -37,6 +35,37 @@ class Vector2DTypeFixture : public VectorTypeFixture<T> {
 };
 
 TYPED_TEST_SUITE(Vector2DTypeFixture, Vector2DTypes);
+
+TYPED_TEST(Vector2DTypeFixture, testTestTestTest) {
+  /** arrange */
+  // mu::Vector<2, float> a = {1.5F, 2.5F};
+  // mu::Vector<2, int> b{a};
+  // mu::Vector<2, int> a = {1, 2};
+  // compiles
+  // std::array<int, 2> arr = {1, 2};
+
+  // mu::Vector2D<int> a{1, 2};
+  // mu::Vector<2, float> b{a};
+  // // mu::Vector<2, float> bb{a, b};
+  // // compiles
+  // mu::Vector<2, int> c{3, 4};
+  // mu::Vector2D<float> d{c};
+  // // compiles
+  // mu::Vector2D<int> e{5, 6};
+  // mu::Vector2D<float> f{e};
+  // // compiles
+  // mu::Vector<2, int> g{7, 8};
+  // mu::Vector<2, float> h{g};
+
+  /** action */
+  // a = a + 2;
+  // a = 2 + a;
+  // a = b + 2;
+  // a = 2 + b;
+  // a += 2;
+  /** assert */
+  EXPECT_TRUE(true);
+}
 
 TYPED_TEST(Vector2DTypeFixture, ConstructorXY) {
   /** arrange */
