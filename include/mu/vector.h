@@ -63,13 +63,6 @@ class Vector {
   Vector(TArgs... args) : data_({args...}) {}
 
   /**
-   * @brief Construct a new Vector object from an std::array
-   *
-   * @param arr
-   */
-  explicit Vector(std::array<T, N> arr) : data_(arr) {}
-
-  /**
    * @brief Construct a new Vector from an existing Vector of a different type
    *
    * IMPORTANT implicit narrowing is applied
@@ -93,6 +86,13 @@ class Vector {
       data_[i] = static_cast<T>(other[i]);
     }
   }
+
+  /**
+   * @brief Construct a new Vector object from an std::array
+   *
+   * @param arr
+   */
+  explicit Vector(std::array<T, N> arr) : data_(arr) {}
 
   /**
    * @brief Construct a new Vector object from a single value
