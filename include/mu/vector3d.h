@@ -29,28 +29,6 @@ class Vector3D : public Vector<3, T> {
   Vector3D(const Vector<3, T>& other) : Vector<3, T>(other) {}
 
   /**
-   * @brief Construct a new Vector3D from an existing Vector3D of a different
-   * type
-   *
-   * IMPORTANT implicit narrowing is applied
-   *
-   * Example:
-   * @code
-   * mu::Vector3D<int> a = {1, 2, 3};
-   * mu::Vector3D<double> b = {a};
-   * @endcode
-
-   * @tparam Tt
-   * @param other
-   */
-  template <class Tt>
-  Vector3D(const Vector3D<Tt>& other) {
-    for (std::size_t i = 0; i < 3; i++) {
-      Vector<3, T>::data_[i] = static_cast<T>(other[i]);
-    }
-  }
-
-  /**
    * @brief x component
    *
    * @return T&
