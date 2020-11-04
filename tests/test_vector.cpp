@@ -7,8 +7,6 @@
  * functions are generated and thus, the coverage report is accurate.
  */
 template class mu::Vector<2, float>;
-/* constructors */
-template mu::Vector<2, float>::Vector(const mu::Vector<2, int> &);
 /* functions */
 template float mu::Vector<2, float>::length<float>() const;
 /* operators */
