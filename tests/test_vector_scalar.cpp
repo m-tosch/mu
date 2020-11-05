@@ -43,34 +43,21 @@ class VectorScalarCombinationsFixture
 
 TYPED_TEST_SUITE(VectorScalarCombinationsFixture, VectorScalarCombinations);
 
-TYPED_TEST(VectorScalarCombinationsFixture, OperatorPlus1) {
+TYPED_TEST(VectorScalarCombinationsFixture, OperatorPlus) {
   /** arrange */
   typename TestFixture::T1 obj{this->values};
   auto scalar = static_cast<typename TestFixture::T2>(1);
   /** action */
-  typename TestFixture::T1 res = obj + scalar;
+  typename TestFixture::T1 res1 = scalar + obj;
+  typename TestFixture::T1 res2 = obj + scalar;
   /** assert */
   typename TestFixture::T1 comp;
   std::generate(comp.begin(), comp.end(), [&, i = -1]() mutable {
     i++;
     return obj[i] + scalar;
   });
-  EXPECT_THAT(res, ::testing::ContainerEq(comp));
-}
-
-TYPED_TEST(VectorScalarCombinationsFixture, OperatorPlus2) {
-  /** arrange */
-  auto scalar = static_cast<typename TestFixture::T2>(1);
-  typename TestFixture::T1 obj{this->values};
-  /** action */
-  typename TestFixture::T1 res = scalar + obj;
-  /** assert */
-  typename TestFixture::T1 comp;
-  std::generate(comp.begin(), comp.end(), [&, i = -1]() mutable {
-    i++;
-    return scalar + obj[i];
-  });
-  EXPECT_THAT(res, ::testing::ContainerEq(comp));
+  EXPECT_THAT(res1, ::testing::ContainerEq(comp));
+  EXPECT_THAT(res2, ::testing::ContainerEq(comp));
 }
 
 TYPED_TEST(VectorScalarCombinationsFixture, OperatorPlusEqual) {
