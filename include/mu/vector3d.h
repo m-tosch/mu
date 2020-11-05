@@ -21,7 +21,7 @@ class Vector3D : public Vector<3, T> {
    * @brief Construct a new Vector3D object from a Vector object
    *
    * also implicitly used for copy initialization. purposely not marked
-   * "explicit" for exactly that usecase. suppress linting for this line.
+   * "explicit" for exactly this usecase. suppress linting for this line.
    *
    * @param other
    */
