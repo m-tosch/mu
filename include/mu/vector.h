@@ -316,11 +316,10 @@ class Vector {
    * this vector
    *
    * @tparam T
-   * @return std::enable_if<std::is_floating_point<U>::value, T>::type
+   * @return std::enable_if_t<std::is_floating_point_v<U>, T>::type
    */
   template <class U = T>
-  typename std::enable_if<std::is_floating_point<U>::value, T>::type length()
-      const {
+  typename std::enable_if_t<std::is_floating_point_v<U>, T> length() const {
     return T(mu::sqrt(dot(*this)));
   }
 
@@ -395,12 +394,10 @@ class Vector {
    *
    * @tparam TScalar
    * @param scalar
-   * @return std::enable_if<std::is_arithmetic<TScalar>::value,
-   * Vector<N, T> &>::type
+   * @return std::enable_if_t<std::is_arithmetic_v<TScalar>,Vector<N, T> &>
    */
   template <class TScalar>
-  typename std::enable_if<std::is_arithmetic<TScalar>::value,
-                          Vector<N, T> &>::type
+  typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Vector<N, T> &>
   operator+=(const TScalar &scalar) {
     static_assert(
         std::is_same<T, TScalar>::value,
@@ -441,12 +438,10 @@ std::ostream &operator<<(std::ostream &os, const Vector<Nn, Tt> &vec) {
  * @tparam TScalar
  * @param lhs
  * @param rhs
- * @return std::enable_if<std::is_arithmetic<TScalar>::value,
- * Vector<N, T>>::type
+ * @return std::enable_if_t<std::is_arithmetic_v<TScalar>, Vector<N, T>>
  */
 template <std::size_t N, class T, class TScalar>
-typename std::enable_if<std::is_arithmetic<TScalar>::value,
-                        Vector<N, T>>::type inline
+typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Vector<N, T>> inline
 operator+(const Vector<N, T> &lhs, const TScalar &rhs) {
   return Vector<N, T>(lhs) += rhs;
 }
@@ -461,12 +456,10 @@ operator+(const Vector<N, T> &lhs, const TScalar &rhs) {
  * @tparam TScalar
  * @param lhs
  * @param rhs
- * @return std::enable_if<std::is_arithmetic<TScalar>::value,
- * Vector<N, T>>::type
+ * @return std::enable_if_t<std::is_arithmetic_v<TScalar>, Vector<N, T>>
  */
 template <std::size_t N, class T, class TScalar>
-typename std::enable_if<std::is_arithmetic<TScalar>::value,
-                        Vector<N, T>>::type inline
+typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Vector<N, T>> inline
 operator+(const TScalar &lhs, const Vector<N, T> &rhs) {
   return Vector<N, T>(rhs) += lhs;
 }
