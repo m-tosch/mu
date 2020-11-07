@@ -3,6 +3,7 @@
 
 #include <algorithm>
 #include <cmath>
+#include <limits>
 
 namespace mu {
 
@@ -31,6 +32,9 @@ using std::log2;
 using std::sin;
 using std::sqrt;
 using std::tan;
+
+/* limits */
+using std::numeric_limits;
 
 }  // namespace mu
 
