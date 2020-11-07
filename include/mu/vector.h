@@ -60,7 +60,7 @@ class Vector {
       std::enable_if_t<
           sizeof...(TArgs) == N && (std::is_same_v<T, TArgs> && ...), int> = 0>
   // NOLINTNEXTLINE(runtime/explicit) implicit conversion is intentional
-  Vector(TArgs... args) : data_({args...}) {}
+  Vector(TArgs... args) : data_{{args...}} {}
 
   /**
    * @brief Construct a new Vector from an existing Vector of a different type
