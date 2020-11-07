@@ -491,6 +491,21 @@ operator+(const TScalar &lhs, const Vector<N, T> &rhs) {
 /************************** convenience functions *****************************/
 
 template <std::size_t N, class T>
+inline T min(const Vector<N, T> &other) {
+  return other.min();
+}
+
+template <std::size_t N, class T>
+inline T max(const Vector<N, T> &other) {
+  return other.max();
+}
+
+template <std::size_t N, class T>
+inline T sum(const Vector<N, T> &other) {
+  return other.sum();
+}
+
+template <std::size_t N, class T>
 inline T dot(const Vector<N, T> &lhs, const Vector<N, T> &rhs) {
   return lhs.dot(rhs);
 }
