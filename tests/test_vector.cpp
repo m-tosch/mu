@@ -12,6 +12,10 @@ template float mu::Vector<2, float>::length<float>() const;
 /* operators */
 template std::ostream &mu::operator<<<2, float>(std::ostream &,
                                                 const mu::Vector<2, float> &);
+/* convenience functions */
+template float mu::min(const mu::Vector<2, float> &);
+template float mu::max(const mu::Vector<2, float> &);
+template float mu::sum(const mu::Vector<2, float> &);
 
 /**
  * Instantiate the Vector test suite
