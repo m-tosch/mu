@@ -1,7 +1,6 @@
 #ifndef MU_VECTOR2D_H_
 #define MU_VECTOR2D_H_
 
-#include "mu/utility.h"
 #include "mu/vector.h"
 
 namespace mu {
