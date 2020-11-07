@@ -154,6 +154,8 @@ TYPED_TEST(VectorCombinationsMathFixture, MemberFuncDot) {
   EXPECT_EQ(res, std::inner_product(obj1.begin(), obj1.end(), obj2.begin(), 0));
 }
 
+/************************** convenience functions *****************************/
+
 TYPED_TEST(VectorCombinationsMathFixture, UtilityFuncDot) {
   /** arrange */
   typename TestFixture::T1 obj1{this->values};
