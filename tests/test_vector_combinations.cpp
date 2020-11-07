@@ -10,7 +10,7 @@
 
 /**************************** INITIALIZATION **********************************/
 
-/* explicit instantiation*/
+/* explicit instantiation */
 template mu::Vector<2, float>::Vector(const mu::Vector<2, int> &);
 
 using VectorTypeCombinationsInit = ::testing::Types<
@@ -57,6 +57,10 @@ TYPED_TEST(VectorCombinationsInitFixture, ConstructorFromDifferentTypeVector) {
 }
 
 /******************************* MATH *****************************************/
+
+/* explicit instantiation */
+template float mu::dot(const mu::Vector<2, float> &,
+                       const mu::Vector<2, float> &);
 
 using VectorTypeCombinationsMath = ::testing::Types<
     /* Vector */
