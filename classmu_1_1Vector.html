@@ -206,7 +206,7 @@ constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href=
 <tr class="memdesc:a810d52f7aecb6150ceb74a2a28a77b3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">dot product of two vectors  <a href="#a810d52f7aecb6150ceb74a2a28a77b3c">More...</a><br /></td></tr>
 <tr class="separator:a810d52f7aecb6150ceb74a2a28a77b3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe4d3c4dfa03eb4c8f9240f89c7f6139"><td class="memTemplParams" colspan="2">template&lt;class U  = T&gt; </td></tr>
-<tr class="memitem:afe4d3c4dfa03eb4c8f9240f89c7f6139"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt; std::is_floating_point&lt; U &gt;::value, T &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#afe4d3c4dfa03eb4c8f9240f89c7f6139">length</a> () const</td></tr>
+<tr class="memitem:afe4d3c4dfa03eb4c8f9240f89c7f6139"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if_t&lt; std::is_floating_point_v&lt; U &gt;, T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#afe4d3c4dfa03eb4c8f9240f89c7f6139">length</a> () const</td></tr>
 <tr class="memdesc:afe4d3c4dfa03eb4c8f9240f89c7f6139"><td class="mdescLeft">&#160;</td><td class="mdescRight">euclidean vector length  <a href="#afe4d3c4dfa03eb4c8f9240f89c7f6139">More...</a><br /></td></tr>
 <tr class="separator:afe4d3c4dfa03eb4c8f9240f89c7f6139"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a597ca2de6348a91e896f3f2296a5bcd2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#a597ca2de6348a91e896f3f2296a5bcd2">flip</a> ()</td></tr>
@@ -223,10 +223,22 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a1293ec47d16f9085c0b8e88287ad912e"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#a1293ec47d16f9085c0b8e88287ad912e">sort</a> (const Compare comp)</td></tr>
 <tr class="memdesc:a1293ec47d16f9085c0b8e88287ad912e"><td class="mdescLeft">&#160;</td><td class="mdescRight">sort vector elements by providing a condition  <a href="#a1293ec47d16f9085c0b8e88287ad912e">More...</a><br /></td></tr>
 <tr class="separator:a1293ec47d16f9085c0b8e88287ad912e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ba01c248a660e2bdb5e8c0cc88ba3b0"><td class="memTemplParams" colspan="2">template&lt;class TScalar &gt; </td></tr>
-<tr class="memitem:a1ba01c248a660e2bdb5e8c0cc88ba3b0"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt; std::is_arithmetic&lt; TScalar &gt;::value, <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, T &gt; &amp; &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#a1ba01c248a660e2bdb5e8c0cc88ba3b0">operator+=</a> (const TScalar &amp;scalar)</td></tr>
-<tr class="memdesc:a1ba01c248a660e2bdb5e8c0cc88ba3b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">add a scalar to this vector  <a href="#a1ba01c248a660e2bdb5e8c0cc88ba3b0">More...</a><br /></td></tr>
-<tr class="separator:a1ba01c248a660e2bdb5e8c0cc88ba3b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa19ffa96f0ea27c8c25fc854c50e18f7"><td class="memTemplParams" colspan="2">template&lt;class TScalar &gt; </td></tr>
+<tr class="memitem:aa19ffa96f0ea27c8c25fc854c50e18f7"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if_t&lt; std::is_arithmetic_v&lt; TScalar &gt;, <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, T &gt; &amp; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#aa19ffa96f0ea27c8c25fc854c50e18f7">operator+=</a> (const TScalar &amp;scalar)</td></tr>
+<tr class="memdesc:aa19ffa96f0ea27c8c25fc854c50e18f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">add a scalar to this vector  <a href="#aa19ffa96f0ea27c8c25fc854c50e18f7">More...</a><br /></td></tr>
+<tr class="separator:aa19ffa96f0ea27c8c25fc854c50e18f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00853b170ad61e3e0e662de55ed0e8db"><td class="memTemplParams" colspan="2">template&lt;class TScalar &gt; </td></tr>
+<tr class="memitem:a00853b170ad61e3e0e662de55ed0e8db"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if_t&lt; std::is_arithmetic_v&lt; TScalar &gt;, <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, T &gt; &amp; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#a00853b170ad61e3e0e662de55ed0e8db">operator-=</a> (const TScalar &amp;scalar)</td></tr>
+<tr class="memdesc:a00853b170ad61e3e0e662de55ed0e8db"><td class="mdescLeft">&#160;</td><td class="mdescRight">subtract a scalar from every element of this vector  <a href="#a00853b170ad61e3e0e662de55ed0e8db">More...</a><br /></td></tr>
+<tr class="separator:a00853b170ad61e3e0e662de55ed0e8db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ff96cf7c94851217389883cf9c3b571"><td class="memTemplParams" colspan="2">template&lt;class TScalar &gt; </td></tr>
+<tr class="memitem:a1ff96cf7c94851217389883cf9c3b571"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if_t&lt; std::is_arithmetic_v&lt; TScalar &gt;, <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, T &gt; &amp; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#a1ff96cf7c94851217389883cf9c3b571">operator*=</a> (const TScalar &amp;scalar)</td></tr>
+<tr class="memdesc:a1ff96cf7c94851217389883cf9c3b571"><td class="mdescLeft">&#160;</td><td class="mdescRight">multiply a scalar with this vector  <a href="#a1ff96cf7c94851217389883cf9c3b571">More...</a><br /></td></tr>
+<tr class="separator:a1ff96cf7c94851217389883cf9c3b571"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace5a9dc0549a3a402c40175ae1f301e9"><td class="memTemplParams" colspan="2">template&lt;class TScalar &gt; </td></tr>
+<tr class="memitem:ace5a9dc0549a3a402c40175ae1f301e9"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if_t&lt; std::is_arithmetic_v&lt; TScalar &gt;, <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, T &gt; &amp; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#ace5a9dc0549a3a402c40175ae1f301e9">operator/=</a> (const TScalar &amp;scalar)</td></tr>
+<tr class="memdesc:ace5a9dc0549a3a402c40175ae1f301e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">divide every element of this vector by a scalar  <a href="#ace5a9dc0549a3a402c40175ae1f301e9">More...</a><br /></td></tr>
+<tr class="separator:ace5a9dc0549a3a402c40175ae1f301e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -651,7 +663,7 @@ template&lt;std::size_t N, typename T&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;std::size_t N, class T&gt; </div>
+template&lt;std::size_t N, typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -684,8 +696,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classmu_1_1Vector_a810d52f7aecb6150ceb74a2a28a77b3c_icgraph.png" border="0" usemap="#classmu_1_1Vector_a810d52f7aecb6150ceb74a2a28a77b3c_icgraph" alt=""/></div>
 <map name="classmu_1_1Vector_a810d52f7aecb6150ceb74a2a28a77b3c_icgraph" id="classmu_1_1Vector_a810d52f7aecb6150ceb74a2a28a77b3c_icgraph">
-<area shape="rect" id="node2" href="classmu_1_1Vector.html#a3c733864c02356902b5d92e8fe2cd56c" title="mu::Vector\&lt; 2, T \&gt;::end" alt="" coords="165,5,328,32"/>
-<area shape="rect" id="node3" href="classmu_1_1Vector.html#afe4d3c4dfa03eb4c8f9240f89c7f6139" title="euclidean vector length " alt="" coords="180,57,313,98"/>
+<area shape="rect" id="node2" href="classmu_1_1Vector.html#afe4d3c4dfa03eb4c8f9240f89c7f6139" title="euclidean vector length " alt="" coords="165,5,299,47"/>
 </map>
 </div>
 
@@ -860,7 +871,7 @@ template&lt;class U  = T&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>std::enable_if&lt;std::is_floating_point&lt;U&gt;::value, T&gt;::type </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>std::enable_if_t&lt;std::is_floating_point_v&lt;U&gt;, T&gt;::type </dd></dl>
 
 </div>
 </div>
@@ -870,7 +881,7 @@ template&lt;class U  = T&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;std::size_t N, class T &gt; </div>
+template&lt;std::size_t N, typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -891,14 +902,6 @@ template&lt;std::size_t N, class T &gt; </div>
 
 <p>get the max value of the vector </p>
 <dl class="section return"><dt>Returns</dt><dd>T </dd></dl>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classmu_1_1Vector_a0bcb8df801149ed1a5654a141aae14d7_icgraph.png" border="0" usemap="#classmu_1_1Vector_a0bcb8df801149ed1a5654a141aae14d7_icgraph" alt=""/></div>
-<map name="classmu_1_1Vector_a0bcb8df801149ed1a5654a141aae14d7_icgraph" id="classmu_1_1Vector_a0bcb8df801149ed1a5654a141aae14d7_icgraph">
-<area shape="rect" id="node2" href="classmu_1_1Vector.html#a3c733864c02356902b5d92e8fe2cd56c" title="mu::Vector\&lt; 2, T \&gt;::end" alt="" coords="172,5,335,32"/>
-</map>
-</div>
 
 </div>
 </div>
@@ -908,7 +911,7 @@ Here is the caller graph for this function:</div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;std::size_t N, class T &gt; </div>
+template&lt;std::size_t N, typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -929,14 +932,6 @@ template&lt;std::size_t N, class T &gt; </div>
 
 <p>get the min value of the vector </p>
 <dl class="section return"><dt>Returns</dt><dd>T </dd></dl>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classmu_1_1Vector_a57ac0fa3add5609d667d37b934793acd_icgraph.png" border="0" usemap="#classmu_1_1Vector_a57ac0fa3add5609d667d37b934793acd_icgraph" alt=""/></div>
-<map name="classmu_1_1Vector_a57ac0fa3add5609d667d37b934793acd_icgraph" id="classmu_1_1Vector_a57ac0fa3add5609d667d37b934793acd_icgraph">
-<area shape="rect" id="node2" href="classmu_1_1Vector.html#a3c733864c02356902b5d92e8fe2cd56c" title="mu::Vector\&lt; 2, T \&gt;::end" alt="" coords="168,5,331,32"/>
-</map>
-</div>
 
 </div>
 </div>
@@ -974,6 +969,51 @@ template&lt;std::size_t N, typename T&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>bool true if unequal, false if equal </dd></dl>
+
+</div>
+</div>
+<a id="a1ff96cf7c94851217389883cf9c3b571"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ff96cf7c94851217389883cf9c3b571">&#9670;&nbsp;</a></span>operator*=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, typename T&gt; </div>
+<div class="memtemplate">
+template&lt;class TScalar &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">template <a class="el" href="classmu_1_1Vector.html">mu::Vector</a>&lt; 2, float &gt; &amp; <a class="el" href="classmu_1_1Vector.html">mu::Vector</a>&lt; N, T &gt;::operator*=&lt; float &gt; </td>
+          <td>(</td>
+          <td class="paramtype">const TScalar &amp;&#160;</td>
+          <td class="paramname"><em>scalar</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>multiply a scalar with this vector </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">TScalar</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scalar</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::enable_if_t&lt;std::is_arithmetic_v&lt;TScalar&gt;,Vector&lt;N, T&gt; &amp;&gt; </dd></dl>
 
 </div>
 </div>
@@ -1051,8 +1091,8 @@ template&lt;std::size_t N, typename T&gt; </div>
 
 </div>
 </div>
-<a id="a1ba01c248a660e2bdb5e8c0cc88ba3b0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1ba01c248a660e2bdb5e8c0cc88ba3b0">&#9670;&nbsp;</a></span>operator+=() <span class="overload">[2/2]</span></h2>
+<a id="aa19ffa96f0ea27c8c25fc854c50e18f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa19ffa96f0ea27c8c25fc854c50e18f7">&#9670;&nbsp;</a></span>operator+=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1065,7 +1105,7 @@ template&lt;class TScalar &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::enable_if&lt;std::is_arithmetic&lt;TScalar&gt;::value, <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt;N, T&gt; &amp;&gt;::type <a class="el" href="classmu_1_1Vector.html">mu::Vector</a>&lt; N, T &gt;::operator+= </td>
+          <td class="memname">std::enable_if_t&lt;std::is_arithmetic_v&lt;TScalar&gt;, <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt;N, T&gt; &amp;&gt; <a class="el" href="classmu_1_1Vector.html">mu::Vector</a>&lt; N, T &gt;::operator+= </td>
           <td>(</td>
           <td class="paramtype">const TScalar &amp;&#160;</td>
           <td class="paramname"><em>scalar</em></td><td>)</td>
@@ -1080,11 +1120,6 @@ template&lt;class TScalar &gt; </div>
 </div><div class="memdoc">
 
 <p>add a scalar to this vector </p>
-<ul>
-<li>enable_if to check for an arithmetic type at compile time since it's the only type "family" that is allowed inside a <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a>. Here, one could check if the scalar is of the same type as the one inside the <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> directly instead. ..but that gives really unprecise error messages (something pointing to the constructor) in case of a mismatch. the enable_if is also needed to only provide this function to scalars</li>
-<li>the static assert provides a more useful error message to the user at compile time. It enforces the type equality requirement!</li>
-</ul>
-<p>placed inside this class because write access to member data is required</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">TScalar</td><td></td></tr>
@@ -1097,7 +1132,7 @@ template&lt;class TScalar &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>std::enable_if&lt;std::is_arithmetic&lt;TScalar&gt;::value, Vector&lt;N, T&gt; &amp;&gt;::type </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>std::enable_if_t&lt;std::is_arithmetic_v&lt;TScalar&gt;,Vector&lt;N, T&gt; &amp;&gt; </dd></dl>
 
 </div>
 </div>
@@ -1139,7 +1174,7 @@ template&lt;std::size_t N, typename T&gt; </div>
 </div>
 </div>
 <a id="a9e49d07ab9ee1a407413ec27d335ffc8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e49d07ab9ee1a407413ec27d335ffc8">&#9670;&nbsp;</a></span>operator-=()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e49d07ab9ee1a407413ec27d335ffc8">&#9670;&nbsp;</a></span>operator-=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1172,6 +1207,96 @@ template&lt;std::size_t N, typename T&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Vector&lt;N, T&gt;&amp; </dd></dl>
+
+</div>
+</div>
+<a id="a00853b170ad61e3e0e662de55ed0e8db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00853b170ad61e3e0e662de55ed0e8db">&#9670;&nbsp;</a></span>operator-=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, typename T&gt; </div>
+<div class="memtemplate">
+template&lt;class TScalar &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::enable_if_t&lt;std::is_arithmetic_v&lt;TScalar&gt;, <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt;N, T&gt; &amp;&gt; <a class="el" href="classmu_1_1Vector.html">mu::Vector</a>&lt; N, T &gt;::operator-= </td>
+          <td>(</td>
+          <td class="paramtype">const TScalar &amp;&#160;</td>
+          <td class="paramname"><em>scalar</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>subtract a scalar from every element of this vector </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">TScalar</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scalar</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::enable_if_t&lt;std::is_arithmetic_v&lt;TScalar&gt;, Vector&lt;N, T&gt; &amp;&gt; </dd></dl>
+
+</div>
+</div>
+<a id="ace5a9dc0549a3a402c40175ae1f301e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace5a9dc0549a3a402c40175ae1f301e9">&#9670;&nbsp;</a></span>operator/=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, typename T&gt; </div>
+<div class="memtemplate">
+template&lt;class TScalar &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">template <a class="el" href="classmu_1_1Vector.html">mu::Vector</a>&lt; 2, float &gt; &amp; <a class="el" href="classmu_1_1Vector.html">mu::Vector</a>&lt; N, T &gt;::operator/=&lt; float &gt; </td>
+          <td>(</td>
+          <td class="paramtype">const TScalar &amp;&#160;</td>
+          <td class="paramname"><em>scalar</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>divide every element of this vector by a scalar </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">TScalar</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scalar</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::enable_if_t&lt;std::is_arithmetic_v&lt;TScalar&gt;, Vector&lt;N, T&gt; &amp;&gt; </dd></dl>
 
 </div>
 </div>
@@ -1459,7 +1584,7 @@ template&lt;typename Compare &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;std::size_t N, class T &gt; </div>
+template&lt;std::size_t N, typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1480,14 +1605,6 @@ template&lt;std::size_t N, class T &gt; </div>
 
 <p>sum up all the elements of the vector </p>
 <dl class="section return"><dt>Returns</dt><dd>T </dd></dl>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classmu_1_1Vector_a5aaede8fa7e0cfa50b044fcaf89cf1f2_icgraph.png" border="0" usemap="#classmu_1_1Vector_a5aaede8fa7e0cfa50b044fcaf89cf1f2_icgraph" alt=""/></div>
-<map name="classmu_1_1Vector_a5aaede8fa7e0cfa50b044fcaf89cf1f2_icgraph" id="classmu_1_1Vector_a5aaede8fa7e0cfa50b044fcaf89cf1f2_icgraph">
-<area shape="rect" id="node2" href="classmu_1_1Vector.html#a3c733864c02356902b5d92e8fe2cd56c" title="mu::Vector\&lt; 2, T \&gt;::end" alt="" coords="172,5,335,32"/>
-</map>
-</div>
 
 </div>
 </div>
@@ -1552,6 +1669,7 @@ template&lt;std::size_t Nn, class Tt &gt; </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/runner/work/mu/mu/include/mu/<a class="el" href="vector_8h_source.html">vector.h</a></li>
 <li>/home/runner/work/mu/mu/tests/test_vector.cpp</li>
+<li>/home/runner/work/mu/mu/tests/test_vector_scalar.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
