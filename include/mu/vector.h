@@ -284,21 +284,39 @@ class Vector {
    *
    * @return T
    */
-  T min() const;
+  T min() const {
+    T ret(data_[0]);
+    for (std::size_t i = 1; i < N; i++) {
+      ret = mu::min(ret, data_[i]);
+    }
+    return ret;
+  }
 
   /**
    * @brief get the max value of the vector
    *
    * @return T
    */
-  T max() const;
+  T max() const {
+    T ret(data_[0]);
+    for (std::size_t i = 1; i < N; i++) {
+      ret = mu::max(ret, data_[i]);
+    }
+    return ret;
+  }
 
   /**
    * @brief sum up all the elements of the vector
    *
    * @return T
    */
-  T sum() const;
+  T sum() const {
+    T ret(data_[0]);
+    for (std::size_t i = 1; i < N; i++) {
+      ret += data_[i];
+    }
+    return ret;
+  }
 
   /**
    * @brief dot product of two vectors
@@ -306,7 +324,13 @@ class Vector {
    * @param other
    * @return T
    */
-  T dot(const Vector<N, T> &other) const;
+  T dot(const Vector<N, T> &other) const {
+    T ret{};
+    for (std::size_t i = 0; i < N; i++) {
+      ret += data_[i] * other.data_[i];
+    }
+    return ret;
+  }
 
   /**
    * @brief euclidean vector length
@@ -462,44 +486,6 @@ template <std::size_t N, class T, class TScalar>
 typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Vector<N, T>> inline
 operator+(const TScalar &lhs, const Vector<N, T> &rhs) {
   return Vector<N, T>(rhs) += lhs;
-}
-
-/******************************************************************************/
-
-template <std::size_t N, class T>
-inline T Vector<N, T>::min() const {
-  T ret(data_[0]);
-  for (std::size_t i = 1; i < N; i++) {
-    ret = mu::min(ret, data_[i]);
-  }
-  return ret;
-}
-
-template <std::size_t N, class T>
-inline T Vector<N, T>::max() const {
-  T ret(data_[0]);
-  for (std::size_t i = 1; i < N; i++) {
-    ret = mu::max(ret, data_[i]);
-  }
-  return ret;
-}
-
-template <std::size_t N, class T>
-inline T Vector<N, T>::sum() const {
-  T ret(data_[0]);
-  for (std::size_t i = 1; i < N; i++) {
-    ret += data_[i];
-  }
-  return ret;
-}
-
-template <std::size_t N, class T>
-inline T Vector<N, T>::dot(const Vector<N, T> &other) const {
-  T ret{};
-  for (std::size_t i = 0; i < N; i++) {
-    ret += data_[i] * other.data_[i];
-  }
-  return ret;
 }
 
 /************************** convenience functions *****************************/
