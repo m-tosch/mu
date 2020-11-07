@@ -12,12 +12,18 @@
  * Instantiate these template functions explicitly so that all
  * functions are generated and thus, the coverage report is accurate.
  */
+/* addition */
 template mu::Vector<2, float>& mu::Vector<2, float>::operator+=
     <float>(const float&);
 template mu::Vector<2, float> mu::operator+
     <2, float, float>(const mu::Vector<2, float>&, const float&);
 template mu::Vector<2, float> mu::operator+
     <2, float, float>(const float&, const mu::Vector<2, float>&);
+/* subtraction */
+template mu::Vector<2, float>& mu::Vector<2, float>::operator-=
+    <float>(const float&);
+template mu::Vector<2, float> mu::operator-
+    <2, float, float>(const mu::Vector<2, float>&, const float&);
 
 /**
  * Vector <> Scalar test combinations
@@ -47,7 +53,7 @@ TYPED_TEST(VectorScalarCombinationsFixture, OperatorPlus) {
   /** arrange */
   typename TestFixture::T1 obj{this->values};
   auto scalar = static_cast<typename TestFixture::T2>(1);
-  /** action */
+  /** action test both ways to do addition */
   typename TestFixture::T1 res1 = scalar + obj;
   typename TestFixture::T1 res2 = obj + scalar;
   /** assert */
@@ -71,6 +77,36 @@ TYPED_TEST(VectorScalarCombinationsFixture, OperatorPlusEqual) {
   std::generate(comp.begin(), comp.end(), [&, i = -1]() mutable {
     i++;
     return this->values[i] + scalar;
+  });
+  EXPECT_THAT(obj, ::testing::ContainerEq(comp));
+}
+
+TYPED_TEST(VectorScalarCombinationsFixture, OperatorMinus) {
+  /** arrange */
+  typename TestFixture::T1 obj{this->values};
+  auto scalar = static_cast<typename TestFixture::T2>(1);
+  /** action */
+  typename TestFixture::T1 res = obj - scalar;
+  /** assert */
+  typename TestFixture::T1 comp;
+  std::generate(comp.begin(), comp.end(), [&, i = -1]() mutable {
+    i++;
+    return obj[i] - scalar;
+  });
+  EXPECT_THAT(res, ::testing::ContainerEq(comp));
+}
+
+TYPED_TEST(VectorScalarCombinationsFixture, OperatorMinusEqual) {
+  /** arrange */
+  typename TestFixture::T1 obj{this->values};
+  auto scalar = static_cast<typename TestFixture::T2>(1);
+  /** action */
+  obj -= scalar;
+  /** assert */
+  typename TestFixture::T1 comp;
+  std::generate(comp.begin(), comp.end(), [&, i = -1]() mutable {
+    i++;
+    return this->values[i] - scalar;
   });
   EXPECT_THAT(obj, ::testing::ContainerEq(comp));
 }
