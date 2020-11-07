@@ -59,6 +59,9 @@ TYPED_TEST(VectorCombinationsInitFixture, ConstructorFromDifferentTypeVector) {
 /******************************* MATH *****************************************/
 
 /* explicit instantiation */
+/* convenience functions */
+/* these functions should take a combination of Vectors, so they're here.
+ * functions that take e.g a single Vector as argument are elsewhere */
 template float mu::dot(const mu::Vector<2, float> &,
                        const mu::Vector<2, float> &);
 
