@@ -348,6 +348,36 @@ TYPED_TEST_P(VectorTypeFixture, OperatorStreamOut) {
   EXPECT_THAT(this->values, ::testing::ContainerEq(arr));
 }
 
+/************************** convenience functions *****************************/
+
+TYPED_TEST_P(VectorTypeFixture, UtilityFuncMin) {
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  typename TypeParam::value_type min_v = min(obj);
+  /** assert */
+  EXPECT_EQ(min_v, *std::min_element(this->values.begin(), this->values.end()));
+}
+
+TYPED_TEST_P(VectorTypeFixture, UtilityFuncMax) {
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  typename TypeParam::value_type max_v = max(obj);
+  /** assert */
+  EXPECT_EQ(max_v, *std::max_element(this->values.begin(), this->values.end()));
+}
+
+TYPED_TEST_P(VectorTypeFixture, UtilityFuncSum) {
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  typename TypeParam::value_type sum_v = sum(obj);
+  /** assert */
+  EXPECT_EQ(sum_v,
+            std::accumulate(this->values.begin(), this->values.end(), 0));
+}
+
 REGISTER_TYPED_TEST_SUITE_P(
     VectorTypeFixture, ConstructorDefault, DestructorDefault,
     ConstructorFromArray, ConstructorFromSingleValue, ConstructorCopy,
@@ -358,6 +388,7 @@ REGISTER_TYPED_TEST_SUITE_P(
     MemberFuncSize, MemberFuncBegin, MemberFuncBeginConst, MemberFuncEnd,
     MemberFuncEndConst, MemberFuncMin, MemberFuncMax, MemberFuncSum,
     MemberFuncLength, MemberFuncFlip, MemberFuncFlipped, MemberFuncSort,
-    MemberFuncSortLambda, OperatorStreamOut);
+    MemberFuncSortLambda, OperatorStreamOut, UtilityFuncMin, UtilityFuncMax,
+    UtilityFuncSum);
 
 #endif  // TESTS_VECTOR_TYPE_H_
