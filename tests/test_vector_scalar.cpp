@@ -24,6 +24,13 @@ template mu::Vector<2, float>& mu::Vector<2, float>::operator-=
     <float>(const float&);
 template mu::Vector<2, float> mu::operator-
     <2, float, float>(const mu::Vector<2, float>&, const float&);
+/* multiplication */
+template mu::Vector<2, float>& mu::Vector<2, float>::operator*=
+    <float>(const float&);
+template mu::Vector<2, float> mu::operator*<2, float, float>(
+    const mu::Vector<2, float>&, const float&);
+template mu::Vector<2, float> mu::operator*<2, float, float>(
+    const float&, const mu::Vector<2, float>&);
 
 /**
  * Vector <> Scalar test combinations
@@ -107,6 +114,38 @@ TYPED_TEST(VectorScalarCombinationsFixture, OperatorMinusEqual) {
   std::generate(comp.begin(), comp.end(), [&, i = -1]() mutable {
     i++;
     return this->values[i] - scalar;
+  });
+  EXPECT_THAT(obj, ::testing::ContainerEq(comp));
+}
+
+TYPED_TEST(VectorScalarCombinationsFixture, OperatorMultiply) {
+  /** arrange */
+  typename TestFixture::T1 obj{this->values};
+  auto scalar = static_cast<typename TestFixture::T2>(1);
+  /** action test both ways to do addition */
+  typename TestFixture::T1 res1 = scalar * obj;
+  typename TestFixture::T1 res2 = obj * scalar;
+  /** assert */
+  typename TestFixture::T1 comp;
+  std::generate(comp.begin(), comp.end(), [&, i = -1]() mutable {
+    i++;
+    return obj[i] * scalar;
+  });
+  EXPECT_THAT(res1, ::testing::ContainerEq(comp));
+  EXPECT_THAT(res2, ::testing::ContainerEq(comp));
+}
+
+TYPED_TEST(VectorScalarCombinationsFixture, OperatorMultiplyEqual) {
+  /** arrange */
+  typename TestFixture::T1 obj{this->values};
+  auto scalar = static_cast<typename TestFixture::T2>(1);
+  /** action */
+  obj *= scalar;
+  /** assert */
+  typename TestFixture::T1 comp;
+  std::generate(comp.begin(), comp.end(), [&, i = -1]() mutable {
+    i++;
+    return this->values[i] * scalar;
   });
   EXPECT_THAT(obj, ::testing::ContainerEq(comp));
 }
