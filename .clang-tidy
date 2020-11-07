@@ -10,7 +10,8 @@ Checks:
   -modernize-use-trailing-return-type,
   -cppcoreguidelines-owning-memory,
   -modernize-use-using,
-  -google-explicit-constructor
+  -google-explicit-constructor,
+  -cppcoreguidelines-non-private-member-variables-in-classes
 
 CheckOptions:
   - { key: readability-identifier-naming.NamespaceCase,            value: lower_case  }
