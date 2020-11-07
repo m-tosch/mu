@@ -29,8 +29,7 @@ namespace mu {
 template <std::size_t N, typename T>
 class Vector {
   static_assert(N != 0, "Vector dimension cannot be zero");
-  static_assert(std::is_arithmetic<T>::value,
-                "Vector type T must be an arithmetic");
+  static_assert(std::is_arithmetic_v<T>, "Vector type T must be an arithmetic");
 
  public:
   /* value and size type from the underlying container */
@@ -377,20 +376,20 @@ class Vector {
 
   /**************************** vector <> scalar *****************************/
 
-  /**
-   * @brief add a scalar to this vector
-   *
-   * - enable_if to check for an arithmetic type at compile time since it's
-   * the only type "family" that is allowed inside a Vector. Here, one could
-   * check if the scalar is of the same type as the one inside the Vector
-   * directly instead.
-   * ..but that gives really unprecise error messages (something pointing to
-   * the constructor) in case of a mismatch. the enable_if is also needed to
-   * only provide this function to scalars
-   * - the static assert provides a more useful error message to the user at
+  /* - enable_if's are used to check for an arithmetic type at compile time
+   * since it's the only type "family" that is allowed inside a Vector. Here,
+   * one could check if the scalar is of the same type as the one inside the
+   * Vector directly instead..
+   * ..but that gives rather unprecise error messages in case of a mismatch. the
+   * enable_if is also needed to only provide this function to scalars
+   * - the static_assert provides a more useful error message to the user at
    * compile time. It enforces the type equality requirement!
    *
    * placed inside this class because write access to member data is required
+   */
+
+  /**
+   * @brief add a scalar to this vector
    *
    * @tparam TScalar
    * @param scalar
@@ -400,7 +399,8 @@ class Vector {
   typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Vector<N, T> &>
   operator+=(const TScalar &scalar) {
     static_assert(
-        std::is_same<T, TScalar>::value,
+        std::is_same_v<T, TScalar>,
+        "for + or += "
         "the scalar must be of the same type that the Vector contains");
     for (std::size_t i = 0; i < N; i++) {
       data_[i] += scalar;
@@ -449,7 +449,7 @@ operator+(const Vector<N, T> &lhs, const TScalar &rhs) {
 /**
  * @brief
  *
- * see operator+(Vector, scalar)
+ * see operator+=(scalar)
  *
  * @tparam N
  * @tparam T
