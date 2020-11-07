@@ -433,7 +433,7 @@ class Vector {
   }
 
   /**
-   * @brief subtract a scalar from this vector
+   * @brief subtract a scalar from every element of this vector
    *
    * @tparam TScalar
    * @param scalar
@@ -468,6 +468,31 @@ class Vector {
         "the scalar must be of the same type that the Vector contains");
     for (std::size_t i = 0; i < N; i++) {
       data_[i] *= scalar;
+    }
+    return *this;
+  }
+
+  /**
+   * @brief divide every element of this vector by a scalar
+   *
+   * @tparam TScalar
+   * @param scalar
+   * @return std::enable_if_t<std::is_arithmetic_v<TScalar>, Vector<N, T> &>
+   */
+  template <class TScalar>
+  typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Vector<N, T> &>
+  operator/=(const TScalar &scalar) {
+    static_assert(
+        std::is_same_v<T, TScalar>,
+        "for / or /= "
+        "the scalar must be of the same type that the Vector contains");
+    static_assert(std::is_floating_point_v<T>,
+                  "for / or /= "
+                  "both the scalar and the type that the Vector contains must "
+                  "be a floating point type");
+
+    for (std::size_t i = 0; i < N; i++) {
+      data_[i] /= scalar;
     }
     return *this;
   }
@@ -578,6 +603,22 @@ template <std::size_t N, class T, class TScalar>
 typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Vector<N, T>> inline
 operator*(const TScalar &lhs, const Vector<N, T> &rhs) {
   return Vector<N, T>(rhs) *= lhs;
+}
+
+/**
+ * @brief vector and scalar division
+ *
+ * @tparam N
+ * @tparam T
+ * @tparam TScalar
+ * @param lhs
+ * @param rhs
+ * @return std::enable_if_t<std::is_arithmetic_v<TScalar>, Vector<N, T>>
+ */
+template <std::size_t N, class T, class TScalar>
+typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Vector<N, T>> inline
+operator/(const Vector<N, T> &lhs, const TScalar &rhs) {
+  return Vector<N, T>(lhs) /= rhs;
 }
 
 /************************** convenience functions *****************************/
