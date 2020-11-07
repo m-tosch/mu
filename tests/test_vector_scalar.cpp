@@ -60,6 +60,8 @@ class VectorScalarCombinationsFixture
  public:
   typedef typename std::tuple_element<0, T>::type T1;
   typedef typename std::tuple_element<1, T>::type T2;
+  /* scalars used in multiple or all tests */
+  static inline T2 one = static_cast<T2>(1);
 };
 
 TYPED_TEST_SUITE(VectorScalarCombinationsFixture, VectorScalarCombinations);
@@ -67,7 +69,7 @@ TYPED_TEST_SUITE(VectorScalarCombinationsFixture, VectorScalarCombinations);
 TYPED_TEST(VectorScalarCombinationsFixture, OperatorPlus) {
   /** arrange */
   typename TestFixture::T1 obj{this->values};
-  auto scalar = static_cast<typename TestFixture::T2>(1);
+  auto scalar = TestFixture::one;
   /** action test both ways to do addition */
   typename TestFixture::T1 res1 = scalar + obj;
   typename TestFixture::T1 res2 = obj + scalar;
@@ -84,7 +86,7 @@ TYPED_TEST(VectorScalarCombinationsFixture, OperatorPlus) {
 TYPED_TEST(VectorScalarCombinationsFixture, OperatorPlusEqual) {
   /** arrange */
   typename TestFixture::T1 obj{this->values};
-  auto scalar = static_cast<typename TestFixture::T2>(1);
+  auto scalar = TestFixture::one;
   /** action */
   obj += scalar;
   /** assert */
@@ -99,7 +101,7 @@ TYPED_TEST(VectorScalarCombinationsFixture, OperatorPlusEqual) {
 TYPED_TEST(VectorScalarCombinationsFixture, OperatorMinus) {
   /** arrange */
   typename TestFixture::T1 obj{this->values};
-  auto scalar = static_cast<typename TestFixture::T2>(1);
+  auto scalar = TestFixture::one;
   /** action */
   typename TestFixture::T1 res = obj - scalar;
   /** assert */
@@ -114,7 +116,7 @@ TYPED_TEST(VectorScalarCombinationsFixture, OperatorMinus) {
 TYPED_TEST(VectorScalarCombinationsFixture, OperatorMinusEqual) {
   /** arrange */
   typename TestFixture::T1 obj{this->values};
-  auto scalar = static_cast<typename TestFixture::T2>(1);
+  auto scalar = TestFixture::one;
   /** action */
   obj -= scalar;
   /** assert */
@@ -129,7 +131,7 @@ TYPED_TEST(VectorScalarCombinationsFixture, OperatorMinusEqual) {
 TYPED_TEST(VectorScalarCombinationsFixture, OperatorMultiply) {
   /** arrange */
   typename TestFixture::T1 obj{this->values};
-  auto scalar = static_cast<typename TestFixture::T2>(1);
+  auto scalar = TestFixture::one;
   /** action test both ways to do addition */
   typename TestFixture::T1 res1 = scalar * obj;
   typename TestFixture::T1 res2 = obj * scalar;
@@ -146,7 +148,7 @@ TYPED_TEST(VectorScalarCombinationsFixture, OperatorMultiply) {
 TYPED_TEST(VectorScalarCombinationsFixture, OperatorMultiplyEqual) {
   /** arrange */
   typename TestFixture::T1 obj{this->values};
-  auto scalar = static_cast<typename TestFixture::T2>(1);
+  auto scalar = TestFixture::one;
   /** action */
   obj *= scalar;
   /** assert */
@@ -162,7 +164,7 @@ TYPED_TEST(VectorScalarCombinationsFixture, OperatorDivide) {
   if constexpr (std::is_floating_point_v<typename TestFixture::T2>) {
     /** arrange */
     typename TestFixture::T1 obj{this->values};
-    auto scalar = static_cast<typename TestFixture::T2>(1);
+    auto scalar = TestFixture::one;
     /** action */
     typename TestFixture::T1 res = obj / scalar;
     /** assert */
@@ -179,7 +181,7 @@ TYPED_TEST(VectorScalarCombinationsFixture, OperatorDivideEqual) {
   if constexpr (std::is_floating_point_v<typename TestFixture::T2>) {
     /** arrange */
     typename TestFixture::T1 obj{this->values};
-    auto scalar = static_cast<typename TestFixture::T2>(1);
+    auto scalar = TestFixture::one;
     /** action */
     obj /= scalar;
     /** assert */
