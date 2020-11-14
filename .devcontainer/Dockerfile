@@ -37,8 +37,6 @@ RUN apt-get install -y lcov
 RUN apt-get install -y llvm
 
 ## python
-# check if this is needed at all
-# RUN apt-get install -y python 
 RUN apt-get install -y python3.8
 RUN apt-get -y install python3-pip
 
