@@ -6,7 +6,7 @@ WORKDIR="$ROOTDIR/build/tests"
 COVERAGEDIR="$ROOTDIR/coverage"
 
 # 1. cmake build with clang
-mkdir -p $ROOTDIR/build && cd $ROOTDIR/build && CC=clang-9 CXX=clang++-9 cmake .. -G "Unix Makefiles" && cmake --build . -- -j8
+mkdir -p $ROOTDIR/build && cd $ROOTDIR/build && CC=clang CXX=clang++ cmake .. -G "Unix Makefiles" && cmake --build . -- -j8
 # 2. run test executables. write raw profile
 LLVM_PROFILE_FILE="$WORKDIR/mu_tests.profraw" $WORKDIR/mu_tests --gtest_brief=1
 # 3. "Raw profiles have to be indexed before they can be used to generate coverage reports"

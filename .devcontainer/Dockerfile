@@ -18,9 +18,7 @@ RUN apt-get install -y cmake
 RUN apt-get install -y manpages-dev
 
 ## clang
-# this installs llvm tools too
-RUN apt-get install -y clang-9
-RUN update-alternatives --install /usr/bin/clang clang /usr/bin/clang-9 100
+RUN apt-get install -y clang
 
 ## debuggig
 RUN apt-get install -y gdb
@@ -35,8 +33,8 @@ RUN apt-get install -y git
 ## coverage
 # gcov already comes with gcc. gcc comes through build-essential. genhtml comes with lcov
 RUN apt-get install -y lcov
-RUN update-alternatives --install /usr/bin/llvm-cov llvm-cov /usr/bin/llvm-cov-9 100
-RUN update-alternatives --install /usr/bin/llvm-profdata llvm-profdata /usr/bin/llvm-profdata-9 100
+# llvm-cov (and llvm-profdata) are needed
+RUN apt-get install -y llvm
 
 ## python
 # check if this is needed at all
@@ -46,11 +44,11 @@ RUN apt-get -y install python3-pip
 
 ## formatting & linting
 # clang language server
-RUN apt-get install -y clangd-9
-RUN update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-9 100
-# doesn't have to be v9 of clang. will install clang as a dependency
+RUN apt-get install -y clangd
+# format & tidy
 RUN apt-get install -y clang-format 
 RUN apt-get install -y clang-tidy 
+# cpplint
 RUN pip3 install cpplint
 # just for clang tidy to find the dependency to gtest
 RUN apt-get install -y googletest
