@@ -10,5 +10,5 @@ var searchData=
   ['operator_3c_3c',['operator&lt;&lt;',['../classmu_1_1Vector.html#a3df834ec75c18339d468034b5881404c',1,'mu::Vector']]],
   ['operator_3d',['operator=',['../classmu_1_1Vector.html#ad3c1a60d0cf755ac49f65b4bdd79e19c',1,'mu::Vector::operator=(const Vector &amp;other)=default'],['../classmu_1_1Vector.html#a2797ec19947823a5464a6c1b42b7a707',1,'mu::Vector::operator=(Vector &amp;&amp;other) noexcept=default']]],
   ['operator_3d_3d',['operator==',['../classmu_1_1Vector.html#a449792698e1cc3c1b9ef86d95a25c361',1,'mu::Vector']]],
-  ['operator_5b_5d',['operator[]',['../classmu_1_1Vector.html#ad2d9dcc7372c2b9f12ef89da01a0a90c',1,'mu::Vector::operator[](std::size_t idx) noexcept'],['../classmu_1_1Vector.html#aebbac1b438b8b0286aef3a464a30b9b4',1,'mu::Vector::operator[](std::size_t idx) const noexcept']]]
+  ['operator_5b_5d',['operator[]',['../classmu_1_1Vector.html#a6be2cb910ade8cd39f922e23c6c3a69e',1,'mu::Vector::operator[](size_type idx) noexcept'],['../classmu_1_1Vector.html#a3cfd9124c9143e0cddacf54733169b68',1,'mu::Vector::operator[](size_type idx) const noexcept']]]
 ];
