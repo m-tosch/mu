@@ -48,5 +48,6 @@ RUN apt-get install -y clang-format
 RUN apt-get install -y clang-tidy 
 # cpplint
 RUN pip3 install cpplint
+
 # just for clang tidy to find the dependency to gtest
 RUN apt-get install -y googletest
