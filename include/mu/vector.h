@@ -475,6 +475,8 @@ class Vector {
   /**
    * @brief divide every element of this vector by a scalar
    *
+   * division by zero on integral types triggers an assert
+   *
    * @tparam TScalar
    * @param scalar
    * @return std::enable_if_t<std::is_arithmetic_v<TScalar>, Vector<N, T> &>
@@ -486,11 +488,12 @@ class Vector {
         std::is_same_v<T, TScalar>,
         "for / or /= "
         "the scalar must be of the same type that the Vector contains");
-    static_assert(std::is_floating_point_v<T>,
-                  "for / or /= "
-                  "both the scalar and the type that the Vector contains must "
-                  "be a floating point type");
-
+    /* a division by zero of an integral type is undefined in standard c++
+     * however, in the context of this Vector class, it is seen as rather
+     * harmful and can become the source of non obvious bugs */
+    if constexpr (std::is_integral_v<TScalar>) {
+      assert(scalar != static_cast<TScalar>(0));
+    }
     for (std::size_t i = 0; i < N; i++) {
       data_[i] /= scalar;
     }
