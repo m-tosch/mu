@@ -147,6 +147,36 @@ TYPED_TEST(VectorCombinationsMathFixture, OperatorMinusEqual) {
   EXPECT_THAT(obj1, ::testing::ContainerEq(comp));
 }
 
+TYPED_TEST(VectorCombinationsMathFixture, OperatorMultiply) {
+  /** arrange */
+  typename TestFixture::T1 obj1{this->values};
+  typename TestFixture::T2 obj2{this->values};
+  /** action */
+  typename TestFixture::T1 res = obj1 * obj2;
+  /** assert */
+  typename TestFixture::T1 comp;
+  std::generate(comp.begin(), comp.end(), [&, i = -1]() mutable {
+    i++;
+    return obj1[i] * obj2[i];
+  });
+  EXPECT_THAT(res, ::testing::ContainerEq(comp));
+}
+
+TYPED_TEST(VectorCombinationsMathFixture, OperatorMultiplyEqual) {
+  /** arrange */
+  typename TestFixture::T1 obj1{this->values};
+  typename TestFixture::T2 obj2{this->values};
+  /** action */
+  obj1 *= obj2;
+  /** assert */
+  typename TestFixture::T1 comp;
+  std::generate(comp.begin(), comp.end(), [&, i = -1]() mutable {
+    i++;
+    return this->values[i] * obj2[i];
+  });
+  EXPECT_THAT(obj1, ::testing::ContainerEq(comp));
+}
+
 TYPED_TEST(VectorCombinationsMathFixture, MemberFuncDot) {
   /** arrange */
   typename TestFixture::T1 obj1{this->values};
