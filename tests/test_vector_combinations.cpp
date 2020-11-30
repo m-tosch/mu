@@ -10,9 +10,29 @@
 
 /**************************** INITIALIZATION **********************************/
 
-/* explicit instantiation */
+/**
+ * explicit instantiations
+ */
+/* constructor (construct-from-different-typed-vector) */
 template mu::Vector<2, float>::Vector(const mu::Vector<2, int> &);
+/* addition */
+template mu::Vector<2, float> mu::operator+
+    <2, float>(const mu::Vector<2, float> &, const mu::Vector<2, float> &);
+/* subtraction */
+template mu::Vector<2, float> mu::operator-
+    <2, float>(const mu::Vector<2, float> &, const mu::Vector<2, float> &);
+/* multiplication */
+template mu::Vector<2, float> mu::operator*
+    <2, float>(const mu::Vector<2, float> &, const mu::Vector<2, float> &);
+/* division */
+template mu::Vector<2, float> mu::operator/
+    <2, float>(const mu::Vector<2, float> &, const mu::Vector<2, float> &);
 
+/**
+ * Vector <> Vector test combinations
+ *
+ * in each pair the two Vectors are are of a different arithmetic type
+ */
 using VectorTypeCombinationsInit = ::testing::Types<
     /* Vector */
     std::tuple<mu::Vector<2, int>, mu::Vector<2, float>>,
