@@ -137,75 +137,6 @@ class Vector {
   Vector &operator=(Vector &&other) noexcept = default;
 
   /**
-   * @brief equality operator
-   *
-   * @param rhs
-   * @return bool true if equal, false if unequal
-   */
-  bool operator==(const Vector<N, T> &rhs) const {
-    for (std::size_t i = 0; i < N; i++) {
-      if (!mu::TypeTraits<T>::equals(data_[i], rhs.data_[i])) {
-        return false;
-      }
-    }
-    return true;
-  }
-
-  /**
-   * @brief unequality operator
-   *
-   * @param rhs
-   * @return bool true if unequal, false if equal
-   */
-  bool operator!=(const Vector<N, T> &rhs) const { return !operator==(rhs); }
-
-  /**
-   * @brief plus operator
-   *
-   * @param rhs
-   * @return Vector<N, T>
-   */
-  Vector<N, T> operator+(const Vector<N, T> &rhs) const {
-    return Vector<N, T>(*this) += rhs;
-  }
-
-  /**
-   * @brief plus equal operator
-   *
-   * @param rhs
-   * @return Vector<N, T>&
-   */
-  Vector<N, T> &operator+=(const Vector<N, T> &rhs) {
-    for (std::size_t i = 0; i < N; i++) {
-      data_[i] += rhs[i];
-    }
-    return *this;
-  }
-
-  /**
-   * @brief minus operator
-   *
-   * @param rhs
-   * @return Vector<N, T>
-   */
-  Vector<N, T> operator-(const Vector<N, T> &rhs) const {
-    return Vector<N, T>(*this) -= rhs;
-  }
-
-  /**
-   * @brief minus equal operator
-   *
-   * @param rhs
-   * @return Vector<N, T>&
-   */
-  Vector<N, T> &operator-=(const Vector<N, T> &rhs) {
-    for (std::size_t i = 0; i < N; i++) {
-      data_[i] -= rhs[i];
-    }
-    return *this;
-  }
-
-  /**
    * @brief access an element within the vector
    *
    * does not throw an exception if \p idx is out of range
@@ -398,6 +329,57 @@ class Vector {
   template <std::size_t Nn, class Tt>
   friend std::ostream &operator<<(std::ostream &os, const Vector<Nn, Tt> &vec);
 
+  /**************************** vector <> vector *****************************/
+
+  /**
+   * @brief equality operator
+   *
+   * @param rhs
+   * @return bool true if equal, false if unequal
+   */
+  bool operator==(const Vector<N, T> &rhs) const {
+    for (std::size_t i = 0; i < N; i++) {
+      if (!mu::TypeTraits<T>::equals(data_[i], rhs.data_[i])) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  /**
+   * @brief unequality operator
+   *
+   * @param rhs
+   * @return bool true if unequal, false if equal
+   */
+  bool operator!=(const Vector<N, T> &rhs) const { return !operator==(rhs); }
+
+  /**
+   * @brief plus equal operator
+   *
+   * @param rhs
+   * @return Vector<N, T>&
+   */
+  Vector<N, T> &operator+=(const Vector<N, T> &rhs) {
+    for (std::size_t i = 0; i < N; i++) {
+      data_[i] += rhs[i];
+    }
+    return *this;
+  }
+
+  /**
+   * @brief minus equal operator
+   *
+   * @param rhs
+   * @return Vector<N, T>&
+   */
+  Vector<N, T> &operator-=(const Vector<N, T> &rhs) {
+    for (std::size_t i = 0; i < N; i++) {
+      data_[i] -= rhs[i];
+    }
+    return *this;
+  }
+
   /**************************** vector <> scalar *****************************/
 
   /* - enable_if's are used to check for an arithmetic type at compile time
@@ -516,6 +498,33 @@ std::ostream &operator<<(std::ostream &os, const Vector<Nn, Tt> &vec) {
   }
   os << "]";
   return os;
+}
+
+/***************************** vector <> vector *******************************/
+/**
+ * @brief plus operator
+ *
+ * @param lhs
+ * @param rhs
+ * @return Vector<N, T>
+ */
+template <std::size_t N, class T>
+inline Vector<N, T> operator+(const Vector<N, T> &lhs,
+                              const Vector<N, T> &rhs) {
+  return Vector<N, T>(lhs) += rhs;
+}
+
+/**
+ * @brief minus operator
+ *
+ * @param lhs
+ * @param rhs
+ * @return Vector<N, T>
+ */
+template <std::size_t N, class T>
+inline Vector<N, T> operator-(const Vector<N, T> &lhs,
+                              const Vector<N, T> &rhs) {
+  return Vector<N, T>(lhs) -= rhs;
 }
 
 /***************************** vector <> scalar *******************************/
