@@ -393,6 +393,19 @@ class Vector {
     return *this;
   }
 
+  /**
+   * @brief divison equal operator
+   *
+   * @param rhs
+   * @return Vector<N, T>&
+   */
+  Vector<N, T> &operator/=(const Vector<N, T> &rhs) {
+    for (std::size_t i = 0; i < N; i++) {
+      data_[i] /= rhs[i];
+    }
+    return *this;
+  }
+
   /**************************** vector <> scalar *****************************/
 
   /* - enable_if's are used to check for an arithmetic type at compile time
@@ -552,6 +565,19 @@ template <std::size_t N, class T>
 inline Vector<N, T> operator*(const Vector<N, T> &lhs,
                               const Vector<N, T> &rhs) {
   return Vector<N, T>(lhs) *= rhs;
+}
+
+/**
+ * @brief division operator
+ *
+ * @param lhs
+ * @param rhs
+ * @return Vector<N, T>
+ */
+template <std::size_t N, class T>
+inline Vector<N, T> operator/(const Vector<N, T> &lhs,
+                              const Vector<N, T> &rhs) {
+  return Vector<N, T>(lhs) /= rhs;
 }
 
 /***************************** vector <> scalar *******************************/
