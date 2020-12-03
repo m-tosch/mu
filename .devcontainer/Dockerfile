@@ -1,11 +1,5 @@
 FROM ubuntu:20.04
 
-# add a non-root use with sudo access. Avoid permission issues with UID
-# see https://aka.ms/vscode-remote/containers/non-root-user
-ARG USERNAME=vscode
-ARG USER_UID=1000
-ARG USER_GID=$USER_UID
-
 ENV TZ=Europe/Berlin
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
@@ -51,3 +45,5 @@ RUN pip3 install cpplint
 
 # just for clang tidy to find the dependency to gtest
 RUN apt-get install -y googletest
+
+RUN apt-get install gnupg2 -y
