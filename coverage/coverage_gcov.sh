@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # project root directory relative to the location of this script
 ROOTDIR="$PWD/.."
 # working directory for intermediate coverage files
