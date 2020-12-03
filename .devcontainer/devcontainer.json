@@ -54,5 +54,7 @@
         "davidanson.vscode-markdownlint",
         "llvm-vs-code-extensions.vscode-clangd",
         "mhutchie.git-graph"
-    ]
+    ],
+    // update init git submodules after container creation
+    "postCreateCommand": "git submodule update --init --recursive",
 }
