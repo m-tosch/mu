@@ -41,7 +41,7 @@
     {
       "label": "generate coverage (gcov)",
       "type": "shell",
-      "command": "./coverage_gcov.sh",
+      "command": "bash coverage_gcov.sh",
       "options": {
         "cwd": "${workspaceRoot}/coverage"
       },
@@ -51,7 +51,7 @@
     {
       "label": "generate coverage (llvm)",
       "type": "shell",
-      "command": "./coverage_llvm.sh",
+      "command": "bash coverage_llvm.sh",
       "options": {
         "cwd": "${workspaceRoot}/coverage"
       },
