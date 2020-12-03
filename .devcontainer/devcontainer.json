@@ -1,60 +1,61 @@
 {
-    "name": "mu",
-    "build": {
-        "dockerfile": "Dockerfile",
-    },
-    // set *default* container specific settings.json values on container create
-    "settings": {
-        "terminal.integrated.shell.linux": "/bin/bash",
-        "editor.tabSize": 2,
-        "editor.formatOnSave": true,
-        "editor.rulers": [
-            80
-        ],
-        "cmake.configureOnOpen": true,
-        "cpplint.cpplintPath": "/usr/local/bin/cpplint",
-        "testMate.cpp.test.executables": "{build}/**/*{test,Test,TEST}*",
-        "autoDocstring.includeExtendedSummary": true,
-        "doxdocgen.generic.boolReturnsTrueFalse": false,
-        "C_Cpp.intelliSenseEngine": "Disabled",
-        "C_Cpp.autocomplete": "Disabled",
-        "C_Cpp.errorSquiggles": "Disabled",
-        "clangd.path": "/usr/bin/clangd",
-        "clangd.arguments": [
-            "-log=verbose",
-            "--background-index",
-            "--compile-commands-dir=${workspaceRoot}/build"
-        ]
-    },
-    // c/c++ properties
-    "c_cpp_properties": {
-        "configurations": [
-            {
-                "name": "Linux",
-                "includePath": [
-                    "${workspaceFolder}/**"
-                ],
-                "defines": [],
-                "compilerPath": "/usr/bin/gcc",
-                "cppStandard": "c++14",
-                "intelliSenseMode": "clang-x64",
-                "configurationProvider": "ms-vscode.cmake-tools"
-            }
-        ],
-        "version": 4
-    },
-    // extensions that are installed when the container is created
-    "extensions": [
-        "ms-vscode.cpptools",
-        "matepek.vscode-catch2-test-adapter",
-        "mine.cpplint",
-        "twxs.cmake",
-        "ms-vscode.cmake-tools",
-        "cschlosser.doxdocgen",
-        "davidanson.vscode-markdownlint",
-        "llvm-vs-code-extensions.vscode-clangd",
-        "mhutchie.git-graph"
+  "name": "mu",
+  "build": {
+    "dockerfile": "Dockerfile",
+  },
+  // set *default* container specific settings.json values on container create
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash",
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true,
+    "editor.rulers": [
+      80
     ],
-    // update init git submodules after container creation
-    "postCreateCommand": "git submodule update --init --recursive",
+    "cmake.configureOnOpen": true,
+    "cpplint.cpplintPath": "/usr/local/bin/cpplint",
+    "testMate.cpp.test.executables": "{build}/**/*{test,Test,TEST}*",
+    "autoDocstring.includeExtendedSummary": true,
+    "doxdocgen.generic.boolReturnsTrueFalse": false,
+    "C_Cpp.intelliSenseEngine": "Disabled",
+    "C_Cpp.autocomplete": "Disabled",
+    "C_Cpp.errorSquiggles": "Disabled",
+    "clangd.path": "/usr/bin/clangd",
+    "clangd.arguments": [
+      "-log=verbose",
+      "--background-index",
+      "--compile-commands-dir=${workspaceRoot}/build"
+    ]
+  },
+  // c/c++ properties
+  "c_cpp_properties": {
+    "configurations": [
+      {
+        "name": "Linux",
+        "includePath": [
+          "${workspaceFolder}/**"
+        ],
+        "defines": [],
+        "compilerPath": "/usr/bin/gcc",
+        "cppStandard": "c++14",
+        "intelliSenseMode": "clang-x64",
+        "configurationProvider": "ms-vscode.cmake-tools"
+      }
+    ],
+    "version": 4
+  },
+  // extensions that are installed when the container is created
+  "extensions": [
+    "ms-vscode.cpptools",
+    "matepek.vscode-catch2-test-adapter",
+    "mine.cpplint",
+    "twxs.cmake",
+    "ms-vscode.cmake-tools",
+    "cschlosser.doxdocgen",
+    "davidanson.vscode-markdownlint",
+    "llvm-vs-code-extensions.vscode-clangd",
+    "mhutchie.git-graph",
+    "tht13.html-preview-vscode"
+  ],
+  // update init git submodules after container creation
+  "postCreateCommand": "git submodule update --init --recursive",
 }
