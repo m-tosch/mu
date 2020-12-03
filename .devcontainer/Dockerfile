@@ -23,6 +23,8 @@ RUN apt-get install -y graphviz
 
 ## version control
 RUN apt-get install -y git
+# gpg sign commits. this allows key sharing between host and container
+RUN apt-get install gnupg2 -y
 
 ## coverage
 # gcov already comes with gcc. gcc comes through build-essential. genhtml comes with lcov
@@ -45,5 +47,3 @@ RUN pip3 install cpplint
 
 # just for clang tidy to find the dependency to gtest
 RUN apt-get install -y googletest
-
-RUN apt-get install gnupg2 -y
