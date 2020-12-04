@@ -306,7 +306,7 @@ TYPED_TEST_P(VectorTypeFixture, MemberFuncFlipped) {
 TYPED_TEST_P(VectorTypeFixture, MemberFuncSort) {
   /** arrange */
   TypeParam obj{this->values};
-  obj.flip();  // flip first because object is already sorted
+  std::reverse(obj.begin(), obj.end());
   /** action */
   obj.sort();  // ascending
   /** assert */
