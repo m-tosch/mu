@@ -708,6 +708,12 @@ inline T dot(const Vector<N, T> &lhs, const Vector<N, T> &rhs) {
   return lhs.dot(rhs);
 }
 
+template <std::size_t N, class T>
+// NOLINTNEXTLINE(runtime/references) intentional non-const reference
+inline void flip(Vector<N, T> &other) {
+  other.flip();
+}
+
 /******************************************************************************/
 
 }  // namespace mu
