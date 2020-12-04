@@ -1,5 +1,6 @@
 var hierarchy =
 [
+    [ "LambdaCompare", "structLambdaCompare.html", null ],
     [ "Test", null, [
       [ "TypeTraitsFixture< T >", "classTypeTraitsFixture.html", null ],
       [ "UtilityFixture< T >", "classUtilityFixture.html", null ],

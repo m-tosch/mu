@@ -20,7 +20,7 @@ var classmu_1_1Vector =
     [ "end", "classmu_1_1Vector.html#a2caa4d33d64d146ca8c101d5005e025e", null ],
     [ "end", "classmu_1_1Vector.html#a3c733864c02356902b5d92e8fe2cd56c", null ],
     [ "flip", "classmu_1_1Vector.html#a597ca2de6348a91e896f3f2296a5bcd2", null ],
-    [ "flipped", "classmu_1_1Vector.html#add85421103d3643d8183a6d3145d4cd0", null ],
+    [ "flipped", "classmu_1_1Vector.html#a4cc2ef12039a1bc51b8e048a48054b49", null ],
     [ "length", "classmu_1_1Vector.html#afe4d3c4dfa03eb4c8f9240f89c7f6139", null ],
     [ "max", "classmu_1_1Vector.html#a0bcb8df801149ed1a5654a141aae14d7", null ],
     [ "min", "classmu_1_1Vector.html#a57ac0fa3add5609d667d37b934793acd", null ],
@@ -41,6 +41,8 @@ var classmu_1_1Vector =
     [ "size", "classmu_1_1Vector.html#a1a6c382df2038bb89209087f1df0d60c", null ],
     [ "sort", "classmu_1_1Vector.html#a3274e01fb6a31b8e750ef2bd32cf61a3", null ],
     [ "sort", "classmu_1_1Vector.html#a1293ec47d16f9085c0b8e88287ad912e", null ],
+    [ "sorted", "classmu_1_1Vector.html#a268fadef8c3774945acc651f22d18e16", null ],
+    [ "sorted", "classmu_1_1Vector.html#a3981b14c6aa1e8eac7ccee3bd9ac4fdf", null ],
     [ "sum", "classmu_1_1Vector.html#a5aaede8fa7e0cfa50b044fcaf89cf1f2", null ],
     [ "operator<<", "classmu_1_1Vector.html#a3df834ec75c18339d468034b5881404c", null ],
     [ "data_", "classmu_1_1Vector.html#ab69c10480bdde6f434244271de791219", null ]
