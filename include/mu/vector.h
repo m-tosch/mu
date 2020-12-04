@@ -756,6 +756,11 @@ inline void sort(Vector<N, T> &other, const Compare compare) {
   other.sort(compare);
 }
 
+template <std::size_t N, class T>
+inline Vector<N, T> sorted(const Vector<N, T> &other) {
+  return other.sorted();
+}
+
 /******************************************************************************/
 
 }  // namespace mu

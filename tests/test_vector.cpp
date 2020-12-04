@@ -30,6 +30,7 @@ template void mu::flip(mu::Vector<2, float> &);
 template mu::Vector<2, float> mu::flipped(const mu::Vector<2, float> &);
 template void mu::sort(mu::Vector<2, float> &);
 template void mu::sort(mu::Vector<2, float> &, const LambdaCompare);
+template mu::Vector<2, float> mu::sorted(const mu::Vector<2, float> &);
 
 /**
  * Instantiate the Vector test suite
