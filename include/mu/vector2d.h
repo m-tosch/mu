@@ -64,8 +64,7 @@ class Vector2D : public Vector<2, T> {
    * @return std::enable_if<std::is_floating_point<U>::value, void>::type
    */
   template <class U = T>
-  typename std::enable_if<std::is_floating_point<U>::value, void>::type rotate(
-      T angle) {
+  typename std::enable_if_t<std::is_floating_point_v<U>, void> rotate(T angle) {
     const T kX = x();
     const T kY = y();
     Vector<2, T>::data_[0] = ((kX * mu::cos(angle)) - (kY * mu::sin(angle)));
@@ -82,8 +81,8 @@ class Vector2D : public Vector<2, T> {
    * Vector2D<T>>::type
    */
   template <class U = T>
-  typename std::enable_if<std::is_floating_point<U>::value, Vector2D<T>>::type
-  rotated(T angle) {
+  typename std::enable_if_t<std::is_floating_point_v<U>, Vector2D<T>> rotated(
+      T angle) {
     Vector2D<T> ret(*this);
     ret.rotate(angle);
     return ret;
