@@ -11,6 +11,7 @@
 template class mu::Vector2D<float>;
 /* functions */
 template void mu::Vector2D<float>::rotate<float>(float);
+template mu::Vector2D<float> mu::Vector2D<float>::rotated<float>(float);
 
 /**
  * Instantiate the Vector test suite
