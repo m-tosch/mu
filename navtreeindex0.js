@@ -84,7 +84,7 @@ var NAVTREEINDEX0 =
 "classmu_1_1Vector2D.html#a7d84c3519d44b238f178a146e44d923a":[1,0,0,6,1],
 "classmu_1_1Vector2D.html#a8debb44e76c3ec1c72ac035d8af2401d":[1,0,0,6,0],
 "classmu_1_1Vector2D.html#a99d8677c48b61d323a8c9967e92126f3":[1,0,0,6,3],
-"classmu_1_1Vector2D.html#aedf512dd77035cbc8dccb1f9969a8241":[1,0,0,6,2],
+"classmu_1_1Vector2D.html#aea68379a2ceacb9a43a3d1c046852bc5":[1,0,0,6,2],
 "classmu_1_1Vector3D.html":[1,0,0,7],
 "classmu_1_1Vector3D.html#a0e6f3810ced360a5274de8b0665b77c5":[1,0,0,7,1],
 "classmu_1_1Vector3D.html#a26a1e4940e37220d01b340da7fca0214":[1,0,0,7,6],
