@@ -299,6 +299,8 @@ TYPED_TEST_P(VectorTypeFixture, MemberFuncFlipped) {
   TypeParam comp{this->values};
   std::reverse(comp.begin(), comp.end());
   EXPECT_THAT(obj2, ::testing::ContainerEq(comp));
+  /* secondary check to ensure that the original object was not changed */
+  EXPECT_THAT(TypeParam(this->values), ::testing::ContainerEq(obj1));
 }
 
 TYPED_TEST_P(VectorTypeFixture, MemberFuncSort) {
@@ -398,6 +400,8 @@ TYPED_TEST_P(VectorTypeFixture, UtilityFuncFlipped) {
   TypeParam comp{this->values};
   std::reverse(comp.begin(), comp.end());
   EXPECT_THAT(obj2, ::testing::ContainerEq(comp));
+  /* secondary check to ensure that the original object was not changed */
+  EXPECT_THAT(TypeParam(this->values), ::testing::ContainerEq(obj1));
 }
 
 REGISTER_TYPED_TEST_SUITE_P(
