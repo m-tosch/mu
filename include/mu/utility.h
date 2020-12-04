@@ -16,6 +16,7 @@ namespace mu {
 /* algorithm */
 using std::max;
 using std::min;
+using std::sort;
 
 /* cmath */
 using std::abs;

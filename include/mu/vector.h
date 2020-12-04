@@ -300,7 +300,7 @@ class Vector {
    * @brief sort vector elements in ascending order
    *
    */
-  void sort() { std::sort(begin(), end()); }
+  void sort() { mu::sort(begin(), end()); }
 
   /**
    * @brief sort vector elements by providing a condition
@@ -312,7 +312,7 @@ class Vector {
    */
   template <typename Compare>
   void sort(const Compare comp) {
-    std::sort(begin(), end(), comp);
+    mu::sort(begin(), end(), comp);
   }
 
   /********************************** I/O *************************************/
