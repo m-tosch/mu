@@ -3,6 +3,10 @@
   "build": {
     "dockerfile": "Dockerfile",
   },
+  // always forward these ports
+  "forwardPorts": [
+    3000
+  ],
   // set *default* container specific settings.json values on container create
   "settings": {
     "terminal.integrated.shell.linux": "/bin/bash",
@@ -24,7 +28,10 @@
       "-log=verbose",
       "--background-index",
       "--compile-commands-dir=${workspaceRoot}/build"
-    ]
+    ],
+    // http server / preview extension
+    "shs.serverHost": "127.0.0.1",
+    "shs.serverPort": 3000
   },
   // c/c++ properties
   "c_cpp_properties": {
@@ -54,7 +61,7 @@
     "davidanson.vscode-markdownlint",
     "llvm-vs-code-extensions.vscode-clangd",
     "mhutchie.git-graph",
-    "tht13.html-preview-vscode"
+    "flixs.vs-code-http-server-and-html-preview"
   ],
   // update init git submodules after container creation
   "postCreateCommand": "git submodule update --init --recursive",
