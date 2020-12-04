@@ -305,7 +305,7 @@ class Vector {
   /**
    * @brief sort vector elements by providing a condition
    *
-   * the condition should be a lambda function. it mus return a bool
+   * the condition should be a lambda function. it must return a bool
    *
    * @tparam Compare
    * @param comp
