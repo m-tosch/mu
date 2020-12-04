@@ -290,7 +290,7 @@ class Vector {
    * @see @ref flip()
    * @return Vector<N, T>
    */
-  Vector<N, T> flipped() {
+  Vector<N, T> flipped() const {
     Vector<N, T> ret(*this);
     ret.flip();
     return ret;
@@ -712,6 +712,11 @@ template <std::size_t N, class T>
 // NOLINTNEXTLINE(runtime/references) intentional non-const reference
 inline void flip(Vector<N, T> &other) {
   other.flip();
+}
+
+template <std::size_t N, class T>
+inline Vector<N, T> flipped(const Vector<N, T> &other) {
+  return other.flipped();
 }
 
 /******************************************************************************/
