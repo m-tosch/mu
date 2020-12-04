@@ -750,6 +750,12 @@ inline void sort(Vector<N, T> &other) {
   other.sort();
 }
 
+template <std::size_t N, class T, typename Compare>
+// NOLINTNEXTLINE(runtime/references) intentional non-const reference
+inline void sort(Vector<N, T> &other, const Compare compare) {
+  other.sort(compare);
+}
+
 /******************************************************************************/
 
 }  // namespace mu
