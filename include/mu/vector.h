@@ -315,6 +315,31 @@ class Vector {
     mu::sort(begin(), end(), comp);
   }
 
+  /**
+   * @brief returns a sorted vector
+   *
+   * @return Vector<N, T>
+   */
+  Vector<N, T> sorted() const {
+    Vector<N, T> ret(*this);
+    ret.sort();
+    return ret;
+  }
+
+  /**
+   * @brief
+   *
+   * @tparam Compare
+   * @param comp
+   * @return Vector<N, T>
+   */
+  template <typename Compare>
+  Vector<N, T> sorted(const Compare comp) const {
+    Vector<N, T> ret(*this);
+    ret.sort(comp);
+    return ret;
+  }
+
   /********************************** I/O *************************************/
 
   /**

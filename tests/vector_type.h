@@ -326,6 +326,34 @@ TYPED_TEST_P(VectorTypeFixture, MemberFuncSortLambda) {
   EXPECT_THAT(obj, ::testing::ContainerEq(comp));
 }
 
+TYPED_TEST_P(VectorTypeFixture, MemberFuncSorted) {
+  /** arrange */
+  TypeParam obj1{this->values};
+  std::reverse(obj1.begin(), obj1.end());
+  /** action */
+  TypeParam obj2 = obj1.sorted();  // ascending
+  /** assert */
+  TypeParam comp{this->values};
+  EXPECT_THAT(obj2, ::testing::ContainerEq(comp));
+  /* secondary check to ensure that the original object was not changed */
+  std::reverse(obj1.begin(), obj1.end());
+  EXPECT_THAT(TypeParam(this->values), ::testing::ContainerEq(obj1));
+}
+
+TYPED_TEST_P(VectorTypeFixture, MemberFuncSortedLambda) {
+  /** arrange */
+  TypeParam obj1{this->values};
+  /** action */
+  using vtype = typename TypeParam::value_type;  // descending
+  TypeParam obj2 = obj1.sorted([](vtype a, vtype b) { return a > b; });
+  /** assert */
+  TypeParam comp{this->values};
+  std::reverse(comp.begin(), comp.end());
+  EXPECT_THAT(obj2, ::testing::ContainerEq(comp));
+  /* secondary check to ensure that the original object was not changed */
+  EXPECT_THAT(TypeParam(this->values), ::testing::ContainerEq(obj1));
+}
+
 TYPED_TEST_P(VectorTypeFixture, OperatorStreamOut) {
   /** arrange */
   TypeParam obj{this->values};
@@ -425,7 +453,8 @@ REGISTER_TYPED_TEST_SUITE_P(
     MemberFuncSize, MemberFuncBegin, MemberFuncBeginConst, MemberFuncEnd,
     MemberFuncEndConst, MemberFuncMin, MemberFuncMax, MemberFuncSum,
     MemberFuncLength, MemberFuncFlip, MemberFuncFlipped, MemberFuncSort,
-    MemberFuncSortLambda, OperatorStreamOut, UtilityFuncMin, UtilityFuncMax,
-    UtilityFuncSum, UtilityFuncFlip, UtilityFuncFlipped, UtilityFuncSort);
+    MemberFuncSortLambda, MemberFuncSorted, MemberFuncSortedLambda,
+    OperatorStreamOut, UtilityFuncMin, UtilityFuncMax, UtilityFuncSum,
+    UtilityFuncFlip, UtilityFuncFlipped, UtilityFuncSort);
 
 #endif  // TESTS_VECTOR_TYPE_H_
