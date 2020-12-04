@@ -469,6 +469,20 @@ TYPED_TEST_P(VectorTypeFixture, UtilityFuncSorted) {
   EXPECT_THAT(TypeParam(this->values), ::testing::ContainerEq(obj1));
 }
 
+TYPED_TEST_P(VectorTypeFixture, UtilityFuncSortedLambda) {
+  /** arrange */
+  TypeParam obj1{this->values};
+  /** action */
+  using vtype = typename TypeParam::value_type;  // descending
+  TypeParam obj2 = sorted(obj1, [](vtype a, vtype b) { return a > b; });
+  /** assert */
+  TypeParam comp{this->values};
+  std::reverse(comp.begin(), comp.end());
+  EXPECT_THAT(obj2, ::testing::ContainerEq(comp));
+  /* secondary check to ensure that the original object was not changed */
+  EXPECT_THAT(TypeParam(this->values), ::testing::ContainerEq(obj1));
+}
+
 REGISTER_TYPED_TEST_SUITE_P(
     VectorTypeFixture, ConstructorDefault, DestructorDefault,
     ConstructorFromArray, ConstructorFromSingleValue, ConstructorCopy,
@@ -482,6 +496,6 @@ REGISTER_TYPED_TEST_SUITE_P(
     MemberFuncSortLambda, MemberFuncSorted, MemberFuncSortedLambda,
     OperatorStreamOut, UtilityFuncMin, UtilityFuncMax, UtilityFuncSum,
     UtilityFuncFlip, UtilityFuncFlipped, UtilityFuncSort, UtilityFuncSortLambda,
-    UtilityFuncSorted);
+    UtilityFuncSorted, UtilityFuncSortedLambda);
 
 #endif  // TESTS_VECTOR_TYPE_H_
