@@ -9,6 +9,14 @@
 template class mu::Vector<2, float>;
 /* functions */
 template float mu::Vector<2, float>::length<float>() const;
+// workaround for "lambda functions are not allowed in unevaluated operands"
+struct LambdaCompare {
+  bool operator()(int a, int b) const { return a > b; }
+};
+template void mu::Vector<2, float>::sort(const LambdaCompare);
+template mu::Vector<2, float> mu::Vector<2, float>::sorted(
+    const LambdaCompare) const;
+
 /* operators */
 template std::ostream &mu::operator<<<2, float>(std::ostream &,
                                                 const mu::Vector<2, float> &);
