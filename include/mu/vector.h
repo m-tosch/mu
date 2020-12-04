@@ -719,6 +719,12 @@ inline Vector<N, T> flipped(const Vector<N, T> &other) {
   return other.flipped();
 }
 
+template <std::size_t N, class T>
+// NOLINTNEXTLINE(runtime/references) intentional non-const reference
+inline void sort(Vector<N, T> &other) {
+  other.sort();
+}
+
 /******************************************************************************/
 
 }  // namespace mu
