@@ -31,7 +31,7 @@ template mu::Vector<2, float> mu::operator/
 /**
  * Vector <> Vector test combinations
  *
- * in each pair the two Vectors are are of a different arithmetic type
+ * in each pair the two Vectors are of a different arithmetic type
  */
 using VectorTypeCombinationsInit = ::testing::Types<
     /* Vector */
