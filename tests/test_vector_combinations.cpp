@@ -15,18 +15,6 @@
  */
 /* constructor (construct-from-different-typed-vector) */
 template mu::Vector<2, float>::Vector(const mu::Vector<2, int> &);
-/* addition */
-template mu::Vector<2, float> mu::operator+
-    <2, float>(const mu::Vector<2, float> &, const mu::Vector<2, float> &);
-/* subtraction */
-template mu::Vector<2, float> mu::operator-
-    <2, float>(const mu::Vector<2, float> &, const mu::Vector<2, float> &);
-/* multiplication */
-template mu::Vector<2, float> mu::operator*
-    <2, float>(const mu::Vector<2, float> &, const mu::Vector<2, float> &);
-/* division */
-template mu::Vector<2, float> mu::operator/
-    <2, float>(const mu::Vector<2, float> &, const mu::Vector<2, float> &);
 
 /**
  * Vector <> Vector test combinations
@@ -78,31 +66,77 @@ TYPED_TEST(VectorCombinationsInitFixture, ConstructorFromDifferentTypeVector) {
 
 /******************************* MATH *****************************************/
 
-/* explicit instantiation */
+/**
+ * explicit instantiations
+ */
+/* addition */
+template mu::Vector<2, float> mu::operator+
+    <2, float, int>(const mu::Vector<2, float> &, const mu::Vector<2, int> &);
+/* subtraction */
+template mu::Vector<2, float> mu::operator-
+    <2, float, int>(const mu::Vector<2, float> &, const mu::Vector<2, int> &);
+/* multiplication */
+template mu::Vector<2, float> mu::operator*
+    <2, float, int>(const mu::Vector<2, float> &, const mu::Vector<2, int> &);
+/* division */
+template mu::Vector<2, float> mu::operator/
+    <2, float, int>(const mu::Vector<2, float> &, const mu::Vector<2, int> &);
 /* convenience functions */
 /* these functions should take a combination of Vectors, so they're here.
  * functions that take e.g a single Vector as argument are elsewhere */
-template float mu::dot(const mu::Vector<2, float> &,
-                       const mu::Vector<2, float> &);
+template float mu::dot<2, float, int>(const mu::Vector<2, float> &,
+                                      const mu::Vector<2, int> &);
 
 using VectorTypeCombinationsMath = ::testing::Types<
     /* Vector */
     std::tuple<mu::Vector<2, float>, mu::Vector<2, float>>,
+    // different types (both ways)
+    std::tuple<mu::Vector<2, float>, mu::Vector<2, int>>,
+    std::tuple<mu::Vector<2, int>, mu::Vector<2, float>>,
     /* Vector2D */
     std::tuple<mu::Vector<2, float>, mu::Vector2D<float>>,
     std::tuple<mu::Vector2D<float>, mu::Vector<2, float>>,
     std::tuple<mu::Vector2D<float>, mu::Vector2D<float>>,
+    // different types (both ways)
+    std::tuple<mu::Vector<2, float>, mu::Vector2D<int>>,
+    std::tuple<mu::Vector2D<float>, mu::Vector<2, int>>,
+    std::tuple<mu::Vector2D<float>, mu::Vector2D<int>>,
+    std::tuple<mu::Vector<2, int>, mu::Vector2D<float>>,
+    std::tuple<mu::Vector2D<int>, mu::Vector<2, float>>,
+    std::tuple<mu::Vector2D<int>, mu::Vector2D<float>>,
     /* Vector3D */
     std::tuple<mu::Vector<3, float>, mu::Vector3D<float>>,
     std::tuple<mu::Vector3D<float>, mu::Vector<3, float>>,
-    std::tuple<mu::Vector3D<float>, mu::Vector3D<float>>>;
+    std::tuple<mu::Vector3D<float>, mu::Vector3D<float>>,
+    // different types (both ways)
+    std::tuple<mu::Vector<3, float>, mu::Vector3D<int>>,
+    std::tuple<mu::Vector3D<float>, mu::Vector<3, int>>,
+    std::tuple<mu::Vector3D<float>, mu::Vector3D<int>>,
+    std::tuple<mu::Vector<3, int>, mu::Vector3D<float>>,
+    std::tuple<mu::Vector3D<int>, mu::Vector<3, float>>,
+    std::tuple<mu::Vector3D<int>, mu::Vector3D<float>>>;
 
 template <typename T>
 class VectorCombinationsMathFixture
     : public VectorTypeFixture<typename std::tuple_element<0, T>::type> {
  public:
+  /* 0: first Vector type (e.g. mu::Vector<2,float>)
+   * 1: second Vector type (e.g. mu::Vector2D<float>) */
   typedef typename std::tuple_element<0, T>::type T1;
   typedef typename std::tuple_element<1, T>::type T2;
+
+  void SetUp() override {  // NOLINT
+    /* explicitly call base class setup with first tuple type */
+    VectorTypeFixture<T1>::SetUp();
+    /* build a second values list (just like in the parent fixture) with the
+     * type of the second tuple element. this type may be different! */
+    auto start = static_cast<typename T2::value_type>(0);
+    auto incr = static_cast<typename T2::value_type>(1);
+    std::generate(values2.begin(), values2.end(),
+                  [&start, &incr]() { return start += incr; });
+  }
+  std::array<typename T2::value_type, VectorTypeFixture<T2>::dummy.size()>
+      values2;
 };
 
 TYPED_TEST_SUITE(VectorCombinationsMathFixture, VectorTypeCombinationsMath);
@@ -110,7 +144,7 @@ TYPED_TEST_SUITE(VectorCombinationsMathFixture, VectorTypeCombinationsMath);
 TYPED_TEST(VectorCombinationsMathFixture, OperatorPlus) {
   /** arrange */
   typename TestFixture::T1 obj1{this->values};
-  typename TestFixture::T2 obj2{this->values};
+  typename TestFixture::T2 obj2{this->values2};
   /** action */
   typename TestFixture::T1 res = obj1 + obj2;
   /** assert */
@@ -125,7 +159,7 @@ TYPED_TEST(VectorCombinationsMathFixture, OperatorPlus) {
 TYPED_TEST(VectorCombinationsMathFixture, OperatorPlusEqual) {
   /** arrange */
   typename TestFixture::T1 obj1{this->values};
-  typename TestFixture::T2 obj2{this->values};
+  typename TestFixture::T2 obj2{this->values2};
   /** action */
   obj1 += obj2;
   /** assert */
@@ -140,7 +174,7 @@ TYPED_TEST(VectorCombinationsMathFixture, OperatorPlusEqual) {
 TYPED_TEST(VectorCombinationsMathFixture, OperatorMinus) {
   /** arrange */
   typename TestFixture::T1 obj1{this->values};
-  typename TestFixture::T2 obj2{this->values};
+  typename TestFixture::T2 obj2{this->values2};
   /** action */
   typename TestFixture::T1 res = obj1 - obj2;
   /** assert */
@@ -155,7 +189,7 @@ TYPED_TEST(VectorCombinationsMathFixture, OperatorMinus) {
 TYPED_TEST(VectorCombinationsMathFixture, OperatorMinusEqual) {
   /** arrange */
   typename TestFixture::T1 obj1{this->values};
-  typename TestFixture::T2 obj2{this->values};
+  typename TestFixture::T2 obj2{this->values2};
   /** action */
   obj1 -= obj2;
   /** assert */
@@ -170,7 +204,7 @@ TYPED_TEST(VectorCombinationsMathFixture, OperatorMinusEqual) {
 TYPED_TEST(VectorCombinationsMathFixture, OperatorMultiply) {
   /** arrange */
   typename TestFixture::T1 obj1{this->values};
-  typename TestFixture::T2 obj2{this->values};
+  typename TestFixture::T2 obj2{this->values2};
   /** action */
   typename TestFixture::T1 res = obj1 * obj2;
   /** assert */
@@ -185,7 +219,7 @@ TYPED_TEST(VectorCombinationsMathFixture, OperatorMultiply) {
 TYPED_TEST(VectorCombinationsMathFixture, OperatorMultiplyEqual) {
   /** arrange */
   typename TestFixture::T1 obj1{this->values};
-  typename TestFixture::T2 obj2{this->values};
+  typename TestFixture::T2 obj2{this->values2};
   /** action */
   obj1 *= obj2;
   /** assert */
@@ -200,7 +234,7 @@ TYPED_TEST(VectorCombinationsMathFixture, OperatorMultiplyEqual) {
 TYPED_TEST(VectorCombinationsMathFixture, OperatorDivide) {
   /** arrange */
   typename TestFixture::T1 obj1{this->values};
-  typename TestFixture::T2 obj2{this->values};
+  typename TestFixture::T2 obj2{this->values2};
   /** action */
   typename TestFixture::T1 res = obj1 / obj2;
   /** assert */
@@ -215,7 +249,7 @@ TYPED_TEST(VectorCombinationsMathFixture, OperatorDivide) {
 TYPED_TEST(VectorCombinationsMathFixture, OperatorDivideEqual) {
   /** arrange */
   typename TestFixture::T1 obj1{this->values};
-  typename TestFixture::T2 obj2{this->values};
+  typename TestFixture::T2 obj2{this->values2};
   /** action */
   obj1 /= obj2;
   /** assert */
@@ -230,7 +264,7 @@ TYPED_TEST(VectorCombinationsMathFixture, OperatorDivideEqual) {
 TYPED_TEST(VectorCombinationsMathFixture, MemberFuncDot) {
   /** arrange */
   typename TestFixture::T1 obj1{this->values};
-  typename TestFixture::T2 obj2{this->values};
+  typename TestFixture::T2 obj2{this->values2};
   /** action */
   typename TestFixture::T1::value_type res = obj1.dot(obj2);
   /** assert */
@@ -242,7 +276,7 @@ TYPED_TEST(VectorCombinationsMathFixture, MemberFuncDot) {
 TYPED_TEST(VectorCombinationsMathFixture, UtilityFuncDot) {
   /** arrange */
   typename TestFixture::T1 obj1{this->values};
-  typename TestFixture::T2 obj2{this->values};
+  typename TestFixture::T2 obj2{this->values2};
   /** action */
   typename TestFixture::T1::value_type res = dot(obj1, obj2);
   /** assert */

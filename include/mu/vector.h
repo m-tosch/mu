@@ -250,15 +250,17 @@ class Vector {
   }
 
   /**
-   * @brief dot product of two vectors
+   * @brief  dot product of two vectors
    *
+   * @tparam U
    * @param other
    * @return T
    */
-  T dot(const Vector<N, T> &other) const {
+  template <typename U = T>
+  T dot(const Vector<N, U> &other) const {
     T ret{};
     for (std::size_t i = 0; i < N; i++) {
-      ret += data_[i] * other.data_[i];
+      ret += data_[i] * other[i];
     }
     return ret;
   }
@@ -382,10 +384,12 @@ class Vector {
   /**
    * @brief plus equal operator
    *
+   * @tparam U
    * @param rhs
    * @return Vector<N, T>&
    */
-  Vector<N, T> &operator+=(const Vector<N, T> &rhs) {
+  template <typename U = T>
+  Vector<N, T> &operator+=(const Vector<N, U> &rhs) {
     for (std::size_t i = 0; i < N; i++) {
       data_[i] += rhs[i];
     }
@@ -395,10 +399,12 @@ class Vector {
   /**
    * @brief minus equal operator
    *
+   * @tparam U
    * @param rhs
    * @return Vector<N, T>&
    */
-  Vector<N, T> &operator-=(const Vector<N, T> &rhs) {
+  template <typename U = T>
+  Vector<N, T> &operator-=(const Vector<N, U> &rhs) {
     for (std::size_t i = 0; i < N; i++) {
       data_[i] -= rhs[i];
     }
@@ -408,10 +414,12 @@ class Vector {
   /**
    * @brief multiplication equal operator
    *
+   * @tparam U
    * @param rhs
    * @return Vector<N, T>&
    */
-  Vector<N, T> &operator*=(const Vector<N, T> &rhs) {
+  template <typename U = T>
+  Vector<N, T> &operator*=(const Vector<N, U> &rhs) {
     for (std::size_t i = 0; i < N; i++) {
       data_[i] *= rhs[i];
     }
@@ -421,10 +429,12 @@ class Vector {
   /**
    * @brief divison equal operator
    *
+   * @tparam U
    * @param rhs
    * @return Vector<N, T>&
    */
-  Vector<N, T> &operator/=(const Vector<N, T> &rhs) {
+  template <typename U = T>
+  Vector<N, T> &operator/=(const Vector<N, U> &rhs) {
     for (std::size_t i = 0; i < N; i++) {
       data_[i] /= rhs[i];
     }
@@ -535,52 +545,64 @@ std::ostream &operator<<(std::ostream &os, const Vector<Nn, Tt> &vec) {
 /**
  * @brief plus operator
  *
+ * @tparam N
+ * @tparam T
+ * @tparam U
  * @param lhs
  * @param rhs
  * @return Vector<N, T>
  */
-template <std::size_t N, class T>
+template <std::size_t N, class T, class U = T>
 inline Vector<N, T> operator+(const Vector<N, T> &lhs,
-                              const Vector<N, T> &rhs) {
+                              const Vector<N, U> &rhs) {
   return Vector<N, T>(lhs) += rhs;
 }
 
 /**
  * @brief minus operator
  *
+ * @tparam N
+ * @tparam T
+ * @tparam U
  * @param lhs
  * @param rhs
  * @return Vector<N, T>
  */
-template <std::size_t N, class T>
+template <std::size_t N, class T, class U = T>
 inline Vector<N, T> operator-(const Vector<N, T> &lhs,
-                              const Vector<N, T> &rhs) {
+                              const Vector<N, U> &rhs) {
   return Vector<N, T>(lhs) -= rhs;
 }
 
 /**
  * @brief multiplication operator
  *
+ * @tparam N
+ * @tparam T
+ * @tparam U
  * @param lhs
  * @param rhs
  * @return Vector<N, T>
  */
-template <std::size_t N, class T>
+template <std::size_t N, class T, class U = T>
 inline Vector<N, T> operator*(const Vector<N, T> &lhs,
-                              const Vector<N, T> &rhs) {
+                              const Vector<N, U> &rhs) {
   return Vector<N, T>(lhs) *= rhs;
 }
 
 /**
  * @brief division operator
  *
+ * @tparam N
+ * @tparam T
+ * @tparam U
  * @param lhs
  * @param rhs
  * @return Vector<N, T>
  */
-template <std::size_t N, class T>
+template <std::size_t N, class T, class U = T>
 inline Vector<N, T> operator/(const Vector<N, T> &lhs,
-                              const Vector<N, T> &rhs) {
+                              const Vector<N, U> &rhs) {
   return Vector<N, T>(lhs) /= rhs;
 }
 
@@ -707,8 +729,8 @@ inline T sum(const Vector<N, T> &other) {
   return other.sum();
 }
 
-template <std::size_t N, class T>
-inline T dot(const Vector<N, T> &lhs, const Vector<N, T> &rhs) {
+template <std::size_t N, class T, class U = T>
+inline T dot(const Vector<N, T> &lhs, const Vector<N, U> &rhs) {
   return lhs.dot(rhs);
 }
 
