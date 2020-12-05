@@ -366,7 +366,7 @@ class Vector {
    */
   bool operator==(const Vector<N, T> &rhs) const {
     for (std::size_t i = 0; i < N; i++) {
-      if (!mu::TypeTraits<T>::equals(data_[i], rhs.data_[i])) {
+      if (!mu::TypeTraits<T>::equals(data_[i], rhs[i])) {
         return false;
       }
     }
