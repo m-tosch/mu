@@ -433,14 +433,9 @@ class Vector {
 
   /**************************** vector <> scalar *****************************/
 
-  /* - enable_if's are used to check for an arithmetic type at compile time
-   * since it's the only type "family" that is allowed inside a Vector. Here,
-   * one could check if the scalar is of the same type as the one inside the
-   * Vector directly instead..
-   * ..but that gives rather unprecise error messages in case of a mismatch. the
-   * enable_if is also needed to only provide this function to scalars
-   * - the static_assert provides a more useful error message to the user at
-   * compile time. It enforces the type equality requirement!
+  /*
+   * enable_if's are used to check for an arithmetic type at compile time
+   * since it's the only type "family" that is allowed inside a Vector.
    *
    * placed inside this class because write access to member data is required
    */
@@ -455,10 +450,6 @@ class Vector {
   template <class TScalar>
   typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Vector<N, T> &>
   operator+=(const TScalar &scalar) {
-    static_assert(
-        std::is_same_v<T, TScalar>,
-        "for + or += "
-        "the scalar must be of the same type that the Vector contains");
     for (std::size_t i = 0; i < N; i++) {
       data_[i] += scalar;
     }
@@ -475,10 +466,6 @@ class Vector {
   template <class TScalar>
   typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Vector<N, T> &>
   operator-=(const TScalar &scalar) {
-    static_assert(
-        std::is_same_v<T, TScalar>,
-        "for - or -= "
-        "the scalar must be of the same type that the Vector contains");
     for (std::size_t i = 0; i < N; i++) {
       data_[i] -= scalar;
     }
@@ -495,10 +482,6 @@ class Vector {
   template <class TScalar>
   typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Vector<N, T> &>
   operator*=(const TScalar &scalar) {
-    static_assert(
-        std::is_same_v<T, TScalar>,
-        "for * or *= "
-        "the scalar must be of the same type that the Vector contains");
     for (std::size_t i = 0; i < N; i++) {
       data_[i] *= scalar;
     }
@@ -517,10 +500,6 @@ class Vector {
   template <class TScalar>
   typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Vector<N, T> &>
   operator/=(const TScalar &scalar) {
-    static_assert(
-        std::is_same_v<T, TScalar>,
-        "for / or /= "
-        "the scalar must be of the same type that the Vector contains");
     /* a division by zero of an integral type is undefined in standard c++
      * however, in the context of this Vector class, it is seen as rather
      * harmful and can become the source of non obvious bugs */
