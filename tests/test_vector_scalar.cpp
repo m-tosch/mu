@@ -39,20 +39,26 @@ template mu::Vector<2, float> mu::operator/
 
 /**
  * Vector <> Scalar test combinations
- *
- * it is assumed that the scalar type and the type that the vector contains are
- * the same!
  */
 using VectorScalarCombinations =
     ::testing::Types</* Vector */
                      std::tuple<mu::Vector<2, int>, int>,
                      std::tuple<mu::Vector<2, float>, float>,
+                     // different types
+                     std::tuple<mu::Vector<2, int>, float>,
+                     std::tuple<mu::Vector<2, float>, int>,
                      /* Vector2D */
                      std::tuple<mu::Vector2D<int>, int>,
                      std::tuple<mu::Vector2D<float>, float>,
+                     // different types
+                     std::tuple<mu::Vector2D<int>, float>,
+                     std::tuple<mu::Vector2D<float>, int>,
                      /* Vector3D */
                      std::tuple<mu::Vector3D<int>, int>,
-                     std::tuple<mu::Vector3D<float>, float>>;
+                     std::tuple<mu::Vector3D<float>, float>,
+                     // different types
+                     std::tuple<mu::Vector3D<int>, float>,
+                     std::tuple<mu::Vector3D<float>, int>>;
 
 template <typename T>
 class VectorScalarCombinationsFixture
