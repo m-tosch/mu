@@ -184,9 +184,10 @@ constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href=
 <tr class="memitem:a5aaede8fa7e0cfa50b044fcaf89cf1f2"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#a5aaede8fa7e0cfa50b044fcaf89cf1f2">sum</a> () const</td></tr>
 <tr class="memdesc:a5aaede8fa7e0cfa50b044fcaf89cf1f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">sum up all the elements of the vector  <a href="#a5aaede8fa7e0cfa50b044fcaf89cf1f2">More...</a><br /></td></tr>
 <tr class="separator:a5aaede8fa7e0cfa50b044fcaf89cf1f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a810d52f7aecb6150ceb74a2a28a77b3c"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#a810d52f7aecb6150ceb74a2a28a77b3c">dot</a> (const <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, T &gt; &amp;other) const</td></tr>
-<tr class="memdesc:a810d52f7aecb6150ceb74a2a28a77b3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">dot product of two vectors  <a href="#a810d52f7aecb6150ceb74a2a28a77b3c">More...</a><br /></td></tr>
-<tr class="separator:a810d52f7aecb6150ceb74a2a28a77b3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa465c6578326f5ddfaa7a32173758114"><td class="memTemplParams" colspan="2">template&lt;typename U  = T&gt; </td></tr>
+<tr class="memitem:aa465c6578326f5ddfaa7a32173758114"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#aa465c6578326f5ddfaa7a32173758114">dot</a> (const <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, U &gt; &amp;other) const</td></tr>
+<tr class="memdesc:aa465c6578326f5ddfaa7a32173758114"><td class="mdescLeft">&#160;</td><td class="mdescRight">dot product of two vectors  <a href="#aa465c6578326f5ddfaa7a32173758114">More...</a><br /></td></tr>
+<tr class="separator:aa465c6578326f5ddfaa7a32173758114"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe4d3c4dfa03eb4c8f9240f89c7f6139"><td class="memTemplParams" colspan="2">template&lt;class U  = T&gt; </td></tr>
 <tr class="memitem:afe4d3c4dfa03eb4c8f9240f89c7f6139"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if_t&lt; std::is_floating_point_v&lt; U &gt;, T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#afe4d3c4dfa03eb4c8f9240f89c7f6139">length</a> () const</td></tr>
 <tr class="memdesc:afe4d3c4dfa03eb4c8f9240f89c7f6139"><td class="mdescLeft">&#160;</td><td class="mdescRight">euclidean vector length  <a href="#afe4d3c4dfa03eb4c8f9240f89c7f6139">More...</a><br /></td></tr>
@@ -217,18 +218,22 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a7ab3342e48d5ba69e0bad44ecf52c449"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#a7ab3342e48d5ba69e0bad44ecf52c449">operator!=</a> (const <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, T &gt; &amp;rhs) const</td></tr>
 <tr class="memdesc:a7ab3342e48d5ba69e0bad44ecf52c449"><td class="mdescLeft">&#160;</td><td class="mdescRight">unequality operator  <a href="#a7ab3342e48d5ba69e0bad44ecf52c449">More...</a><br /></td></tr>
 <tr class="separator:a7ab3342e48d5ba69e0bad44ecf52c449"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8dccd86e64c7e17604bb1821e0bdcaf2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#a8dccd86e64c7e17604bb1821e0bdcaf2">operator+=</a> (const <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, T &gt; &amp;rhs)</td></tr>
-<tr class="memdesc:a8dccd86e64c7e17604bb1821e0bdcaf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">plus equal operator  <a href="#a8dccd86e64c7e17604bb1821e0bdcaf2">More...</a><br /></td></tr>
-<tr class="separator:a8dccd86e64c7e17604bb1821e0bdcaf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e49d07ab9ee1a407413ec27d335ffc8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#a9e49d07ab9ee1a407413ec27d335ffc8">operator-=</a> (const <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, T &gt; &amp;rhs)</td></tr>
-<tr class="memdesc:a9e49d07ab9ee1a407413ec27d335ffc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">minus equal operator  <a href="#a9e49d07ab9ee1a407413ec27d335ffc8">More...</a><br /></td></tr>
-<tr class="separator:a9e49d07ab9ee1a407413ec27d335ffc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9ba904fd6cbe1e4dca7d788ef5ef177"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#af9ba904fd6cbe1e4dca7d788ef5ef177">operator*=</a> (const <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, T &gt; &amp;rhs)</td></tr>
-<tr class="memdesc:af9ba904fd6cbe1e4dca7d788ef5ef177"><td class="mdescLeft">&#160;</td><td class="mdescRight">multiplication equal operator  <a href="#af9ba904fd6cbe1e4dca7d788ef5ef177">More...</a><br /></td></tr>
-<tr class="separator:af9ba904fd6cbe1e4dca7d788ef5ef177"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa894d4839eb171809687b47a49d00264"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#aa894d4839eb171809687b47a49d00264">operator/=</a> (const <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, T &gt; &amp;rhs)</td></tr>
-<tr class="memdesc:aa894d4839eb171809687b47a49d00264"><td class="mdescLeft">&#160;</td><td class="mdescRight">divison equal operator  <a href="#aa894d4839eb171809687b47a49d00264">More...</a><br /></td></tr>
-<tr class="separator:aa894d4839eb171809687b47a49d00264"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2136aad610ab276d4dc903fc83a7278c"><td class="memTemplParams" colspan="2">template&lt;typename U  = T&gt; </td></tr>
+<tr class="memitem:a2136aad610ab276d4dc903fc83a7278c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, T &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#a2136aad610ab276d4dc903fc83a7278c">operator+=</a> (const <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, U &gt; &amp;rhs)</td></tr>
+<tr class="memdesc:a2136aad610ab276d4dc903fc83a7278c"><td class="mdescLeft">&#160;</td><td class="mdescRight">plus equal operator  <a href="#a2136aad610ab276d4dc903fc83a7278c">More...</a><br /></td></tr>
+<tr class="separator:a2136aad610ab276d4dc903fc83a7278c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2aa6f7aa9010b7da656a88500f7fe543"><td class="memTemplParams" colspan="2">template&lt;typename U  = T&gt; </td></tr>
+<tr class="memitem:a2aa6f7aa9010b7da656a88500f7fe543"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, T &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#a2aa6f7aa9010b7da656a88500f7fe543">operator-=</a> (const <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, U &gt; &amp;rhs)</td></tr>
+<tr class="memdesc:a2aa6f7aa9010b7da656a88500f7fe543"><td class="mdescLeft">&#160;</td><td class="mdescRight">minus equal operator  <a href="#a2aa6f7aa9010b7da656a88500f7fe543">More...</a><br /></td></tr>
+<tr class="separator:a2aa6f7aa9010b7da656a88500f7fe543"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb469ba14b1c71a664c89a2718111cd3"><td class="memTemplParams" colspan="2">template&lt;typename U  = T&gt; </td></tr>
+<tr class="memitem:acb469ba14b1c71a664c89a2718111cd3"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, T &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#acb469ba14b1c71a664c89a2718111cd3">operator*=</a> (const <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, U &gt; &amp;rhs)</td></tr>
+<tr class="memdesc:acb469ba14b1c71a664c89a2718111cd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">multiplication equal operator  <a href="#acb469ba14b1c71a664c89a2718111cd3">More...</a><br /></td></tr>
+<tr class="separator:acb469ba14b1c71a664c89a2718111cd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa790abe736d6907382139e21fc29fa73"><td class="memTemplParams" colspan="2">template&lt;typename U  = T&gt; </td></tr>
+<tr class="memitem:aa790abe736d6907382139e21fc29fa73"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, T &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#aa790abe736d6907382139e21fc29fa73">operator/=</a> (const <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, U &gt; &amp;rhs)</td></tr>
+<tr class="memdesc:aa790abe736d6907382139e21fc29fa73"><td class="mdescLeft">&#160;</td><td class="mdescRight">divison equal operator  <a href="#aa790abe736d6907382139e21fc29fa73">More...</a><br /></td></tr>
+<tr class="separator:aa790abe736d6907382139e21fc29fa73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa19ffa96f0ea27c8c25fc854c50e18f7"><td class="memTemplParams" colspan="2">template&lt;class TScalar &gt; </td></tr>
 <tr class="memitem:aa19ffa96f0ea27c8c25fc854c50e18f7"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if_t&lt; std::is_arithmetic_v&lt; TScalar &gt;, <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, T &gt; &amp; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#aa19ffa96f0ea27c8c25fc854c50e18f7">operator+=</a> (const TScalar &amp;scalar)</td></tr>
 <tr class="memdesc:aa19ffa96f0ea27c8c25fc854c50e18f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">add a scalar to this vector  <a href="#aa19ffa96f0ea27c8c25fc854c50e18f7">More...</a><br /></td></tr>
@@ -663,13 +668,15 @@ template&lt;std::size_t N, typename T&gt; </div>
 
 </div>
 </div>
-<a id="a810d52f7aecb6150ceb74a2a28a77b3c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a810d52f7aecb6150ceb74a2a28a77b3c">&#9670;&nbsp;</a></span>dot()</h2>
+<a id="aa465c6578326f5ddfaa7a32173758114"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa465c6578326f5ddfaa7a32173758114">&#9670;&nbsp;</a></span>dot()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;std::size_t N, typename T&gt; </div>
+<div class="memtemplate">
+template&lt;typename U  = T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -677,7 +684,7 @@ template&lt;std::size_t N, typename T&gt; </div>
         <tr>
           <td class="memname">T <a class="el" href="classmu_1_1Vector.html">mu::Vector</a>&lt; N, T &gt;::dot </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, U &gt; &amp;&#160;</td>
           <td class="paramname"><em>other</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -690,6 +697,12 @@ template&lt;std::size_t N, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>dot product of two vectors </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">U</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td></td></tr>
@@ -700,8 +713,8 @@ template&lt;std::size_t N, typename T&gt; </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classmu_1_1Vector_a810d52f7aecb6150ceb74a2a28a77b3c_icgraph.png" border="0" usemap="#classmu_1_1Vector_a810d52f7aecb6150ceb74a2a28a77b3c_icgraph" alt=""/></div>
-<map name="classmu_1_1Vector_a810d52f7aecb6150ceb74a2a28a77b3c_icgraph" id="classmu_1_1Vector_a810d52f7aecb6150ceb74a2a28a77b3c_icgraph">
+<div class="center"><img src="classmu_1_1Vector_aa465c6578326f5ddfaa7a32173758114_icgraph.png" border="0" usemap="#classmu_1_1Vector_aa465c6578326f5ddfaa7a32173758114_icgraph" alt=""/></div>
+<map name="classmu_1_1Vector_aa465c6578326f5ddfaa7a32173758114_icgraph" id="classmu_1_1Vector_aa465c6578326f5ddfaa7a32173758114_icgraph">
 <area shape="rect" id="node2" href="classmu_1_1Vector.html#afe4d3c4dfa03eb4c8f9240f89c7f6139" title="euclidean vector length " alt="" coords="165,5,299,47"/>
 </map>
 </div>
@@ -978,13 +991,15 @@ template&lt;std::size_t N, typename T&gt; </div>
 
 </div>
 </div>
-<a id="af9ba904fd6cbe1e4dca7d788ef5ef177"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af9ba904fd6cbe1e4dca7d788ef5ef177">&#9670;&nbsp;</a></span>operator*=() <span class="overload">[1/2]</span></h2>
+<a id="acb469ba14b1c71a664c89a2718111cd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb469ba14b1c71a664c89a2718111cd3">&#9670;&nbsp;</a></span>operator*=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;std::size_t N, typename T&gt; </div>
+<div class="memtemplate">
+template&lt;typename U  = T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -992,7 +1007,7 @@ template&lt;std::size_t N, typename T&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="classmu_1_1Vector.html">Vector</a>&lt;N, T&gt;&amp; <a class="el" href="classmu_1_1Vector.html">mu::Vector</a>&lt; N, T &gt;::operator*= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, U &gt; &amp;&#160;</td>
           <td class="paramname"><em>rhs</em></td><td>)</td>
           <td></td>
         </tr>
@@ -1005,6 +1020,12 @@ template&lt;std::size_t N, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>multiplication equal operator </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">U</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">rhs</td><td></td></tr>
@@ -1060,13 +1081,15 @@ template&lt;class TScalar &gt; </div>
 
 </div>
 </div>
-<a id="a8dccd86e64c7e17604bb1821e0bdcaf2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8dccd86e64c7e17604bb1821e0bdcaf2">&#9670;&nbsp;</a></span>operator+=() <span class="overload">[1/2]</span></h2>
+<a id="a2136aad610ab276d4dc903fc83a7278c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2136aad610ab276d4dc903fc83a7278c">&#9670;&nbsp;</a></span>operator+=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;std::size_t N, typename T&gt; </div>
+<div class="memtemplate">
+template&lt;typename U  = T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1074,7 +1097,7 @@ template&lt;std::size_t N, typename T&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="classmu_1_1Vector.html">Vector</a>&lt;N, T&gt;&amp; <a class="el" href="classmu_1_1Vector.html">mu::Vector</a>&lt; N, T &gt;::operator+= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, U &gt; &amp;&#160;</td>
           <td class="paramname"><em>rhs</em></td><td>)</td>
           <td></td>
         </tr>
@@ -1087,6 +1110,12 @@ template&lt;std::size_t N, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>plus equal operator </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">U</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">rhs</td><td></td></tr>
@@ -1142,13 +1171,15 @@ template&lt;class TScalar &gt; </div>
 
 </div>
 </div>
-<a id="a9e49d07ab9ee1a407413ec27d335ffc8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e49d07ab9ee1a407413ec27d335ffc8">&#9670;&nbsp;</a></span>operator-=() <span class="overload">[1/2]</span></h2>
+<a id="a2aa6f7aa9010b7da656a88500f7fe543"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2aa6f7aa9010b7da656a88500f7fe543">&#9670;&nbsp;</a></span>operator-=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;std::size_t N, typename T&gt; </div>
+<div class="memtemplate">
+template&lt;typename U  = T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1156,7 +1187,7 @@ template&lt;std::size_t N, typename T&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="classmu_1_1Vector.html">Vector</a>&lt;N, T&gt;&amp; <a class="el" href="classmu_1_1Vector.html">mu::Vector</a>&lt; N, T &gt;::operator-= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, U &gt; &amp;&#160;</td>
           <td class="paramname"><em>rhs</em></td><td>)</td>
           <td></td>
         </tr>
@@ -1169,6 +1200,12 @@ template&lt;std::size_t N, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>minus equal operator </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">U</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">rhs</td><td></td></tr>
@@ -1224,13 +1261,15 @@ template&lt;class TScalar &gt; </div>
 
 </div>
 </div>
-<a id="aa894d4839eb171809687b47a49d00264"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa894d4839eb171809687b47a49d00264">&#9670;&nbsp;</a></span>operator/=() <span class="overload">[1/2]</span></h2>
+<a id="aa790abe736d6907382139e21fc29fa73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa790abe736d6907382139e21fc29fa73">&#9670;&nbsp;</a></span>operator/=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;std::size_t N, typename T&gt; </div>
+<div class="memtemplate">
+template&lt;typename U  = T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1238,7 +1277,7 @@ template&lt;std::size_t N, typename T&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="classmu_1_1Vector.html">Vector</a>&lt;N, T&gt;&amp; <a class="el" href="classmu_1_1Vector.html">mu::Vector</a>&lt; N, T &gt;::operator/= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, U &gt; &amp;&#160;</td>
           <td class="paramname"><em>rhs</em></td><td>)</td>
           <td></td>
         </tr>
@@ -1251,6 +1290,12 @@ template&lt;std::size_t N, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>divison equal operator </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">U</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">rhs</td><td></td></tr>
