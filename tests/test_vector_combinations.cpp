@@ -156,12 +156,11 @@ TYPED_TEST(VectorCombinationsMathFixture, OperatorEqual) {
   typename TestFixture::T2 obj2{this->values2};
   typename TestFixture::T1 obj3{this->values};
   obj3[0] = 0;
-  /** action */
-  bool res1 = (obj1 == obj2);
-  bool res2 = (obj1 == obj3);
-  /** assert */
-  EXPECT_TRUE(res1);
-  EXPECT_FALSE(res2);
+  /** action & assert */
+  EXPECT_TRUE(obj1 == obj2);
+  EXPECT_TRUE(obj2 == obj1);
+  EXPECT_FALSE(obj1 == obj3);
+  EXPECT_FALSE(obj3 == obj1);
 }
 
 TYPED_TEST(VectorCombinationsMathFixture, OperatorNotEqual) {
@@ -170,12 +169,11 @@ TYPED_TEST(VectorCombinationsMathFixture, OperatorNotEqual) {
   typename TestFixture::T2 obj2{this->values2};
   typename TestFixture::T1 obj3{this->values};
   obj3[0] = 0;
-  /** action */
-  bool res1 = (obj1 != obj2);
-  bool res2 = (obj1 != obj3);
-  /** assert */
-  EXPECT_FALSE(res1);
-  EXPECT_TRUE(res2);
+  /** action & assert */
+  EXPECT_FALSE(obj1 != obj2);
+  EXPECT_FALSE(obj2 != obj1);
+  EXPECT_TRUE(obj1 != obj3);
+  EXPECT_TRUE(obj3 != obj1);
 }
 
 TYPED_TEST(VectorCombinationsMathFixture, OperatorPlus) {
