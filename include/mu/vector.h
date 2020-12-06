@@ -362,7 +362,7 @@ class Vector {
    * @brief equality operator
    *
    * comparisons between different arithmetic types are possible. they are
-   * subject to the c++ "usual arithmetic conversions"!
+   * subject to the c++ usual arithmetic conversions!
    *
    * checked both ways for equality. First, casting both values to the type of
    * the first argument, then casting both values to the type of the second
@@ -466,6 +466,9 @@ class Vector {
   /*
    * enable_if's are used to check for an arithmetic type at compile time
    * since it's the only type "family" that is allowed inside a Vector.
+   *
+   * the vector elements and the scalar can be of different types. c++ usual
+   * conversion rules apply.
    *
    * placed inside this class because write access to member data is required
    */
