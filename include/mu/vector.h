@@ -364,6 +364,10 @@ class Vector {
    * comparisons between different arithmetic types are possible. they are
    * subject to the c++ "usual arithmetic conversions"!
    *
+   * checked both ways for equality. First, casting both values to the type of
+   * the first argument, then casting both values to the type of the second
+   * argument.
+   *
    * @param rhs
    * @return bool true if equal, false if unequal
    */
