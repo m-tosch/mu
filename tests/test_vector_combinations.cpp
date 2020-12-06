@@ -158,9 +158,7 @@ TYPED_TEST(VectorCombinationsMathFixture, OperatorEqual) {
   obj3[0] = 0;
   /** action & assert */
   EXPECT_TRUE(obj1 == obj2);
-  EXPECT_TRUE(obj2 == obj1);
   EXPECT_FALSE(obj1 == obj3);
-  EXPECT_FALSE(obj3 == obj1);
 }
 
 TYPED_TEST(VectorCombinationsMathFixture, OperatorNotEqual) {
@@ -171,9 +169,7 @@ TYPED_TEST(VectorCombinationsMathFixture, OperatorNotEqual) {
   obj3[0] = 0;
   /** action & assert */
   EXPECT_FALSE(obj1 != obj2);
-  EXPECT_FALSE(obj2 != obj1);
   EXPECT_TRUE(obj1 != obj3);
-  EXPECT_TRUE(obj3 != obj1);
 }
 
 TYPED_TEST(VectorCombinationsMathFixture, OperatorPlus) {
