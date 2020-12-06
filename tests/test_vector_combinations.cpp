@@ -68,6 +68,8 @@ TYPED_TEST(VectorCombinationsInitFixture, ConstructorFromDifferentTypeVector) {
 
 /**
  * explicit instantiations
+ *
+ * note: +=, -=, *= and /= do not have to be explicitly instantiated
  */
 /* addition */
 template mu::Vector<2, float> mu::operator+
@@ -81,6 +83,13 @@ template mu::Vector<2, float> mu::operator*
 /* division */
 template mu::Vector<2, float> mu::operator/
     <2, float, int>(const mu::Vector<2, float> &, const mu::Vector<2, int> &);
+/* equality (this operator is also called by gtest. probably ContainerEq...) */
+template bool mu::Vector<2, float>::operator==
+    <int>(const mu::Vector<2, int> &) const;
+/* inequality */
+template bool mu::Vector<2, float>::operator!=
+    <int>(const mu::Vector<2, int> &) const;
+
 /* convenience functions */
 /* these functions should take a combination of Vectors, so they're here.
  * functions that take e.g a single Vector as argument are elsewhere */
@@ -140,6 +149,34 @@ class VectorCombinationsMathFixture
 };
 
 TYPED_TEST_SUITE(VectorCombinationsMathFixture, VectorTypeCombinationsMath);
+
+TYPED_TEST(VectorCombinationsMathFixture, OperatorEqual) {
+  /** arrange */
+  typename TestFixture::T1 obj1{this->values};
+  typename TestFixture::T2 obj2{this->values2};
+  typename TestFixture::T1 obj3{this->values};
+  obj3[0] = 0;
+  /** action */
+  bool res1 = (obj1 == obj2);
+  bool res2 = (obj1 == obj3);
+  /** assert */
+  EXPECT_TRUE(res1);
+  EXPECT_FALSE(res2);
+}
+
+TYPED_TEST(VectorCombinationsMathFixture, OperatorNotEqual) {
+  /** arrange */
+  typename TestFixture::T1 obj1{this->values};
+  typename TestFixture::T2 obj2{this->values2};
+  typename TestFixture::T1 obj3{this->values};
+  obj3[0] = 0;
+  /** action */
+  bool res1 = (obj1 != obj2);
+  bool res2 = (obj1 != obj3);
+  /** assert */
+  EXPECT_FALSE(res1);
+  EXPECT_TRUE(res2);
+}
 
 TYPED_TEST(VectorCombinationsMathFixture, OperatorPlus) {
   /** arrange */

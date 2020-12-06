@@ -361,12 +361,17 @@ class Vector {
   /**
    * @brief equality operator
    *
+   * comparisons between different arithmetic types are possible. they are
+   * subject to the c++ "usual arithmetic conversions"!
+   *
    * @param rhs
    * @return bool true if equal, false if unequal
    */
-  bool operator==(const Vector<N, T> &rhs) const {
+  template <typename U = T>
+  bool operator==(const Vector<N, U> &rhs) const {
     for (std::size_t i = 0; i < N; i++) {
-      if (!mu::TypeTraits<T>::equals(data_[i], rhs[i])) {
+      if (!mu::TypeTraits<T>::equals(data_[i], rhs[i]) ||
+          !mu::TypeTraits<U>::equals(data_[i], rhs[i])) {
         return false;
       }
     }
@@ -379,10 +384,15 @@ class Vector {
    * @param rhs
    * @return bool true if unequal, false if equal
    */
-  bool operator!=(const Vector<N, T> &rhs) const { return !operator==(rhs); }
+  template <typename U = T>
+  bool operator!=(const Vector<N, U> &rhs) const {
+    return !operator==(rhs);
+  }
 
   /**
    * @brief plus equal operator
+   *
+   * subject to implicit conversions
    *
    * @tparam U
    * @param rhs
@@ -399,6 +409,8 @@ class Vector {
   /**
    * @brief minus equal operator
    *
+   * subject to implicit conversions
+   *
    * @tparam U
    * @param rhs
    * @return Vector<N, T>&
@@ -414,6 +426,8 @@ class Vector {
   /**
    * @brief multiplication equal operator
    *
+   * subject to implicit conversions
+   *
    * @tparam U
    * @param rhs
    * @return Vector<N, T>&
@@ -428,6 +442,8 @@ class Vector {
 
   /**
    * @brief divison equal operator
+   *
+   * subject to implicit conversions
    *
    * @tparam U
    * @param rhs

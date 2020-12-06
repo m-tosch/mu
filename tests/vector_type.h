@@ -99,48 +99,6 @@ TYPED_TEST_P(VectorTypeFixture, OperatorMoveAssignment) {
   EXPECT_TRUE(std::is_nothrow_move_assignable<TypeParam>::value);
 }
 
-TYPED_TEST_P(VectorTypeFixture, OperatorEqualValuesMatch) {
-  /** arrange */
-  TypeParam obj1{this->values};
-  TypeParam obj2{this->values};
-  /** action */
-  bool res = (obj1 == obj2);
-  /** assert */
-  EXPECT_TRUE(res);
-}
-
-TYPED_TEST_P(VectorTypeFixture, OperatorEqualValuesDontMatch) {
-  /** arrange */
-  TypeParam obj1{this->values};
-  TypeParam obj2{this->values};
-  obj2[0] = 0;
-  /** action */
-  bool res = (obj1 == obj2);
-  /** assert */
-  EXPECT_FALSE(res);
-}
-
-TYPED_TEST_P(VectorTypeFixture, OperatorNotEqualValuesMatch) {
-  /** arrange */
-  TypeParam obj1{this->values};
-  TypeParam obj2{this->values};
-  /** action */
-  bool res = (obj1 != obj2);
-  /** assert */
-  EXPECT_FALSE(res);
-}
-
-TYPED_TEST_P(VectorTypeFixture, OperatorNotEqualValuesDontMatch) {
-  /** arrange */
-  TypeParam obj1{this->values};
-  TypeParam obj2{this->values};
-  obj2[0] = 0;
-  /** action */
-  bool res = (obj1 != obj2);
-  /** assert */
-  EXPECT_TRUE(res);
-}
-
 TYPED_TEST_P(VectorTypeFixture, OperatorBrackets) {
   /** arrange */
   TypeParam obj{this->values};
@@ -487,8 +445,6 @@ REGISTER_TYPED_TEST_SUITE_P(
     VectorTypeFixture, ConstructorDefault, DestructorDefault,
     ConstructorFromArray, ConstructorFromSingleValue, ConstructorCopy,
     ConstructorMove, OperatorCopyAssignment, OperatorMoveAssignment,
-    OperatorEqualValuesMatch, OperatorEqualValuesDontMatch,
-    OperatorNotEqualValuesMatch, OperatorNotEqualValuesDontMatch,
     OperatorBrackets, OperatorBracketsConst, MemberFuncAt, MemberFuncAtConst,
     MemberFuncSize, MemberFuncBegin, MemberFuncBeginConst, MemberFuncEnd,
     MemberFuncEndConst, MemberFuncMin, MemberFuncMax, MemberFuncSum,
