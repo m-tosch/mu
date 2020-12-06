@@ -42,8 +42,9 @@ struct TypeTraitsFloatingPoint {
   constexpr static bool equals(T lhs, T rhs);
 };
 
-/** explicit template instantiations of TypeTraits for floating point types.
- * TypeTraitsFloatingPoint enables us to use a different equals method. */
+/* explicit template instantiations of TypeTraits for floating point types.
+ * TypeTraitsFloatingPoint enables us to use a different equals method.
+ */
 
 template <>
 struct TypeTraits<float> : TypeTraitsFloatingPoint<float> {
