@@ -5,7 +5,7 @@ var classmu_1_1Vector =
     [ "size_type", "classmu_1_1Vector.html#a77a0701fbf49d9228243aebeba5321a7", null ],
     [ "value_type", "classmu_1_1Vector.html#a4ce6dcb3e505735626b86b354fea6f25", null ],
     [ "Vector", "classmu_1_1Vector.html#a7931e7af478ad36f64e196dade093c30", null ],
-    [ "Vector", "classmu_1_1Vector.html#afc34a3628ff3d5ac9a2fdf8ea1ba7336", null ],
+    [ "Vector", "classmu_1_1Vector.html#ae1811fcd0b41864a64127eb82c7b699d", null ],
     [ "Vector", "classmu_1_1Vector.html#a804e1cc69479d06a6a1d68c0179829b8", null ],
     [ "Vector", "classmu_1_1Vector.html#a1131cad9102ec5f74f87a4a00b9c7625", null ],
     [ "Vector", "classmu_1_1Vector.html#ae316fed85e71693ac86020631e74ff61", null ],
