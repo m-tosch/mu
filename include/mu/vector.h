@@ -8,6 +8,7 @@
 #include <numeric>
 #include <ostream>
 #include <type_traits>
+#include <utility>
 
 #include "mu/typetraits.h"
 #include "mu/utility.h"
@@ -54,12 +55,13 @@ class Vector {
    * @tparam TArgs
    * @param args
    */
-  template <
-      typename... TArgs,
-      std::enable_if_t<
-          sizeof...(TArgs) == N && (std::is_same_v<T, TArgs> && ...), int> = 0>
+  template <typename... TArgs,
+            std::enable_if_t<
+                sizeof...(TArgs) == N &&
+                    (std::is_same_v<T, std::remove_reference_t<TArgs>> && ...),
+                int> = 0>
   // NOLINTNEXTLINE(runtime/explicit) implicit conversion is intentional
-  Vector(TArgs... args) : data_{{args...}} {}
+  Vector(TArgs &&... args) : data_{std::forward<TArgs>(args)...} {}
 
   /**
    * @brief Construct a new Vector from an existing Vector of a different type
