@@ -46,7 +46,7 @@
         "cwd": "${workspaceFolder}/coverage"
       },
       "group": "build",
-      "problemMatcher": [],
+      "problemMatcher": []
     },
     {
       "label": "generate coverage (llvm)",
@@ -56,7 +56,7 @@
         "cwd": "${workspaceFolder}/coverage"
       },
       "group": "build",
-      "problemMatcher": [],
+      "problemMatcher": []
     }
   ]
 }
