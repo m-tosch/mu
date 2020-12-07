@@ -5,12 +5,12 @@
       "type": "cppdbg",
       "request": "launch",
       "program": "${workspaceFolder}/build/tests/mu_tests",
-      "cwd": "${workspacefolder}",
+      "cwd": "${workspaceFolder}",
       "externalConsole": false,
       "linux": {
         "MIMode": "gdb",
         "miDebuggerPath": "/usr/bin/gdb"
       }
     }
-  ],
+  ]
 }
