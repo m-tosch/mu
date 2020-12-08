@@ -8,7 +8,7 @@
 #include "mu/vector3d.h"
 #include "vector_type.h"
 
-/**************************** INITIALIZATION **********************************/
+/*************************** INITIALIZATION ********************************/
 
 /**
  * explicit instantiations
@@ -64,7 +64,7 @@ TYPED_TEST(VectorCombinationsInitFixture, ConstructorFromDifferentTypeVector) {
   EXPECT_THAT(res, ::testing::ContainerEq(T2{comp}));
 }
 
-/******************************* MATH *****************************************/
+/****************************** MATH ***************************************/
 
 /**
  * explicit instantiations
@@ -302,7 +302,7 @@ TYPED_TEST(VectorCombinationsMathFixture, MemberFuncDot) {
   EXPECT_EQ(res, std::inner_product(obj1.begin(), obj1.end(), obj2.begin(), 0));
 }
 
-/************************** convenience functions *****************************/
+/************************* convenience functions ***************************/
 
 TYPED_TEST(VectorCombinationsMathFixture, UtilityFuncDot) {
   /** arrange */
