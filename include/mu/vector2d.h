@@ -23,10 +23,12 @@ class Vector2D : public Vector<2, T> {
    * also implicitly used for copy initialization. purposely not marked
    * "explicit" for exactly this usecase. suppress linting for this line.
    *
+   * @tparam Tt
    * @param other
    */
-  // NOLINTNEXTLINE(runtime/explicit) implicit conversion is intentional
-  Vector2D(const Vector<2, T>& other) : Vector<2, T>(other) {}
+  template <class Tt = T>
+  // NOLINTNEXTLINE(runtime/explicit) implicit to make copy-init. work
+  Vector2D(const Vector<2, Tt>& other) : Vector<2, T>(other) {}
 
   /**
    * @brief x component

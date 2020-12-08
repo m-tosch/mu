@@ -23,9 +23,11 @@ class Vector3D : public Vector<3, T> {
    * also implicitly used for copy initialization. purposely not marked
    * "explicit" for exactly this usecase. suppress linting for this line.
    *
+   * @tparam Tt
    * @param other
    */
-  // NOLINTNEXTLINE(runtime/explicit) implicit conversion is intentional
+  template <class Tt = T>
+  // NOLINTNEXTLINE(runtime/explicit) implicit to make copy-init. work
   Vector3D(const Vector<3, T>& other) : Vector<3, T>(other) {}
 
   /**

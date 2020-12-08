@@ -60,8 +60,8 @@ class Vector {
                 sizeof...(TArgs) == N &&
                     (std::is_same_v<T, std::remove_reference_t<TArgs>> && ...),
                 int> = 0>
-  // NOLINTNEXTLINE(runtime/explicit) implicit conversion is intentional
-  explicit Vector(TArgs &&... args) : data_{std::forward<TArgs>(args)...} {}
+  // NOLINTNEXTLINE(runtime/explicit) implicit to make copy-init. work
+  Vector(TArgs &&... args) : data_{std::forward<TArgs>(args)...} {}
 
   /**
    * @brief Construct a new Vector from an existing Vector of a different type
@@ -93,14 +93,16 @@ class Vector {
    *
    * @param arr
    */
-  explicit Vector(const std::array<T, N> &arr) : data_(arr) {}
+  // NOLINTNEXTLINE(runtime/explicit) implicit to make copy-init. work
+  Vector(const std::array<T, N> &arr) : data_(arr) {}
 
   /**
    * @brief Construct a new Vector object from a single value
    *
    * @param value
    */
-  explicit Vector(const T &value) { data_.fill(value); }
+  // NOLINTNEXTLINE(runtime/explicit) implicit to make copy-init. work
+  Vector(const T &value) { data_.fill(value); }
 
   /**
    * @brief Destroy the Vector object
