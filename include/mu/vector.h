@@ -344,7 +344,7 @@ class Vector {
     return ret;
   }
 
-  /********************************** I/O *************************************/
+  /********************************* I/O ***********************************/
 
   /**
    * @brief print vector values
@@ -358,7 +358,7 @@ class Vector {
   template <std::size_t Nn, class Tt>
   friend std::ostream &operator<<(std::ostream &os, const Vector<Nn, Tt> &vec);
 
-  /**************************** vector <> vector *****************************/
+  /*************************** vector <> vector ****************************/
 
   /**
    * @brief equality operator
@@ -463,7 +463,7 @@ class Vector {
     return *this;
   }
 
-  /**************************** vector <> scalar *****************************/
+  /*************************** vector <> scalar ****************************/
 
   /*
    * enable_if's are used to check for an arithmetic type at compile time
@@ -547,13 +547,13 @@ class Vector {
     return *this;
   }
 
-  /****************************************************************************/
+  /*************************************************************************/
 
  protected:
   std::array<T, N> data_;
 };
 
-/*********************************** I/O **************************************/
+/********************************** I/O ************************************/
 
 template <std::size_t Nn, class Tt>
 std::ostream &operator<<(std::ostream &os, const Vector<Nn, Tt> &vec) {
@@ -565,7 +565,7 @@ std::ostream &operator<<(std::ostream &os, const Vector<Nn, Tt> &vec) {
   return os;
 }
 
-/***************************** vector <> vector *******************************/
+/**************************** vector <> vector *****************************/
 
 /**
  * @brief plus operator
@@ -631,7 +631,7 @@ inline Vector<N, T> operator/(const Vector<N, T> &lhs,
   return Vector<N, T>(lhs) /= rhs;
 }
 
-/***************************** vector <> scalar *******************************/
+/**************************** vector <> scalar *****************************/
 
 /**
  * @brief vector and scalar addition
@@ -737,7 +737,7 @@ operator/(const Vector<N, T> &lhs, const TScalar &rhs) {
   return Vector<N, T>(lhs) /= rhs;
 }
 
-/************************** convenience functions *****************************/
+/************************* convenience functions ***************************/
 
 template <std::size_t N, class T>
 inline T min(const Vector<N, T> &other) {
@@ -792,7 +792,7 @@ inline Vector<N, T> sorted(const Vector<N, T> &other, const Compare compare) {
   return other.sorted(compare);
 }
 
-/******************************************************************************/
+/***************************************************************************/
 
 }  // namespace mu
 #endif  // MU_VECTOR_H_
