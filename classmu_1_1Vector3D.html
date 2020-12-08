@@ -116,9 +116,10 @@ Collaboration diagram for mu::Vector3D&lt; T &gt;:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9c64feeb2c46de9db5aff627612ce461"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector3D.html#a9c64feeb2c46de9db5aff627612ce461">Vector3D</a> (const <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; 3, T &gt; &amp;other)</td></tr>
-<tr class="memdesc:a9c64feeb2c46de9db5aff627612ce461"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classmu_1_1Vector3D.html" title="A three dimensional vector. ">Vector3D</a> object from a <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> object.  <a href="#a9c64feeb2c46de9db5aff627612ce461">More...</a><br /></td></tr>
-<tr class="separator:a9c64feeb2c46de9db5aff627612ce461"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e9f0a46edc33fcdac35138e0f3e358c"><td class="memTemplParams" colspan="2">template&lt;class Tt  = T&gt; </td></tr>
+<tr class="memitem:a2e9f0a46edc33fcdac35138e0f3e358c"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector3D.html#a2e9f0a46edc33fcdac35138e0f3e358c">Vector3D</a> (const <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; 3, T &gt; &amp;other)</td></tr>
+<tr class="memdesc:a2e9f0a46edc33fcdac35138e0f3e358c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classmu_1_1Vector3D.html" title="A three dimensional vector. ">Vector3D</a> object from a <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> object.  <a href="#a2e9f0a46edc33fcdac35138e0f3e358c">More...</a><br /></td></tr>
+<tr class="separator:a2e9f0a46edc33fcdac35138e0f3e358c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e6f3810ced360a5274de8b0665b77c5"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector3D.html#a0e6f3810ced360a5274de8b0665b77c5">x</a> () noexcept</td></tr>
 <tr class="memdesc:a0e6f3810ced360a5274de8b0665b77c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">x component  <a href="#a0e6f3810ced360a5274de8b0665b77c5">More...</a><br /></td></tr>
 <tr class="separator:a0e6f3810ced360a5274de8b0665b77c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -289,13 +290,15 @@ class mu::Vector3D&lt; T &gt;</h3>
   </dd>
 </dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a9c64feeb2c46de9db5aff627612ce461"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9c64feeb2c46de9db5aff627612ce461">&#9670;&nbsp;</a></span>Vector3D()</h2>
+<a id="a2e9f0a46edc33fcdac35138e0f3e358c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e9f0a46edc33fcdac35138e0f3e358c">&#9670;&nbsp;</a></span>Vector3D()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T &gt; </div>
+<div class="memtemplate">
+template&lt;class Tt  = T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -317,6 +320,12 @@ template&lt;typename T &gt; </div>
 
 <p>Construct a new <a class="el" href="classmu_1_1Vector3D.html" title="A three dimensional vector. ">Vector3D</a> object from a <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> object. </p>
 <p>also implicitly used for copy initialization. purposely not marked "explicit" for exactly this usecase. suppress linting for this line.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Tt</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td></td></tr>
