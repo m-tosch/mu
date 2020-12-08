@@ -61,7 +61,7 @@ class Vector {
                     (std::is_same_v<T, std::remove_reference_t<TArgs>> && ...),
                 int> = 0>
   // NOLINTNEXTLINE(runtime/explicit) implicit conversion is intentional
-  Vector(TArgs &&... args) : data_{std::forward<TArgs>(args)...} {}
+  explicit Vector(TArgs &&... args) : data_{std::forward<TArgs>(args)...} {}
 
   /**
    * @brief Construct a new Vector from an existing Vector of a different type
