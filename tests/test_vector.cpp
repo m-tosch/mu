@@ -13,9 +13,9 @@ template float mu::Vector<2, float>::length<float>() const;
 struct LambdaCompare {
   bool operator()(int a, int b) const { return a > b; }
 };
-template void mu::Vector<2, float>::sort(const LambdaCompare);
+template void mu::Vector<2, float>::sort(const LambdaCompare &);
 template mu::Vector<2, float> mu::Vector<2, float>::sorted(
-    const LambdaCompare) const;
+    const LambdaCompare &) const;
 
 /* operators */
 template std::ostream &mu::operator<<<2, float>(std::ostream &,
@@ -29,10 +29,10 @@ template float mu::sum(const mu::Vector<2, float> &);
 template void mu::flip(mu::Vector<2, float> &);
 template mu::Vector<2, float> mu::flipped(const mu::Vector<2, float> &);
 template void mu::sort(mu::Vector<2, float> &);
-template void mu::sort(mu::Vector<2, float> &, const LambdaCompare);
+template void mu::sort(mu::Vector<2, float> &, const LambdaCompare &);
 template mu::Vector<2, float> mu::sorted(const mu::Vector<2, float> &);
 template mu::Vector<2, float> mu::sorted(const mu::Vector<2, float> &,
-                                         const LambdaCompare);
+                                         const LambdaCompare &);
 
 /**
  * Instantiate the Vector test suite
