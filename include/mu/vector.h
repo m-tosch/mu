@@ -93,14 +93,14 @@ class Vector {
    *
    * @param arr
    */
-  explicit Vector(std::array<T, N> arr) : data_(arr) {}
+  explicit Vector(const std::array<T, N> &arr) : data_(arr) {}
 
   /**
    * @brief Construct a new Vector object from a single value
    *
    * @param value
    */
-  explicit Vector(T value) { data_.fill(value); }
+  explicit Vector(const T &value) { data_.fill(value); }
 
   /**
    * @brief Destroy the Vector object
@@ -315,7 +315,7 @@ class Vector {
    * @param comp
    */
   template <typename Compare>
-  void sort(const Compare comp) {
+  void sort(const Compare &comp) {
     mu::sort(begin(), end(), comp);
   }
 
@@ -338,7 +338,7 @@ class Vector {
    * @return Vector<N, T>
    */
   template <typename Compare>
-  Vector<N, T> sorted(const Compare comp) const {
+  Vector<N, T> sorted(const Compare &comp) const {
     Vector<N, T> ret(*this);
     ret.sort(comp);
     return ret;
@@ -778,7 +778,7 @@ inline void sort(Vector<N, T> &other) {
 
 template <std::size_t N, class T, typename Compare>
 // NOLINTNEXTLINE(runtime/references) intentional non-const reference
-inline void sort(Vector<N, T> &other, const Compare compare) {
+inline void sort(Vector<N, T> &other, const Compare &compare) {
   other.sort(compare);
 }
 
@@ -788,7 +788,7 @@ inline Vector<N, T> sorted(const Vector<N, T> &other) {
 }
 
 template <std::size_t N, class T, typename Compare>
-inline Vector<N, T> sorted(const Vector<N, T> &other, const Compare compare) {
+inline Vector<N, T> sorted(const Vector<N, T> &other, const Compare &compare) {
   return other.sorted(compare);
 }
 
