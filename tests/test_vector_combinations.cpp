@@ -64,6 +64,30 @@ TYPED_TEST(VectorCombinationsInitFixture, ConstructorFromDifferentTypeVector) {
   EXPECT_THAT(res, ::testing::ContainerEq(T2{comp}));
 }
 
+TYPED_TEST(VectorCombinationsInitFixture,
+           ConstructorFromDifferentTypeVectorAssignment) {
+  /* call the type casting constructor in Vector. no exception must be thrown */
+  using T1 = typename TestFixture::T1;
+  using T2 = typename TestFixture::T2;
+  using T1_v = typename TestFixture::T1::value_type;
+  using T2_v = typename TestFixture::T2::value_type;
+  /** arrange */
+  T1 obj{this->values};
+  EXPECT_NO_THROW(([&] {
+    T2 tmp = obj;
+    tmp = obj;  // this line is only here to avoid "unused variable" warning
+  }()));        // NOLINT "pre-assert"
+  /** action */
+  T2 res = obj;
+  /* build comparison array. mimic what the constructor in Vector does */
+  static T2 dummy;
+  std::array<typename T2::value_type, dummy.size()> comp;
+  std::transform(this->values.begin(), this->values.end(), comp.begin(),
+                 [](T1_v i) { return static_cast<T2_v>(i); });
+  /** assert */
+  EXPECT_THAT(res, ::testing::ContainerEq(T2{comp}));
+}
+
 /****************************** MATH ***************************************/
 
 /**

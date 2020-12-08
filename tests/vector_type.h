@@ -55,11 +55,43 @@ TYPED_TEST_P(VectorTypeFixture, ConstructorFromArray) {
   EXPECT_THAT(obj, ::testing::Pointwise(::testing::FloatEq(), this->values));
 }
 
+TYPED_TEST_P(VectorTypeFixture, ConstructorFromArrayAssignment) {
+  /** action */
+  TypeParam obj = this->values;
+  /** assert */
+  EXPECT_THAT(obj, ::testing::Pointwise(::testing::FloatEq(), this->values));
+}
+
+TYPED_TEST_P(VectorTypeFixture, ConstructorFromArrayAssignmentBraces) {
+  /** action */
+  TypeParam obj = {this->values};
+  /** assert */
+  EXPECT_THAT(obj, ::testing::Pointwise(::testing::FloatEq(), this->values));
+}
+
 TYPED_TEST_P(VectorTypeFixture, ConstructorFromSingleValue) {
   /** arrange */
   auto value = this->values[0];
   /** action */
   TypeParam obj{value};
+  /** assert */
+  EXPECT_THAT(obj, ::testing::Each(::testing::AllOf(::testing::Eq(value))));
+}
+
+TYPED_TEST_P(VectorTypeFixture, ConstructorFromSingleValueAssignment) {
+  /** arrange */
+  auto value = this->values[0];
+  /** action */
+  TypeParam obj = value;
+  /** assert */
+  EXPECT_THAT(obj, ::testing::Each(::testing::AllOf(::testing::Eq(value))));
+}
+
+TYPED_TEST_P(VectorTypeFixture, ConstructorFromSingleValueAssignmentBraces) {
+  /** arrange */
+  auto value = this->values[0];
+  /** action */
+  TypeParam obj = {value};
   /** assert */
   EXPECT_THAT(obj, ::testing::Each(::testing::AllOf(::testing::Eq(value))));
 }
@@ -443,7 +475,10 @@ TYPED_TEST_P(VectorTypeFixture, UtilityFuncSortedLambda) {
 
 REGISTER_TYPED_TEST_SUITE_P(
     VectorTypeFixture, ConstructorDefault, DestructorDefault,
-    ConstructorFromArray, ConstructorFromSingleValue, ConstructorCopy,
+    ConstructorFromArray, ConstructorFromArrayAssignment,
+    ConstructorFromArrayAssignmentBraces, ConstructorFromSingleValue,
+    ConstructorFromSingleValueAssignment,
+    ConstructorFromSingleValueAssignmentBraces, ConstructorCopy,
     ConstructorMove, OperatorCopyAssignment, OperatorMoveAssignment,
     OperatorBrackets, OperatorBracketsConst, MemberFuncAt, MemberFuncAtConst,
     MemberFuncSize, MemberFuncBegin, MemberFuncBeginConst, MemberFuncEnd,

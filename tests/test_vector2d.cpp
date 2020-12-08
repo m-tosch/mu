@@ -16,7 +16,8 @@ template mu::Vector2D<float> mu::Vector2D<float>::rotated<float>(float);
 /**
  * Instantiate the Vector test suite
  */
-using Vector2DTypes = ::testing::Types<mu::Vector2D<float>, mu::Vector2D<int>>;
+using Vector2DTypes =
+    ::testing::Types</*mu::Vector2D<float>,*/ mu::Vector2D<int>>;
 INSTANTIATE_TYPED_TEST_SUITE_P(Vector2D, VectorTypeFixture, Vector2DTypes);
 
 /*******************************Vector2D***************************************/
@@ -37,37 +38,6 @@ class Vector2DTypeFixture : public VectorTypeFixture<T> {
 
 TYPED_TEST_SUITE(Vector2DTypeFixture, Vector2DTypes);
 
-TYPED_TEST(Vector2DTypeFixture, testTestTestTest) {
-  /** arrange */
-  // mu::Vector<2, float> a = {1.5F, 2.5F};
-  // mu::Vector<2, int> b{a};
-  // mu::Vector<2, int> a = {1, 2};
-  // compiles
-  // std::array<int, 2> arr = {1, 2};
-
-  // mu::Vector2D<int> a{1, 2};
-  // mu::Vector<2, float> b{a};
-  // // mu::Vector<2, float> bb{a, b};
-  // // compiles
-  // mu::Vector<2, int> c{3, 4};
-  // mu::Vector2D<float> d{c};
-  // // compiles
-  // mu::Vector2D<int> e{5, 6};
-  // mu::Vector2D<float> f{e};
-  // // compiles
-  // mu::Vector<2, int> g{7, 8};
-  // mu::Vector<2, float> h{g};
-
-  /** action */
-  // a = a + 2;
-  // a = 2 + a;
-  // a = b + 2;
-  // a = 2 + b;
-  // a += 2;
-  /** assert */
-  EXPECT_TRUE(true);
-}
-
 TYPED_TEST(Vector2DTypeFixture, ConstructorXY) {
   /** arrange */
   TypeParam obj{this->x, this->y};
@@ -75,7 +45,16 @@ TYPED_TEST(Vector2DTypeFixture, ConstructorXY) {
   EXPECT_THAT(obj, ::testing::Pointwise(::testing::Eq(), this->values));
 }
 
-TYPED_TEST(Vector2DTypeFixture, ConstructorCopyInitialization) {
+TYPED_TEST(Vector2DTypeFixture, ConstructorFromParentInitialization) {
+  /** arrange */
+  mu::Vector<2, typename TypeParam::value_type> obj1{this->values};
+  /** action */
+  TypeParam obj2{obj1};
+  /** assert */
+  EXPECT_THAT(obj1, ::testing::ContainerEq(obj2));
+}
+
+TYPED_TEST(Vector2DTypeFixture, ConstructorFromParentCopyInitialization) {
   /** arrange */
   mu::Vector<2, typename TypeParam::value_type> obj1{this->values};
   /** action */
@@ -124,9 +103,8 @@ TYPED_TEST(Vector2DTypeFixture, MemberVarYConst) {
   EXPECT_TRUE(noexcept(kObj.y()));
 }
 
-//  // TODO
+// // TODO
 // TYPED_TEST(Vector2DTypeFixture, MemberFuncRotate) {
-
 //   if constexpr (std::is_floating_point_v<typename TypeParam::value_type>) {
 //     /** arrange */
 //     TypeParam obj{1, 0};

@@ -42,9 +42,19 @@ TYPED_TEST(Vector3DTypeFixture, ConstructorXYZ) {
   EXPECT_THAT(obj, ::testing::Pointwise(::testing::Eq(), this->values));
 }
 
-TYPED_TEST(Vector3DTypeFixture, ConstructorCopyInitialization) {
+TYPED_TEST(Vector3DTypeFixture, ConstructorFromParentInitialization) {
   /** arrange */
   mu::Vector<3, typename TypeParam::value_type> obj1{this->values};
+  /** action */
+  TypeParam obj2{obj1};
+  /** assert */
+  EXPECT_THAT(obj1, ::testing::ContainerEq(obj2));
+}
+
+TYPED_TEST(Vector3DTypeFixture, ConstructorFromParentCopyInitialization) {
+  /** arrange */
+  mu::Vector<3, typename TypeParam::value_type> obj1{this->values};
+  /** action */
   TypeParam obj2 = obj1;
   /** assert */
   EXPECT_THAT(obj1, ::testing::ContainerEq(obj2));
