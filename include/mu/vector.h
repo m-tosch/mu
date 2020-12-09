@@ -83,9 +83,8 @@ class Vector {
   // NOLINTNEXTLINE(runtime/explicit) implicit conversion is intentional
   Vector(const Vector<Nn, Tt> &other) {
     static_assert(N == Nn, "Vector size mismatch");
-    for (std::size_t i = 0; i < N; i++) {
-      data_[i] = static_cast<T>(other[i]);
-    }
+    std::transform(other.begin(), other.end(), begin(),
+                   [](Tt data) { return static_cast<T>(data); });
   }
 
   /**
