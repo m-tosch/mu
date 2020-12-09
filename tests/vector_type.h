@@ -26,7 +26,7 @@ class VectorTypeFixture : public ::testing::Test {
  public:
   void SetUp() override {
     auto start = static_cast<typename T::value_type>(0);
-    auto incr = static_cast<typename T::value_type>(1);
+    auto incr = static_cast<typename T::value_type>(1.5F);  // NOLINT
     std::generate(values.begin(), values.end(),
                   [&start, &incr]() { return start += incr; });
   }
@@ -276,7 +276,10 @@ TYPED_TEST_P(VectorTypeFixture, MemberFuncSum) {
   /** action */
   typename TypeParam::value_type sum = obj.sum();
   /** assert */
-  EXPECT_EQ(sum, std::accumulate(this->values.begin(), this->values.end(), 0));
+  typename TypeParam::value_type comp =
+      std::accumulate(this->values.begin(), this->values.end(),
+                      static_cast<typename TypeParam::value_type>(0));
+  EXPECT_FLOAT_EQ(sum, comp);
 }
 
 TYPED_TEST_P(VectorTypeFixture, MemberFuncLength) {
@@ -286,9 +289,10 @@ TYPED_TEST_P(VectorTypeFixture, MemberFuncLength) {
     /** action */
     typename TypeParam::value_type len = obj.length();
     /** assert */
-    typename TypeParam::value_type comp =
-        std::sqrt(std::inner_product(obj.begin(), obj.end(), obj.begin(), 0));
-    EXPECT_EQ(len, comp);
+    typename TypeParam::value_type comp = std::sqrt(
+        std::inner_product(obj.begin(), obj.end(), obj.begin(),
+                           static_cast<typename TypeParam::value_type>(0)));
+    EXPECT_FLOAT_EQ(len, comp);
   }
 }
 
@@ -416,9 +420,11 @@ TYPED_TEST_P(VectorTypeFixture, UtilityFuncSum) {
   TypeParam obj{this->values};
   /** action */
   typename TypeParam::value_type sum_v = sum(obj);
+  typename TypeParam::value_type comp =
+      std::accumulate(this->values.begin(), this->values.end(),
+                      static_cast<typename TypeParam::value_type>(0));
   /** assert */
-  EXPECT_EQ(sum_v,
-            std::accumulate(this->values.begin(), this->values.end(), 0));
+  EXPECT_FLOAT_EQ(sum_v, comp);
 }
 
 TYPED_TEST_P(VectorTypeFixture, UtilityFuncFlip) {
