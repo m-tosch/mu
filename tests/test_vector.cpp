@@ -37,5 +37,6 @@ template mu::Vector<2, float> mu::sorted(const mu::Vector<2, float> &,
 /**
  * Instantiate the Vector test suite
  */
-using VectorTypes = ::testing::Types<mu::Vector<2, float>, mu::Vector<2, int>>;
+using VectorTypes = ::testing::Types<mu::Vector<1, float>, mu::Vector<2, float>,
+                                     mu::Vector<1, int>, mu::Vector<2, int>>;
 INSTANTIATE_TYPED_TEST_SUITE_P(Vector, VectorTypeFixture, VectorTypes);
