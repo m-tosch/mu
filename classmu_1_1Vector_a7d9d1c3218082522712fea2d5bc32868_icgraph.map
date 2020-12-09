@@ -1,4 +1,5 @@
 <map id="mu::Vector::begin" name="mu::Vector::begin">
-<area shape="rect" id="node2" href="$classmu_1_1Vector.html#a597ca2de6348a91e896f3f2296a5bcd2" title="flips this vector, i.e. reverses its elements " alt="" coords="179,5,312,47"/>
-<area shape="rect" id="node3" href="$classmu_1_1Vector.html#a3274e01fb6a31b8e750ef2bd32cf61a3" title="sort vector elements in ascending order " alt="" coords="179,71,312,112"/>
+<area shape="rect" id="node2" href="$classmu_1_1Vector.html#a804e1cc69479d06a6a1d68c0179829b8" title="Construct a new Vector from an existing Vector of a different type. " alt="" coords="179,5,312,47"/>
+<area shape="rect" id="node3" href="$classmu_1_1Vector.html#a597ca2de6348a91e896f3f2296a5bcd2" title="flips this vector, i.e. reverses its elements " alt="" coords="179,71,312,112"/>
+<area shape="rect" id="node4" href="$classmu_1_1Vector.html#a3274e01fb6a31b8e750ef2bd32cf61a3" title="sort vector elements in ascending order " alt="" coords="179,136,312,177"/>
 </map>
