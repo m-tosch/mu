@@ -186,7 +186,8 @@ TYPED_TEST(VectorCombinationsMathFixture, OperatorEqual) {
   /** assert */
   /* for the same value type (e.g. both float, both int ..) we expect the
    * objects to contains the same values. for different value types (e.g.
-   * float-int, int-float ..) we expect them to be different*/
+   * float-int, int-float ..) we expect them to be different because of the
+   * values in the test fixture setup*/
   if constexpr (std::is_same_v<typename TestFixture::T1::value_type,
                                typename TestFixture::T2::value_type>) {
     EXPECT_TRUE(res1);
@@ -208,7 +209,8 @@ TYPED_TEST(VectorCombinationsMathFixture, OperatorNotEqual) {
   /** assert */
   /* for the same value type (e.g. both float, both int ..) we expect the
    * objects to contains the same values. for different value types (e.g.
-   * float-int, int-float ..) we expect them to be different*/
+   * float-int, int-float ..) we expect them to be different because of the
+   * values in the test fixture setup*/
   if constexpr (std::is_same_v<typename TestFixture::T1::value_type,
                                typename TestFixture::T2::value_type>) {
     EXPECT_FALSE(res1);
