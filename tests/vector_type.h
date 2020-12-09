@@ -46,7 +46,20 @@ TYPED_TEST_P(VectorTypeFixture, ConstructorDefault) {
   EXPECT_TRUE(std::is_nothrow_default_constructible<TypeParam>::value);
 }
 
-/* note: type casting constructor is tested in the vector-combinations file! */
+TYPED_TEST_P(VectorTypeFixture, ConstructorVariadicTemplateTwoArgs) {
+  /* hardcoding this for two arguments since the size must be known to correctly
+   * call the variadic template constructor. the constructor itself is
+   * (probably) also tested in Vector derived classes */
+  static TypeParam dummy;  // just to get the size at compile time here
+  if constexpr (dummy.size() == 2) {
+    /** action */
+    TypeParam obj{this->values[0], this->values[1]};
+    /** assert */
+    EXPECT_THAT(obj, ::testing::Pointwise(::testing::FloatEq(), this->values));
+  }
+}
+
+/* note: the type casting ctor is tested in the vector-combinations file! */
 
 TYPED_TEST_P(VectorTypeFixture, ConstructorFromArray) {
   /** action */
@@ -368,7 +381,7 @@ TYPED_TEST_P(VectorTypeFixture, OperatorStreamOut) {
   EXPECT_THAT(this->values, ::testing::ContainerEq(arr));
 }
 
-/************************** convenience functions *****************************/
+/************************* convenience functions****************************/
 
 TYPED_TEST_P(VectorTypeFixture, UtilityFuncMin) {
   /** arrange */
@@ -474,8 +487,8 @@ TYPED_TEST_P(VectorTypeFixture, UtilityFuncSortedLambda) {
 }
 
 REGISTER_TYPED_TEST_SUITE_P(
-    VectorTypeFixture, ConstructorDefault, DestructorDefault,
-    ConstructorFromArray, ConstructorFromArrayAssignment,
+    VectorTypeFixture, ConstructorDefault, ConstructorVariadicTemplateTwoArgs,
+    DestructorDefault, ConstructorFromArray, ConstructorFromArrayAssignment,
     ConstructorFromArrayAssignmentBraces, ConstructorFromSingleValue,
     ConstructorFromSingleValueAssignment,
     ConstructorFromSingleValueAssignmentBraces, ConstructorCopy,
