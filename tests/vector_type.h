@@ -59,6 +59,16 @@ TYPED_TEST_P(VectorTypeFixture, ConstructorVariadicTemplateTwoArgs) {
   }
 }
 
+TYPED_TEST_P(VectorTypeFixture, ConstructorVariadicTemplateAssignmentTwoArgs) {
+  static TypeParam dummy;
+  if constexpr (dummy.size() == 2) {
+    /** action */
+    TypeParam obj = {this->values[0], this->values[1]};
+    /** assert */
+    EXPECT_THAT(obj, ::testing::Pointwise(::testing::FloatEq(), this->values));
+  }
+}
+
 /* note: the type casting ctor is tested in the vector-combinations file! */
 
 TYPED_TEST_P(VectorTypeFixture, ConstructorFromArray) {
@@ -488,7 +498,8 @@ TYPED_TEST_P(VectorTypeFixture, UtilityFuncSortedLambda) {
 
 REGISTER_TYPED_TEST_SUITE_P(
     VectorTypeFixture, ConstructorDefault, ConstructorVariadicTemplateTwoArgs,
-    DestructorDefault, ConstructorFromArray, ConstructorFromArrayAssignment,
+    ConstructorVariadicTemplateAssignmentTwoArgs, DestructorDefault,
+    ConstructorFromArray, ConstructorFromArrayAssignment,
     ConstructorFromArrayAssignmentBraces, ConstructorFromSingleValue,
     ConstructorFromSingleValueAssignment,
     ConstructorFromSingleValueAssignmentBraces, ConstructorCopy,
