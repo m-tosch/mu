@@ -177,7 +177,6 @@ class Vector {
    */
   const T &at(size_type idx) const { return data_.at(idx); }
 
-  // STL container relevant
   /**
    * @brief returns the size of the vector
    *
