@@ -25,6 +25,8 @@ var hierarchy =
     [ "mu::TypeTraitsFloatingPoint< long double >", "structmu_1_1TypeTraitsFloatingPoint.html", [
       [ "mu::TypeTraits< long double >", "structmu_1_1TypeTraits_3_01long_01double_01_4.html", null ]
     ] ],
+    [ "mu::UnwrapRef< T >", "structmu_1_1UnwrapRef.html", null ],
+    [ "mu::UnwrapRef< std::reference_wrapper< T > >", "structmu_1_1UnwrapRef_3_01std_1_1reference__wrapper_3_01T_01_4_01_4.html", null ],
     [ "mu::Vector< N, T >", "classmu_1_1Vector.html", null ],
     [ "mu::Vector< 2, T >", "classmu_1_1Vector.html", [
       [ "mu::Vector2D< T >", "classmu_1_1Vector2D.html", null ]
