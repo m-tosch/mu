@@ -1,6 +1,12 @@
 var searchData=
 [
-  ['unwrapref',['UnwrapRef',['../structmu_1_1UnwrapRef.html',1,'mu']]],
-  ['unwrapref_3c_20std_3a_3areference_5fwrapper_3c_20t_20_3e_20_3e',['UnwrapRef&lt; std::reference_wrapper&lt; T &gt; &gt;',['../structmu_1_1UnwrapRef_3_01std_1_1reference__wrapper_3_01T_01_4_01_4.html',1,'mu']]],
-  ['utilityfixture',['UtilityFixture',['../classUtilityFixture.html',1,'']]]
+  ['typetraits',['TypeTraits',['../structmu_1_1TypeTraits.html',1,'mu']]],
+  ['typetraits_3c_20double_20_3e',['TypeTraits&lt; double &gt;',['../structmu_1_1TypeTraits_3_01double_01_4.html',1,'mu']]],
+  ['typetraits_3c_20float_20_3e',['TypeTraits&lt; float &gt;',['../structmu_1_1TypeTraits_3_01float_01_4.html',1,'mu']]],
+  ['typetraits_3c_20long_20double_20_3e',['TypeTraits&lt; long double &gt;',['../structmu_1_1TypeTraits_3_01long_01double_01_4.html',1,'mu']]],
+  ['typetraitsfixture',['TypeTraitsFixture',['../classTypeTraitsFixture.html',1,'']]],
+  ['typetraitsfloatingpoint',['TypeTraitsFloatingPoint',['../structmu_1_1TypeTraitsFloatingPoint.html',1,'mu']]],
+  ['typetraitsfloatingpoint_3c_20double_20_3e',['TypeTraitsFloatingPoint&lt; double &gt;',['../structmu_1_1TypeTraitsFloatingPoint.html',1,'mu']]],
+  ['typetraitsfloatingpoint_3c_20float_20_3e',['TypeTraitsFloatingPoint&lt; float &gt;',['../structmu_1_1TypeTraitsFloatingPoint.html',1,'mu']]],
+  ['typetraitsfloatingpoint_3c_20long_20double_20_3e',['TypeTraitsFloatingPoint&lt; long double &gt;',['../structmu_1_1TypeTraitsFloatingPoint.html',1,'mu']]]
 ];

@@ -1,6 +1,7 @@
 var hierarchy =
 [
     [ "LambdaCompare", "structLambdaCompare.html", null ],
+    [ "mu::Matrix< N, M, T >", "classmu_1_1Matrix.html", null ],
     [ "Test", null, [
       [ "TypeTraitsFixture< T >", "classTypeTraitsFixture.html", null ],
       [ "UtilityFixture< T >", "classUtilityFixture.html", null ],
