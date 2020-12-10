@@ -10,6 +10,8 @@
 
 namespace mu {
 
+/****************************** Equality ***********************************/
+
 /**
  * @brief Basic type trait class
  *
@@ -82,6 +84,25 @@ constexpr bool TypeTraitsFloatingPoint<T>::equals(const T lhs, const T rhs) {
   /* relative error */
   return (kAbsDiff / (kAbsLhs + kAbsRhs)) < TypeTraits<T>::epsilon();
 }
+
+/******************* unwrap std::reference_wrapper *************************/
+
+/* helper struct. must never be instantiated by itself */
+template <typename T>
+struct UnwrapRef {  // NOLINT
+  using type = T;
+  virtual ~UnwrapRef();
+};
+/* helper struct. must never be instantiated by itself */
+template <typename T>
+struct UnwrapRef<std::reference_wrapper<T>> {  // NOLINT
+  using type = T;
+  virtual ~UnwrapRef();
+};
+
+/* use this to get the type inside a std::reference_wrapper */
+template <typename T>
+using unwrap_ref_t = typename UnwrapRef<T>::type;
 
 }  // namespace mu
 #endif  // MU_TYPETRAITS_H_
