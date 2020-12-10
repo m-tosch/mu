@@ -21,7 +21,7 @@ class Vector2D : public Vector<2, T> {
    * @brief Construct a new Vector2D object from a Vector object
    *
    * also implicitly used for copy initialization. purposely not marked
-   * "explicit" for exactly this usecase. suppress linting for this line.
+   * "explicit" for exactly this usecase.
    *
    * @tparam Tt
    * @param other
