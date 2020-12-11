@@ -24,6 +24,43 @@ TYPED_TEST_P(MatrixTypeFixture, ConstructorDefault) {
   EXPECT_TRUE(std::is_nothrow_default_constructible<TypeParam>::value);
 }
 
-REGISTER_TYPED_TEST_SUITE_P(MatrixTypeFixture, ConstructorDefault);
+TYPED_TEST_P(MatrixTypeFixture, DestructorDefault) {
+  /** action & assert */
+  EXPECT_TRUE(std::is_destructible<TypeParam>::value);
+  EXPECT_TRUE(std::is_nothrow_destructible<TypeParam>::value);
+  EXPECT_TRUE(std::is_trivially_destructible<TypeParam>::value);
+}
+
+TYPED_TEST_P(MatrixTypeFixture, ConstructorCopy) {
+  /** action & assert */
+  EXPECT_TRUE(std::is_copy_constructible<TypeParam>::value);
+  EXPECT_TRUE(std::is_trivially_copy_constructible<TypeParam>::value);
+  EXPECT_TRUE(std::is_nothrow_copy_constructible<TypeParam>::value);
+}
+
+TYPED_TEST_P(MatrixTypeFixture, ConstructorMove) {
+  /** action & assert */
+  EXPECT_TRUE(std::is_move_constructible<TypeParam>::value);
+  EXPECT_TRUE(std::is_trivially_move_constructible<TypeParam>::value);
+  EXPECT_TRUE(std::is_nothrow_move_constructible<TypeParam>::value);
+}
+
+TYPED_TEST_P(MatrixTypeFixture, OperatorCopyAssignment) {
+  /** action & assert */
+  EXPECT_TRUE(std::is_copy_assignable<TypeParam>::value);
+  EXPECT_TRUE(std::is_trivially_copy_assignable<TypeParam>::value);
+  EXPECT_TRUE(std::is_nothrow_copy_assignable<TypeParam>::value);
+}
+
+TYPED_TEST_P(MatrixTypeFixture, OperatorMoveAssignment) {
+  /** action & assert */
+  EXPECT_TRUE(std::is_move_assignable<TypeParam>::value);
+  EXPECT_TRUE(std::is_trivially_move_assignable<TypeParam>::value);
+  EXPECT_TRUE(std::is_nothrow_move_assignable<TypeParam>::value);
+}
+
+REGISTER_TYPED_TEST_SUITE_P(MatrixTypeFixture, ConstructorDefault,
+                            DestructorDefault, ConstructorCopy, ConstructorMove,
+                            OperatorCopyAssignment, OperatorMoveAssignment);
 
 #endif  // TESTS_MATRIX_TYPE_H_

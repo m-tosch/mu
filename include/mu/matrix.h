@@ -21,10 +21,48 @@ class Matrix {
 
  public:
   /**
-   * @brief Construct a new Vector object
+   * @brief Construct a new Matrix object
    *
    */
   constexpr Matrix() = default;
+
+  /* TODO value init constructors */
+
+  /**
+   * @brief Destroy the Matrix object
+   *
+   */
+  ~Matrix() = default;
+
+  /**
+   * @brief Copy construct a new Matrix object
+   *
+   * @param other
+   */
+  Matrix(const Matrix &other) = default;
+
+  /**
+   * @brief Move construct a new Matrix object
+   *
+   * @param other
+   */
+  Matrix(Matrix &&other) noexcept = default;
+
+  /**
+   * @brief Copy assignment operator
+   *
+   * @param other
+   * @return Matrix&
+   */
+  Matrix &operator=(const Matrix &other) = default;
+
+  /**
+   * @brief Move assignment operator
+   *
+   * @param other
+   * @return Matrix&
+   */
+  Matrix &operator=(Matrix &&other) noexcept = default;
 
  protected:
   std::array<Vector<N, T>, M> data_;
