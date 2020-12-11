@@ -86,6 +86,7 @@ $(document).ready(function(){initNavTree('classmu_1_1Matrix.html','');});
 
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classmu_1_1Matrix-members.html">List of all members</a>  </div>
@@ -99,6 +100,21 @@ $(document).ready(function(){initNavTree('classmu_1_1Matrix.html','');});
 
 <p><code>#include &lt;<a class="el" href="matrix_8h_source.html">matrix.h</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:ac0f3024d4ad50c92d7639a39c8aa6008"><td class="memItemLeft" align="right" valign="top"><a id="ac0f3024d4ad50c92d7639a39c8aa6008"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>value_type</b> = typename std::array&lt; <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; M, T &gt;, N &gt;::value_type</td></tr>
+<tr class="separator:ac0f3024d4ad50c92d7639a39c8aa6008"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af26a743dbe84d0ea96796bac81fce093"><td class="memItemLeft" align="right" valign="top"><a id="af26a743dbe84d0ea96796bac81fce093"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>size_type</b> = typename std::array&lt; <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; M, T &gt;, N &gt;::size_type</td></tr>
+<tr class="separator:af26a743dbe84d0ea96796bac81fce093"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5175b93f4bb5a6b9cdb2330957b79225"><td class="memItemLeft" align="right" valign="top"><a id="a5175b93f4bb5a6b9cdb2330957b79225"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>iterator</b> = typename std::array&lt; <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; M, T &gt;, N &gt;::iterator</td></tr>
+<tr class="separator:a5175b93f4bb5a6b9cdb2330957b79225"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b13448380182d619ea04cd69b605cef"><td class="memItemLeft" align="right" valign="top"><a id="a8b13448380182d619ea04cd69b605cef"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>const_iterator</b> = typename std::array&lt; <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; M, T &gt;, N &gt;::const_iterator</td></tr>
+<tr class="separator:a8b13448380182d619ea04cd69b605cef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ab126945354b536c2496b14c160b9d01f"><td class="memItemLeft" align="right" valign="top"><a id="ab126945354b536c2496b14c160b9d01f"></a>
@@ -121,12 +137,23 @@ constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href=
 <tr class="memitem:a5a5cb8c283f9b70a016dc6657cc52f0c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmu_1_1Matrix.html">Matrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmu_1_1Matrix.html#a5a5cb8c283f9b70a016dc6657cc52f0c">operator=</a> (<a class="el" href="classmu_1_1Matrix.html">Matrix</a> &amp;&amp;other) noexcept=default</td></tr>
 <tr class="memdesc:a5a5cb8c283f9b70a016dc6657cc52f0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment operator.  <a href="#a5a5cb8c283f9b70a016dc6657cc52f0c">More...</a><br /></td></tr>
 <tr class="separator:a5a5cb8c283f9b70a016dc6657cc52f0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ebbb484a736e514121ed8ebae4ac7e1"><td class="memItemLeft" align="right" valign="top">constexpr std::array&lt; size_type, 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmu_1_1Matrix.html#a6ebbb484a736e514121ed8ebae4ac7e1">size</a> () const noexcept</td></tr>
+<tr class="memdesc:a6ebbb484a736e514121ed8ebae4ac7e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">matrix dimensions  <a href="#a6ebbb484a736e514121ed8ebae4ac7e1">More...</a><br /></td></tr>
+<tr class="separator:a6ebbb484a736e514121ed8ebae4ac7e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26ae977dbc3ce3a1ad57bd79b7ed4a9b"><td class="memItemLeft" align="right" valign="top">iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmu_1_1Matrix.html#a26ae977dbc3ce3a1ad57bd79b7ed4a9b">begin</a> () noexcept</td></tr>
+<tr class="separator:a26ae977dbc3ce3a1ad57bd79b7ed4a9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a983b6f9a6d16c9dbdf3d5f571558031e"><td class="memItemLeft" align="right" valign="top">const_iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmu_1_1Matrix.html#a983b6f9a6d16c9dbdf3d5f571558031e">begin</a> () const noexcept</td></tr>
+<tr class="separator:a983b6f9a6d16c9dbdf3d5f571558031e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69ee6cd820674fe11ddd4f265a2d71c5"><td class="memItemLeft" align="right" valign="top">iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmu_1_1Matrix.html#a69ee6cd820674fe11ddd4f265a2d71c5">end</a> () noexcept</td></tr>
+<tr class="separator:a69ee6cd820674fe11ddd4f265a2d71c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a524af83a23e8d4f46c2d900339624d"><td class="memItemLeft" align="right" valign="top">const_iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmu_1_1Matrix.html#a0a524af83a23e8d4f46c2d900339624d">end</a> () const noexcept</td></tr>
+<tr class="separator:a0a524af83a23e8d4f46c2d900339624d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a45ee0e8ccf76dfe2711ea1b64330856f"><td class="memItemLeft" align="right" valign="top"><a id="a45ee0e8ccf76dfe2711ea1b64330856f"></a>
-std::array&lt; <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, T &gt;, M &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>data_</b></td></tr>
-<tr class="separator:a45ee0e8ccf76dfe2711ea1b64330856f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06392532994af563ceb4d98613ec7eb9"><td class="memItemLeft" align="right" valign="top"><a id="a06392532994af563ceb4d98613ec7eb9"></a>
+std::array&lt; <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; M, T &gt;, N &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>data_</b></td></tr>
+<tr class="separator:a06392532994af563ceb4d98613ec7eb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;std::size_t N, std::size_t M, typename T&gt;<br />
@@ -215,6 +242,118 @@ template&lt;std::size_t N, std::size_t M, typename T &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a26ae977dbc3ce3a1ad57bd79b7ed4a9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26ae977dbc3ce3a1ad57bd79b7ed4a9b">&#9670;&nbsp;</a></span>begin() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::size_t M, typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">iterator <a class="el" href="classmu_1_1Matrix.html">mu::Matrix</a>&lt; N, M, T &gt;::begin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>iterator </dd></dl>
+
+</div>
+</div>
+<a id="a983b6f9a6d16c9dbdf3d5f571558031e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a983b6f9a6d16c9dbdf3d5f571558031e">&#9670;&nbsp;</a></span>begin() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::size_t M, typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const_iterator <a class="el" href="classmu_1_1Matrix.html">mu::Matrix</a>&lt; N, M, T &gt;::begin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>const_iterator </dd></dl>
+
+</div>
+</div>
+<a id="a69ee6cd820674fe11ddd4f265a2d71c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69ee6cd820674fe11ddd4f265a2d71c5">&#9670;&nbsp;</a></span>end() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::size_t M, typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">iterator <a class="el" href="classmu_1_1Matrix.html">mu::Matrix</a>&lt; N, M, T &gt;::end </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>iterator </dd></dl>
+
+</div>
+</div>
+<a id="a0a524af83a23e8d4f46c2d900339624d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a524af83a23e8d4f46c2d900339624d">&#9670;&nbsp;</a></span>end() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::size_t M, typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const_iterator <a class="el" href="classmu_1_1Matrix.html">mu::Matrix</a>&lt; N, M, T &gt;::end </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>const_iterator </dd></dl>
+
+</div>
+</div>
 <a id="ae8f15892cac1ac74dbf6f3337703d883"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae8f15892cac1ac74dbf6f3337703d883">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
@@ -286,6 +425,36 @@ template&lt;std::size_t N, std::size_t M, typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a>&amp; </dd></dl>
+
+</div>
+</div>
+<a id="a6ebbb484a736e514121ed8ebae4ac7e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ebbb484a736e514121ed8ebae4ac7e1">&#9670;&nbsp;</a></span>size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::size_t M, typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr std::array&lt;size_type, 2&gt; <a class="el" href="classmu_1_1Matrix.html">mu::Matrix</a>&lt; N, M, T &gt;::size </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>matrix dimensions </p>
+<dl class="section return"><dt>Returns</dt><dd>constexpr std::array&lt;size_type, 2&gt; </dd></dl>
 
 </div>
 </div>
