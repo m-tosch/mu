@@ -21,8 +21,11 @@ class Matrix {
 
  public:
   /* value and size type from the underlying container */
-  using value_type = typename std::array<T, N>::value_type;
-  using size_type = typename std::array<T, N>::size_type;
+  using value_type = typename std::array<Vector<M, T>, N>::value_type;
+  using size_type = typename std::array<Vector<M, T>, N>::size_type;
+  /* use iterators from the underlying container */
+  using iterator = typename std::array<Vector<M, T>, N>::iterator;
+  using const_iterator = typename std::array<Vector<M, T>, N>::const_iterator;
 
   /**
    * @brief Construct a new Matrix object
@@ -76,6 +79,34 @@ class Matrix {
   constexpr std::array<size_type, 2> size() const noexcept {
     return std::array<size_type, 2>{N, M};
   }
+
+  /**
+   * @brief
+   *
+   * @return iterator
+   */
+  iterator begin() noexcept { return data_.begin(); }
+
+  /**
+   * @brief
+   *
+   * @return const_iterator
+   */
+  const_iterator begin() const noexcept { return data_.begin(); }
+
+  /**
+   * @brief
+   *
+   * @return iterator
+   */
+  iterator end() noexcept { return data_.end(); }
+
+  /**
+   * @brief
+   *
+   * @return const_iterator
+   */
+  const_iterator end() const noexcept { return data_.end(); }
 
  protected:
   std::array<Vector<M, T>, N> data_;
