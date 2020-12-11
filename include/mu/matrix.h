@@ -3,6 +3,8 @@
 
 #include <array>
 
+#include "vector.h"
+
 namespace mu {
 
 /**
@@ -25,6 +27,7 @@ class Matrix {
   constexpr Matrix() = default;
 
  protected:
+  std::array<Vector<N, T>, M> data_;
 };
 }  // namespace mu
 #endif  // MU_MATRIX_H_
