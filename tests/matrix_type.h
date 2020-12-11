@@ -13,6 +13,13 @@ class MatrixTypeFixture : public ::testing::Test {
   void SetUp() override {
     // TODO
   }
+
+  /* dummy just for getting dimensions at compile time (inline variable c++17)*/
+  static inline T dummy;
+  /* test values. exact dimensions of the corresponding matrix-under-test */
+  std::array<std::array<typename T::value_type, dummy.size()[0]>,
+             dummy.size()[1]>
+      values;
 };
 
 TYPED_TEST_SUITE_P(MatrixTypeFixture);

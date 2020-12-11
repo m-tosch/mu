@@ -20,6 +20,10 @@ class Matrix {
   static_assert(M != 0, "second matrix dimension cannot be zero");
 
  public:
+  /* value and size type from the underlying container */
+  using value_type = typename std::array<T, N>::value_type;
+  using size_type = typename std::array<T, N>::size_type;
+
   /**
    * @brief Construct a new Matrix object
    *
@@ -64,8 +68,17 @@ class Matrix {
    */
   Matrix &operator=(Matrix &&other) noexcept = default;
 
+  /**
+   * @brief matrix dimensions
+   *
+   * @return constexpr std::array<size_type, 2>
+   */
+  constexpr std::array<size_type, 2> size() const noexcept {
+    return std::array<size_type, 2>{N, M};
+  }
+
  protected:
-  std::array<Vector<N, T>, M> data_;
+  std::array<Vector<M, T>, N> data_;
 };
 }  // namespace mu
 #endif  // MU_MATRIX_H_
