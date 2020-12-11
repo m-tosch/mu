@@ -14,6 +14,7 @@ var annotated_dup =
       [ "Vector3D", "classmu_1_1Vector3D.html", "classmu_1_1Vector3D" ]
     ] ],
     [ "LambdaCompare", "structLambdaCompare.html", "structLambdaCompare" ],
+    [ "MatrixTypeFixture", "classMatrixTypeFixture.html", "classMatrixTypeFixture" ],
     [ "TypeTraitsFixture", "classTypeTraitsFixture.html", null ],
     [ "UtilityFixture", "classUtilityFixture.html", "classUtilityFixture" ],
     [ "Vector2DTypeFixture", "classVector2DTypeFixture.html", "classVector2DTypeFixture" ],
