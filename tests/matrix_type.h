@@ -10,16 +10,21 @@
 template <typename T>
 class MatrixTypeFixture : public ::testing::Test {
  public:
+  using value_type = typename T::value_type::value_type;
   void SetUp() override {
-    // TODO
+    auto start = static_cast<value_type>(0);
+    auto incr = static_cast<value_type>(1.5F);  // NOLINT
+    /* put values into the test values "matrix" (array of array) */
+    for (auto& inner : values) {
+      for (auto& item : inner) {
+        item = (start += incr);
+      }
+    }
   }
-
   /* dummy just for getting dimensions at compile time (inline variable c++17)*/
   static inline T dummy;
   /* test values. exact dimensions of the corresponding matrix-under-test */
-  std::array<std::array<typename T::value_type, dummy.size()[0]>,
-             dummy.size()[1]>
-      values;
+  std::array<std::array<value_type, dummy.size()[1]>, dummy.size()[0]> values;
 };
 
 TYPED_TEST_SUITE_P(MatrixTypeFixture);
