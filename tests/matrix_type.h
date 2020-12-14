@@ -130,8 +130,8 @@ TYPED_TEST_P(MatrixTypeFixture, MemberFuncSize) {
   /** arrange */
   TypeParam obj{this->values};
   /** action */
-  typename TypeParam::size_type size0 = obj.size()[0];
-  typename TypeParam::size_type size1 = obj.size()[1];
+  typename TestFixture::size_type size0 = obj.size()[0];
+  typename TestFixture::size_type size1 = obj.size()[1];
   /** assert */
   EXPECT_EQ(size0, TypeParam().size()[0]);
   EXPECT_EQ(size1, TypeParam().size()[1]);
@@ -142,7 +142,7 @@ TYPED_TEST_P(MatrixTypeFixture, MemberFuncRows) {
   /** arrange */
   TypeParam obj{this->values};
   /** action */
-  typename TypeParam::size_type rows = obj.rows();
+  typename TestFixture::size_type rows = obj.rows();
   /** assert */
   EXPECT_EQ(rows, TypeParam().rows());
   EXPECT_TRUE(noexcept(obj.rows()));
@@ -152,7 +152,7 @@ TYPED_TEST_P(MatrixTypeFixture, MemberFuncCols) {
   /** arrange */
   TypeParam obj{this->values};
   /** action */
-  typename TypeParam::size_type cols = obj.cols();
+  typename TestFixture::size_type cols = obj.cols();
   /** assert */
   EXPECT_EQ(cols, TypeParam().cols());
   EXPECT_TRUE(noexcept(obj.cols()));
