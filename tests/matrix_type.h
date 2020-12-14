@@ -103,6 +103,29 @@ TYPED_TEST_P(MatrixTypeFixture, OperatorMoveAssignment) {
   EXPECT_TRUE(std::is_nothrow_move_assignable<TypeParam>::value);
 }
 
+TYPED_TEST_P(MatrixTypeFixture, OperatorBrackets) {
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  TypeParam res;
+  std::generate(res.begin(), res.end(),
+                [&obj, i = 0]() mutable { return obj[i++]; });
+  /** assert */
+  // EXPECT_THAT(res, ::testing::ContainerEq(obj)); // == must be implemented!
+  EXPECT_TRUE(noexcept(obj[0]));
+}
+TYPED_TEST_P(MatrixTypeFixture, OperatorBracketsConst) {
+  /** arrange */
+  const TypeParam kObj{this->values};
+  /** action */
+  TypeParam res;
+  std::generate(res.begin(), res.end(),
+                [&kObj, i = 0]() mutable { return kObj[i++]; });
+  /** assert */
+  // EXPECT_THAT(res, ::testing::ContainerEq(kObj)); // == must be implemented!
+  EXPECT_TRUE(noexcept(kObj[0]));
+}
+
 TYPED_TEST_P(MatrixTypeFixture, MemberFuncSize) {
   /** arrange */
   TypeParam obj{this->values};
@@ -141,6 +164,7 @@ REGISTER_TYPED_TEST_SUITE_P(MatrixTypeFixture, ConstructorDefault,
                             ConstructorFromArrayAssignmentBraces,
                             DestructorDefault, ConstructorCopy, ConstructorMove,
                             OperatorCopyAssignment, OperatorMoveAssignment,
+                            OperatorBrackets, OperatorBracketsConst,
                             MemberFuncSize, MemberFuncRows, MemberFuncCols);
 
 #endif  // TESTS_MATRIX_TYPE_H_
