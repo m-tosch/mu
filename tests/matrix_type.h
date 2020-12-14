@@ -158,6 +158,48 @@ TYPED_TEST_P(MatrixTypeFixture, MemberFuncCols) {
   EXPECT_TRUE(noexcept(obj.cols()));
 }
 
+TYPED_TEST_P(MatrixTypeFixture, MemberFuncBegin) {
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  typename TypeParam::value_type res = *obj.begin();
+  /** assert */
+  EXPECT_THAT(res, ::testing::ContainerEq(obj[0]));
+  EXPECT_TRUE(noexcept(*obj.begin()));
+}
+
+TYPED_TEST_P(MatrixTypeFixture, MemberFuncBeginConst) {
+  /** arrange */
+  const TypeParam kObj{this->values};
+  /** action */
+  typename TypeParam::value_type res = *kObj.begin();
+  /** assert */
+  EXPECT_THAT(res, ::testing::ContainerEq(kObj[0]));
+  EXPECT_TRUE(noexcept(*kObj.begin()));
+}
+
+TYPED_TEST_P(MatrixTypeFixture, MemberFuncEnd) {
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  // end() returns an iterator to the element following the last element
+  typename TypeParam::value_type res = *(obj.end() - 1);
+  /** assert */
+  EXPECT_THAT(res, ::testing::ContainerEq(obj[obj.size()[0] - 1]));
+  EXPECT_TRUE(noexcept(*(obj.end() - 1)));
+}
+
+TYPED_TEST_P(MatrixTypeFixture, MemberFuncEndConst) {
+  /** arrange */
+  const TypeParam kObj{this->values};
+  /** action */
+  // end() returns an iterator to the element following the last element
+  typename TypeParam::value_type res = *(kObj.end() - 1);
+  /** assert */
+  EXPECT_THAT(res, ::testing::ContainerEq(kObj[kObj.size()[0] - 1]));
+  EXPECT_TRUE(noexcept(*(kObj.end() - 1)));
+}
+
 REGISTER_TYPED_TEST_SUITE_P(MatrixTypeFixture, ConstructorDefault,
                             ConstructorFromArrayOfArrays,
                             ConstructorFromArrayOfArraysAssignment,
@@ -165,6 +207,8 @@ REGISTER_TYPED_TEST_SUITE_P(MatrixTypeFixture, ConstructorDefault,
                             DestructorDefault, ConstructorCopy, ConstructorMove,
                             OperatorCopyAssignment, OperatorMoveAssignment,
                             OperatorBrackets, OperatorBracketsConst,
-                            MemberFuncSize, MemberFuncRows, MemberFuncCols);
+                            MemberFuncSize, MemberFuncRows, MemberFuncCols,
+                            MemberFuncBegin, MemberFuncBeginConst,
+                            MemberFuncEnd, MemberFuncEndConst);
 
 #endif  // TESTS_MATRIX_TYPE_H_
