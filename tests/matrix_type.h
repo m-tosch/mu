@@ -55,21 +55,21 @@ TYPED_TEST_P(MatrixTypeFixture, ConstructorFromArrayOfArrays) {
   /** action */
   TypeParam obj{this->values};
   /** assert */
-  EXPECT_THAT_ALL(obj, this->values, ::testing::FloatEq())
+  EXPECT_THAT_ALL(obj, this->values, ::testing::Eq())
 }
 
 TYPED_TEST_P(MatrixTypeFixture, ConstructorFromArrayOfArraysAssignment) {
   /** action */
   TypeParam obj = this->values;
   /** assert */
-  EXPECT_THAT_ALL(obj, this->values, ::testing::FloatEq())
+  EXPECT_THAT_ALL(obj, this->values, ::testing::Eq())
 }
 
 TYPED_TEST_P(MatrixTypeFixture, ConstructorFromArrayOfArraysAssignmentBraces) {
   /** action */
   TypeParam obj = {this->values};
   /** assert */
-  EXPECT_THAT_ALL(obj, this->values, ::testing::FloatEq())
+  EXPECT_THAT_ALL(obj, this->values, ::testing::Eq())
 }
 
 TYPED_TEST_P(MatrixTypeFixture, DestructorDefault) {

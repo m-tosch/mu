@@ -55,7 +55,7 @@ TYPED_TEST_P(VectorTypeFixture, ConstructorVariadicTemplateTwoArgs) {
     /** action */
     TypeParam obj{this->values[0], this->values[1]};
     /** assert */
-    EXPECT_THAT(obj, ::testing::Pointwise(::testing::FloatEq(), this->values));
+    EXPECT_THAT(obj, ::testing::Pointwise(::testing::Eq(), this->values));
   }
 }
 
@@ -65,7 +65,7 @@ TYPED_TEST_P(VectorTypeFixture, ConstructorVariadicTemplateAssignmentTwoArgs) {
     /** action */
     TypeParam obj = {this->values[0], this->values[1]};
     /** assert */
-    EXPECT_THAT(obj, ::testing::Pointwise(::testing::FloatEq(), this->values));
+    EXPECT_THAT(obj, ::testing::Pointwise(::testing::Eq(), this->values));
   }
 }
 
@@ -75,21 +75,21 @@ TYPED_TEST_P(VectorTypeFixture, ConstructorFromArray) {
   /** action */
   TypeParam obj{this->values};
   /** assert */
-  EXPECT_THAT(obj, ::testing::Pointwise(::testing::FloatEq(), this->values));
+  EXPECT_THAT(obj, ::testing::Pointwise(::testing::Eq(), this->values));
 }
 
 TYPED_TEST_P(VectorTypeFixture, ConstructorFromArrayAssignment) {
   /** action */
   TypeParam obj = this->values;
   /** assert */
-  EXPECT_THAT(obj, ::testing::Pointwise(::testing::FloatEq(), this->values));
+  EXPECT_THAT(obj, ::testing::Pointwise(::testing::Eq(), this->values));
 }
 
 TYPED_TEST_P(VectorTypeFixture, ConstructorFromArrayAssignmentBraces) {
   /** action */
   TypeParam obj = {this->values};
   /** assert */
-  EXPECT_THAT(obj, ::testing::Pointwise(::testing::FloatEq(), this->values));
+  EXPECT_THAT(obj, ::testing::Pointwise(::testing::Eq(), this->values));
 }
 
 TYPED_TEST_P(VectorTypeFixture, ConstructorFromSingleValue) {
