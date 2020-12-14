@@ -94,13 +94,30 @@ class Matrix {
   Matrix &operator=(Matrix &&other) noexcept = default;
 
   /**
-   * @brief matrix dimensions
+   * @brief returns the matrix dimensions as an array of size 2
+   *
+   * [0] rows
+   * [1] columns
    *
    * @return constexpr std::array<size_type, 2>
    */
   constexpr std::array<size_type, 2> size() const noexcept {
     return std::array<size_type, 2>{N, M};
   }
+
+  /**
+   * @brief returns the number of rows
+   *
+   * @return constexpr size_type
+   */
+  constexpr size_type rows() const noexcept { return N; }
+
+  /**
+   * @brief returns the number of columns
+   *
+   * @return constexpr size_type
+   */
+  constexpr size_type cols() const noexcept { return M; }
 
   /**
    * @brief
