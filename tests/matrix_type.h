@@ -72,8 +72,21 @@ TYPED_TEST_P(MatrixTypeFixture, OperatorMoveAssignment) {
   EXPECT_TRUE(std::is_nothrow_move_assignable<TypeParam>::value);
 }
 
+TYPED_TEST_P(MatrixTypeFixture, MemberFuncSize) {
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  typename TypeParam::size_type size0 = obj.size()[0];
+  typename TypeParam::size_type size1 = obj.size()[1];
+  /** assert */
+  EXPECT_EQ(size0, TypeParam().size()[0]);
+  EXPECT_EQ(size1, TypeParam().size()[1]);
+  EXPECT_TRUE(noexcept(obj.size()));
+}
+
 REGISTER_TYPED_TEST_SUITE_P(MatrixTypeFixture, ConstructorDefault,
                             DestructorDefault, ConstructorCopy, ConstructorMove,
-                            OperatorCopyAssignment, OperatorMoveAssignment);
+                            OperatorCopyAssignment, OperatorMoveAssignment,
+                            MemberFuncSize);
 
 #endif  // TESTS_MATRIX_TYPE_H_
