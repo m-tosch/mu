@@ -62,6 +62,18 @@ class Matrix {
   }
 
   /**
+   * @brief Construct a new Matrix object from a single value
+   *
+   * @param value
+   */
+  // NOLINTNEXTLINE(runtime/explicit) implicit to make copy-init. work
+  Matrix(const T &value) {
+    for (auto &item : data_) {
+      item = {value};
+    }
+  }
+
+  /**
    * @brief Destroy the Matrix object
    *
    */

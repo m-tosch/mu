@@ -125,6 +125,39 @@ TYPED_TEST_P(MatrixTypeFixture, ConstructorFromArrayOfArraysAssignmentBraces) {
   EXPECT_THAT_ALL(obj, arr, ::testing::Eq());
 }
 
+TYPED_TEST_P(MatrixTypeFixture, ConstructorFromSingleValue) {
+  /** arrange */
+  auto value = this->values[0][0];
+  /** action */
+  TypeParam obj{value};
+  /** assert */
+  for (const auto& row : obj) {
+    EXPECT_THAT(row, ::testing::Each(::testing::AllOf(::testing::Eq(value))));
+  }
+}
+
+TYPED_TEST_P(MatrixTypeFixture, ConstructorFromSingleValueAssignment) {
+  /** arrange */
+  auto value = this->values[0][0];
+  /** action */
+  TypeParam obj = value;
+  /** assert */
+  for (const auto& row : obj) {
+    EXPECT_THAT(row, ::testing::Each(::testing::AllOf(::testing::Eq(value))));
+  }
+}
+
+TYPED_TEST_P(MatrixTypeFixture, ConstructorFromSingleValueAssignmentBraces) {
+  /** arrange */
+  auto value = this->values[0][0];
+  /** action */
+  TypeParam obj = {value};
+  /** assert */
+  for (const auto& row : obj) {
+    EXPECT_THAT(row, ::testing::Each(::testing::AllOf(::testing::Eq(value))));
+  }
+}
+
 TYPED_TEST_P(MatrixTypeFixture, DestructorDefault) {
   /** action & assert */
   EXPECT_TRUE(std::is_destructible<TypeParam>::value);
@@ -284,7 +317,9 @@ REGISTER_TYPED_TEST_SUITE_P(
     ConstructorFromArrayOfArraysAssignment,
     ConstructorFromArrayOfArraysAssignmentBraces, ConstructorFromArrayOfVectors,
     ConstructorFromArrayOfVectorsAssignment,
-    ConstructorFromArrayOfVectorsAssignmentBraces, DestructorDefault,
+    ConstructorFromArrayOfVectorsAssignmentBraces, ConstructorFromSingleValue,
+    ConstructorFromSingleValueAssignment,
+    ConstructorFromSingleValueAssignmentBraces, DestructorDefault,
     ConstructorCopy, ConstructorMove, OperatorCopyAssignment,
     OperatorMoveAssignment, OperatorBrackets, OperatorBracketsConst,
     MemberFuncAt, MemberFuncAtConst, MemberFuncSize, MemberFuncRows,
