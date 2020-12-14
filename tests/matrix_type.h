@@ -10,6 +10,7 @@
 template <typename T>
 class MatrixTypeFixture : public ::testing::Test {
  public:
+  /* the true "value type" of the values that the matrix contains */
   using value_type = typename T::value_type::value_type;
   void SetUp() override {
     auto start = static_cast<value_type>(0);
