@@ -29,6 +29,19 @@ class MatrixTypeFixture : public ::testing::Test {
   std::array<std::array<value_type, dummy.size()[1]>, dummy.size()[0]> values;
 };
 
+/**
+ * @brief macro for comparing all matrix values to all values of the second
+ * argument. both argument must be double nested "lists"
+ *
+ */
+// NOLINTNEXTLINE macro is used for convenience and flexibility
+#define EXPECT_THAT_ALL(arg1, arg2, eqfunc)                                  \
+  {                                                                          \
+    for (typename TestFixture::size_type i = 0; i < (arg1).size()[0]; i++) { \
+      EXPECT_THAT((arg1)[i], ::testing::Pointwise(eqfunc, (arg2)[i]));       \
+    }                                                                        \
+  };
+
 TYPED_TEST_SUITE_P(MatrixTypeFixture);
 
 TYPED_TEST_P(MatrixTypeFixture, ConstructorDefault) {
@@ -42,30 +55,21 @@ TYPED_TEST_P(MatrixTypeFixture, ConstructorFromArrayOfArrays) {
   /** action */
   TypeParam obj{this->values};
   /** assert */
-  for (typename TestFixture::size_type i = 0; i < obj.size()[0]; i++) {
-    EXPECT_THAT(obj[i],
-                ::testing::Pointwise(::testing::FloatEq(), this->values[i]));
-  }
+  EXPECT_THAT_ALL(obj, this->values, ::testing::FloatEq())
 }
 
 TYPED_TEST_P(MatrixTypeFixture, ConstructorFromArrayOfArraysAssignment) {
   /** action */
   TypeParam obj = this->values;
   /** assert */
-  for (typename TestFixture::size_type i = 0; i < obj.size()[0]; i++) {
-    EXPECT_THAT(obj[i],
-                ::testing::Pointwise(::testing::FloatEq(), this->values[i]));
-  }
+  EXPECT_THAT_ALL(obj, this->values, ::testing::FloatEq())
 }
 
 TYPED_TEST_P(MatrixTypeFixture, ConstructorFromArrayOfArraysAssignmentBraces) {
   /** action */
   TypeParam obj = {this->values};
   /** assert */
-  for (typename TestFixture::size_type i = 0; i < obj.size()[0]; i++) {
-    EXPECT_THAT(obj[i],
-                ::testing::Pointwise(::testing::FloatEq(), this->values[i]));
-  }
+  EXPECT_THAT_ALL(obj, this->values, ::testing::FloatEq())
 }
 
 TYPED_TEST_P(MatrixTypeFixture, DestructorDefault) {
