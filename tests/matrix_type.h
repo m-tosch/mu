@@ -16,8 +16,8 @@ class MatrixTypeFixture : public ::testing::Test {
     auto start = static_cast<value_type>(0);
     auto incr = static_cast<value_type>(1.5F);  // NOLINT
     /* put values into the test values "matrix" (array of array) */
-    for (auto& inner : values) {
-      for (auto& item : inner) {
+    for (auto& inner : values) {  // rows
+      for (auto& item : inner) {  // cols
         item = (start += incr);
       }
     }
@@ -84,9 +84,29 @@ TYPED_TEST_P(MatrixTypeFixture, MemberFuncSize) {
   EXPECT_TRUE(noexcept(obj.size()));
 }
 
+TYPED_TEST_P(MatrixTypeFixture, MemberFuncRows) {
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  typename TypeParam::size_type rows = obj.rows();
+  /** assert */
+  EXPECT_EQ(rows, TypeParam().rows());
+  EXPECT_TRUE(noexcept(obj.rows()));
+}
+
+TYPED_TEST_P(MatrixTypeFixture, MemberFuncCols) {
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  typename TypeParam::size_type cols = obj.cols();
+  /** assert */
+  EXPECT_EQ(cols, TypeParam().cols());
+  EXPECT_TRUE(noexcept(obj.cols()));
+}
+
 REGISTER_TYPED_TEST_SUITE_P(MatrixTypeFixture, ConstructorDefault,
                             DestructorDefault, ConstructorCopy, ConstructorMove,
                             OperatorCopyAssignment, OperatorMoveAssignment,
-                            MemberFuncSize);
+                            MemberFuncSize, MemberFuncRows, MemberFuncCols);
 
 #endif  // TESTS_MATRIX_TYPE_H_
