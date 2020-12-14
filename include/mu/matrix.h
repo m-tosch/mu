@@ -50,8 +50,8 @@ class Matrix {
    */
   // NOLINTNEXTLINE(runtime/explicit) implicit to make copy-init. work
   Matrix(const std::array<std::array<T, M>, N> &arr) {
-    for (size_type i = 0; i < arr.size(); i++) {
-      for (size_type j = 0; j < arr[0].size(); j++) {
+    for (std::size_t i = 0; i < arr.size(); i++) {
+      for (std::size_t j = 0; j < arr[0].size(); j++) {
         data_[i][j] = arr[i][j];
       }
     }
@@ -168,6 +168,38 @@ class Matrix {
    * @return const_iterator
    */
   const_iterator end() const noexcept { return data_.end(); }
+
+  /*************************** matrix <> matrix ****************************/
+
+  /**
+   * @brief equality operator
+   *
+   * check mu::Vector operator== for more information.
+   *
+   * @param rhs
+   * @return bool true if equal, false if unequal
+   */
+  template <typename U = T>
+  bool operator==(const Matrix<N, M, U> &rhs) const {
+    for (std::size_t i = 0; i < N; i++) {
+      /* forward comparison to Vector class */
+      if (data_[i] != rhs[i]) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  /**
+   * @brief unequality operator
+   *
+   * @param rhs
+   * @return bool true if unequal, false if equal
+   */
+  template <typename U = T>
+  bool operator!=(const Matrix<N, M, U> &rhs) const {
+    return !operator==(rhs);
+  }
 
  protected:
   std::array<Vector<M, T>, N> data_;
