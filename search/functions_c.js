@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['y',['y',['../classmu_1_1Vector2D.html#a61da829f5ca5f40b19883b32c3ff1294',1,'mu::Vector2D::y() noexcept'],['../classmu_1_1Vector2D.html#a3db180dfdc00083b15b82ba526dbb145',1,'mu::Vector2D::y() const noexcept'],['../classmu_1_1Vector3D.html#ac60c79a5625f1c4c3f72963eadfaa69d',1,'mu::Vector3D::y() noexcept'],['../classmu_1_1Vector3D.html#ab06e6e57b2aca5840501cb5d146de3c8',1,'mu::Vector3D::y() const noexcept']]]
+  ['x',['x',['../classmu_1_1Vector2D.html#a99d8677c48b61d323a8c9967e92126f3',1,'mu::Vector2D::x() noexcept'],['../classmu_1_1Vector2D.html#a7403eac3da3b826b145981648e6aeb77',1,'mu::Vector2D::x() const noexcept'],['../classmu_1_1Vector3D.html#a0e6f3810ced360a5274de8b0665b77c5',1,'mu::Vector3D::x() noexcept'],['../classmu_1_1Vector3D.html#af70c07c879200f5ef66dd5c0a542eaff',1,'mu::Vector3D::x() const noexcept']]]
 ];
