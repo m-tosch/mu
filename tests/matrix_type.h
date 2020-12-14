@@ -26,7 +26,9 @@ class MatrixTypeFixture : public ::testing::Test {
   /* dummy just for getting dimensions at compile time (inline variable c++17)*/
   static inline T dummy;
   /* test values. exact dimensions of the corresponding matrix-under-test */
-  std::array<std::array<value_type, dummy.size()[1]>, dummy.size()[0]> values;
+  // std::array<std::array<value_type, dummy.size()[1]>, dummy.size()[0]>
+  // values;
+  std::array<mu::Vector<dummy.size()[1], value_type>, dummy.size()[0]> values;
 };
 
 /**
@@ -51,25 +53,76 @@ TYPED_TEST_P(MatrixTypeFixture, ConstructorDefault) {
   EXPECT_TRUE(std::is_nothrow_default_constructible<TypeParam>::value);
 }
 
-TYPED_TEST_P(MatrixTypeFixture, ConstructorFromArrayOfArrays) {
+TYPED_TEST_P(MatrixTypeFixture, ConstructorFromArrayOfVectors) {
   /** action */
   TypeParam obj{this->values};
   /** assert */
   EXPECT_THAT_ALL(obj, this->values, ::testing::Eq());
 }
 
-TYPED_TEST_P(MatrixTypeFixture, ConstructorFromArrayOfArraysAssignment) {
+TYPED_TEST_P(MatrixTypeFixture, ConstructorFromArrayOfVectorsAssignment) {
   /** action */
   TypeParam obj = this->values;
   /** assert */
   EXPECT_THAT_ALL(obj, this->values, ::testing::Eq());
 }
 
-TYPED_TEST_P(MatrixTypeFixture, ConstructorFromArrayOfArraysAssignmentBraces) {
+TYPED_TEST_P(MatrixTypeFixture, ConstructorFromArrayOfVectorsAssignmentBraces) {
   /** action */
   TypeParam obj = {this->values};
   /** assert */
   EXPECT_THAT_ALL(obj, this->values, ::testing::Eq());
+}
+
+TYPED_TEST_P(MatrixTypeFixture, ConstructorFromArrayOfArrays) {
+  /** arrange */
+  std::array<
+      std::array<typename TestFixture::value_type, TypeParam().size()[1]>,
+      TypeParam().size()[0]>
+      arr;
+  for (std::size_t i = 0; i < arr.size(); i++) {
+    for (std::size_t j = 0; j < arr[0].size(); j++) {
+      arr[i][j] = this->values[i][j];
+    }
+  }
+  /** action */
+  TypeParam obj{arr};
+  /** assert */
+  EXPECT_THAT_ALL(obj, arr, ::testing::Eq());
+}
+
+TYPED_TEST_P(MatrixTypeFixture, ConstructorFromArrayOfArraysAssignment) {
+  /** arrange */
+  std::array<
+      std::array<typename TestFixture::value_type, TypeParam().size()[1]>,
+      TypeParam().size()[0]>
+      arr;
+  for (std::size_t i = 0; i < arr.size(); i++) {
+    for (std::size_t j = 0; j < arr[0].size(); j++) {
+      arr[i][j] = this->values[i][j];
+    }
+  }
+  /** action */
+  TypeParam obj = arr;
+  /** assert */
+  EXPECT_THAT_ALL(obj, arr, ::testing::Eq());
+}
+
+TYPED_TEST_P(MatrixTypeFixture, ConstructorFromArrayOfArraysAssignmentBraces) {
+  /** arrange */
+  std::array<
+      std::array<typename TestFixture::value_type, TypeParam().size()[1]>,
+      TypeParam().size()[0]>
+      arr;
+  for (std::size_t i = 0; i < arr.size(); i++) {
+    for (std::size_t j = 0; j < arr[0].size(); j++) {
+      arr[i][j] = this->values[i][j];
+    }
+  }
+  /** action */
+  TypeParam obj = {arr};
+  /** assert */
+  EXPECT_THAT_ALL(obj, arr, ::testing::Eq());
 }
 
 TYPED_TEST_P(MatrixTypeFixture, DestructorDefault) {
@@ -226,16 +279,16 @@ TYPED_TEST_P(MatrixTypeFixture, MemberFuncEndConst) {
   EXPECT_TRUE(noexcept(*(kObj.end() - 1)));
 }
 
-REGISTER_TYPED_TEST_SUITE_P(MatrixTypeFixture, ConstructorDefault,
-                            ConstructorFromArrayOfArrays,
-                            ConstructorFromArrayOfArraysAssignment,
-                            ConstructorFromArrayOfArraysAssignmentBraces,
-                            DestructorDefault, ConstructorCopy, ConstructorMove,
-                            OperatorCopyAssignment, OperatorMoveAssignment,
-                            OperatorBrackets, OperatorBracketsConst,
-                            MemberFuncAt, MemberFuncAtConst, MemberFuncSize,
-                            MemberFuncRows, MemberFuncCols, MemberFuncBegin,
-                            MemberFuncBeginConst, MemberFuncEnd,
-                            MemberFuncEndConst);
+REGISTER_TYPED_TEST_SUITE_P(
+    MatrixTypeFixture, ConstructorDefault, ConstructorFromArrayOfArrays,
+    ConstructorFromArrayOfArraysAssignment,
+    ConstructorFromArrayOfArraysAssignmentBraces, ConstructorFromArrayOfVectors,
+    ConstructorFromArrayOfVectorsAssignment,
+    ConstructorFromArrayOfVectorsAssignmentBraces, DestructorDefault,
+    ConstructorCopy, ConstructorMove, OperatorCopyAssignment,
+    OperatorMoveAssignment, OperatorBrackets, OperatorBracketsConst,
+    MemberFuncAt, MemberFuncAtConst, MemberFuncSize, MemberFuncRows,
+    MemberFuncCols, MemberFuncBegin, MemberFuncBeginConst, MemberFuncEnd,
+    MemberFuncEndConst);
 
 #endif  // TESTS_MATRIX_TYPE_H_
