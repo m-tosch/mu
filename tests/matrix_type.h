@@ -55,21 +55,21 @@ TYPED_TEST_P(MatrixTypeFixture, ConstructorFromArrayOfArrays) {
   /** action */
   TypeParam obj{this->values};
   /** assert */
-  EXPECT_THAT_ALL(obj, this->values, ::testing::Eq())
+  EXPECT_THAT_ALL(obj, this->values, ::testing::Eq());
 }
 
 TYPED_TEST_P(MatrixTypeFixture, ConstructorFromArrayOfArraysAssignment) {
   /** action */
   TypeParam obj = this->values;
   /** assert */
-  EXPECT_THAT_ALL(obj, this->values, ::testing::Eq())
+  EXPECT_THAT_ALL(obj, this->values, ::testing::Eq());
 }
 
 TYPED_TEST_P(MatrixTypeFixture, ConstructorFromArrayOfArraysAssignmentBraces) {
   /** action */
   TypeParam obj = {this->values};
   /** assert */
-  EXPECT_THAT_ALL(obj, this->values, ::testing::Eq())
+  EXPECT_THAT_ALL(obj, this->values, ::testing::Eq());
 }
 
 TYPED_TEST_P(MatrixTypeFixture, DestructorDefault) {
@@ -128,6 +128,28 @@ TYPED_TEST_P(MatrixTypeFixture, OperatorBracketsConst) {
   /** assert */
   EXPECT_THAT(res, ::testing::ContainerEq(kObj));
   EXPECT_TRUE(noexcept(kObj[0]));
+}
+
+TYPED_TEST_P(MatrixTypeFixture, MemberFuncAt) {
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  TypeParam res;
+  std::generate(res.begin(), res.end(),
+                [&obj, i = 0]() mutable { return obj.at(i++); });
+  /** assert */
+  EXPECT_THAT(res, ::testing::ContainerEq(obj));
+}
+
+TYPED_TEST_P(MatrixTypeFixture, MemberFuncAtConst) {
+  /** arrange */
+  const TypeParam kObj{this->values};
+  /** action */
+  TypeParam res;
+  std::generate(res.begin(), res.end(),
+                [&kObj, i = 0]() mutable { return kObj.at(i++); });
+  /** assert */
+  EXPECT_THAT(res, ::testing::ContainerEq(kObj));
 }
 
 TYPED_TEST_P(MatrixTypeFixture, MemberFuncSize) {
@@ -211,8 +233,9 @@ REGISTER_TYPED_TEST_SUITE_P(MatrixTypeFixture, ConstructorDefault,
                             DestructorDefault, ConstructorCopy, ConstructorMove,
                             OperatorCopyAssignment, OperatorMoveAssignment,
                             OperatorBrackets, OperatorBracketsConst,
-                            MemberFuncSize, MemberFuncRows, MemberFuncCols,
-                            MemberFuncBegin, MemberFuncBeginConst,
-                            MemberFuncEnd, MemberFuncEndConst);
+                            MemberFuncAt, MemberFuncAtConst, MemberFuncSize,
+                            MemberFuncRows, MemberFuncCols, MemberFuncBegin,
+                            MemberFuncBeginConst, MemberFuncEnd,
+                            MemberFuncEndConst);
 
 #endif  // TESTS_MATRIX_TYPE_H_
