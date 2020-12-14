@@ -146,28 +146,28 @@ class Matrix {
   constexpr size_type cols() const noexcept { return M; }
 
   /**
-   * @brief
+   * @brief returns an iterator starting at the first row
    *
    * @return iterator
    */
   iterator begin() noexcept { return data_.begin(); }
 
   /**
-   * @brief
+   * @brief returns a const iterator starting at the first row
    *
    * @return const_iterator
    */
   const_iterator begin() const noexcept { return data_.begin(); }
 
   /**
-   * @brief
+   * @brief returns a iterator starting at one after the last row
    *
    * @return iterator
    */
   iterator end() noexcept { return data_.end(); }
 
   /**
-   * @brief
+   * @brief returns a const iterator starting at one after the last row
    *
    * @return const_iterator
    */
