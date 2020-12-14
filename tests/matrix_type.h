@@ -10,8 +10,9 @@
 template <typename T>
 class MatrixTypeFixture : public ::testing::Test {
  public:
-  /* the true "value type" of the values that the matrix contains */
+  /* true "value" and "size" types of the values that the matrix contains */
   using value_type = typename T::value_type::value_type;
+  using size_type = typename T::size_type;
   void SetUp() override {
     auto start = static_cast<value_type>(0);
     auto incr = static_cast<value_type>(1.5F);  // NOLINT
@@ -35,6 +36,36 @@ TYPED_TEST_P(MatrixTypeFixture, ConstructorDefault) {
   EXPECT_TRUE(std::is_default_constructible<TypeParam>::value);
   /* std::is_trivially_constructible is true for Matrix but false for children*/
   EXPECT_TRUE(std::is_nothrow_default_constructible<TypeParam>::value);
+}
+
+TYPED_TEST_P(MatrixTypeFixture, ConstructorFromArray) {
+  /** action */
+  TypeParam obj{this->values};
+  /** assert */
+  for (typename TestFixture::size_type i = 0; i < obj.size()[0]; i++) {
+    EXPECT_THAT(obj[i],
+                ::testing::Pointwise(::testing::FloatEq(), this->values[i]));
+  }
+}
+
+TYPED_TEST_P(MatrixTypeFixture, ConstructorFromArrayAssignment) {
+  /** action */
+  TypeParam obj = this->values;
+  /** assert */
+  for (typename TestFixture::size_type i = 0; i < obj.size()[0]; i++) {
+    EXPECT_THAT(obj[i],
+                ::testing::Pointwise(::testing::FloatEq(), this->values[i]));
+  }
+}
+
+TYPED_TEST_P(MatrixTypeFixture, ConstructorFromArrayAssignmentBraces) {
+  /** action */
+  TypeParam obj = {this->values};
+  /** assert */
+  for (typename TestFixture::size_type i = 0; i < obj.size()[0]; i++) {
+    EXPECT_THAT(obj[i],
+                ::testing::Pointwise(::testing::FloatEq(), this->values[i]));
+  }
 }
 
 TYPED_TEST_P(MatrixTypeFixture, DestructorDefault) {
@@ -105,6 +136,9 @@ TYPED_TEST_P(MatrixTypeFixture, MemberFuncCols) {
 }
 
 REGISTER_TYPED_TEST_SUITE_P(MatrixTypeFixture, ConstructorDefault,
+                            ConstructorFromArray,
+                            ConstructorFromArrayAssignment,
+                            ConstructorFromArrayAssignmentBraces,
                             DestructorDefault, ConstructorCopy, ConstructorMove,
                             OperatorCopyAssignment, OperatorMoveAssignment,
                             MemberFuncSize, MemberFuncRows, MemberFuncCols);
