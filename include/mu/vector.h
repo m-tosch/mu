@@ -31,7 +31,7 @@ template <std::size_t N, typename T>
 class Vector {
   static_assert(N != 0, "Vector dimension cannot be zero");
   static_assert(std::is_arithmetic_v<mu::unwrap_ref_t<T>>,
-                "Vector type T must be an arithmetic or a "
+                "Vector type T must be an arithmetic type or a "
                 "std::reference_wrapper that holds an arithmetic type");
 
  public:

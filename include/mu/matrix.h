@@ -3,6 +3,7 @@
 
 #include <array>
 
+#include "mu/typetraits.h"
 #include "vector.h"
 
 namespace mu {
@@ -18,6 +19,9 @@ template <std::size_t N, std::size_t M, typename T>
 class Matrix {
   static_assert(N != 0, "first matrix dimension cannot be zero");
   static_assert(M != 0, "second matrix dimension cannot be zero");
+  static_assert(std::is_arithmetic_v<mu::unwrap_ref_t<T>>,
+                "Matrix type T must be an arithmetic type or a "
+                "std::reference_wrapper that holds an arithmetic type");
 
  public:
   /* value and size type from the underlying container */
