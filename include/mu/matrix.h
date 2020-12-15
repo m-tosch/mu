@@ -17,8 +17,8 @@ namespace mu {
  */
 template <std::size_t N, std::size_t M, typename T>
 class Matrix {
-  static_assert(N != 0, "first matrix dimension cannot be zero");
-  static_assert(M != 0, "second matrix dimension cannot be zero");
+  static_assert(N != 0, "first matrix dimension (rows) cannot be zero");
+  static_assert(M != 0, "second matrix dimension (columns) cannot be zero");
   static_assert(std::is_arithmetic_v<mu::unwrap_ref_t<T>>,
                 "Matrix type T must be an arithmetic type or a "
                 "std::reference_wrapper that holds an arithmetic type");
@@ -36,8 +36,6 @@ class Matrix {
    *
    */
   constexpr Matrix() = default;
-
-  /* TODO value init constructors */
 
   /**
    * @brief Construct a new Matrix object from an std::array of Vectors
@@ -208,7 +206,7 @@ class Matrix {
   /**
    * @brief equality operator
    *
-   * check mu::Vector operator== for more information.
+   * see mu::Vector operator== for more information.
    *
    * @param rhs
    * @return bool true if equal, false if unequal
