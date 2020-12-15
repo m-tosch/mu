@@ -4,6 +4,7 @@
 #include <array>
 
 #include "mu/typetraits.h"
+#include "mu/utility.h"
 #include "vector.h"
 
 namespace mu {
@@ -201,6 +202,19 @@ class Matrix {
    */
   const_iterator end() const noexcept { return data_.end(); }
 
+  /**
+   * @brief get the min value of the matrix
+   *
+   * @return T
+   */
+  T min() const {
+    T ret(data_[0][0]);
+    for (std::size_t i = 1; i < N; i++) {
+      ret = mu::min(ret, mu::min(data_[i]));
+    }
+    return ret;
+  }
+
   /*************************** matrix <> matrix ****************************/
 
   /**
@@ -236,5 +250,13 @@ class Matrix {
  protected:
   std::array<Vector<M, T>, N> data_;
 };
+
+/************************* convenience functions ***************************/
+
+template <std::size_t N, std::size_t M, class T>
+inline T min(const Matrix<N, M, T> &other) {
+  return other.min();
+}
+
 }  // namespace mu
 #endif  // MU_MATRIX_H_
