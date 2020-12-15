@@ -1,6 +1,7 @@
 #ifndef TESTS_MATRIX_TYPE_H_
 #define TESTS_MATRIX_TYPE_H_
 
+#include <algorithm>
 #include <array>
 
 #include "gmock/gmock.h"
@@ -312,6 +313,34 @@ TYPED_TEST_P(MatrixTypeFixture, MemberFuncEndConst) {
   EXPECT_TRUE(noexcept(*(kObj.end() - 1)));
 }
 
+TYPED_TEST_P(MatrixTypeFixture, MemberFuncMin) {
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  typename TestFixture::value_type min = obj.min();
+  /** assert */
+  typename TestFixture::value_type comp = obj[0][0];
+  for (const auto& row : this->values) {
+    comp = std::min(comp, *std::min_element(row.begin(), row.end()));
+  }
+  EXPECT_EQ(min, comp);
+}
+
+/************************* convenience functions****************************/
+
+TYPED_TEST_P(MatrixTypeFixture, UtilityFuncMin) {
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  typename TestFixture::value_type min = mu::min(obj);
+  /** assert */
+  typename TestFixture::value_type comp = obj[0][0];
+  for (const auto& row : this->values) {
+    comp = std::min(comp, *std::min_element(row.begin(), row.end()));
+  }
+  EXPECT_EQ(min, comp);
+}
+
 REGISTER_TYPED_TEST_SUITE_P(
     MatrixTypeFixture, ConstructorDefault, ConstructorFromArrayOfArrays,
     ConstructorFromArrayOfArraysAssignment,
@@ -324,6 +353,6 @@ REGISTER_TYPED_TEST_SUITE_P(
     OperatorMoveAssignment, OperatorBrackets, OperatorBracketsConst,
     MemberFuncAt, MemberFuncAtConst, MemberFuncSize, MemberFuncRows,
     MemberFuncCols, MemberFuncBegin, MemberFuncBeginConst, MemberFuncEnd,
-    MemberFuncEndConst);
+    MemberFuncMin, MemberFuncEndConst, UtilityFuncMin);
 
 #endif  // TESTS_MATRIX_TYPE_H_
