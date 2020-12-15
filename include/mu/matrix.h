@@ -38,6 +38,14 @@ class Matrix {
    */
   constexpr Matrix() = default;
 
+  template <typename... TArgs,
+            std::enable_if_t<
+                sizeof...(TArgs) == N &&
+                    (std::is_same_v<T, std::remove_reference_t<TArgs>> && ...),
+                int> = 0>
+  // NOLINTNEXTLINE(runtime/explicit) impicit to make copy-init. work
+  Matrix(TArgs const(&&... rows)[M]) : data_{mu::to_array(rows)...} {}
+
   /**
    * @brief Construct a new Matrix object from an std::array of Vectors
    *

@@ -104,5 +104,19 @@ struct UnwrapRef<std::reference_wrapper<T>> {  // NOLINT
 template <typename T>
 using unwrap_ref_t = typename UnwrapRef<T>::type;
 
+/****************************** pre c++20 **********************************/
+/* the code here helps to substitute some standard library code that is
+ * available from c++20 upwards */
+
+template <std::size_t N, typename T, std::size_t... Is>
+std::array<T, N> to_array_impl(const T (&arr)[N], std::index_sequence<Is...>) {
+  return std::array<T, N>{arr[Is]...};
+}
+
+template <std::size_t N, typename T>
+std::array<T, N> to_array(const T (&arr)[N]) {
+  return to_array_impl(arr, std::make_index_sequence<N>{});
+}
+
 }  // namespace mu
 #endif  // MU_TYPETRAITS_H_
