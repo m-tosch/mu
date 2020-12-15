@@ -401,7 +401,7 @@ TYPED_TEST_P(VectorTypeFixture, UtilityFuncMin) {
   /** arrange */
   TypeParam obj{this->values};
   /** action */
-  typename TypeParam::value_type min_v = min(obj);
+  typename TypeParam::value_type min_v = mu::min(obj);
   /** assert */
   EXPECT_EQ(min_v, *std::min_element(this->values.begin(), this->values.end()));
 }
@@ -410,7 +410,7 @@ TYPED_TEST_P(VectorTypeFixture, UtilityFuncMax) {
   /** arrange */
   TypeParam obj{this->values};
   /** action */
-  typename TypeParam::value_type max_v = max(obj);
+  typename TypeParam::value_type max_v = mu::max(obj);
   /** assert */
   EXPECT_EQ(max_v, *std::max_element(this->values.begin(), this->values.end()));
 }
@@ -419,7 +419,7 @@ TYPED_TEST_P(VectorTypeFixture, UtilityFuncSum) {
   /** arrange */
   TypeParam obj{this->values};
   /** action */
-  typename TypeParam::value_type sum_v = sum(obj);
+  typename TypeParam::value_type sum_v = mu::sum(obj);
   typename TypeParam::value_type comp =
       std::accumulate(this->values.begin(), this->values.end(),
                       static_cast<typename TypeParam::value_type>(0));
@@ -431,7 +431,7 @@ TYPED_TEST_P(VectorTypeFixture, UtilityFuncFlip) {
   /** arrange */
   TypeParam obj{this->values};
   /** action */
-  flip(obj);
+  mu::flip(obj);
   /** assert */
   TypeParam comp{this->values};
   std::reverse(comp.begin(), comp.end());
@@ -442,7 +442,7 @@ TYPED_TEST_P(VectorTypeFixture, UtilityFuncFlipped) {
   /** arrange */
   TypeParam obj1{this->values};
   /** action */
-  TypeParam obj2 = flipped(obj1);
+  TypeParam obj2 = mu::flipped(obj1);
   /** assert */
   TypeParam comp{this->values};
   std::reverse(comp.begin(), comp.end());
@@ -456,7 +456,7 @@ TYPED_TEST_P(VectorTypeFixture, UtilityFuncSort) {
   TypeParam obj{this->values};
   std::reverse(obj.begin(), obj.end());
   /** action */
-  sort(obj);
+  mu::sort(obj);
   /** assert */
   TypeParam comp{this->values};
   EXPECT_THAT(obj, ::testing::ContainerEq(comp));
@@ -467,7 +467,7 @@ TYPED_TEST_P(VectorTypeFixture, UtilityFuncSortLambda) {
   TypeParam obj{this->values};
   /** action */
   using vtype = typename TypeParam::value_type;
-  sort(obj, [](vtype a, vtype b) { return a > b; });  // descending
+  mu::sort(obj, [](vtype a, vtype b) { return a > b; });  // descending
   /** assert */
   TypeParam comp{this->values};
   std::reverse(comp.begin(), comp.end());
@@ -479,7 +479,7 @@ TYPED_TEST_P(VectorTypeFixture, UtilityFuncSorted) {
   TypeParam obj1{this->values};
   std::reverse(obj1.begin(), obj1.end());
   /** action */
-  TypeParam obj2 = sorted(obj1);  // ascending
+  TypeParam obj2 = mu::sorted(obj1);  // ascending
   /** assert */
   TypeParam comp{this->values};
   EXPECT_THAT(obj2, ::testing::ContainerEq(comp));
@@ -493,7 +493,7 @@ TYPED_TEST_P(VectorTypeFixture, UtilityFuncSortedLambda) {
   TypeParam obj1{this->values};
   /** action */
   using vtype = typename TypeParam::value_type;  // descending
-  TypeParam obj2 = sorted(obj1, [](vtype a, vtype b) { return a > b; });
+  TypeParam obj2 = mu::sorted(obj1, [](vtype a, vtype b) { return a > b; });
   /** assert */
   TypeParam comp{this->values};
   std::reverse(comp.begin(), comp.end());
