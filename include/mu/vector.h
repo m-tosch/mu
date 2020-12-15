@@ -51,9 +51,7 @@ class Vector {
   /**
    * @brief Construct a new Vector object from an amount of N values
    *
-   * the amount of values must match the static size of this Vector object.
-   * allows object construction as "v{1,2,3}" AND "v = {1,2,3}". The latter is
-   * possible because this constructor not explicit
+   * the amount of values must match the static size of this Vector
    *
    * @tparam TArgs
    * @param args
