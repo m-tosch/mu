@@ -52,8 +52,8 @@ class Matrix {
    */
   // NOLINTNEXTLINE(runtime/explicit) implicit to make copy-init. work
   Matrix(const std::array<std::array<T, M>, N> &arr) {
-    for (std::size_t i = 0; i < arr.size(); i++) {
-      for (std::size_t j = 0; j < arr[0].size(); j++) {
+    for (std::size_t i = 0; i < N; i++) {
+      for (std::size_t j = 0; j < M; j++) {
         data_[i][j] = arr[i][j];
       }
     }
