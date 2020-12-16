@@ -351,6 +351,19 @@ TYPED_TEST_P(MatrixTypeFixture, MemberFuncMin) {
   EXPECT_EQ(min, comp);
 }
 
+TYPED_TEST_P(MatrixTypeFixture, MemberFuncMax) {
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  typename TestFixture::value_type max = obj.max();
+  /** assert */
+  typename TestFixture::value_type comp = obj[0][0];
+  for (const auto& row : this->values) {
+    comp = std::max(comp, *std::max_element(row.begin(), row.end()));
+  }
+  EXPECT_EQ(max, comp);
+}
+
 /************************* convenience functions****************************/
 
 TYPED_TEST_P(MatrixTypeFixture, UtilityFuncMin) {
@@ -366,6 +379,19 @@ TYPED_TEST_P(MatrixTypeFixture, UtilityFuncMin) {
   EXPECT_EQ(min, comp);
 }
 
+TYPED_TEST_P(MatrixTypeFixture, UtilityFuncMax) {
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  typename TestFixture::value_type max = mu::max(obj);
+  /** assert */
+  typename TestFixture::value_type comp = obj[0][0];
+  for (const auto& row : this->values) {
+    comp = std::max(comp, *std::max_element(row.begin(), row.end()));
+  }
+  EXPECT_EQ(max, comp);
+}
+
 REGISTER_TYPED_TEST_SUITE_P(
     MatrixTypeFixture, ConstructorDefault, ConstructorVariadicTemplateSize2x2,
     ConstructorVariadicTemplateAssignmentSize2x2, ConstructorFromArrayOfArrays,
@@ -379,6 +405,7 @@ REGISTER_TYPED_TEST_SUITE_P(
     OperatorMoveAssignment, OperatorBrackets, OperatorBracketsConst,
     MemberFuncAt, MemberFuncAtConst, MemberFuncSize, MemberFuncRows,
     MemberFuncCols, MemberFuncBegin, MemberFuncBeginConst, MemberFuncEnd,
-    MemberFuncMin, MemberFuncEndConst, UtilityFuncMin);
+    MemberFuncMin, MemberFuncMax, MemberFuncEndConst, UtilityFuncMin,
+    UtilityFuncMax);
 
 #endif  // TESTS_MATRIX_TYPE_H_
