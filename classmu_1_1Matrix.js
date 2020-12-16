@@ -19,6 +19,8 @@ var classmu_1_1Matrix =
     [ "cols", "classmu_1_1Matrix.html#a8f76ee6062f1c97d6d2d3f439d5d0a3d", null ],
     [ "end", "classmu_1_1Matrix.html#a69ee6cd820674fe11ddd4f265a2d71c5", null ],
     [ "end", "classmu_1_1Matrix.html#a0a524af83a23e8d4f46c2d900339624d", null ],
+    [ "max", "classmu_1_1Matrix.html#a6754a5eb5065b9cbdccd25dec8ed1561", null ],
+    [ "mean", "classmu_1_1Matrix.html#a9dd8f105e83848f82981407a457f1117", null ],
     [ "min", "classmu_1_1Matrix.html#aacdd03a161afa051f7006e17af9d7483", null ],
     [ "operator!=", "classmu_1_1Matrix.html#ad180a21324ff7255846fbd320bb58756", null ],
     [ "operator=", "classmu_1_1Matrix.html#ae8f15892cac1ac74dbf6f3337703d883", null ],
@@ -28,5 +30,6 @@ var classmu_1_1Matrix =
     [ "operator[]", "classmu_1_1Matrix.html#a45b75a12bc73568c4a18aa5289787854", null ],
     [ "rows", "classmu_1_1Matrix.html#a9cfc70b0213e853552632296317f7e8c", null ],
     [ "size", "classmu_1_1Matrix.html#a6ebbb484a736e514121ed8ebae4ac7e1", null ],
+    [ "sum", "classmu_1_1Matrix.html#ae6c03480a44fc705d22230fb770a4e60", null ],
     [ "data_", "classmu_1_1Matrix.html#a06392532994af563ceb4d98613ec7eb9", null ]
 ];

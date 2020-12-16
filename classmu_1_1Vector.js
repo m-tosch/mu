@@ -23,6 +23,7 @@ var classmu_1_1Vector =
     [ "flipped", "classmu_1_1Vector.html#a4cc2ef12039a1bc51b8e048a48054b49", null ],
     [ "length", "classmu_1_1Vector.html#afe4d3c4dfa03eb4c8f9240f89c7f6139", null ],
     [ "max", "classmu_1_1Vector.html#a0bcb8df801149ed1a5654a141aae14d7", null ],
+    [ "mean", "classmu_1_1Vector.html#a40ded8ed0c79c6303bcf3436d42e9a16", null ],
     [ "min", "classmu_1_1Vector.html#a57ac0fa3add5609d667d37b934793acd", null ],
     [ "operator!=", "classmu_1_1Vector.html#aba86af220137e62f96c70b633655406d", null ],
     [ "operator*=", "classmu_1_1Vector.html#acb469ba14b1c71a664c89a2718111cd3", null ],
