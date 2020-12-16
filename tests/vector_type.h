@@ -46,7 +46,7 @@ TYPED_TEST_P(VectorTypeFixture, ConstructorDefault) {
   EXPECT_TRUE(std::is_nothrow_default_constructible<TypeParam>::value);
 }
 
-TYPED_TEST_P(VectorTypeFixture, ConstructorVariadicTemplateTwoArgs) {
+TYPED_TEST_P(VectorTypeFixture, ConstructorVariadicTemplateSize2) {
   /* hardcoding this for two arguments since the size must be known to correctly
    * call the variadic template constructor. the constructor itself is
    * (probably) also tested in Vector derived classes */
@@ -59,7 +59,7 @@ TYPED_TEST_P(VectorTypeFixture, ConstructorVariadicTemplateTwoArgs) {
   }
 }
 
-TYPED_TEST_P(VectorTypeFixture, ConstructorVariadicTemplateAssignmentTwoArgs) {
+TYPED_TEST_P(VectorTypeFixture, ConstructorVariadicTemplateAssignmentSize2) {
   static TypeParam dummy;
   if constexpr (dummy.size() == 2) {
     /** action */
@@ -503,8 +503,8 @@ TYPED_TEST_P(VectorTypeFixture, UtilityFuncSortedLambda) {
 }
 
 REGISTER_TYPED_TEST_SUITE_P(
-    VectorTypeFixture, ConstructorDefault, ConstructorVariadicTemplateTwoArgs,
-    ConstructorVariadicTemplateAssignmentTwoArgs, DestructorDefault,
+    VectorTypeFixture, ConstructorDefault, ConstructorVariadicTemplateSize2,
+    ConstructorVariadicTemplateAssignmentSize2, DestructorDefault,
     ConstructorFromArray, ConstructorFromArrayAssignment,
     ConstructorFromArrayAssignmentBraces, ConstructorFromSingleValue,
     ConstructorFromSingleValueAssignment,

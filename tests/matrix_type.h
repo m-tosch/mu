@@ -54,6 +54,31 @@ TYPED_TEST_P(MatrixTypeFixture, ConstructorDefault) {
   EXPECT_TRUE(std::is_nothrow_default_constructible<TypeParam>::value);
 }
 
+TYPED_TEST_P(MatrixTypeFixture, ConstructorVariadicTemplateSize2x2) {
+  /* hardcoding this for two arguments since the size must be known to correctly
+   * call the variadic template constructor. the constructor itself is
+   * (probably) also tested in Matrix derived classes */
+  static TypeParam dummy;  // just to get the size at compile time here
+  if constexpr (dummy.size()[0] == 2 && dummy.size()[1] == 2) {
+    /** action */
+    TypeParam obj{{this->values[0][0], this->values[0][1]},
+                  {this->values[1][0], this->values[1][1]}};
+    /** assert */
+    EXPECT_THAT_ALL(obj, this->values, ::testing::Eq());
+  }
+}
+
+TYPED_TEST_P(MatrixTypeFixture, ConstructorVariadicTemplateAssignmentSize2x2) {
+  static TypeParam dummy;
+  if constexpr (dummy.size()[0] == 2 && dummy.size()[1] == 2) {
+    /** action */
+    TypeParam obj = {{this->values[0][0], this->values[0][1]},
+                     {this->values[1][0], this->values[1][1]}};
+    /** assert */
+    EXPECT_THAT_ALL(obj, this->values, ::testing::Eq());
+  }
+}
+
 TYPED_TEST_P(MatrixTypeFixture, ConstructorFromArrayOfVectors) {
   /** action */
   TypeParam obj{this->values};
@@ -342,7 +367,8 @@ TYPED_TEST_P(MatrixTypeFixture, UtilityFuncMin) {
 }
 
 REGISTER_TYPED_TEST_SUITE_P(
-    MatrixTypeFixture, ConstructorDefault, ConstructorFromArrayOfArrays,
+    MatrixTypeFixture, ConstructorDefault, ConstructorVariadicTemplateSize2x2,
+    ConstructorVariadicTemplateAssignmentSize2x2, ConstructorFromArrayOfArrays,
     ConstructorFromArrayOfArraysAssignment,
     ConstructorFromArrayOfArraysAssignmentBraces, ConstructorFromArrayOfVectors,
     ConstructorFromArrayOfVectorsAssignment,
