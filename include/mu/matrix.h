@@ -236,6 +236,19 @@ class Matrix {
     return ret;
   }
 
+  /**
+   * @brief sum up all the elements of the matrix
+   *
+   * @return T
+   */
+  T sum() const {
+    T ret{};
+    for (const auto &row : data_) {
+      ret += mu::sum(row);
+    }
+    return ret;
+  }
+
   /*************************** matrix <> matrix ****************************/
 
   /**
@@ -282,6 +295,11 @@ inline T min(const Matrix<N, M, T> &other) {
 template <std::size_t N, std::size_t M, class T>
 inline T max(const Matrix<N, M, T> &other) {
   return other.max();
+}
+
+template <std::size_t N, std::size_t M, class T>
+inline T sum(const Matrix<N, M, T> &other) {
+  return other.sum();
 }
 
 }  // namespace mu
