@@ -245,9 +245,9 @@ class Vector {
    * @return T
    */
   T sum() const {
-    T ret(data_[0]);
-    for (std::size_t i = 1; i < N; i++) {
-      ret += data_[i];
+    T ret{};
+    for (const auto &item : data_) {
+      ret += item;
     }
     return ret;
   }
