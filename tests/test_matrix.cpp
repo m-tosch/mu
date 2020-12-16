@@ -13,6 +13,8 @@ template class mu::Matrix<2, 2, float>;
  * that take e.g a combination of Matrices as argument are elsewhere */
 template float mu::min(const mu::Matrix<2, 2, float> &);
 template float mu::max(const mu::Matrix<2, 2, float> &);
+template float mu::sum(const mu::Matrix<2, 2, float> &);
+template float mu::mean(const mu::Matrix<2, 2, float> &);
 
 /**
  * Instantiate the Matrix test suite

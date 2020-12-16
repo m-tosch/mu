@@ -26,6 +26,7 @@ template std::ostream &mu::operator<<<2, float>(std::ostream &,
 template float mu::min(const mu::Vector<2, float> &);
 template float mu::max(const mu::Vector<2, float> &);
 template float mu::sum(const mu::Vector<2, float> &);
+template float mu::mean(const mu::Vector<2, float> &);
 template void mu::flip(mu::Vector<2, float> &);
 template mu::Vector<2, float> mu::flipped(const mu::Vector<2, float> &);
 template void mu::sort(mu::Vector<2, float> &);
