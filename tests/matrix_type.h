@@ -364,6 +364,20 @@ TYPED_TEST_P(MatrixTypeFixture, MemberFuncMax) {
   EXPECT_EQ(max, comp);
 }
 
+TYPED_TEST_P(MatrixTypeFixture, MemberFuncSum) {
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  typename TestFixture::value_type sum_v = obj.sum();
+  /** assert */
+  typename TestFixture::value_type comp{};
+  for (const auto& row : this->values) {
+    comp += std::accumulate(row.begin(), row.end(),
+                            static_cast<typename TestFixture::value_type>(0));
+  }
+  EXPECT_EQ(sum_v, comp);
+}
+
 /************************* convenience functions****************************/
 
 TYPED_TEST_P(MatrixTypeFixture, UtilityFuncMin) {
@@ -392,6 +406,20 @@ TYPED_TEST_P(MatrixTypeFixture, UtilityFuncMax) {
   EXPECT_EQ(max, comp);
 }
 
+TYPED_TEST_P(MatrixTypeFixture, UtilityFuncSum) {
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  typename TestFixture::value_type sum_v = mu::sum(obj);
+  /** assert */
+  typename TestFixture::value_type comp{};
+  for (const auto& row : this->values) {
+    comp += std::accumulate(row.begin(), row.end(),
+                            static_cast<typename TestFixture::value_type>(0));
+  }
+  EXPECT_EQ(sum_v, comp);
+}
+
 REGISTER_TYPED_TEST_SUITE_P(
     MatrixTypeFixture, ConstructorDefault, ConstructorVariadicTemplateSize2x2,
     ConstructorVariadicTemplateAssignmentSize2x2, ConstructorFromArrayOfArrays,
@@ -405,7 +433,7 @@ REGISTER_TYPED_TEST_SUITE_P(
     OperatorMoveAssignment, OperatorBrackets, OperatorBracketsConst,
     MemberFuncAt, MemberFuncAtConst, MemberFuncSize, MemberFuncRows,
     MemberFuncCols, MemberFuncBegin, MemberFuncBeginConst, MemberFuncEnd,
-    MemberFuncMin, MemberFuncMax, MemberFuncEndConst, UtilityFuncMin,
-    UtilityFuncMax);
+    MemberFuncMin, MemberFuncMax, MemberFuncSum, MemberFuncEndConst,
+    UtilityFuncMin, UtilityFuncMax, UtilityFuncSum);
 
 #endif  // TESTS_MATRIX_TYPE_H_
