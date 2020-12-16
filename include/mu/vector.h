@@ -294,7 +294,7 @@ class Vector {
    *
    * For example: (1,2,3) becomes (3,2,1)
    */
-  void flip() { std::reverse(begin(), end()); }
+  void flip() { mu::reverse(begin(), end()); }
 
   /**
    * @brief returns a flipped vector
