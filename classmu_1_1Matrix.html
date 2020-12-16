@@ -121,9 +121,9 @@ Public Member Functions</h2></td></tr>
 constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmu_1_1Matrix.html#ab126945354b536c2496b14c160b9d01f">Matrix</a> ()=default</td></tr>
 <tr class="memdesc:ab126945354b536c2496b14c160b9d01f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> object. <br /></td></tr>
 <tr class="separator:ab126945354b536c2496b14c160b9d01f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc1b75f24a9dd859365e5a421ca849a3"><td class="memTemplParams" colspan="2"><a id="abc1b75f24a9dd859365e5a421ca849a3"></a>
-template&lt;typename... TArgs&gt; </td></tr>
-<tr class="memitem:abc1b75f24a9dd859365e5a421ca849a3"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Matrix</b> (TArgs const(&amp;&amp;... <a class="el" href="classmu_1_1Matrix.html#a9cfc70b0213e853552632296317f7e8c">rows</a>)[M])</td></tr>
+<tr class="memitem:abc1b75f24a9dd859365e5a421ca849a3"><td class="memTemplParams" colspan="2">template&lt;typename... TArgs&gt; </td></tr>
+<tr class="memitem:abc1b75f24a9dd859365e5a421ca849a3"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Matrix.html#abc1b75f24a9dd859365e5a421ca849a3">Matrix</a> (TArgs const(&amp;&amp;... <a class="el" href="classmu_1_1Matrix.html#a9cfc70b0213e853552632296317f7e8c">rows</a>)[M])</td></tr>
+<tr class="memdesc:abc1b75f24a9dd859365e5a421ca849a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> object from an amount of NxM values.  <a href="#abc1b75f24a9dd859365e5a421ca849a3">More...</a><br /></td></tr>
 <tr class="separator:abc1b75f24a9dd859365e5a421ca849a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4356075d6b1ecc9fddd17932aa535c7c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmu_1_1Matrix.html#a4356075d6b1ecc9fddd17932aa535c7c">Matrix</a> (const std::array&lt; <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; M, T &gt;, N &gt; &amp;arr)</td></tr>
 <tr class="memdesc:a4356075d6b1ecc9fddd17932aa535c7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> object from an std::array of Vectors.  <a href="#a4356075d6b1ecc9fddd17932aa535c7c">More...</a><br /></td></tr>
@@ -224,8 +224,61 @@ class mu::Matrix&lt; N, M, T &gt;</h3>
   </dd>
 </dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="abc1b75f24a9dd859365e5a421ca849a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc1b75f24a9dd859365e5a421ca849a3">&#9670;&nbsp;</a></span>Matrix() <span class="overload">[1/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::size_t M, typename T&gt; </div>
+<div class="memtemplate">
+template&lt;typename... TArgs&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmu_1_1Matrix.html">mu::Matrix</a>&lt; N, M, T &gt;::<a class="el" href="classmu_1_1Matrix.html">Matrix</a> </td>
+          <td>(</td>
+          <td class="paramtype">TArgs const &#160;</td>
+          <td class="paramname">(&amp;&amp;... rows)[M]</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Construct a new <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> object from an amount of NxM values. </p>
+<p>the amount of values in every dimension must match the static size of this <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a>.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">TArgs</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rows</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classmu_1_1Matrix_abc1b75f24a9dd859365e5a421ca849a3_cgraph.png" border="0" usemap="#classmu_1_1Matrix_abc1b75f24a9dd859365e5a421ca849a3_cgraph" alt=""/></div>
+<map name="classmu_1_1Matrix_abc1b75f24a9dd859365e5a421ca849a3_cgraph" id="classmu_1_1Matrix_abc1b75f24a9dd859365e5a421ca849a3_cgraph">
+<area shape="rect" id="node2" href="classmu_1_1Matrix.html#a9cfc70b0213e853552632296317f7e8c" title="returns the number of rows " alt="" coords="181,5,301,32"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="a4356075d6b1ecc9fddd17932aa535c7c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4356075d6b1ecc9fddd17932aa535c7c">&#9670;&nbsp;</a></span>Matrix() <span class="overload">[1/5]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4356075d6b1ecc9fddd17932aa535c7c">&#9670;&nbsp;</a></span>Matrix() <span class="overload">[2/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -261,7 +314,7 @@ template&lt;std::size_t N, std::size_t M, typename T&gt; </div>
 </div>
 </div>
 <a id="aad870446fc862dce92f35007007754dc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aad870446fc862dce92f35007007754dc">&#9670;&nbsp;</a></span>Matrix() <span class="overload">[2/5]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aad870446fc862dce92f35007007754dc">&#9670;&nbsp;</a></span>Matrix() <span class="overload">[3/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -297,7 +350,7 @@ template&lt;std::size_t N, std::size_t M, typename T&gt; </div>
 </div>
 </div>
 <a id="aacaf92c44925ec725bb4a5a2dff496bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aacaf92c44925ec725bb4a5a2dff496bc">&#9670;&nbsp;</a></span>Matrix() <span class="overload">[3/5]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aacaf92c44925ec725bb4a5a2dff496bc">&#9670;&nbsp;</a></span>Matrix() <span class="overload">[4/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -343,7 +396,7 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <a id="a3afefe10b422afce13b01f5184118f7b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3afefe10b422afce13b01f5184118f7b">&#9670;&nbsp;</a></span>Matrix() <span class="overload">[4/5]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a3afefe10b422afce13b01f5184118f7b">&#9670;&nbsp;</a></span>Matrix() <span class="overload">[5/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -379,7 +432,7 @@ template&lt;std::size_t N, std::size_t M, typename T&gt; </div>
 </div>
 </div>
 <a id="a340350076f5abe05dbc6a45f384335f8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a340350076f5abe05dbc6a45f384335f8">&#9670;&nbsp;</a></span>Matrix() <span class="overload">[5/5]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a340350076f5abe05dbc6a45f384335f8">&#9670;&nbsp;</a></span>Matrix() <span class="overload">[6/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1057,6 +1110,14 @@ template&lt;std::size_t N, std::size_t M, typename T&gt; </div>
 
 <p>returns the number of rows </p>
 <dl class="section return"><dt>Returns</dt><dd>constexpr size_type </dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classmu_1_1Matrix_a9cfc70b0213e853552632296317f7e8c_icgraph.png" border="0" usemap="#classmu_1_1Matrix_a9cfc70b0213e853552632296317f7e8c_icgraph" alt=""/></div>
+<map name="classmu_1_1Matrix_a9cfc70b0213e853552632296317f7e8c_icgraph" id="classmu_1_1Matrix_a9cfc70b0213e853552632296317f7e8c_icgraph">
+<area shape="rect" id="node2" href="classmu_1_1Matrix.html#abc1b75f24a9dd859365e5a421ca849a3" title="Construct a new Matrix object from an amount of NxM values. " alt="" coords="173,5,301,32"/>
+</map>
+</div>
 
 </div>
 </div>
