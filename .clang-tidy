@@ -11,7 +11,9 @@ Checks:
   -cppcoreguidelines-owning-memory,
   -modernize-use-using,
   -google-explicit-constructor,
-  -cppcoreguidelines-non-private-member-variables-in-classes
+  -cppcoreguidelines-non-private-member-variables-in-classes,
+  -cppcoreguidelines-avoid-c-arrays,
+  -modernize-avoid-c-arrays
 
 CheckOptions:
   - { key: readability-identifier-naming.NamespaceCase,            value: lower_case  }
