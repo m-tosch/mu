@@ -223,6 +223,19 @@ class Matrix {
     return ret;
   }
 
+  /**
+   * @brief get the max value of the matrix
+   *
+   * @return T
+   */
+  T max() const {
+    T ret(data_[0][0]);
+    for (std::size_t i = 1; i < N; i++) {
+      ret = mu::max(ret, mu::max(data_[i]));
+    }
+    return ret;
+  }
+
   /*************************** matrix <> matrix ****************************/
 
   /**
@@ -264,6 +277,11 @@ class Matrix {
 template <std::size_t N, std::size_t M, class T>
 inline T min(const Matrix<N, M, T> &other) {
   return other.min();
+}
+
+template <std::size_t N, std::size_t M, class T>
+inline T max(const Matrix<N, M, T> &other) {
+  return other.max();
 }
 
 }  // namespace mu
