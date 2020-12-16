@@ -217,8 +217,8 @@ class Matrix {
    */
   T min() const {
     T ret(data_[0][0]);
-    for (std::size_t i = 1; i < N; i++) {
-      ret = mu::min(ret, mu::min(data_[i]));
+    for (const auto &row : data_) {
+      ret = mu::min(ret, mu::min(row));
     }
     return ret;
   }
@@ -230,8 +230,8 @@ class Matrix {
    */
   T max() const {
     T ret(data_[0][0]);
-    for (std::size_t i = 1; i < N; i++) {
-      ret = mu::max(ret, mu::max(data_[i]));
+    for (const auto &row : data_) {
+      ret = mu::max(ret, mu::max(row));
     }
     return ret;
   }
