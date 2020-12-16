@@ -38,6 +38,15 @@ class Matrix {
    */
   constexpr Matrix() = default;
 
+  /**
+   * @brief Construct a new Matrix object from an amount of NxM values
+   *
+   * the amount of values in every dimension must match the static size of this
+   * Matrix.
+   *
+   * @tparam TArgs
+   * @param rows
+   */
   template <typename... TArgs,
             std::enable_if_t<
                 sizeof...(TArgs) == N &&
