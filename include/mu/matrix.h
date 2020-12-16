@@ -249,6 +249,13 @@ class Matrix {
     return ret;
   }
 
+  /**
+   * @brief mean of all the elements of the matrix
+   *
+   * @return T
+   */
+  T mean() const { return sum() / (N * M); }
+
   /*************************** matrix <> matrix ****************************/
 
   /**
@@ -300,6 +307,11 @@ inline T max(const Matrix<N, M, T> &other) {
 template <std::size_t N, std::size_t M, class T>
 inline T sum(const Matrix<N, M, T> &other) {
   return other.sum();
+}
+
+template <std::size_t N, std::size_t M, class T>
+inline T mean(const Matrix<N, M, T> &other) {
+  return other.mean();
 }
 
 }  // namespace mu

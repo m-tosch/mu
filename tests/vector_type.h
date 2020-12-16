@@ -282,6 +282,19 @@ TYPED_TEST_P(VectorTypeFixture, MemberFuncSum) {
   EXPECT_FLOAT_EQ(sum, comp);
 }
 
+TYPED_TEST_P(VectorTypeFixture, MemberFuncMean) {
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  typename TypeParam::value_type mean = obj.mean();
+  typename TypeParam::value_type comp =
+      std::accumulate(this->values.begin(), this->values.end(),
+                      static_cast<typename TypeParam::value_type>(0));
+  comp /= this->values.size();
+  /** assert */
+  EXPECT_FLOAT_EQ(mean, comp);
+}
+
 TYPED_TEST_P(VectorTypeFixture, MemberFuncLength) {
   if constexpr (std::is_floating_point_v<typename TypeParam::value_type>) {
     /** arrange */
@@ -427,6 +440,19 @@ TYPED_TEST_P(VectorTypeFixture, UtilityFuncSum) {
   EXPECT_FLOAT_EQ(sum_v, comp);
 }
 
+TYPED_TEST_P(VectorTypeFixture, UtilityFuncMean) {
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  typename TypeParam::value_type mean = mu::mean(obj);
+  typename TypeParam::value_type comp =
+      std::accumulate(this->values.begin(), this->values.end(),
+                      static_cast<typename TypeParam::value_type>(0));
+  comp /= this->values.size();
+  /** assert */
+  EXPECT_FLOAT_EQ(mean, comp);
+}
+
 TYPED_TEST_P(VectorTypeFixture, UtilityFuncFlip) {
   /** arrange */
   TypeParam obj{this->values};
@@ -513,10 +539,11 @@ REGISTER_TYPED_TEST_SUITE_P(
     OperatorBrackets, OperatorBracketsConst, MemberFuncAt, MemberFuncAtConst,
     MemberFuncSize, MemberFuncBegin, MemberFuncBeginConst, MemberFuncEnd,
     MemberFuncEndConst, MemberFuncMin, MemberFuncMax, MemberFuncSum,
-    MemberFuncLength, MemberFuncFlip, MemberFuncFlipped, MemberFuncSort,
-    MemberFuncSortLambda, MemberFuncSorted, MemberFuncSortedLambda,
-    OperatorStreamOut, UtilityFuncMin, UtilityFuncMax, UtilityFuncSum,
-    UtilityFuncFlip, UtilityFuncFlipped, UtilityFuncSort, UtilityFuncSortLambda,
-    UtilityFuncSorted, UtilityFuncSortedLambda);
+    MemberFuncMean, MemberFuncLength, MemberFuncFlip, MemberFuncFlipped,
+    MemberFuncSort, MemberFuncSortLambda, MemberFuncSorted,
+    MemberFuncSortedLambda, OperatorStreamOut, UtilityFuncMin, UtilityFuncMax,
+    UtilityFuncSum, UtilityFuncMean, UtilityFuncFlip, UtilityFuncFlipped,
+    UtilityFuncSort, UtilityFuncSortLambda, UtilityFuncSorted,
+    UtilityFuncSortedLambda);
 
 #endif  // TESTS_VECTOR_TYPE_H_

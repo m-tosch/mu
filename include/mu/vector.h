@@ -253,6 +253,13 @@ class Vector {
   }
 
   /**
+   * @brief mean of all the elements of the vector
+   *
+   * @return T
+   */
+  T mean() const { return sum() / N; }
+
+  /**
    * @brief  dot product of two vectors
    *
    * @tparam U
@@ -753,6 +760,11 @@ inline T max(const Vector<N, T> &other) {
 template <std::size_t N, class T>
 inline T sum(const Vector<N, T> &other) {
   return other.sum();
+}
+
+template <std::size_t N, class T>
+inline T mean(const Vector<N, T> &other) {
+  return other.mean();
 }
 
 template <std::size_t N, class T, class U = T>
