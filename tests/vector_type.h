@@ -314,7 +314,6 @@ TYPED_TEST_P(VectorTypeFixture, MemberFuncMeanConvertType) {
   typename TestFixture::ConvertedType comp =
       std::accumulate(this->values.begin(), this->values.end(),
                       static_cast<typename TypeParam::value_type>(0));
-  comp = static_cast<typename TestFixture::ConvertedType>(comp);
   comp /= this->values.size();
   EXPECT_FLOAT_EQ(mean, comp);
 }
@@ -498,7 +497,6 @@ TYPED_TEST_P(VectorTypeFixture, UtilityFuncMeanConvertType) {
   typename TestFixture::ConvertedType comp =
       std::accumulate(this->values.begin(), this->values.end(),
                       static_cast<typename TypeParam::value_type>(0));
-  comp = static_cast<typename TestFixture::ConvertedType>(comp);
   comp /= this->values.size();
   EXPECT_FLOAT_EQ(mean, comp);
 }
