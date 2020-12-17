@@ -400,6 +400,23 @@ TYPED_TEST_P(MatrixTypeFixture, MemberFuncMean) {
   EXPECT_EQ(mean, comp);
 }
 
+TYPED_TEST_P(MatrixTypeFixture, MemberFuncMeanConvertedType) {
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  typename TestFixture::ConvertedType mean =
+      obj.template mean<typename TestFixture::ConvertedType>();
+  /** assert */
+  typename TestFixture::value_type sum{};
+  for (const auto& row : this->values) {
+    sum += std::accumulate(row.begin(), row.end(),
+                           static_cast<typename TestFixture::value_type>(0));
+  }
+  typename TestFixture::ConvertedType comp = sum;
+  comp /= (this->values.size() * this->values[0].size());
+  EXPECT_EQ(mean, comp);
+}
+
 /************************* convenience functions****************************/
 
 TYPED_TEST_P(MatrixTypeFixture, UtilityFuncMin) {
@@ -457,6 +474,22 @@ TYPED_TEST_P(MatrixTypeFixture, UtilityFuncMean) {
   EXPECT_EQ(mean, comp);
 }
 
+TYPED_TEST_P(MatrixTypeFixture, UtilityFuncMeanConvertedType) { /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  typename TestFixture::ConvertedType mean =
+      mu::mean<typename TestFixture::ConvertedType>(obj);
+  /** assert */
+  typename TestFixture::value_type sum{};
+  for (const auto& row : this->values) {
+    sum += std::accumulate(row.begin(), row.end(),
+                           static_cast<typename TestFixture::value_type>(0));
+  }
+  typename TestFixture::ConvertedType comp = sum;
+  comp /= (this->values.size() * this->values[0].size());
+  EXPECT_EQ(mean, comp);
+}
+
 REGISTER_TYPED_TEST_SUITE_P(
     MatrixTypeFixture, ConstructorDefault, ConstructorVariadicTemplateSize2x2,
     ConstructorVariadicTemplateAssignmentSize2x2, ConstructorFromArrayOfArrays,
@@ -471,7 +504,7 @@ REGISTER_TYPED_TEST_SUITE_P(
     MemberFuncAt, MemberFuncAtConst, MemberFuncSize, MemberFuncRows,
     MemberFuncCols, MemberFuncBegin, MemberFuncBeginConst, MemberFuncEnd,
     MemberFuncEndConst, MemberFuncMin, MemberFuncMax, MemberFuncSum,
-    MemberFuncMean, UtilityFuncMin, UtilityFuncMax, UtilityFuncSum,
-    UtilityFuncMean);
+    MemberFuncMean, MemberFuncMeanConvertedType, UtilityFuncMin, UtilityFuncMax,
+    UtilityFuncSum, UtilityFuncMean, UtilityFuncMeanConvertedType);
 
 #endif  // TESTS_MATRIX_TYPE_H_
