@@ -784,12 +784,13 @@ inline T sum(const Vector<N, T> &other) {
 }
 
 template <class U = void, std::size_t N, typename T>
-std::conditional_t<std::is_same_v<U, void>, T, U> mean(const Vector<N, T> &v) {
+inline std::conditional_t<std::is_same_v<U, void>, T, U> mean(
+    const Vector<N, T> &v) {
   return v.template mean<std::conditional_t<std::is_same_v<U, void>, T, U>>();
 }
 
 template <class U = void, std::size_t N1, class T1, std::size_t N2, class T2>
-std::conditional_t<std::is_same_v<U, void>, T1, U> dot(
+inline std::conditional_t<std::is_same_v<U, void>, T1, U> dot(
     const Vector<N1, T1> &lhs, const Vector<N2, T2> &rhs) {
   return lhs.template dot<U>(rhs);
 }
