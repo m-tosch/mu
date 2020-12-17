@@ -773,18 +773,18 @@ operator/(const Vector<N, T> &lhs, const TScalar &rhs) {
 /************************* convenience functions ***************************/
 
 template <std::size_t N, class T>
-inline T min(const Vector<N, T> &other) {
-  return other.min();
+inline T min(const Vector<N, T> &v) {
+  return v.min();
 }
 
 template <std::size_t N, class T>
-inline T max(const Vector<N, T> &other) {
-  return other.max();
+inline T max(const Vector<N, T> &v) {
+  return v.max();
 }
 
 template <std::size_t N, class T>
-inline T sum(const Vector<N, T> &other) {
-  return other.sum();
+inline T sum(const Vector<N, T> &v) {
+  return v.sum();
 }
 
 template <class U = void, std::size_t N, typename T>
@@ -801,35 +801,35 @@ inline std::conditional_t<std::is_same_v<U, void>, T1, U> dot(
 
 template <std::size_t N, class T>
 // NOLINTNEXTLINE(runtime/references) intentional non-const reference
-inline void flip(Vector<N, T> &other) {
-  other.flip();
+inline void flip(Vector<N, T> &v) {
+  v.flip();
 }
 
 template <std::size_t N, class T>
-inline Vector<N, T> flipped(const Vector<N, T> &other) {
-  return other.flipped();
+inline Vector<N, T> flipped(const Vector<N, T> &v) {
+  return v.flipped();
 }
 
 template <std::size_t N, class T>
 // NOLINTNEXTLINE(runtime/references) intentional non-const reference
-inline void sort(Vector<N, T> &other) {
-  other.sort();
+inline void sort(Vector<N, T> &v) {
+  v.sort();
 }
 
 template <std::size_t N, class T, typename Compare>
 // NOLINTNEXTLINE(runtime/references) intentional non-const reference
-inline void sort(Vector<N, T> &other, const Compare &compare) {
-  other.sort(compare);
+inline void sort(Vector<N, T> &v, const Compare &compare) {
+  v.sort(compare);
 }
 
 template <std::size_t N, class T>
-inline Vector<N, T> sorted(const Vector<N, T> &other) {
-  return other.sorted();
+inline Vector<N, T> sorted(const Vector<N, T> &v) {
+  return v.sorted();
 }
 
 template <std::size_t N, class T, typename Compare>
-inline Vector<N, T> sorted(const Vector<N, T> &other, const Compare &compare) {
-  return other.sorted(compare);
+inline Vector<N, T> sorted(const Vector<N, T> &v, const Compare &compare) {
+  return v.sorted(compare);
 }
 
 /***************************************************************************/
