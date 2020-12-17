@@ -263,15 +263,32 @@ class Vector {
   }
 
   /**
-   * @brief  dot product of two vectors
+   * @brief dot product of two vectors
+   *
+   * For two Vectors of the same type, specifying the return type is optional.
+   * It will be of the type of the two Vectors by default.
+   *
+   * For two Vectors of different types, specifying the return type is required.
+   * Otherwise the code will not compile. (this is to mitigate unwanted
+   * precision loss due to implicit casting. the trade-off is that the caller
+   * has to state the return type explicitly.)
    *
    * @tparam U
+   * @tparam N2
+   * @tparam T2
    * @param other
-   * @return T
+   * @return std::conditional_t<std::is_same_v<U, void>, T, U>
    */
-  template <typename U = T>
-  T dot(const Vector<N, U> &other) const {
-    T ret{};
+  template <typename U = void, std::size_t N2, typename T2>
+  std::conditional_t<std::is_same_v<U, void>, T, U> dot(
+      const Vector<N2, T2> &other) const {
+    static_assert(N == N2, "Vector size mismatch");
+    if constexpr (!std::is_same_v<T, T2>) {
+      static_assert(!std::is_same_v<U, void>,
+                    "T and T2 are different. please specify the return type");
+    }
+    using U_ = std::conditional_t<std::is_same_v<U, void>, T, U>;
+    U_ ret{};
     for (std::size_t i = 0; i < N; i++) {
       ret += data_[i] * other[i];
     }
@@ -770,9 +787,10 @@ std::conditional_t<std::is_same_v<U, void>, T, U> mean(const Vector<N, T> &v) {
   return v.template mean<std::conditional_t<std::is_same_v<U, void>, T, U>>();
 }
 
-template <std::size_t N, class T, class U = T>
-inline T dot(const Vector<N, T> &lhs, const Vector<N, U> &rhs) {
-  return lhs.dot(rhs);
+template <class U = void, std::size_t N1, class T1, std::size_t N2, class T2>
+std::conditional_t<std::is_same_v<U, void>, T1, U> dot(
+    const Vector<N1, T1> &lhs, const Vector<N2, T2> &rhs) {
+  return lhs.template dot<U>(rhs);
 }
 
 template <std::size_t N, class T>
