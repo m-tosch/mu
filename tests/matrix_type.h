@@ -27,9 +27,16 @@ class MatrixTypeFixture : public ::testing::Test {
   /* dummy just for getting dimensions at compile time (inline variable c++17)*/
   static inline T dummy;
   /* test values. exact dimensions of the corresponding matrix-under-test */
-  // std::array<std::array<value_type, dummy.size()[1]>, dummy.size()[0]>
-  // values;
   std::array<mu::Vector<dummy.size()[1], value_type>, dummy.size()[0]> values;
+  /* some tests need a converted type, defined as
+   * - floating point type -> int
+   * - integral type -> float
+   * if the test input type is neither integral nor floating point, the
+   * converted type is equivalent to the test type (i.e. not converted) */
+  using ConvertedType = std::conditional_t<
+      std::is_integral_v<value_type>, float,
+      std::conditional_t<std::is_floating_point_v<value_type>, int,
+                         value_type>>;
 };
 
 /**
