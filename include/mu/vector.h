@@ -257,7 +257,10 @@ class Vector {
    *
    * @return T
    */
-  T mean() const { return sum() / N; }
+  template <typename U = T>
+  U mean() const {
+    return U(sum()) / N;
+  }
 
   /**
    * @brief  dot product of two vectors
@@ -762,9 +765,9 @@ inline T sum(const Vector<N, T> &other) {
   return other.sum();
 }
 
-template <std::size_t N, class T>
-inline T mean(const Vector<N, T> &other) {
-  return other.mean();
+template <class U = void, std::size_t N, typename T>
+std::conditional_t<std::is_same_v<U, void>, T, U> mean(const Vector<N, T> &v) {
+  return v.template mean<std::conditional_t<std::is_same_v<U, void>, T, U>>();
 }
 
 template <std::size_t N, class T, class U = T>
