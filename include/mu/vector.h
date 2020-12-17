@@ -289,7 +289,8 @@ class Vector {
     static_assert(N == N2, "Vector size mismatch");
     if constexpr (!std::is_same_v<T, T2>) {
       static_assert(!std::is_same_v<U, void>,
-                    "T and T2 are different. please specify the return type");
+                    "Vector types are different. please specify the return "
+                    "type. e.g. \"dot<float>(vec1, vec2);\"");
     }
     using U_ = std::conditional_t<std::is_same_v<U, void>, T, U>;
     U_ ret{};
