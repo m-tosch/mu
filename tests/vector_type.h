@@ -320,17 +320,28 @@ TYPED_TEST_P(VectorTypeFixture, MemberFuncMeanConvertType) {
 }
 
 TYPED_TEST_P(VectorTypeFixture, MemberFuncLength) {
-  if constexpr (std::is_floating_point_v<typename TypeParam::value_type>) {
-    /** arrange */
-    TypeParam obj{this->values};
-    /** action */
-    typename TypeParam::value_type len = obj.length();
-    /** assert */
-    typename TypeParam::value_type comp = std::sqrt(
-        std::inner_product(obj.begin(), obj.end(), obj.begin(),
-                           static_cast<typename TypeParam::value_type>(0)));
-    EXPECT_FLOAT_EQ(len, comp);
-  }
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  typename TypeParam::value_type len = obj.length();
+  /** assert */
+  typename TypeParam::value_type comp = std::sqrt(
+      std::inner_product(obj.begin(), obj.end(), obj.begin(),
+                         static_cast<typename TypeParam::value_type>(0)));
+  EXPECT_FLOAT_EQ(len, comp);
+}
+
+TYPED_TEST_P(VectorTypeFixture, MemberFuncLengthConvertType) {
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  typename TestFixture::ConvertedType len =
+      obj.template length<typename TestFixture::ConvertedType>();
+  /** assert */
+  typename TestFixture::ConvertedType comp = std::sqrt(
+      std::inner_product(obj.begin(), obj.end(), obj.begin(),
+                         static_cast<typename TypeParam::value_type>(0)));
+  EXPECT_FLOAT_EQ(len, comp);
 }
 
 TYPED_TEST_P(VectorTypeFixture, MemberFuncFlip) {
@@ -578,8 +589,9 @@ REGISTER_TYPED_TEST_SUITE_P(
     OperatorBrackets, OperatorBracketsConst, MemberFuncAt, MemberFuncAtConst,
     MemberFuncSize, MemberFuncBegin, MemberFuncBeginConst, MemberFuncEnd,
     MemberFuncEndConst, MemberFuncMin, MemberFuncMax, MemberFuncSum,
-    MemberFuncMean, MemberFuncMeanConvertType, MemberFuncLength, MemberFuncFlip,
-    MemberFuncFlipped, MemberFuncSort, MemberFuncSortLambda, MemberFuncSorted,
+    MemberFuncMean, MemberFuncMeanConvertType, MemberFuncLength,
+    MemberFuncLengthConvertType, MemberFuncFlip, MemberFuncFlipped,
+    MemberFuncSort, MemberFuncSortLambda, MemberFuncSorted,
     MemberFuncSortedLambda, OperatorStreamOut, UtilityFuncMin, UtilityFuncMax,
     UtilityFuncSum, UtilityFuncMean, UtilityFuncMeanConvertType,
     UtilityFuncFlip, UtilityFuncFlipped, UtilityFuncSort, UtilityFuncSortLambda,
