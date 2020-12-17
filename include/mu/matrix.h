@@ -2,6 +2,7 @@
 #define MU_MATRIX_H_
 
 #include <array>
+#include <type_traits>
 
 #include "mu/typetraits.h"
 #include "mu/utility.h"
@@ -261,9 +262,16 @@ class Matrix {
   /**
    * @brief mean of all the elements of the matrix
    *
-   * @return T
+   * specifying the return type is optional.
+   * It will be of the type of the Vector by default.
+   *
+   * @tparam U
+   * @return U
    */
-  T mean() const { return sum() / (N * M); }
+  template <typename U = T>
+  U mean() const {
+    return U(sum()) / (N * M);
+  }
 
   /*************************** matrix <> matrix ****************************/
 
@@ -318,9 +326,10 @@ inline T sum(const Matrix<N, M, T> &other) {
   return other.sum();
 }
 
-template <std::size_t N, std::size_t M, class T>
-inline T mean(const Matrix<N, M, T> &other) {
-  return other.mean();
+template <class U = void, std::size_t N, std::size_t M, typename T>
+inline std::conditional_t<std::is_same_v<U, void>, T, U> mean(
+    const Matrix<N, M, T> &m) {
+  return m.template mean<std::conditional_t<std::is_same_v<U, void>, T, U>>();
 }
 
 }  // namespace mu
