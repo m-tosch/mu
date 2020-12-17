@@ -298,15 +298,16 @@ class Vector {
   /**
    * @brief euclidean vector length
    *
-   * only enabled for floating point types. returns the length as the type of
-   * this vector
+   * returns the length as
+   * - the type of this vector (default)
+   * - the explicitly stated type
    *
-   * @tparam T
-   * @return std::enable_if_t<std::is_floating_point_v<U>, T>::type
+   * @tparam U
+   * @return U
    */
   template <class U = T>
-  typename std::enable_if_t<std::is_floating_point_v<U>, T> length() const {
-    return T(mu::sqrt(dot(*this)));
+  U length() const {
+    return U(mu::sqrt(dot(*this)));
   }
 
   /**
