@@ -9,6 +9,8 @@
 template class mu::Vector<2, float>;
 /* functions */
 template float mu::Vector<2, float>::length<float>() const;
+template float mu::Vector<2, int>::mean<float>() const;
+template float mu::Vector<2, int>::dot<float>(const mu::Vector<2, int> &) const;
 // workaround for "lambda functions are not allowed in unevaluated operands"
 struct LambdaCompare {
   bool operator()(int a, int b) const { return a > b; }
@@ -26,7 +28,7 @@ template std::ostream &mu::operator<<<2, float>(std::ostream &,
 template float mu::min(const mu::Vector<2, float> &);
 template float mu::max(const mu::Vector<2, float> &);
 template float mu::sum(const mu::Vector<2, float> &);
-template float mu::mean(const mu::Vector<2, float> &);
+template float mu::mean<float>(const mu::Vector<2, int> &);
 template void mu::flip(mu::Vector<2, float> &);
 template mu::Vector<2, float> mu::flipped(const mu::Vector<2, float> &);
 template void mu::sort(mu::Vector<2, float> &);
@@ -39,5 +41,6 @@ template mu::Vector<2, float> mu::sorted(const mu::Vector<2, float> &,
  * Instantiate the Vector test suite
  */
 using VectorTypes = ::testing::Types<mu::Vector<1, float>, mu::Vector<2, float>,
-                                     mu::Vector<1, int>, mu::Vector<2, int>>;
+                                     mu::Vector<3, float>, mu::Vector<1, int>,
+                                     mu::Vector<2, int>, mu::Vector<3, int>>;
 INSTANTIATE_TYPED_TEST_SUITE_P(Vector, VectorTypeFixture, VectorTypes);
