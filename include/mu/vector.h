@@ -255,8 +255,9 @@ class Vector {
   /**
    * @brief mean of all the elements of the vector
    *
-   * specifying the return type is optional.
-   * It will be of the type of the Vector by default.
+   * returns the mean as
+   * - the type of this vector (default)
+   * - the explicitly stated type
    *
    * @tparam U
    * @return U
