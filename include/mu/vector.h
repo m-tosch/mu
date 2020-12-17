@@ -258,7 +258,8 @@ class Vector {
    * specifying the return type is optional.
    * It will be of the type of the Vector by default.
    *
-   * @return T
+   * @tparam U
+   * @return U
    */
   template <typename U = T>
   U mean() const {
