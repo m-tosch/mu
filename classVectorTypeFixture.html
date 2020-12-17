@@ -86,6 +86,7 @@ $(document).ready(function(){initNavTree('classVectorTypeFixture.html','');});
 
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
@@ -116,6 +117,12 @@ Collaboration diagram for VectorTypeFixture&lt; T &gt;:</div>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a42314fa1c7fd22aecbd7b6e4bd2661e0"><td class="memItemLeft" align="right" valign="top"><a id="a42314fa1c7fd22aecbd7b6e4bd2661e0"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>ConvertedType</b> = std::conditional_t&lt; std::is_integral_v&lt; typename T::value_type &gt;, float, std::conditional_t&lt; std::is_floating_point_v&lt; typename T::value_type &gt;, int, typename T::value_type &gt; &gt;</td></tr>
+<tr class="separator:a42314fa1c7fd22aecbd7b6e4bd2661e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a261ca9d10f8621855623b3df7140ee9c"><td class="memItemLeft" align="right" valign="top"><a id="a261ca9d10f8621855623b3df7140ee9c"></a>

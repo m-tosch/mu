@@ -192,9 +192,10 @@ constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href=
 <tr class="memitem:ae6c03480a44fc705d22230fb770a4e60"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmu_1_1Matrix.html#ae6c03480a44fc705d22230fb770a4e60">sum</a> () const</td></tr>
 <tr class="memdesc:ae6c03480a44fc705d22230fb770a4e60"><td class="mdescLeft">&#160;</td><td class="mdescRight">sum up all the elements of the matrix  <a href="#ae6c03480a44fc705d22230fb770a4e60">More...</a><br /></td></tr>
 <tr class="separator:ae6c03480a44fc705d22230fb770a4e60"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9dd8f105e83848f82981407a457f1117"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmu_1_1Matrix.html#a9dd8f105e83848f82981407a457f1117">mean</a> () const</td></tr>
-<tr class="memdesc:a9dd8f105e83848f82981407a457f1117"><td class="mdescLeft">&#160;</td><td class="mdescRight">mean of all the elements of the matrix  <a href="#a9dd8f105e83848f82981407a457f1117">More...</a><br /></td></tr>
-<tr class="separator:a9dd8f105e83848f82981407a457f1117"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5bb9793e811451fbbdde9017ac551b5"><td class="memTemplParams" colspan="2">template&lt;typename U  = T&gt; </td></tr>
+<tr class="memitem:af5bb9793e811451fbbdde9017ac551b5"><td class="memTemplItemLeft" align="right" valign="top">U&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Matrix.html#af5bb9793e811451fbbdde9017ac551b5">mean</a> () const</td></tr>
+<tr class="memdesc:af5bb9793e811451fbbdde9017ac551b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">mean of all the elements of the matrix  <a href="#af5bb9793e811451fbbdde9017ac551b5">More...</a><br /></td></tr>
+<tr class="separator:af5bb9793e811451fbbdde9017ac551b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b80f07854f706d34ffdf3acdabb2ef4"><td class="memTemplParams" colspan="2">template&lt;typename U  = T&gt; </td></tr>
 <tr class="memitem:a2b80f07854f706d34ffdf3acdabb2ef4"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Matrix.html#a2b80f07854f706d34ffdf3acdabb2ef4">operator==</a> (const <a class="el" href="classmu_1_1Matrix.html">Matrix</a>&lt; N, M, U &gt; &amp;rhs) const</td></tr>
 <tr class="memdesc:a2b80f07854f706d34ffdf3acdabb2ef4"><td class="mdescLeft">&#160;</td><td class="mdescRight">equality operator  <a href="#a2b80f07854f706d34ffdf3acdabb2ef4">More...</a><br /></td></tr>
@@ -742,19 +743,21 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a9dd8f105e83848f82981407a457f1117"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9dd8f105e83848f82981407a457f1117">&#9670;&nbsp;</a></span>mean()</h2>
+<a id="af5bb9793e811451fbbdde9017ac551b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5bb9793e811451fbbdde9017ac551b5">&#9670;&nbsp;</a></span>mean()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;std::size_t N, std::size_t M, typename T&gt; </div>
+<div class="memtemplate">
+template&lt;typename U  = T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">T <a class="el" href="classmu_1_1Matrix.html">mu::Matrix</a>&lt; N, M, T &gt;::mean </td>
+          <td class="memname">U <a class="el" href="classmu_1_1Matrix.html">mu::Matrix</a>&lt; N, M, T &gt;::mean </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -768,20 +771,27 @@ template&lt;std::size_t N, std::size_t M, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>mean of all the elements of the matrix </p>
-<dl class="section return"><dt>Returns</dt><dd>T </dd></dl>
+<p>specifying the return type is optional. It will be of the type of the <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> by default.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">U</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>U </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classmu_1_1Matrix_a9dd8f105e83848f82981407a457f1117_cgraph.png" border="0" usemap="#classmu_1_1Matrix_a9dd8f105e83848f82981407a457f1117_cgraph" alt=""/></div>
-<map name="classmu_1_1Matrix_a9dd8f105e83848f82981407a457f1117_cgraph" id="classmu_1_1Matrix_a9dd8f105e83848f82981407a457f1117_cgraph">
+<div class="center"><img src="classmu_1_1Matrix_af5bb9793e811451fbbdde9017ac551b5_cgraph.png" border="0" usemap="#classmu_1_1Matrix_af5bb9793e811451fbbdde9017ac551b5_cgraph" alt=""/></div>
+<map name="classmu_1_1Matrix_af5bb9793e811451fbbdde9017ac551b5_cgraph" id="classmu_1_1Matrix_af5bb9793e811451fbbdde9017ac551b5_cgraph">
 <area shape="rect" id="node2" href="classmu_1_1Matrix.html#ae6c03480a44fc705d22230fb770a4e60" title="sum up all the elements of the matrix " alt="" coords="177,5,295,32"/>
 </map>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classmu_1_1Matrix_a9dd8f105e83848f82981407a457f1117_icgraph.png" border="0" usemap="#classmu_1_1Matrix_a9dd8f105e83848f82981407a457f1117_icgraph" alt=""/></div>
-<map name="classmu_1_1Matrix_a9dd8f105e83848f82981407a457f1117_icgraph" id="classmu_1_1Matrix_a9dd8f105e83848f82981407a457f1117_icgraph">
+<div class="center"><img src="classmu_1_1Matrix_af5bb9793e811451fbbdde9017ac551b5_icgraph.png" border="0" usemap="#classmu_1_1Matrix_af5bb9793e811451fbbdde9017ac551b5_icgraph" alt=""/></div>
+<map name="classmu_1_1Matrix_af5bb9793e811451fbbdde9017ac551b5_icgraph" id="classmu_1_1Matrix_af5bb9793e811451fbbdde9017ac551b5_icgraph">
 <area shape="rect" id="node2" href="classmu_1_1Matrix.html#ad180a21324ff7255846fbd320bb58756" title="unequality operator " alt="" coords="177,5,328,32"/>
 </map>
 </div>
@@ -871,7 +881,7 @@ Here is the call graph for this function:</div>
 <area shape="rect" id="node3" href="classmu_1_1Matrix.html#aacdd03a161afa051f7006e17af9d7483" title="get the min value of the matrix " alt="" coords="225,56,338,83"/>
 <area shape="rect" id="node4" href="classmu_1_1Matrix.html#a6754a5eb5065b9cbdccd25dec8ed1561" title="get the max value of the matrix " alt="" coords="223,107,340,133"/>
 <area shape="rect" id="node5" href="classmu_1_1Matrix.html#ae6c03480a44fc705d22230fb770a4e60" title="sum up all the elements of the matrix " alt="" coords="407,183,524,209"/>
-<area shape="rect" id="node6" href="classmu_1_1Matrix.html#a9dd8f105e83848f82981407a457f1117" title="mean of all the elements of the matrix " alt="" coords="219,208,343,235"/>
+<area shape="rect" id="node6" href="classmu_1_1Matrix.html#af5bb9793e811451fbbdde9017ac551b5" title="mean of all the elements of the matrix " alt="" coords="219,208,343,235"/>
 </map>
 </div>
 
@@ -1184,7 +1194,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classmu_1_1Matrix_ae6c03480a44fc705d22230fb770a4e60_icgraph.png" border="0" usemap="#classmu_1_1Matrix_ae6c03480a44fc705d22230fb770a4e60_icgraph" alt=""/></div>
 <map name="classmu_1_1Matrix_ae6c03480a44fc705d22230fb770a4e60_icgraph" id="classmu_1_1Matrix_ae6c03480a44fc705d22230fb770a4e60_icgraph">
-<area shape="rect" id="node2" href="classmu_1_1Matrix.html#a9dd8f105e83848f82981407a457f1117" title="mean of all the elements of the matrix " alt="" coords="171,5,295,32"/>
+<area shape="rect" id="node2" href="classmu_1_1Matrix.html#af5bb9793e811451fbbdde9017ac551b5" title="mean of all the elements of the matrix " alt="" coords="171,5,295,32"/>
 <area shape="rect" id="node3" href="classmu_1_1Matrix.html#ad180a21324ff7255846fbd320bb58756" title="unequality operator " alt="" coords="343,31,493,57"/>
 </map>
 </div>
