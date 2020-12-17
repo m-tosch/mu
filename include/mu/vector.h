@@ -255,6 +255,9 @@ class Vector {
   /**
    * @brief mean of all the elements of the vector
    *
+   * specifying the return type is optional.
+   * It will be of the type of the Vector by default.
+   *
    * @return T
    */
   template <typename U = T>
