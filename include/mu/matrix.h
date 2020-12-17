@@ -312,18 +312,18 @@ class Matrix {
 /************************* convenience functions ***************************/
 
 template <std::size_t N, std::size_t M, class T>
-inline T min(const Matrix<N, M, T> &other) {
-  return other.min();
+inline T min(const Matrix<N, M, T> &m) {
+  return m.min();
 }
 
 template <std::size_t N, std::size_t M, class T>
-inline T max(const Matrix<N, M, T> &other) {
-  return other.max();
+inline T max(const Matrix<N, M, T> &m) {
+  return m.max();
 }
 
 template <std::size_t N, std::size_t M, class T>
-inline T sum(const Matrix<N, M, T> &other) {
-  return other.sum();
+inline T sum(const Matrix<N, M, T> &m) {
+  return m.sum();
 }
 
 template <class U = void, std::size_t N, std::size_t M, typename T>
