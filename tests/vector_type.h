@@ -35,6 +35,15 @@ class VectorTypeFixture : public ::testing::Test {
   static inline T dummy;
   /* test values. exact length of the corresponding vector-under-test */
   std::array<typename T::value_type, dummy.size()> values;
+  /* some tests need a converted type, defined as
+   * - floating point type -> int
+   * - integral type -> float
+   * if the test input type is neither integral nor floating point, the
+   * converted type is equivalent to the test type (i.e. not converted) */
+  using ConvertedType = std::conditional_t<
+      std::is_integral_v<typename T::value_type>, float,
+      std::conditional_t<std::is_floating_point_v<typename T::value_type>, int,
+                         typename T::value_type>>;
 };
 
 TYPED_TEST_SUITE_P(VectorTypeFixture);
@@ -287,11 +296,26 @@ TYPED_TEST_P(VectorTypeFixture, MemberFuncMean) {
   TypeParam obj{this->values};
   /** action */
   typename TypeParam::value_type mean = obj.mean();
+  /** assert */
   typename TypeParam::value_type comp =
       std::accumulate(this->values.begin(), this->values.end(),
                       static_cast<typename TypeParam::value_type>(0));
   comp /= this->values.size();
+  EXPECT_FLOAT_EQ(mean, comp);
+}
+
+TYPED_TEST_P(VectorTypeFixture, MemberFuncMeanConvertType) {
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  typename TestFixture::ConvertedType mean =
+      obj.template mean<typename TestFixture::ConvertedType>();
   /** assert */
+  typename TestFixture::ConvertedType comp =
+      std::accumulate(this->values.begin(), this->values.end(),
+                      static_cast<typename TypeParam::value_type>(0));
+  comp = static_cast<typename TestFixture::ConvertedType>(comp);
+  comp /= this->values.size();
   EXPECT_FLOAT_EQ(mean, comp);
 }
 
@@ -445,11 +469,26 @@ TYPED_TEST_P(VectorTypeFixture, UtilityFuncMean) {
   TypeParam obj{this->values};
   /** action */
   typename TypeParam::value_type mean = mu::mean(obj);
+  /** assert */
   typename TypeParam::value_type comp =
       std::accumulate(this->values.begin(), this->values.end(),
                       static_cast<typename TypeParam::value_type>(0));
   comp /= this->values.size();
+  EXPECT_FLOAT_EQ(mean, comp);
+}
+
+TYPED_TEST_P(VectorTypeFixture, UtilityFuncMeanConvertType) {
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  typename TestFixture::ConvertedType mean =
+      mu::mean<typename TestFixture::ConvertedType>(obj);
   /** assert */
+  typename TestFixture::ConvertedType comp =
+      std::accumulate(this->values.begin(), this->values.end(),
+                      static_cast<typename TypeParam::value_type>(0));
+  comp = static_cast<typename TestFixture::ConvertedType>(comp);
+  comp /= this->values.size();
   EXPECT_FLOAT_EQ(mean, comp);
 }
 
@@ -539,11 +578,11 @@ REGISTER_TYPED_TEST_SUITE_P(
     OperatorBrackets, OperatorBracketsConst, MemberFuncAt, MemberFuncAtConst,
     MemberFuncSize, MemberFuncBegin, MemberFuncBeginConst, MemberFuncEnd,
     MemberFuncEndConst, MemberFuncMin, MemberFuncMax, MemberFuncSum,
-    MemberFuncMean, MemberFuncLength, MemberFuncFlip, MemberFuncFlipped,
-    MemberFuncSort, MemberFuncSortLambda, MemberFuncSorted,
+    MemberFuncMean, MemberFuncMeanConvertType, MemberFuncLength, MemberFuncFlip,
+    MemberFuncFlipped, MemberFuncSort, MemberFuncSortLambda, MemberFuncSorted,
     MemberFuncSortedLambda, OperatorStreamOut, UtilityFuncMin, UtilityFuncMax,
-    UtilityFuncSum, UtilityFuncMean, UtilityFuncFlip, UtilityFuncFlipped,
-    UtilityFuncSort, UtilityFuncSortLambda, UtilityFuncSorted,
-    UtilityFuncSortedLambda);
+    UtilityFuncSum, UtilityFuncMean, UtilityFuncMeanConvertType,
+    UtilityFuncFlip, UtilityFuncFlipped, UtilityFuncSort, UtilityFuncSortLambda,
+    UtilityFuncSorted, UtilityFuncSortedLambda);
 
 #endif  // TESTS_VECTOR_TYPE_H_
