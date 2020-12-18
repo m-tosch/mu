@@ -305,6 +305,74 @@ class Matrix {
     return !operator==(rhs);
   }
 
+  /**
+   * @brief plus equal operator
+   *
+   * subject to implicit conversions
+   *
+   * @tparam U
+   * @param rhs
+   * @return Matrix<N, M, T>&
+   */
+  template <typename U = T>
+  Matrix<N, M, T> &operator+=(const Matrix<N, M, U> &rhs) {
+    for (std::size_t i = 0; i < N; i++) {
+      data_[i] += rhs[i];
+    }
+    return *this;
+  }
+
+  /**
+   * @brief minus equal operator
+   *
+   * subject to implicit conversions
+   *
+   * @tparam U
+   * @param rhs
+   * @return Matrix<N, M, T>&
+   */
+  template <typename U = T>
+  Matrix<N, M, T> &operator-=(const Matrix<N, M, U> &rhs) {
+    for (std::size_t i = 0; i < N; i++) {
+      data_[i] -= rhs[i];
+    }
+    return *this;
+  }
+
+  /**
+   * @brief multiplication equal operator
+   *
+   * subject to implicit conversions
+   *
+   * @tparam U
+   * @param rhs
+   * @return Matrix<N, M, T>&
+   */
+  template <typename U = T>
+  Matrix<N, M, T> &operator*=(const Matrix<N, M, U> &rhs) {
+    for (std::size_t i = 0; i < N; i++) {
+      data_[i] *= rhs[i];
+    }
+    return *this;
+  }
+
+  /**
+   * @brief divison equal operator
+   *
+   * subject to implicit conversions
+   *
+   * @tparam U
+   * @param rhs
+   * @return Matrix<N, M, T>&
+   */
+  template <typename U = T>
+  Matrix<N, M, T> &operator/=(const Matrix<N, M, U> &rhs) {
+    for (std::size_t i = 0; i < N; i++) {
+      data_[i] /= rhs[i];
+    }
+    return *this;
+  }
+
   /*************************** matrix <> scalar ****************************/
 
   /*
@@ -383,6 +451,76 @@ class Matrix {
  protected:
   std::array<Vector<M, T>, N> data_;
 };
+
+/**************************** vector <> vector *****************************/
+
+/**
+ * @brief plus operator
+ *
+ * @tparam N
+ * @tparam M
+ * @tparam T
+ * @tparam U
+ * @param lhs
+ * @param rhs
+ * @return Matrix<N, M, T>
+ */
+template <std::size_t N, std::size_t M, class T, class U = T>
+inline Matrix<N, M, T> operator+(const Matrix<N, M, T> &lhs,
+                                 const Matrix<N, M, U> &rhs) {
+  return Matrix<N, M, T>(lhs) += rhs;
+}
+
+/**
+ * @brief minus operator
+ *
+ * @tparam N
+ * @tparam M
+ * @tparam T
+ * @tparam U
+ * @param lhs
+ * @param rhs
+ * @return Matrix<N, M, T>
+ */
+template <std::size_t N, std::size_t M, class T, class U = T>
+inline Matrix<N, M, T> operator-(const Matrix<N, M, T> &lhs,
+                                 const Matrix<N, M, U> &rhs) {
+  return Matrix<N, M, T>(lhs) -= rhs;
+}
+
+/**
+ * @brief multiplication operator
+ *
+ * @tparam N
+ * @tparam M
+ * @tparam T
+ * @tparam U
+ * @param lhs
+ * @param rhs
+ * @return Matrix<N, M, T>
+ */
+template <std::size_t N, std::size_t M, class T, class U = T>
+inline Matrix<N, M, T> operator*(const Matrix<N, M, T> &lhs,
+                                 const Matrix<N, M, U> &rhs) {
+  return Matrix<N, M, T>(lhs) *= rhs;
+}
+
+/**
+ * @brief division operator
+ *
+ * @tparam N
+ * @tparam M
+ * @tparam T
+ * @tparam U
+ * @param lhs
+ * @param rhs
+ * @return Matrix<N, M, T>
+ */
+template <std::size_t N, std::size_t M, class T, class U = T>
+inline Matrix<N, M, T> operator/(const Matrix<N, M, T> &lhs,
+                                 const Matrix<N, M, U> &rhs) {
+  return Matrix<N, M, T>(lhs) /= rhs;
+}
 
 /**************************** matrix <> scalar *****************************/
 
