@@ -1,4 +1,3 @@
-#include <algorithm>
 #include <tuple>
 
 #include "gtest/gtest.h"
