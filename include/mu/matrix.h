@@ -305,9 +305,190 @@ class Matrix {
     return !operator==(rhs);
   }
 
+  /*************************** matrix <> scalar ****************************/
+
+  /*
+   * see Vector for more information
+   */
+
+  /**
+   * @brief add a scalar to this matrix
+   *
+   * @tparam TScalar
+   * @param scalar
+   * @return std::enable_if_t<std::is_arithmetic_v<TScalar>,Matrix<N, M, T> &>
+   */
+  template <class TScalar>
+  typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Matrix<N, M, T> &>
+  operator+=(const TScalar &scalar) {
+    for (auto &row : data_) {
+      row += scalar;
+    }
+    return *this;
+  }
+
+  /**
+   * @brief subtract a scalar from every element of this matrix
+   *
+   * @tparam TScalar
+   * @param scalar
+   * @return std::enable_if_t<std::is_arithmetic_v<TScalar>, Matrix<N, M, T> &>
+   */
+  template <class TScalar>
+  typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Matrix<N, M, T> &>
+  operator-=(const TScalar &scalar) {
+    for (auto &row : data_) {
+      row -= scalar;
+    }
+    return *this;
+  }
+
+  /**
+   * @brief multiply a scalar with this matrix
+   *
+   * @tparam TScalar
+   * @param scalar
+   * @return std::enable_if_t<std::is_arithmetic_v<TScalar>,Matrix<N, M, T> &>
+   */
+  template <class TScalar>
+  typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Matrix<N, M, T> &>
+  operator*=(const TScalar &scalar) {
+    for (auto &row : data_) {
+      row *= scalar;
+    }
+    return *this;
+  }
+
+  /**
+   * @brief divide every element of this matrix by a scalar
+   *
+   * division by zero on integral types triggers an assert
+   *
+   * @tparam TScalar
+   * @param scalar
+   * @return std::enable_if_t<std::is_arithmetic_v<TScalar>, Matrix<N, M, T> &>
+   */
+  template <class TScalar>
+  typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Matrix<N, M, T> &>
+  operator/=(const TScalar &scalar) {
+    /* a division by zero is forwarded to and handled by the Vector class */
+    for (auto &row : data_) {
+      row /= scalar;
+    }
+    return *this;
+  }
+
+  /*************************************************************************/
+
  protected:
   std::array<Vector<M, T>, N> data_;
 };
+
+/**************************** matrix <> scalar *****************************/
+
+/**
+ * @brief matrix and scalar addition
+ *
+ * see operator+=(scalar)
+ *
+ * @tparam N
+ * @tparam T
+ * @tparam TScalar
+ * @param lhs
+ * @param rhs
+ * @return std::enable_if_t<std::is_arithmetic_v<TScalar>, Matrix<N, M, T>>
+ */
+template <std::size_t N, std::size_t M, class T, class TScalar>
+typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Matrix<N, M, T>> inline
+operator+(const Matrix<N, M, T> &lhs, const TScalar &rhs) {
+  return Matrix<N, M, T>(lhs) += rhs;
+}
+
+/**
+ * @brief matrix and scalar addition
+ *
+ * see operator+=(scalar)
+ *
+ * @tparam N
+ * @tparam T
+ * @tparam TScalar
+ * @param lhs
+ * @param rhs
+ * @return std::enable_if_t<std::is_arithmetic_v<TScalar>, Matrix<N, M, T>>
+ */
+template <std::size_t N, std::size_t M, class T, class TScalar>
+typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Matrix<N, M, T>> inline
+operator+(const TScalar &lhs, const Matrix<N, M, T> &rhs) {
+  return Matrix<N, M, T>(rhs) += lhs;
+}
+
+/**
+ * @brief subtract a scalar from this matrix
+ *
+ * @tparam N
+ * @tparam T
+ * @tparam TScalar
+ * @param lhs
+ * @param rhs
+ * @return std::enable_if_t<std::is_arithmetic_v<TScalar>, Matrix<N, M, T>>
+ */
+template <std::size_t N, std::size_t M, class T, class TScalar>
+typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Matrix<N, M, T>> inline
+operator-(const Matrix<N, M, T> &lhs, const TScalar &rhs) {
+  return Matrix<N, M, T>(lhs) -= rhs;
+}
+
+/**
+ * @brief matrix and scalar multiplication
+ *
+ * see operator*=(scalar)
+ *
+ * @tparam N
+ * @tparam T
+ * @tparam TScalar
+ * @param lhs
+ * @param rhs
+ * @return std::enable_if_t<std::is_arithmetic_v<TScalar>, Matrix<N, M, T>>
+ */
+template <std::size_t N, std::size_t M, class T, class TScalar>
+typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Matrix<N, M, T>> inline
+operator*(const Matrix<N, M, T> &lhs, const TScalar &rhs) {
+  return Matrix<N, M, T>(lhs) *= rhs;
+}
+
+/**
+ * @brief matrix and scalar multiplication
+ *
+ * see operator*=(scalar)
+ *
+ * @tparam N
+ * @tparam T
+ * @tparam TScalar
+ * @param lhs
+ * @param rhs
+ * @return std::enable_if_t<std::is_arithmetic_v<TScalar>, Matrix<N, M, T>>
+ */
+template <std::size_t N, std::size_t M, class T, class TScalar>
+typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Matrix<N, M, T>> inline
+operator*(const TScalar &lhs, const Matrix<N, M, T> &rhs) {
+  return Matrix<N, M, T>(rhs) *= lhs;
+}
+
+/**
+ * @brief matrix and scalar division
+ *
+ * @tparam N
+ * @tparam T
+ * @tparam TScalar
+ * @param lhs
+ * @param rhs
+ * @return std::enable_if_t<std::is_arithmetic_v<TScalar>, Matrix<N, M, T>>
+ */
+template <std::size_t N, std::size_t M, class T, class TScalar>
+typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Matrix<N, M, T>> inline
+operator/(const Matrix<N, M, T> &lhs, const TScalar &rhs) {
+  return Matrix<N, M, T>(lhs) /= rhs;
+}
 
 /************************* convenience functions ***************************/
 
