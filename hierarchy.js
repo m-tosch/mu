@@ -1,5 +1,8 @@
 var hierarchy =
 [
+    [ "conditional_t", null, [
+      [ "ScalarCombinationsFixture< T >", "classScalarCombinationsFixture.html", null ]
+    ] ],
     [ "LambdaCompare", "structLambdaCompare.html", null ],
     [ "mu::Matrix< N, M, T >", "classmu_1_1Matrix.html", null ],
     [ "Test", null, [
@@ -12,8 +15,7 @@ var hierarchy =
       ] ],
       [ "VectorTypeFixture< std::tuple_element< 0, T >::type >", "classVectorTypeFixture.html", [
         [ "VectorCombinationsInitFixture< T >", "classVectorCombinationsInitFixture.html", null ],
-        [ "VectorCombinationsMathFixture< T >", "classVectorCombinationsMathFixture.html", null ],
-        [ "VectorScalarCombinationsFixture< T >", "classVectorScalarCombinationsFixture.html", null ]
+        [ "VectorCombinationsMathFixture< T >", "classVectorCombinationsMathFixture.html", null ]
       ] ]
     ] ],
     [ "mu::TypeTraits< T >", "structmu_1_1TypeTraits.html", null ],
