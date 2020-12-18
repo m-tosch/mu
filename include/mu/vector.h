@@ -520,8 +520,8 @@ class Vector {
   template <class TScalar>
   typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Vector<N, T> &>
   operator+=(const TScalar &scalar) {
-    for (std::size_t i = 0; i < N; i++) {
-      data_[i] += scalar;
+    for (auto &item : data_) {
+      item += scalar;
     }
     return *this;
   }
@@ -536,8 +536,8 @@ class Vector {
   template <class TScalar>
   typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Vector<N, T> &>
   operator-=(const TScalar &scalar) {
-    for (std::size_t i = 0; i < N; i++) {
-      data_[i] -= scalar;
+    for (auto &item : data_) {
+      item -= scalar;
     }
     return *this;
   }
@@ -552,8 +552,8 @@ class Vector {
   template <class TScalar>
   typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Vector<N, T> &>
   operator*=(const TScalar &scalar) {
-    for (std::size_t i = 0; i < N; i++) {
-      data_[i] *= scalar;
+    for (auto &item : data_) {
+      item *= scalar;
     }
     return *this;
   }
@@ -576,8 +576,8 @@ class Vector {
     if constexpr (std::is_integral_v<TScalar>) {
       assert(scalar != static_cast<TScalar>(0));
     }
-    for (std::size_t i = 0; i < N; i++) {
-      data_[i] /= scalar;
+    for (auto &item : data_) {
+      item /= scalar;
     }
     return *this;
   }
