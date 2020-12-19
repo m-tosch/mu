@@ -41,17 +41,6 @@ using SecondBaseTypeFixture =
                                       typename std::tuple_element<1, T>::type>,
                        EmptyBase, BaseTypeFixture<T, 1>>;
 
-/* ...the test fixture needs to know which base type fixture to use for the
- * second test setup. this evaluates the index for that second base (0 or 1) */
-template <typename T>
-constexpr auto base_idx() {
-  if constexpr (std::is_same_v<SecondBaseTypeFixture<T>, EmptyBase>) {
-    return std::pair<std::size_t, std::size_t>(0, 0);
-  } else {
-    return std::pair<std::size_t, std::size_t>(0, 1);
-  }
-}
-
 /* test fixture for same type tests (e.g. vector<>vector). multiple
  * inheritance, because the types inside e.g. two vectors may be different.
  * therefore different type test values are needed. it is assumed that the
@@ -59,17 +48,28 @@ constexpr auto base_idx() {
 template <typename T>
 class SameTypeCombinationsFixture : public BaseTypeFixture<T, 0>,
                                     public SecondBaseTypeFixture<T> {
+  /* ...the test fixture needs to know which base type fixture to use for the
+   * second test setup. this evaluates the index for that 2nd base (0 or 1) */
+  static constexpr auto base_idx() {
+    if constexpr (std::is_same_v<SecondBaseTypeFixture<T>, EmptyBase>) {
+      return std::pair<std::size_t, std::size_t>(0, 0);
+    } else {
+      return std::pair<std::size_t, std::size_t>(0, 1);
+    }
+  }
+
+  /*actual gtest setup*/
  public:
-  using BaseTypeFixture1 = BaseTypeFixture<T, base_idx<T>().first>;
-  using BaseTypeFixture2 = BaseTypeFixture<T, base_idx<T>().second>;
+  using BaseTypeFixture1 = BaseTypeFixture<T, base_idx().first>;
+  using BaseTypeFixture2 = BaseTypeFixture<T, base_idx().second>;
 
   void SetUp() override {  // NOLINT
     BaseTypeFixture1::SetUp();
     BaseTypeFixture2::SetUp();
   }
   /* "alias" variables and functions for easier use in test functions */
-  using T1 = typename std::tuple_element<base_idx<T>().first, T>::type;
-  using T2 = typename std::tuple_element<base_idx<T>().second, T>::type;
+  using T1 = typename std::tuple_element<base_idx().first, T>::type;
+  using T2 = typename std::tuple_element<base_idx().second, T>::type;
   auto values() { return BaseTypeFixture1::values; }
   auto values2() { return BaseTypeFixture2::values; }
 };
