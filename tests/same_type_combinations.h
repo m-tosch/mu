@@ -91,41 +91,41 @@ TYPED_TEST_P(SameTypeCombinationsInitFixture, ConstructorFromDifferentType) {
   using T2_v = typename TestFixture::T2::value_type;
   /** arrange */
   T1 obj{this->values()};
-  /* call the type casting constructor. no exception must be thrown */
-  EXPECT_NO_THROW((T2{obj}));  // NOLINT "pre-assert"
-  // for future reference: EXPECT_NO_THROW(([&] { T2 tmp{obj}; }()));
   /** action */
-  T2 res{obj};
+  T2 res1{obj};   // direct initialization
+  T2 res2 = obj;  // copy initialization
   /** assert */
   T2 comp;
   std::transform(this->values().begin(), this->values().end(), comp.begin(),
                  [](T1_v data) { return static_cast<T2_v>(data); });
-  EXPECT_THAT(res, ::testing::ContainerEq(comp));
+  EXPECT_NO_THROW((T2{obj}));  // NOLINT "pre-assert"
+  // for future reference: EXPECT_NO_THROW(([&] { T2 tmp{obj}; }()));
+  EXPECT_THAT(res1, ::testing::ContainerEq(comp));
+  EXPECT_THAT(res2, ::testing::ContainerEq(comp));
 }
 
 TYPED_TEST_P(SameTypeCombinationsInitFixture,
-             ConstructorFromDifferentTypeAssignment) {
-  using T1 = typename TestFixture::T1;
+             ConstructorFromDifferentTypeArray) {
   using T2 = typename TestFixture::T2;
   using T1_v = typename TestFixture::T1::value_type;
   using T2_v = typename TestFixture::T2::value_type;
-  /** arrange */
-  T1 obj{this->values()};
-  /* call the type casting constructor. no exception must be thrown */
-  EXPECT_NO_THROW((T2{obj}));  // NOLINT "pre-assert"
-  // for future reference: EXPECT_NO_THROW(([&] { T2 tmp{obj}; }()));
   /** action */
-  T2 res = obj;
+  T2 res1{this->values()};     // direct initialization
+  T2 res2 = this->values();    // copy initialization
+  T2 res3 = {this->values()};  // list initialization
   /** assert */
   T2 comp;
   std::transform(this->values().begin(), this->values().end(), comp.begin(),
                  [](T1_v data) { return static_cast<T2_v>(data); });
-  EXPECT_THAT(res, ::testing::ContainerEq(comp));
+  EXPECT_NO_THROW((T2{this->values()}));  // NOLINT "pre-assert"
+  EXPECT_THAT(res1, ::testing::ContainerEq(comp));
+  EXPECT_THAT(res2, ::testing::ContainerEq(comp));
+  EXPECT_THAT(res3, ::testing::ContainerEq(comp));
 }
 
 REGISTER_TYPED_TEST_SUITE_P(SameTypeCombinationsInitFixture,
                             ConstructorFromDifferentType,
-                            ConstructorFromDifferentTypeAssignment);
+                            ConstructorFromDifferentTypeArray);
 
 /********************************* MATH ************************************/
 
