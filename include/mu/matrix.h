@@ -71,15 +71,15 @@ class Matrix {
    * @tparam Nn
    * @tparam Mm
    * @tparam U
-   * @param other
+   * @param m
    */
   template <std::size_t Nn, std::size_t Mm, class U>
   // NOLINTNEXTLINE(runtime/explicit) implicit conversion is intentional
-  Matrix(const Matrix<Nn, Mm, U> &other) {
+  Matrix(const Matrix<Nn, Mm, U> &m) {
     static_assert(N == Nn, "Matrix dimension mismatch (rows)");
     static_assert(M == Mm, "Matrix dimension mismatch (columns)");
     for (std::size_t i = 0; i < N; i++) {
-      data_[i] = other[i];
+      data_[i] = m[i];
     }
   }
 

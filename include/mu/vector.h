@@ -78,13 +78,13 @@ class Vector {
    *
    * @tparam Nn
    * @tparam U
-   * @param other
+   * @param v
    */
   template <std::size_t Nn, class U>
   // NOLINTNEXTLINE(runtime/explicit) implicit conversion is intentional
-  Vector(const Vector<Nn, U> &other) {
+  Vector(const Vector<Nn, U> &v) {
     static_assert(N == Nn, "Vector size mismatch");
-    std::transform(other.begin(), other.end(), begin(),
+    std::transform(v.begin(), v.end(), begin(),
                    [](U data) { return static_cast<T>(data); });
   }
 
@@ -294,12 +294,12 @@ class Vector {
    * @tparam U
    * @tparam N2
    * @tparam T2
-   * @param other
+   * @param rhs
    * @return std::conditional_t<std::is_same_v<U, void>, T, U>
    */
   template <typename U = void, std::size_t N2, typename T2>
   std::conditional_t<std::is_same_v<U, void>, T, U> dot(
-      const Vector<N2, T2> &other) const {
+      const Vector<N2, T2> &rhs) const {
     static_assert(N == N2, "Vector size mismatch");
     if constexpr (!std::is_same_v<T, T2>) {
       static_assert(!std::is_same_v<U, void>,
@@ -309,7 +309,7 @@ class Vector {
     using U_ = std::conditional_t<std::is_same_v<U, void>, T, U>;
     U_ ret{};
     for (std::size_t i = 0; i < N; i++) {
-      ret += data_[i] * other[i];
+      ret += data_[i] * rhs[i];
     }
     return ret;
   }
