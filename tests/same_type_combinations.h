@@ -58,7 +58,7 @@ class SameTypeCombinationsFixture : public BaseTypeFixture<T, 0>,
     }
   }
 
-  /*actual gtest setup*/
+  /* actual gtest setup */
  public:
   using BaseTypeFixture1 = BaseTypeFixture<T, base_idx().first>;
   using BaseTypeFixture2 = BaseTypeFixture<T, base_idx().second>;

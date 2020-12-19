@@ -115,12 +115,6 @@ template bool mu::Vector<2, float>::operator==
 template bool mu::Vector<2, float>::operator!=
     <int>(const mu::Vector<2, int> &) const;
 
-/* convenience functions */
-/* these functions should take a combination of Vectors, so they're here.
- * functions that take e.g a single Vector as argument are elsewhere */
-template int mu::dot<int, 2, float, 2, float>(const mu::Vector<2, float> &,
-                                              const mu::Vector<2, float> &);
-
 using VectorTypeCombinationsMath = ::testing::Types<
     /* Vector */
     std::tuple<mu::Vector<2, float>, mu::Vector<2, float>>,
@@ -153,67 +147,60 @@ using VectorTypeCombinationsMath = ::testing::Types<
 INSTANTIATE_TYPED_TEST_SUITE_P(Vector, SameTypeCombinationsFixture,
                                VectorTypeCombinationsMath);
 
-// template <typename T>
-// class VectorCombinationsMathFixture
-//     : public VectorTypeFixture<typename std::tuple_element<0, T>::type> {
-//  public:
-//   typedef typename std::tuple_element<0, T>::type T1;
-//   typedef typename std::tuple_element<1, T>::type T2;
+/************************* Vector specific tests ***************************/
 
-//   void SetUp() override {  // NOLINT
-//     /* explicitly call base class setup with first tuple type */
-//     VectorTypeFixture<T1>::SetUp();
-//     /* build a second values list (just like in the parent fixture) with the
-//      * type of the second tuple element. this type may be different! */
-//     auto start = static_cast<typename T2::value_type>(0);
-//     auto incr = static_cast<typename T2::value_type>(1.5F);  // NOLINT
-//     values2 = VectorTypeFixture<T1>::template make_test_values<
-//         typename T2::value_type>(start, incr);
-//   }
-//   std::array<typename T2::value_type, VectorTypeFixture<T2>::dummy.size()>
-//       values2;
-// };
+/* convenience functions */
+/* these functions should take a combination of Vectors, so they're here.
+ * functions that take e.g a single Vector as argument are elsewhere */
+template int mu::dot<int, 2, float, 2, float>(const mu::Vector<2, float> &,
+                                              const mu::Vector<2, float> &);
 
-// TYPED_TEST_SUITE(VectorCombinationsMathFixture, VectorTypeCombinationsMath);
+template <typename T>
+class VectorCombinationsMathFixture : public SameTypeCombinationsFixture<T> {
+ public:
+  void SetUp() override {  // NOLINT
+    SameTypeCombinationsFixture<T>::SetUp();
+  }
+};
 
-// TYPED_TEST(VectorCombinationsMathFixture, MemberFuncDot) {
-//   /** arrange */
-//   typename TestFixture::T1 obj1{this->values};
-//   typename TestFixture::T2 obj2{this->values2};
-//   /** action */
-//   typename TestFixture::T1::value_type res{};
-//   if constexpr (std::is_same_v<typename TestFixture::T1,
-//                                typename TestFixture::T2>) {
-//     res = obj1.template dot(obj2);
-//   } else {
-//     res = obj1.template dot<typename TestFixture::T1::value_type>(obj2);
-//   }
-//   /** assert */
-//   typename TestFixture::T1::value_type comp =
-//       std::inner_product(obj1.begin(), obj1.end(), obj2.begin(),
-//                          static_cast<typename
-//                          TestFixture::T1::value_type>(0));
-//   EXPECT_FLOAT_EQ(res, comp);
-// }
+TYPED_TEST_SUITE(VectorCombinationsMathFixture, VectorTypeCombinationsMath);
 
-// /************************* convenience functions ***************************/
+TYPED_TEST(VectorCombinationsMathFixture, MemberFuncDot) {
+  /** arrange */
+  typename TestFixture::T1 obj1{this->values()};
+  typename TestFixture::T2 obj2{this->values2()};
+  /** action */
+  typename TestFixture::T1::value_type res{};
+  if constexpr (std::is_same_v<typename TestFixture::T1,
+                               typename TestFixture::T2>) {
+    res = obj1.template dot(obj2);
+  } else {
+    res = obj1.template dot<typename TestFixture::T1::value_type>(obj2);
+  }
+  /** assert */
+  typename TestFixture::T1::value_type comp =
+      std::inner_product(obj1.begin(), obj1.end(), obj2.begin(),
+                         static_cast<typename TestFixture::T1::value_type>(0));
+  EXPECT_FLOAT_EQ(res, comp);
+}
 
-// TYPED_TEST(VectorCombinationsMathFixture, UtilityFuncDot) {
-//   /** arrange */
-//   typename TestFixture::T1 obj1{this->values};
-//   typename TestFixture::T2 obj2{this->values2};
-//   /** action */
-//   typename TestFixture::T1::value_type res{};
-//   if constexpr (std::is_same_v<typename TestFixture::T1,
-//                                typename TestFixture::T2>) {
-//     res = mu::dot(obj1, obj2);
-//   } else {
-//     res = mu::dot<typename TestFixture::T1::value_type>(obj1, obj2);
-//   }
-//   /** assert */
-//   typename TestFixture::T1::value_type comp =
-//       std::inner_product(obj1.begin(), obj1.end(), obj2.begin(),
-//                          static_cast<typename
-//                          TestFixture::T1::value_type>(0));
-//   EXPECT_FLOAT_EQ(res, comp);
-// }
+/************************* convenience functions ***************************/
+
+TYPED_TEST(VectorCombinationsMathFixture, UtilityFuncDot) {
+  /** arrange */
+  typename TestFixture::T1 obj1{this->values()};
+  typename TestFixture::T2 obj2{this->values2()};
+  /** action */
+  typename TestFixture::T1::value_type res{};
+  if constexpr (std::is_same_v<typename TestFixture::T1,
+                               typename TestFixture::T2>) {
+    res = mu::dot(obj1, obj2);
+  } else {
+    res = mu::dot<typename TestFixture::T1::value_type>(obj1, obj2);
+  }
+  /** assert */
+  typename TestFixture::T1::value_type comp =
+      std::inner_product(obj1.begin(), obj1.end(), obj2.begin(),
+                         static_cast<typename TestFixture::T1::value_type>(0));
+  EXPECT_FLOAT_EQ(res, comp);
+}
