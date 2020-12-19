@@ -92,6 +92,38 @@ class Matrix {
   Matrix(const std::array<Vector<M, T>, N> &arr) : data_(arr) {}
 
   /**
+   * @brief Construct a new Matrix object from an std::array of Vectors of a
+   * different type
+   *
+   * @tparam U
+   * @param arr
+   */
+  template <typename U = T>
+  // NOLINTNEXTLINE(runtime/explicit) implicit to make copy-init. work
+  Matrix(const std::array<Vector<M, U>, N> &arr) {
+    for (std::size_t i = 0; i < N; i++) {
+      data_[i] = arr[i];  // narrowing may be applied
+    }
+  }
+
+  /**
+   * @brief Construct a new Matrix object from an std::array of std::arrays of a
+   * different type
+   *
+   * @tparam U
+   * @param arr
+   */
+  template <typename U = T>
+  // NOLINTNEXTLINE(runtime/explicit) implicit to make copy-init. work
+  Matrix(const std::array<std::array<U, M>, N> &arr) {
+    for (std::size_t i = 0; i < N; i++) {
+      for (std::size_t j = 0; j < M; j++) {
+        data_[i][j] = arr[i][j];  // narrowing may be applied
+      }
+    }
+  }
+
+  /**
    * @brief Construct a new Matrix object from an std::array of std::arrays
    *
    * @param arr

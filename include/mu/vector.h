@@ -97,6 +97,19 @@ class Vector {
   Vector(const std::array<T, N> &arr) : data_(arr) {}
 
   /**
+   * @brief Construct a new Vector object from an std::array of a different type
+   *
+   * @param arr
+   */
+  template <typename U = T>
+  // NOLINTNEXTLINE(runtime/explicit) implicit to make copy-init. work
+  Vector(const std::array<U, N> &arr) {
+    for (std::size_t i = 0; i < N; i++) {
+      data_[i] = arr[i];  // narrowing may be applied
+    }
+  }
+
+  /**
    * @brief Construct a new Vector object from a single value
    *
    * @param value
