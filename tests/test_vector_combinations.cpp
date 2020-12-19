@@ -9,7 +9,7 @@
 #include "same_type_combinations.h"
 #include "vector_type.h"
 
-/*************************** INITIALIZATION ********************************/
+/********************************* INIT ************************************/
 
 /**
  * explicit instantiations
@@ -24,70 +24,27 @@ template mu::Vector<2, float>::Vector(const mu::Vector<2, int> &);
  */
 using VectorTypeCombinationsInit = ::testing::Types<
     /* Vector */
+    std::tuple<mu::Vector<2, float>, mu::Vector<2, int>>,
     std::tuple<mu::Vector<2, int>, mu::Vector<2, float>>,
-    std::tuple<mu::Vector<2, int>, mu::Vector2D<float>>,
-    std::tuple<mu::Vector<3, int>, mu::Vector3D<float>>,
     /* Vector2D */
-    std::tuple<mu::Vector2D<int>, mu::Vector2D<float>>,
+    std::tuple<mu::Vector<2, float>, mu::Vector2D<int>>,
+    std::tuple<mu::Vector2D<float>, mu::Vector<2, int>>,
+    std::tuple<mu::Vector2D<float>, mu::Vector2D<int>>,
+    // both ways
+    std::tuple<mu::Vector<2, int>, mu::Vector2D<float>>,
     std::tuple<mu::Vector2D<int>, mu::Vector<2, float>>,
+    std::tuple<mu::Vector2D<int>, mu::Vector2D<float>>,
     /* Vector3D */
-    std::tuple<mu::Vector3D<int>, mu::Vector3D<float>>,
-    std::tuple<mu::Vector3D<int>, mu::Vector<3, float>>>;
+    std::tuple<mu::Vector<3, float>, mu::Vector3D<int>>,
+    std::tuple<mu::Vector3D<float>, mu::Vector<3, int>>,
+    std::tuple<mu::Vector3D<float>, mu::Vector3D<int>>,
+    // both ways
+    std::tuple<mu::Vector<3, int>, mu::Vector3D<float>>,
+    std::tuple<mu::Vector3D<int>, mu::Vector<3, float>>,
+    std::tuple<mu::Vector3D<int>, mu::Vector3D<float>>>;
 
-template <typename T>
-class VectorCombinationsInitFixture
-    : public VectorTypeFixture<typename std::tuple_element<0, T>::type> {
- public:
-  typedef typename std::tuple_element<0, T>::type T1;
-  typedef typename std::tuple_element<1, T>::type T2;
-};
-
-TYPED_TEST_SUITE(VectorCombinationsInitFixture, VectorTypeCombinationsInit);
-
-TYPED_TEST(VectorCombinationsInitFixture, ConstructorFromDifferentTypeVector) {
-  /* call the type casting constructor in Vector. no exception must be thrown */
-  using T1 = typename TestFixture::T1;
-  using T2 = typename TestFixture::T2;
-  using T1_v = typename TestFixture::T1::value_type;
-  using T2_v = typename TestFixture::T2::value_type;
-  /** arrange */
-  T1 obj{this->values};
-  EXPECT_NO_THROW((T2{obj}));  // NOLINT "pre-assert"
-  // for future reference: EXPECT_NO_THROW(([&] { T2 tmp{obj}; }()));
-  /** action */
-  T2 res{obj};
-  /* build comparison array. mimic what the constructor in Vector does */
-  static T2 dummy;
-  std::array<typename T2::value_type, dummy.size()> comp;
-  std::transform(this->values.begin(), this->values.end(), comp.begin(),
-                 [](T1_v i) { return static_cast<T2_v>(i); });
-  /** assert */
-  EXPECT_THAT(res, ::testing::ContainerEq(T2{comp}));
-}
-
-TYPED_TEST(VectorCombinationsInitFixture,
-           ConstructorFromDifferentTypeVectorAssignment) {
-  /* call the type casting constructor in Vector. no exception must be thrown */
-  using T1 = typename TestFixture::T1;
-  using T2 = typename TestFixture::T2;
-  using T1_v = typename TestFixture::T1::value_type;
-  using T2_v = typename TestFixture::T2::value_type;
-  /** arrange */
-  T1 obj{this->values};
-  EXPECT_NO_THROW(([&] {  // NOLINT "pre-assert"
-    T2 tmp = obj;
-    tmp = obj;  // this line is only here to avoid "unused variable" warning
-  }()));
-  /** action */
-  T2 res = obj;
-  /* build comparison array. mimic what the constructor in Vector does */
-  static T2 dummy;
-  std::array<typename T2::value_type, dummy.size()> comp;
-  std::transform(this->values.begin(), this->values.end(), comp.begin(),
-                 [](T1_v i) { return static_cast<T2_v>(i); });
-  /** assert */
-  EXPECT_THAT(res, ::testing::ContainerEq(T2{comp}));
-}
+INSTANTIATE_TYPED_TEST_SUITE_P(Vector, SameTypeCombinationsInitFixture,
+                               VectorTypeCombinationsInit);
 
 /****************************** MATH ***************************************/
 
@@ -144,7 +101,7 @@ using VectorTypeCombinationsMath = ::testing::Types<
     std::tuple<mu::Vector3D<int>, mu::Vector<3, float>>,
     std::tuple<mu::Vector3D<int>, mu::Vector3D<float>>>;
 
-INSTANTIATE_TYPED_TEST_SUITE_P(Vector, SameTypeCombinationsFixture,
+INSTANTIATE_TYPED_TEST_SUITE_P(Vector, SameTypeCombinationsMathFixture,
                                VectorTypeCombinationsMath);
 
 /************************* Vector specific tests ***************************/

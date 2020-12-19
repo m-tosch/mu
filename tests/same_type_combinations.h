@@ -72,9 +72,66 @@ class SameTypeCombinationsFixture : public BaseTypeFixture<T, 0>,
   auto values2() { return BaseTypeFixture2::values; }
 };
 
-TYPED_TEST_SUITE_P(SameTypeCombinationsFixture);
+/********************************* INIT ************************************/
 
-TYPED_TEST_P(SameTypeCombinationsFixture, OperatorEqual) {
+template <typename T>
+class SameTypeCombinationsInitFixture : public SameTypeCombinationsFixture<T> {
+ public:
+  void SetUp() override {  // NOLINT
+    SameTypeCombinationsFixture<T>::SetUp();
+  }
+};
+
+TYPED_TEST_SUITE_P(SameTypeCombinationsInitFixture);
+
+TYPED_TEST_P(SameTypeCombinationsInitFixture, ConstructorFromDifferentType) {
+  /** arrange */
+  typename TestFixture::T1 obj{this->values()};
+  /* call the type casting constructor. no exception must be thrown */
+  EXPECT_NO_THROW((typename TestFixture::T2{obj}));  // NOLINT "pre-assert"
+  // for future reference: EXPECT_NO_THROW(([&] { T2 tmp{obj}; }()));
+  /** action */
+  typename TestFixture::T2 res{obj};
+  /** assert */
+  /* build comparison object by calling the constructor that takes a (possibly
+   * nested) std array of a different type */
+  typename TestFixture::T2 comp = this->values();
+  EXPECT_THAT(res, ::testing::ContainerEq(comp));
+}
+
+TYPED_TEST_P(SameTypeCombinationsInitFixture,
+             ConstructorFromDifferentTypeAssignment) {
+  /** arrange */
+  typename TestFixture::T1 obj{this->values()};
+  /* call the type casting constructor. no exception must be thrown */
+  EXPECT_NO_THROW((typename TestFixture::T2{obj}));  // NOLINT "pre-assert"
+  // for future reference: EXPECT_NO_THROW(([&] { T2 tmp{obj}; }()));
+  /** action */
+  typename TestFixture::T2 res = obj;
+  /** assert */
+  /* build comparison object by calling the constructor that takes a (possibly
+   * nested) std array of a different type */
+  typename TestFixture::T2 comp = this->values();
+  EXPECT_THAT(res, ::testing::ContainerEq(comp));
+}
+
+REGISTER_TYPED_TEST_SUITE_P(SameTypeCombinationsInitFixture,
+                            ConstructorFromDifferentType,
+                            ConstructorFromDifferentTypeAssignment);
+
+/********************************* MATH ************************************/
+
+template <typename T>
+class SameTypeCombinationsMathFixture : public SameTypeCombinationsFixture<T> {
+ public:
+  void SetUp() override {  // NOLINT
+    SameTypeCombinationsFixture<T>::SetUp();
+  }
+};
+
+TYPED_TEST_SUITE_P(SameTypeCombinationsMathFixture);
+
+TYPED_TEST_P(SameTypeCombinationsMathFixture, OperatorEqual) {
   /** arrange */
   typename TestFixture::T1 obj1{this->values()};
   typename TestFixture::T2 obj2{this->values2()};
@@ -97,7 +154,7 @@ TYPED_TEST_P(SameTypeCombinationsFixture, OperatorEqual) {
   EXPECT_FALSE(res2);
 }
 
-TYPED_TEST_P(SameTypeCombinationsFixture, OperatorNotEqual) {
+TYPED_TEST_P(SameTypeCombinationsMathFixture, OperatorNotEqual) {
   /** arrange */
   typename TestFixture::T1 obj1{this->values()};
   typename TestFixture::T2 obj2{this->values2()};
@@ -120,7 +177,7 @@ TYPED_TEST_P(SameTypeCombinationsFixture, OperatorNotEqual) {
   EXPECT_TRUE(res2);
 }
 
-TYPED_TEST_P(SameTypeCombinationsFixture, OperatorPlus) {
+TYPED_TEST_P(SameTypeCombinationsMathFixture, OperatorPlus) {
   /** arrange */
   typename TestFixture::T1 obj1{this->values()};
   typename TestFixture::T2 obj2{this->values2()};
@@ -135,7 +192,7 @@ TYPED_TEST_P(SameTypeCombinationsFixture, OperatorPlus) {
   EXPECT_THAT(res, ::testing::ContainerEq(comp));
 }
 
-TYPED_TEST_P(SameTypeCombinationsFixture, OperatorPlusEqual) {
+TYPED_TEST_P(SameTypeCombinationsMathFixture, OperatorPlusEqual) {
   /** arrange */
   typename TestFixture::T1 obj1{this->values()};
   typename TestFixture::T2 obj2{this->values2()};
@@ -150,7 +207,7 @@ TYPED_TEST_P(SameTypeCombinationsFixture, OperatorPlusEqual) {
   EXPECT_THAT(obj1, ::testing::ContainerEq(comp));
 }
 
-TYPED_TEST_P(SameTypeCombinationsFixture, OperatorMinus) {
+TYPED_TEST_P(SameTypeCombinationsMathFixture, OperatorMinus) {
   /** arrange */
   typename TestFixture::T1 obj1{this->values()};
   typename TestFixture::T2 obj2{this->values2()};
@@ -165,7 +222,7 @@ TYPED_TEST_P(SameTypeCombinationsFixture, OperatorMinus) {
   EXPECT_THAT(res, ::testing::ContainerEq(comp));
 }
 
-TYPED_TEST_P(SameTypeCombinationsFixture, OperatorMinusEqual) {
+TYPED_TEST_P(SameTypeCombinationsMathFixture, OperatorMinusEqual) {
   /** arrange */
   typename TestFixture::T1 obj1{this->values()};
   typename TestFixture::T2 obj2{this->values2()};
@@ -180,7 +237,7 @@ TYPED_TEST_P(SameTypeCombinationsFixture, OperatorMinusEqual) {
   EXPECT_THAT(obj1, ::testing::ContainerEq(comp));
 }
 
-TYPED_TEST_P(SameTypeCombinationsFixture, OperatorMultiply) {
+TYPED_TEST_P(SameTypeCombinationsMathFixture, OperatorMultiply) {
   /** arrange */
   typename TestFixture::T1 obj1{this->values()};
   typename TestFixture::T2 obj2{this->values2()};
@@ -195,7 +252,7 @@ TYPED_TEST_P(SameTypeCombinationsFixture, OperatorMultiply) {
   EXPECT_THAT(res, ::testing::ContainerEq(comp));
 }
 
-TYPED_TEST_P(SameTypeCombinationsFixture, OperatorMultiplyEqual) {
+TYPED_TEST_P(SameTypeCombinationsMathFixture, OperatorMultiplyEqual) {
   /** arrange */
   typename TestFixture::T1 obj1{this->values()};
   typename TestFixture::T2 obj2{this->values2()};
@@ -210,7 +267,7 @@ TYPED_TEST_P(SameTypeCombinationsFixture, OperatorMultiplyEqual) {
   EXPECT_THAT(obj1, ::testing::ContainerEq(comp));
 }
 
-TYPED_TEST_P(SameTypeCombinationsFixture, OperatorDivide) {
+TYPED_TEST_P(SameTypeCombinationsMathFixture, OperatorDivide) {
   /** arrange */
   typename TestFixture::T1 obj1{this->values()};
   typename TestFixture::T2 obj2{this->values2()};
@@ -225,7 +282,7 @@ TYPED_TEST_P(SameTypeCombinationsFixture, OperatorDivide) {
   EXPECT_THAT(res, ::testing::ContainerEq(comp));
 }
 
-TYPED_TEST_P(SameTypeCombinationsFixture, OperatorDivideEqual) {
+TYPED_TEST_P(SameTypeCombinationsMathFixture, OperatorDivideEqual) {
   /** arrange */
   typename TestFixture::T1 obj1{this->values()};
   typename TestFixture::T2 obj2{this->values2()};
@@ -240,7 +297,7 @@ TYPED_TEST_P(SameTypeCombinationsFixture, OperatorDivideEqual) {
   EXPECT_THAT(obj1, ::testing::ContainerEq(comp));
 }
 
-REGISTER_TYPED_TEST_SUITE_P(SameTypeCombinationsFixture, OperatorEqual,
+REGISTER_TYPED_TEST_SUITE_P(SameTypeCombinationsMathFixture, OperatorEqual,
                             OperatorNotEqual, OperatorPlus, OperatorPlusEqual,
                             OperatorMinus, OperatorMinusEqual, OperatorMultiply,
                             OperatorMultiplyEqual, OperatorDivide,
