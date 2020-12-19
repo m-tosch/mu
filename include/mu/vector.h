@@ -114,8 +114,11 @@ class Vector {
    *
    * @param value
    */
+  template <typename U = T, std::enable_if_t<std::is_arithmetic_v<U>, int> = 0>
   // NOLINTNEXTLINE(runtime/explicit) implicit to make copy-init. work
-  Vector(const T &value) { data_.fill(value); }
+  Vector(const U &value) {
+    data_.fill(value);
+  }
 
   /**
    * @brief Destroy the Vector object

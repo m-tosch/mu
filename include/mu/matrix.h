@@ -125,11 +125,14 @@ class Matrix {
 
   /**
    * @brief Construct a new Matrix object from a single value
+   * possibly of a different type
    *
+   * @tparam U
    * @param value
    */
+  template <typename U = T, std::enable_if_t<std::is_arithmetic_v<U>, int> = 0>
   // NOLINTNEXTLINE(runtime/explicit) implicit to make copy-init. work
-  Matrix(const T &value) {
+  Matrix(const U &value) {
     for (auto &item : data_) {
       item = {value};
     }
