@@ -1,5 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node2" href="$classSameTypeCombinationsFixture.html" title="SameTypeCombinationsFixture\&lt; T \&gt;" alt="" coords="219,5,456,32"/>
-<area shape="rect" id="node4" href="$classScalarCombinationsFixture.html" title="ScalarCombinationsFixture\&lt; T \&gt;" alt="" coords="232,56,443,83"/>
-<area shape="rect" id="node3" href="$classVectorCombinationsMathFixture.html" title="VectorCombinationsMathFixture\&lt; T \&gt;" alt="" coords="504,5,745,32"/>
+<area shape="rect" id="node2" href="$classSameTypeCombinationsFixture.html" title="SameTypeCombinationsFixture\&lt; T \&gt;" alt="" coords="219,78,456,105"/>
+<area shape="rect" id="node6" href="$classScalarCombinationsFixture.html" title="ScalarCombinationsFixture\&lt; T \&gt;" alt="" coords="232,129,443,155"/>
+<area shape="rect" id="node3" href="$classSameTypeCombinationsInitFixture.html" title="SameTypeCombinationsInit\lFixture\&lt; T \&gt;" alt="" coords="533,5,716,47"/>
+<area shape="rect" id="node4" href="$classSameTypeCombinationsMathFixture.html" title="SameTypeCombinationsMath\lFixture\&lt; T \&gt;" alt="" coords="527,71,722,112"/>
+<area shape="rect" id="node5" href="$classVectorCombinationsMathFixture.html" title="VectorCombinationsMathFixture\&lt; T \&gt;" alt="" coords="504,137,745,163"/>
 </map>

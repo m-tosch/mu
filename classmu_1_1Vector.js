@@ -6,8 +6,9 @@ var classmu_1_1Vector =
     [ "value_type", "classmu_1_1Vector.html#a4ce6dcb3e505735626b86b354fea6f25", null ],
     [ "Vector", "classmu_1_1Vector.html#a7931e7af478ad36f64e196dade093c30", null ],
     [ "Vector", "classmu_1_1Vector.html#ae1811fcd0b41864a64127eb82c7b699d", null ],
-    [ "Vector", "classmu_1_1Vector.html#a804e1cc69479d06a6a1d68c0179829b8", null ],
+    [ "Vector", "classmu_1_1Vector.html#a1fd85178491c5d9b5b67468bbed29e33", null ],
     [ "Vector", "classmu_1_1Vector.html#ac9c0117dddb77bdf6d14eed014705f49", null ],
+    [ "Vector", "classmu_1_1Vector.html#a8837cbb10dd36b26541f4d3408dc5a78", null ],
     [ "Vector", "classmu_1_1Vector.html#a50d4c3243e4a4110acb9165c498a60ff", null ],
     [ "~Vector", "classmu_1_1Vector.html#a40a06506c5feb65d38bb1586d3dab393", null ],
     [ "Vector", "classmu_1_1Vector.html#a0685dd9a3b39d92caa55c7e2f4336e37", null ],
@@ -16,7 +17,7 @@ var classmu_1_1Vector =
     [ "at", "classmu_1_1Vector.html#a722613947d35b97a32f930ef6b70c364", null ],
     [ "begin", "classmu_1_1Vector.html#a7d9d1c3218082522712fea2d5bc32868", null ],
     [ "begin", "classmu_1_1Vector.html#ab02fae7a5770b7980686695979b99a74", null ],
-    [ "dot", "classmu_1_1Vector.html#ab9526efacb75447a7662690d0aa41583", null ],
+    [ "dot", "classmu_1_1Vector.html#a6f43e987bd8cf0afbe8b087bb93ed325", null ],
     [ "end", "classmu_1_1Vector.html#a2caa4d33d64d146ca8c101d5005e025e", null ],
     [ "end", "classmu_1_1Vector.html#a3c733864c02356902b5d92e8fe2cd56c", null ],
     [ "flip", "classmu_1_1Vector.html#a597ca2de6348a91e896f3f2296a5bcd2", null ],
@@ -45,6 +46,6 @@ var classmu_1_1Vector =
     [ "sorted", "classmu_1_1Vector.html#a268fadef8c3774945acc651f22d18e16", null ],
     [ "sorted", "classmu_1_1Vector.html#adbcfbe6e288f4e4087dbc36f4579dce0", null ],
     [ "sum", "classmu_1_1Vector.html#a5aaede8fa7e0cfa50b044fcaf89cf1f2", null ],
-    [ "operator<<", "classmu_1_1Vector.html#a3df834ec75c18339d468034b5881404c", null ],
+    [ "operator<<", "classmu_1_1Vector.html#acbc09ad6f4202c5f362430b1b9919117", null ],
     [ "data_", "classmu_1_1Vector.html#ab69c10480bdde6f434244271de791219", null ]
 ];

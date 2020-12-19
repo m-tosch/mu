@@ -2,6 +2,8 @@ var hierarchy =
 [
     [ "BaseTypeFixture", null, [
       [ "SameTypeCombinationsFixture< T >", "classSameTypeCombinationsFixture.html", [
+        [ "SameTypeCombinationsInitFixture< T >", "classSameTypeCombinationsInitFixture.html", null ],
+        [ "SameTypeCombinationsMathFixture< T >", "classSameTypeCombinationsMathFixture.html", null ],
         [ "VectorCombinationsMathFixture< T >", "classVectorCombinationsMathFixture.html", null ]
       ] ],
       [ "ScalarCombinationsFixture< T >", "classScalarCombinationsFixture.html", null ]
@@ -19,9 +21,6 @@ var hierarchy =
       [ "VectorTypeFixture< T >", "classVectorTypeFixture.html", [
         [ "Vector2DTypeFixture< T >", "classVector2DTypeFixture.html", null ],
         [ "Vector3DTypeFixture< T >", "classVector3DTypeFixture.html", null ]
-      ] ],
-      [ "VectorTypeFixture< std::tuple_element< 0, T >::type >", "classVectorTypeFixture.html", [
-        [ "VectorCombinationsInitFixture< T >", "classVectorCombinationsInitFixture.html", null ]
       ] ]
     ] ],
     [ "mu::TypeTraits< T >", "structmu_1_1TypeTraits.html", null ],
