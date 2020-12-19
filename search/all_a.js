@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['sametypecombinationsfixture',['SameTypeCombinationsFixture',['../classSameTypeCombinationsFixture.html',1,'']]],
   ['scalarcombinationsfixture',['ScalarCombinationsFixture',['../classScalarCombinationsFixture.html',1,'']]],
   ['size',['size',['../classmu_1_1Matrix.html#a6ebbb484a736e514121ed8ebae4ac7e1',1,'mu::Matrix::size()'],['../classmu_1_1Vector.html#a1a6c382df2038bb89209087f1df0d60c',1,'mu::Vector::size()']]],
   ['sort',['sort',['../classmu_1_1Vector.html#a3274e01fb6a31b8e750ef2bd32cf61a3',1,'mu::Vector::sort()'],['../classmu_1_1Vector.html#a345ca284147c9d01c541548256c67a49',1,'mu::Vector::sort(const Compare &amp;comp)']]],

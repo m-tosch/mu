@@ -13,8 +13,10 @@ var annotated_dup =
       [ "Vector2D", "classmu_1_1Vector2D.html", "classmu_1_1Vector2D" ],
       [ "Vector3D", "classmu_1_1Vector3D.html", "classmu_1_1Vector3D" ]
     ] ],
+    [ "EmptyBase", "structEmptyBase.html", null ],
     [ "LambdaCompare", "structLambdaCompare.html", "structLambdaCompare" ],
     [ "MatrixTypeFixture", "classMatrixTypeFixture.html", "classMatrixTypeFixture" ],
+    [ "SameTypeCombinationsFixture", "classSameTypeCombinationsFixture.html", "classSameTypeCombinationsFixture" ],
     [ "ScalarCombinationsFixture", "classScalarCombinationsFixture.html", "classScalarCombinationsFixture" ],
     [ "TypeTraitsFixture", "classTypeTraitsFixture.html", null ],
     [ "UtilityFixture", "classUtilityFixture.html", "classUtilityFixture" ],

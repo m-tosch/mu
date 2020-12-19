@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['lambdacompare',['LambdaCompare',['../structLambdaCompare.html',1,'']]]
+  ['emptybase',['EmptyBase',['../structEmptyBase.html',1,'']]]
 ];
