@@ -70,12 +70,12 @@ class Matrix {
    *
    * @tparam Nn
    * @tparam Mm
-   * @tparam Tt
+   * @tparam U
    * @param other
    */
-  template <std::size_t Nn, std::size_t Mm, class Tt>
+  template <std::size_t Nn, std::size_t Mm, class U>
   // NOLINTNEXTLINE(runtime/explicit) implicit conversion is intentional
-  Matrix(const Matrix<Nn, Mm, Tt> &other) {
+  Matrix(const Matrix<Nn, Mm, U> &other) {
     static_assert(N == Nn, "Matrix dimension mismatch (rows)");
     static_assert(M == Mm, "Matrix dimension mismatch (columns)");
     for (std::size_t i = 0; i < N; i++) {
@@ -107,8 +107,8 @@ class Matrix {
   }
 
   /**
-   * @brief Construct a new Matrix object from an std::array of std::arrays of a
-   * different type
+   * @brief Construct a new Matrix object from an std::array of std::arrays.
+   * possibly of a different type
    *
    * @tparam U
    * @param arr
@@ -119,20 +119,6 @@ class Matrix {
     for (std::size_t i = 0; i < N; i++) {
       for (std::size_t j = 0; j < M; j++) {
         data_[i][j] = arr[i][j];  // narrowing may be applied
-      }
-    }
-  }
-
-  /**
-   * @brief Construct a new Matrix object from an std::array of std::arrays
-   *
-   * @param arr
-   */
-  // NOLINTNEXTLINE(runtime/explicit) implicit to make copy-init. work
-  Matrix(const std::array<std::array<T, M>, N> &arr) {
-    for (std::size_t i = 0; i < N; i++) {
-      for (std::size_t j = 0; j < M; j++) {
-        data_[i][j] = arr[i][j];
       }
     }
   }

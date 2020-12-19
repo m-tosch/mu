@@ -77,15 +77,15 @@ class Vector {
    * @endcode
    *
    * @tparam Nn
-   * @tparam Tt
+   * @tparam U
    * @param other
    */
-  template <std::size_t Nn, class Tt>
+  template <std::size_t Nn, class U>
   // NOLINTNEXTLINE(runtime/explicit) implicit conversion is intentional
-  Vector(const Vector<Nn, Tt> &other) {
+  Vector(const Vector<Nn, U> &other) {
     static_assert(N == Nn, "Vector size mismatch");
     std::transform(other.begin(), other.end(), begin(),
-                   [](Tt data) { return static_cast<T>(data); });
+                   [](U data) { return static_cast<T>(data); });
   }
 
   /**
@@ -398,13 +398,13 @@ class Vector {
    * @brief print vector values
    *
    * @tparam Nn
-   * @tparam Tt
+   * @tparam U
    * @param os
    * @param vec
    * @return std::ostream&
    */
-  template <std::size_t Nn, class Tt>
-  friend std::ostream &operator<<(std::ostream &os, const Vector<Nn, Tt> &vec);
+  template <std::size_t Nn, class U>
+  friend std::ostream &operator<<(std::ostream &os, const Vector<Nn, U> &vec);
 
   /*************************** vector <> vector ****************************/
 
@@ -603,8 +603,8 @@ class Vector {
 
 /********************************** I/O ************************************/
 
-template <std::size_t Nn, class Tt>
-std::ostream &operator<<(std::ostream &os, const Vector<Nn, Tt> &vec) {
+template <std::size_t Nn, class U>
+std::ostream &operator<<(std::ostream &os, const Vector<Nn, U> &vec) {
   os << "[ ";
   for (auto v : vec.data_) {
     os << v << " ";
