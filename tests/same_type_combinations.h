@@ -1,8 +1,6 @@
 #ifndef TESTS_SAME_TYPE_COMBINATIONS_H_
 #define TESTS_SAME_TYPE_COMBINATIONS_H_
 
-#include <bits/c++config.h>
-
 #include <algorithm>
 #include <tuple>
 #include <type_traits>
