@@ -140,9 +140,10 @@ constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href=
 <tr class="memitem:ad58c5bb9be098aeb2afe29fa0f4fb46e"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Matrix.html#ad58c5bb9be098aeb2afe29fa0f4fb46e">Matrix</a> (const std::array&lt; std::array&lt; U, M &gt;, N &gt; &amp;arr)</td></tr>
 <tr class="memdesc:ad58c5bb9be098aeb2afe29fa0f4fb46e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> object from an std::array of std::arrays. possibly of a different type.  <a href="#ad58c5bb9be098aeb2afe29fa0f4fb46e">More...</a><br /></td></tr>
 <tr class="separator:ad58c5bb9be098aeb2afe29fa0f4fb46e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aacaf92c44925ec725bb4a5a2dff496bc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmu_1_1Matrix.html#aacaf92c44925ec725bb4a5a2dff496bc">Matrix</a> (const T &amp;value)</td></tr>
-<tr class="memdesc:aacaf92c44925ec725bb4a5a2dff496bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> object from a single value.  <a href="#aacaf92c44925ec725bb4a5a2dff496bc">More...</a><br /></td></tr>
-<tr class="separator:aacaf92c44925ec725bb4a5a2dff496bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28fee3a19c75cea16c6dab39a61e48c7"><td class="memTemplParams" colspan="2">template&lt;typename U  = T, std::enable_if_t&lt; std::is_arithmetic_v&lt; U &gt;, int &gt;  = 0&gt; </td></tr>
+<tr class="memitem:a28fee3a19c75cea16c6dab39a61e48c7"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Matrix.html#a28fee3a19c75cea16c6dab39a61e48c7">Matrix</a> (const U &amp;value)</td></tr>
+<tr class="memdesc:a28fee3a19c75cea16c6dab39a61e48c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> object from a single value possibly of a different type.  <a href="#a28fee3a19c75cea16c6dab39a61e48c7">More...</a><br /></td></tr>
+<tr class="separator:a28fee3a19c75cea16c6dab39a61e48c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13a9fdd43fba2f98b3e1b9ac2fd842d7"><td class="memItemLeft" align="right" valign="top"><a id="a13a9fdd43fba2f98b3e1b9ac2fd842d7"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmu_1_1Matrix.html#a13a9fdd43fba2f98b3e1b9ac2fd842d7">~Matrix</a> ()=default</td></tr>
 <tr class="memdesc:a13a9fdd43fba2f98b3e1b9ac2fd842d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy the <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> object. <br /></td></tr>
@@ -490,13 +491,15 @@ template&lt;typename U  = T&gt; </div>
 
 </div>
 </div>
-<a id="aacaf92c44925ec725bb4a5a2dff496bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aacaf92c44925ec725bb4a5a2dff496bc">&#9670;&nbsp;</a></span>Matrix() <span class="overload">[6/8]</span></h2>
+<a id="a28fee3a19c75cea16c6dab39a61e48c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28fee3a19c75cea16c6dab39a61e48c7">&#9670;&nbsp;</a></span>Matrix() <span class="overload">[6/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;std::size_t N, std::size_t M, typename T&gt; </div>
+<div class="memtemplate">
+template&lt;typename U  = T, std::enable_if_t&lt; std::is_arithmetic_v&lt; U &gt;, int &gt;  = 0&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -504,7 +507,7 @@ template&lt;std::size_t N, std::size_t M, typename T&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="classmu_1_1Matrix.html">mu::Matrix</a>&lt; N, M, T &gt;::<a class="el" href="classmu_1_1Matrix.html">Matrix</a> </td>
           <td>(</td>
-          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramtype">const U &amp;&#160;</td>
           <td class="paramname"><em>value</em></td><td>)</td>
           <td></td>
         </tr>
@@ -516,7 +519,13 @@ template&lt;std::size_t N, std::size_t M, typename T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Construct a new <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> object from a single value. </p>
+<p>Construct a new <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> object from a single value possibly of a different type. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">U</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">value</td><td></td></tr>
@@ -526,8 +535,8 @@ template&lt;std::size_t N, std::size_t M, typename T&gt; </div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classmu_1_1Matrix_aacaf92c44925ec725bb4a5a2dff496bc_cgraph.png" border="0" usemap="#classmu_1_1Matrix_aacaf92c44925ec725bb4a5a2dff496bc_cgraph" alt=""/></div>
-<map name="classmu_1_1Matrix_aacaf92c44925ec725bb4a5a2dff496bc_cgraph" id="classmu_1_1Matrix_aacaf92c44925ec725bb4a5a2dff496bc_cgraph">
+<div class="center"><img src="classmu_1_1Matrix_a28fee3a19c75cea16c6dab39a61e48c7_cgraph.png" border="0" usemap="#classmu_1_1Matrix_a28fee3a19c75cea16c6dab39a61e48c7_cgraph" alt=""/></div>
+<map name="classmu_1_1Matrix_a28fee3a19c75cea16c6dab39a61e48c7_cgraph" id="classmu_1_1Matrix_a28fee3a19c75cea16c6dab39a61e48c7_cgraph">
 <area shape="rect" id="node2" href="classmu_1_1Matrix.html#a13a9fdd43fba2f98b3e1b9ac2fd842d7" title="Destroy the Matrix object. " alt="" coords="187,5,323,32"/>
 <area shape="rect" id="node3" href="classmu_1_1Matrix.html#ab126945354b536c2496b14c160b9d01f" title="Construct a new Matrix object. " alt="" coords="191,56,319,83"/>
 <area shape="rect" id="node4" href="classmu_1_1Matrix.html#ae8f15892cac1ac74dbf6f3337703d883" title="Copy assignment operator. " alt="" coords="181,107,328,133"/>
@@ -1438,7 +1447,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classmu_1_1Matrix_ae8f15892cac1ac74dbf6f3337703d883_icgraph.png" border="0" usemap="#classmu_1_1Matrix_ae8f15892cac1ac74dbf6f3337703d883_icgraph" alt=""/></div>
 <map name="classmu_1_1Matrix_ae8f15892cac1ac74dbf6f3337703d883_icgraph" id="classmu_1_1Matrix_ae8f15892cac1ac74dbf6f3337703d883_icgraph">
-<area shape="rect" id="node2" href="classmu_1_1Matrix.html#aacaf92c44925ec725bb4a5a2dff496bc" title="Construct a new Matrix object from a single value. " alt="" coords="200,5,328,32"/>
+<area shape="rect" id="node2" href="classmu_1_1Matrix.html#a28fee3a19c75cea16c6dab39a61e48c7" title="Construct a new Matrix object from a single value possibly of a different type. " alt="" coords="200,5,328,32"/>
 </map>
 </div>
 

@@ -10,7 +10,7 @@ var classmu_1_1Matrix =
     [ "Matrix", "classmu_1_1Matrix.html#a4356075d6b1ecc9fddd17932aa535c7c", null ],
     [ "Matrix", "classmu_1_1Matrix.html#a2d73103188c8d67c9e2cc1aa0adb211e", null ],
     [ "Matrix", "classmu_1_1Matrix.html#ad58c5bb9be098aeb2afe29fa0f4fb46e", null ],
-    [ "Matrix", "classmu_1_1Matrix.html#aacaf92c44925ec725bb4a5a2dff496bc", null ],
+    [ "Matrix", "classmu_1_1Matrix.html#a28fee3a19c75cea16c6dab39a61e48c7", null ],
     [ "~Matrix", "classmu_1_1Matrix.html#a13a9fdd43fba2f98b3e1b9ac2fd842d7", null ],
     [ "Matrix", "classmu_1_1Matrix.html#a3afefe10b422afce13b01f5184118f7b", null ],
     [ "Matrix", "classmu_1_1Matrix.html#a340350076f5abe05dbc6a45f384335f8", null ],

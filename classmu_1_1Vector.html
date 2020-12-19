@@ -137,9 +137,10 @@ constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href=
 <tr class="memitem:a8837cbb10dd36b26541f4d3408dc5a78"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#a8837cbb10dd36b26541f4d3408dc5a78">Vector</a> (const std::array&lt; U, N &gt; &amp;arr)</td></tr>
 <tr class="memdesc:a8837cbb10dd36b26541f4d3408dc5a78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> object from an std::array of a different type.  <a href="#a8837cbb10dd36b26541f4d3408dc5a78">More...</a><br /></td></tr>
 <tr class="separator:a8837cbb10dd36b26541f4d3408dc5a78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50d4c3243e4a4110acb9165c498a60ff"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#a50d4c3243e4a4110acb9165c498a60ff">Vector</a> (const T &amp;value)</td></tr>
-<tr class="memdesc:a50d4c3243e4a4110acb9165c498a60ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> object from a single value.  <a href="#a50d4c3243e4a4110acb9165c498a60ff">More...</a><br /></td></tr>
-<tr class="separator:a50d4c3243e4a4110acb9165c498a60ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8eaa13db8e49bc60779bb8bcc7c958b"><td class="memTemplParams" colspan="2">template&lt;typename U  = T, std::enable_if_t&lt; std::is_arithmetic_v&lt; U &gt;, int &gt;  = 0&gt; </td></tr>
+<tr class="memitem:ac8eaa13db8e49bc60779bb8bcc7c958b"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#ac8eaa13db8e49bc60779bb8bcc7c958b">Vector</a> (const U &amp;value)</td></tr>
+<tr class="memdesc:ac8eaa13db8e49bc60779bb8bcc7c958b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> object from a single value.  <a href="#ac8eaa13db8e49bc60779bb8bcc7c958b">More...</a><br /></td></tr>
+<tr class="separator:ac8eaa13db8e49bc60779bb8bcc7c958b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40a06506c5feb65d38bb1586d3dab393"><td class="memItemLeft" align="right" valign="top"><a id="a40a06506c5feb65d38bb1586d3dab393"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#a40a06506c5feb65d38bb1586d3dab393">~Vector</a> ()=default</td></tr>
 <tr class="memdesc:a40a06506c5feb65d38bb1586d3dab393"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy the <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> object. <br /></td></tr>
@@ -456,13 +457,15 @@ template&lt;typename U  = T&gt; </div>
 
 </div>
 </div>
-<a id="a50d4c3243e4a4110acb9165c498a60ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a50d4c3243e4a4110acb9165c498a60ff">&#9670;&nbsp;</a></span>Vector() <span class="overload">[5/7]</span></h2>
+<a id="ac8eaa13db8e49bc60779bb8bcc7c958b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8eaa13db8e49bc60779bb8bcc7c958b">&#9670;&nbsp;</a></span>Vector() <span class="overload">[5/7]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;std::size_t N, typename T&gt; </div>
+<div class="memtemplate">
+template&lt;typename U  = T, std::enable_if_t&lt; std::is_arithmetic_v&lt; U &gt;, int &gt;  = 0&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -470,7 +473,7 @@ template&lt;std::size_t N, typename T&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="classmu_1_1Vector.html">mu::Vector</a>&lt; N, T &gt;::<a class="el" href="classmu_1_1Vector.html">Vector</a> </td>
           <td>(</td>
-          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramtype">const U &amp;&#160;</td>
           <td class="paramname"><em>value</em></td><td>)</td>
           <td></td>
         </tr>
@@ -1496,7 +1499,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classmu_1_1Vector_ad3c1a60d0cf755ac49f65b4bdd79e19c_icgraph.png" border="0" usemap="#classmu_1_1Vector_ad3c1a60d0cf755ac49f65b4bdd79e19c_icgraph" alt=""/></div>
 <map name="classmu_1_1Vector_ad3c1a60d0cf755ac49f65b4bdd79e19c_icgraph" id="classmu_1_1Vector_ad3c1a60d0cf755ac49f65b4bdd79e19c_icgraph">
-<area shape="rect" id="node2" href="classmu_1_1Vector.html#a50d4c3243e4a4110acb9165c498a60ff" title="Construct a new Vector object from a single value. " alt="" coords="203,5,336,47"/>
+<area shape="rect" id="node2" href="classmu_1_1Vector.html#ac8eaa13db8e49bc60779bb8bcc7c958b" title="Construct a new Vector object from a single value. " alt="" coords="203,5,336,47"/>
 </map>
 </div>
 
