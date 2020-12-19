@@ -19,14 +19,17 @@ template <typename T>
 using is_a_vector = decltype(is_a_vector_impl(std::declval<T &>()));
 
 template <typename T>
-class ScalarCombinationsFixture
-    : public std::conditional_t<
-          is_a_vector<typename std::tuple_element<0, T>::type>::value,
-          VectorTypeFixture<typename std::tuple_element<0, T>::type>,
-          MatrixTypeFixture<typename std::tuple_element<0, T>::type>> {
+using BaseTypeFixture = std::conditional_t<
+    is_a_vector<typename std::tuple_element<0, T>::type>::value,
+    VectorTypeFixture<typename std::tuple_element<0, T>::type>,
+    MatrixTypeFixture<typename std::tuple_element<0, T>::type>>;
+
+template <typename T>
+class ScalarCombinationsFixture : public BaseTypeFixture<T> {
  public:
   typedef typename std::tuple_element<0, T>::type T1;
   typedef typename std::tuple_element<1, T>::type T2;
+  /* scalar test values setup */
   static inline T2 zero = static_cast<T2>(0);
   static inline T2 one = static_cast<T2>(1);
 };
