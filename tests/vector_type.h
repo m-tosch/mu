@@ -22,11 +22,12 @@
  * @tparam T a "Vector" type
  */
 template <typename T>
-class VectorTypeFixture : public ::testing::Test {
+class VectorTypeFixture : public virtual ::testing::Test {
  public:
   void SetUp() override {
     auto start = static_cast<typename T::value_type>(0);
     auto incr = static_cast<typename T::value_type>(1.5F);  // NOLINT
+    /* put values into the test values "vector" (array) */
     std::generate(values.begin(), values.end(),
                   [&start, &incr]() { return start += incr; });
   }

@@ -9,7 +9,7 @@
 #include "matrix.h"
 
 template <typename T>
-class MatrixTypeFixture : public ::testing::Test {
+class MatrixTypeFixture : public virtual ::testing::Test {
  public:
   /* true "value" and "size" types of the values that the matrix contains */
   using value_type = typename T::value_type::value_type;
