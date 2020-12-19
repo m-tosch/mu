@@ -85,33 +85,41 @@ class SameTypeCombinationsInitFixture : public SameTypeCombinationsFixture<T> {
 TYPED_TEST_SUITE_P(SameTypeCombinationsInitFixture);
 
 TYPED_TEST_P(SameTypeCombinationsInitFixture, ConstructorFromDifferentType) {
+  using T1 = typename TestFixture::T1;
+  using T2 = typename TestFixture::T2;
+  using T1_v = typename TestFixture::T1::value_type;
+  using T2_v = typename TestFixture::T2::value_type;
   /** arrange */
-  typename TestFixture::T1 obj{this->values()};
+  T1 obj{this->values()};
   /* call the type casting constructor. no exception must be thrown */
-  EXPECT_NO_THROW((typename TestFixture::T2{obj}));  // NOLINT "pre-assert"
+  EXPECT_NO_THROW((T2{obj}));  // NOLINT "pre-assert"
   // for future reference: EXPECT_NO_THROW(([&] { T2 tmp{obj}; }()));
   /** action */
-  typename TestFixture::T2 res{obj};
+  T2 res{obj};
   /** assert */
-  /* build comparison object by calling the constructor that takes a (possibly
-   * nested) std array of a different type */
-  typename TestFixture::T2 comp = this->values();
+  T2 comp;
+  std::transform(this->values().begin(), this->values().end(), comp.begin(),
+                 [](T1_v data) { return static_cast<T2_v>(data); });
   EXPECT_THAT(res, ::testing::ContainerEq(comp));
 }
 
 TYPED_TEST_P(SameTypeCombinationsInitFixture,
              ConstructorFromDifferentTypeAssignment) {
+  using T1 = typename TestFixture::T1;
+  using T2 = typename TestFixture::T2;
+  using T1_v = typename TestFixture::T1::value_type;
+  using T2_v = typename TestFixture::T2::value_type;
   /** arrange */
-  typename TestFixture::T1 obj{this->values()};
+  T1 obj{this->values()};
   /* call the type casting constructor. no exception must be thrown */
-  EXPECT_NO_THROW((typename TestFixture::T2{obj}));  // NOLINT "pre-assert"
+  EXPECT_NO_THROW((T2{obj}));  // NOLINT "pre-assert"
   // for future reference: EXPECT_NO_THROW(([&] { T2 tmp{obj}; }()));
   /** action */
-  typename TestFixture::T2 res = obj;
+  T2 res = obj;
   /** assert */
-  /* build comparison object by calling the constructor that takes a (possibly
-   * nested) std array of a different type */
-  typename TestFixture::T2 comp = this->values();
+  T2 comp;
+  std::transform(this->values().begin(), this->values().end(), comp.begin(),
+                 [](T1_v data) { return static_cast<T2_v>(data); });
   EXPECT_THAT(res, ::testing::ContainerEq(comp));
 }
 
