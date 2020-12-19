@@ -57,6 +57,33 @@ class Matrix {
   Matrix(TArgs const(&&... rows)[M]) : data_{mu::to_array(rows)...} {}
 
   /**
+   * @brief Construct a new Matrix from an existing Matrix of a different type
+   *
+   * IMPORTANT implicit narrowing is applied
+   * it is checked that the Matrix sizes are the same
+   *
+   * Example:
+   * @code
+   * mu::Matrix<2, 2, int> a = {{1, 2}, {3, 4}};
+   * mu::Matrix<2, 2, double> b = {a};
+   * @endcode
+   *
+   * @tparam Nn
+   * @tparam Mm
+   * @tparam Tt
+   * @param other
+   */
+  template <std::size_t Nn, std::size_t Mm, class Tt>
+  // NOLINTNEXTLINE(runtime/explicit) implicit conversion is intentional
+  Matrix(const Matrix<Nn, Mm, Tt> &other) {
+    static_assert(N == Nn, "Matrix dimension mismatch (rows)");
+    static_assert(M == Mm, "Matrix dimension mismatch (columns)");
+    for (std::size_t i = 0; i < N; i++) {
+      data_[i] = other[i];
+    }
+  }
+
+  /**
    * @brief Construct a new Matrix object from an std::array of Vectors
    *
    * @param arr
