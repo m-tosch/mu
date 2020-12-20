@@ -82,55 +82,13 @@ TYPED_TEST_P(VectorTypeFixture, ConstructorVariadicTemplateAssignmentSize2) {
   }
 }
 
-/* note: the type casting ctor is tested in the vector-combinations file! */
-
-TYPED_TEST_P(VectorTypeFixture, ConstructorFromArray) {
-  /** action */
-  TypeParam obj{this->values};
-  /** assert */
-  EXPECT_THAT(obj, ::testing::Pointwise(::testing::Eq(), this->values));
-}
-
-TYPED_TEST_P(VectorTypeFixture, ConstructorFromArrayAssignment) {
-  /** action */
-  TypeParam obj = this->values;
-  /** assert */
-  EXPECT_THAT(obj, ::testing::Pointwise(::testing::Eq(), this->values));
-}
-
-TYPED_TEST_P(VectorTypeFixture, ConstructorFromArrayAssignmentBraces) {
-  /** action */
-  TypeParam obj = {this->values};
-  /** assert */
-  EXPECT_THAT(obj, ::testing::Pointwise(::testing::Eq(), this->values));
-}
-
-TYPED_TEST_P(VectorTypeFixture, ConstructorFromSingleValue) {
-  /** arrange */
-  auto value = this->values[0];
-  /** action */
-  TypeParam obj{value};
-  /** assert */
-  EXPECT_THAT(obj, ::testing::Each(::testing::AllOf(::testing::Eq(value))));
-}
-
-TYPED_TEST_P(VectorTypeFixture, ConstructorFromSingleValueAssignment) {
-  /** arrange */
-  auto value = this->values[0];
-  /** action */
-  TypeParam obj = value;
-  /** assert */
-  EXPECT_THAT(obj, ::testing::Each(::testing::AllOf(::testing::Eq(value))));
-}
-
-TYPED_TEST_P(VectorTypeFixture, ConstructorFromSingleValueAssignmentBraces) {
-  /** arrange */
-  auto value = this->values[0];
-  /** action */
-  TypeParam obj = {value};
-  /** assert */
-  EXPECT_THAT(obj, ::testing::Each(::testing::AllOf(::testing::Eq(value))));
-}
+/* note: the following constructors are tested in the type combinations file:
+ * - Vector constructor
+ * - std::array constructor
+ * - single value constructor
+ * the rationale is that all of these constructors are able take a different
+ * type, which must be tested.
+ */
 
 TYPED_TEST_P(VectorTypeFixture, DestructorDefault) {
   /** action & assert */
@@ -583,17 +541,13 @@ TYPED_TEST_P(VectorTypeFixture, UtilityFuncSortedLambda) {
 REGISTER_TYPED_TEST_SUITE_P(
     VectorTypeFixture, ConstructorDefault, ConstructorVariadicTemplateSize2,
     ConstructorVariadicTemplateAssignmentSize2, DestructorDefault,
-    ConstructorFromArray, ConstructorFromArrayAssignment,
-    ConstructorFromArrayAssignmentBraces, ConstructorFromSingleValue,
-    ConstructorFromSingleValueAssignment,
-    ConstructorFromSingleValueAssignmentBraces, ConstructorCopy,
-    ConstructorMove, OperatorCopyAssignment, OperatorMoveAssignment,
-    OperatorBrackets, OperatorBracketsConst, MemberFuncAt, MemberFuncAtConst,
-    MemberFuncSize, MemberFuncBegin, MemberFuncBeginConst, MemberFuncEnd,
-    MemberFuncEndConst, MemberFuncMin, MemberFuncMax, MemberFuncSum,
-    MemberFuncMean, MemberFuncMeanConvertType, MemberFuncLength,
-    MemberFuncLengthConvertType, MemberFuncFlip, MemberFuncFlipped,
-    MemberFuncSort, MemberFuncSortLambda, MemberFuncSorted,
+    ConstructorCopy, ConstructorMove, OperatorCopyAssignment,
+    OperatorMoveAssignment, OperatorBrackets, OperatorBracketsConst,
+    MemberFuncAt, MemberFuncAtConst, MemberFuncSize, MemberFuncBegin,
+    MemberFuncBeginConst, MemberFuncEnd, MemberFuncEndConst, MemberFuncMin,
+    MemberFuncMax, MemberFuncSum, MemberFuncMean, MemberFuncMeanConvertType,
+    MemberFuncLength, MemberFuncLengthConvertType, MemberFuncFlip,
+    MemberFuncFlipped, MemberFuncSort, MemberFuncSortLambda, MemberFuncSorted,
     MemberFuncSortedLambda, OperatorStreamOut, UtilityFuncMin, UtilityFuncMax,
     UtilityFuncSum, UtilityFuncMean, UtilityFuncMeanConvertType,
     UtilityFuncFlip, UtilityFuncFlipped, UtilityFuncSort, UtilityFuncSortLambda,

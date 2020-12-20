@@ -70,6 +70,7 @@ class SameTypeCombinationsFixture : public BaseTypeFixture<T, 0>,
   using T2 = typename std::tuple_element<base_idx().second, T>::type;
   auto values() { return BaseTypeFixture1::values; }
   auto values2() { return BaseTypeFixture2::values; }
+  auto dummy() { return BaseTypeFixture1::dummy; }
 };
 
 /********************************* INIT ************************************/
@@ -84,7 +85,7 @@ class SameTypeCombinationsInitFixture : public SameTypeCombinationsFixture<T> {
 
 TYPED_TEST_SUITE_P(SameTypeCombinationsInitFixture);
 
-TYPED_TEST_P(SameTypeCombinationsInitFixture, ConstructorFromDifferentType) {
+TYPED_TEST_P(SameTypeCombinationsInitFixture, ConstructorFromClassType) {
   using T1 = typename TestFixture::T1;
   using T2 = typename TestFixture::T2;
   using T1_v = typename TestFixture::T1::value_type;
@@ -104,8 +105,7 @@ TYPED_TEST_P(SameTypeCombinationsInitFixture, ConstructorFromDifferentType) {
   EXPECT_THAT(res2, ::testing::ContainerEq(comp));
 }
 
-TYPED_TEST_P(SameTypeCombinationsInitFixture,
-             ConstructorFromDifferentTypeArray) {
+TYPED_TEST_P(SameTypeCombinationsInitFixture, ConstructorFromArray) {
   using T2 = typename TestFixture::T2;
   using T1_v = typename TestFixture::T1::value_type;
   using T2_v = typename TestFixture::T2::value_type;
@@ -123,8 +123,7 @@ TYPED_TEST_P(SameTypeCombinationsInitFixture,
   EXPECT_THAT(res3, ::testing::ContainerEq(comp));
 }
 
-TYPED_TEST_P(SameTypeCombinationsInitFixture,
-             ConstructorFromDifferentTypeSingleValue) {
+TYPED_TEST_P(SameTypeCombinationsInitFixture, ConstructorFromSingleValue) {
   /** arrange*/
   /* get the value typ of the individual values inside the container. must be
    * defined in the TestFixture class */
@@ -148,9 +147,8 @@ TYPED_TEST_P(SameTypeCombinationsInitFixture,
 }
 
 REGISTER_TYPED_TEST_SUITE_P(SameTypeCombinationsInitFixture,
-                            ConstructorFromDifferentType,
-                            ConstructorFromDifferentTypeArray,
-                            ConstructorFromDifferentTypeSingleValue);
+                            ConstructorFromClassType, ConstructorFromArray,
+                            ConstructorFromSingleValue);
 
 /********************************* MATH ************************************/
 

@@ -9,70 +9,10 @@
 #include "same_type_combinations.h"
 #include "vector_type.h"
 
-/********************************* INIT ************************************/
-
-/**
- * explicit instantiations
+/*
+ *  Vector <> Vector test combinations
  */
-/* constructor (construct-from-different-typed-vector) */
-template mu::Vector<2, float>::Vector(const mu::Vector<2, int> &);
-
-/**
- * Vector <> Vector test combinations
- *
- * in each pair the two Vectors are of a different arithmetic type
- */
-using VectorTypeCombinationsInit = ::testing::Types<
-    /* Vector */
-    std::tuple<mu::Vector<2, float>, mu::Vector<2, int>>,
-    std::tuple<mu::Vector<2, int>, mu::Vector<2, float>>,
-    /* Vector2D */
-    std::tuple<mu::Vector<2, float>, mu::Vector2D<int>>,
-    std::tuple<mu::Vector2D<float>, mu::Vector<2, int>>,
-    std::tuple<mu::Vector2D<float>, mu::Vector2D<int>>,
-    // both ways
-    std::tuple<mu::Vector<2, int>, mu::Vector2D<float>>,
-    std::tuple<mu::Vector2D<int>, mu::Vector<2, float>>,
-    std::tuple<mu::Vector2D<int>, mu::Vector2D<float>>,
-    /* Vector3D */
-    std::tuple<mu::Vector<3, float>, mu::Vector3D<int>>,
-    std::tuple<mu::Vector3D<float>, mu::Vector<3, int>>,
-    std::tuple<mu::Vector3D<float>, mu::Vector3D<int>>,
-    // both ways
-    std::tuple<mu::Vector<3, int>, mu::Vector3D<float>>,
-    std::tuple<mu::Vector3D<int>, mu::Vector<3, float>>,
-    std::tuple<mu::Vector3D<int>, mu::Vector3D<float>>>;
-
-INSTANTIATE_TYPED_TEST_SUITE_P(Vector, SameTypeCombinationsInitFixture,
-                               VectorTypeCombinationsInit);
-
-/****************************** MATH ***************************************/
-
-/**
- * explicit instantiations
- *
- * note: +=, -=, *= and /= do not have to be explicitly instantiated
- */
-/* addition */
-template mu::Vector<2, float> mu::operator+
-    <2, float, int>(const mu::Vector<2, float> &, const mu::Vector<2, int> &);
-/* subtraction */
-template mu::Vector<2, float> mu::operator-
-    <2, float, int>(const mu::Vector<2, float> &, const mu::Vector<2, int> &);
-/* multiplication */
-template mu::Vector<2, float> mu::operator*
-    <2, float, int>(const mu::Vector<2, float> &, const mu::Vector<2, int> &);
-/* division */
-template mu::Vector<2, float> mu::operator/
-    <2, float, int>(const mu::Vector<2, float> &, const mu::Vector<2, int> &);
-/* equality (this operator is also called by gtest. probably ContainerEq...) */
-template bool mu::Vector<2, float>::operator==
-    <int>(const mu::Vector<2, int> &) const;
-/* inequality */
-template bool mu::Vector<2, float>::operator!=
-    <int>(const mu::Vector<2, int> &) const;
-
-using VectorTypeCombinationsMath = ::testing::Types<
+using VectorTypeCombinations = ::testing::Types<
     /* Vector */
     std::tuple<mu::Vector<2, float>, mu::Vector<2, float>>,
     // different types (both ways)
@@ -101,8 +41,49 @@ using VectorTypeCombinationsMath = ::testing::Types<
     std::tuple<mu::Vector3D<int>, mu::Vector<3, float>>,
     std::tuple<mu::Vector3D<int>, mu::Vector3D<float>>>;
 
+/********************************* INIT ************************************/
+
+/**
+ * explicit instantiations
+ */
+/* constructor (construct-from-different-typed-vector) */
+template mu::Vector<2, float>::Vector(const mu::Vector<2, int> &);
+/* constructor (construct-from-different-typed-array) */
+template mu::Vector<2, float>::Vector(const std::array<int, 2> &);
+/* constructor (construct-from-different-typed-single-value) */
+template mu::Vector<2, float>::Vector(const int &);
+
+INSTANTIATE_TYPED_TEST_SUITE_P(Vector, SameTypeCombinationsInitFixture,
+                               VectorTypeCombinations);
+
+/****************************** MATH ***************************************/
+
+/**
+ * explicit instantiations
+ *
+ * note: +=, -=, *= and /= do not have to be explicitly instantiated
+ */
+/* addition */
+template mu::Vector<2, float> mu::operator+
+    <2, float, int>(const mu::Vector<2, float> &, const mu::Vector<2, int> &);
+/* subtraction */
+template mu::Vector<2, float> mu::operator-
+    <2, float, int>(const mu::Vector<2, float> &, const mu::Vector<2, int> &);
+/* multiplication */
+template mu::Vector<2, float> mu::operator*
+    <2, float, int>(const mu::Vector<2, float> &, const mu::Vector<2, int> &);
+/* division */
+template mu::Vector<2, float> mu::operator/
+    <2, float, int>(const mu::Vector<2, float> &, const mu::Vector<2, int> &);
+/* equality (this operator is also called by gtest. probably ContainerEq...) */
+template bool mu::Vector<2, float>::operator==
+    <int>(const mu::Vector<2, int> &) const;
+/* inequality */
+template bool mu::Vector<2, float>::operator!=
+    <int>(const mu::Vector<2, int> &) const;
+
 INSTANTIATE_TYPED_TEST_SUITE_P(Vector, SameTypeCombinationsMathFixture,
-                               VectorTypeCombinationsMath);
+                               VectorTypeCombinations);
 
 /************************* Vector specific tests ***************************/
 
@@ -113,16 +94,16 @@ template int mu::dot<int, 2, float, 2, float>(const mu::Vector<2, float> &,
                                               const mu::Vector<2, float> &);
 
 template <typename T>
-class VectorCombinationsMathFixture : public SameTypeCombinationsFixture<T> {
+class VectorCombinationsFixture : public SameTypeCombinationsFixture<T> {
  public:
   void SetUp() override {  // NOLINT
     SameTypeCombinationsFixture<T>::SetUp();
   }
 };
 
-TYPED_TEST_SUITE(VectorCombinationsMathFixture, VectorTypeCombinationsMath);
+TYPED_TEST_SUITE(VectorCombinationsFixture, VectorTypeCombinations);
 
-TYPED_TEST(VectorCombinationsMathFixture, MemberFuncDot) {
+TYPED_TEST(VectorCombinationsFixture, MemberFuncDot) {
   /** arrange */
   typename TestFixture::T1 obj1{this->values()};
   typename TestFixture::T2 obj2{this->values2()};
@@ -143,7 +124,7 @@ TYPED_TEST(VectorCombinationsMathFixture, MemberFuncDot) {
 
 /************************* convenience functions ***************************/
 
-TYPED_TEST(VectorCombinationsMathFixture, UtilityFuncDot) {
+TYPED_TEST(VectorCombinationsFixture, UtilityFuncDot) {
   /** arrange */
   typename TestFixture::T1 obj1{this->values()};
   typename TestFixture::T2 obj2{this->values2()};
