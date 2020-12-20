@@ -4,12 +4,6 @@
 #include "vector_type.h"
 
 /**
- * Instantiate this template class and template functions explicitly so that all
- * functions are generated and thus, the coverage report is accurate.
- */
-template class mu::Vector3D<float>;
-
-/**
  * Instantiate the Vector test suite
  */
 using Vector3DTypes = ::testing::Types<mu::Vector3D<float>, mu::Vector3D<int>>;

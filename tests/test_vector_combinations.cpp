@@ -41,57 +41,17 @@ using VectorTypeCombinations = ::testing::Types<
     std::tuple<mu::Vector3D<int>, mu::Vector<3, float>>,
     std::tuple<mu::Vector3D<int>, mu::Vector3D<float>>>;
 
-/********************************* INIT ************************************/
-
-/**
- * explicit instantiations
- */
-/* constructor (construct-from-different-typed-vector) */
-template mu::Vector<2, float>::Vector(const mu::Vector<2, int> &);
-/* constructor (construct-from-different-typed-array) */
-template mu::Vector<2, float>::Vector(const std::array<int, 2> &);
-/* constructor (construct-from-different-typed-single-value) */
-template mu::Vector<2, float>::Vector(const int &);
+/****************************** INIT ***************************************/
 
 INSTANTIATE_TYPED_TEST_SUITE_P(Vector, SameTypeCombinationsInitFixture,
                                VectorTypeCombinations);
 
 /****************************** MATH ***************************************/
 
-/**
- * explicit instantiations
- *
- * note: +=, -=, *= and /= do not have to be explicitly instantiated
- */
-/* addition */
-template mu::Vector<2, float> mu::operator+
-    <2, float, int>(const mu::Vector<2, float> &, const mu::Vector<2, int> &);
-/* subtraction */
-template mu::Vector<2, float> mu::operator-
-    <2, float, int>(const mu::Vector<2, float> &, const mu::Vector<2, int> &);
-/* multiplication */
-template mu::Vector<2, float> mu::operator*
-    <2, float, int>(const mu::Vector<2, float> &, const mu::Vector<2, int> &);
-/* division */
-template mu::Vector<2, float> mu::operator/
-    <2, float, int>(const mu::Vector<2, float> &, const mu::Vector<2, int> &);
-/* equality (this operator is also called by gtest. probably ContainerEq...) */
-template bool mu::Vector<2, float>::operator==
-    <int>(const mu::Vector<2, int> &) const;
-/* inequality */
-template bool mu::Vector<2, float>::operator!=
-    <int>(const mu::Vector<2, int> &) const;
-
 INSTANTIATE_TYPED_TEST_SUITE_P(Vector, SameTypeCombinationsMathFixture,
                                VectorTypeCombinations);
 
 /************************* Vector specific tests ***************************/
-
-/* convenience functions */
-/* these functions should take a combination of Vectors, so they're here.
- * functions that take e.g a single Vector as argument are elsewhere */
-template int mu::dot<int, 2, float, 2, float>(const mu::Vector<2, float> &,
-                                              const mu::Vector<2, float> &);
 
 template <typename T>
 class VectorCombinationsFixture : public SameTypeCombinationsFixture<T> {

@@ -6,38 +6,6 @@
 #include "mu/vector3d.h"
 #include "scalar_combinations.h"
 
-/**
- * Instantiate these template functions explicitly so that all
- * functions are generated and thus, the coverage report is accurate.
- */
-/* addition */
-template mu::Vector<2, float>& mu::Vector<2, float>::operator+=
-    <float>(const float&);
-template mu::Vector<2, float> mu::operator+
-    <2, float, float>(const mu::Vector<2, float>&, const float&);
-template mu::Vector<2, float> mu::operator+
-    <2, float, float>(const float&, const mu::Vector<2, float>&);
-/* subtraction */
-template mu::Vector<2, float>& mu::Vector<2, float>::operator-=
-    <float>(const float&);
-template mu::Vector<2, float> mu::operator-
-    <2, float, float>(const mu::Vector<2, float>&, const float&);
-/* multiplication */
-template mu::Vector<2, float>& mu::Vector<2, float>::operator*=
-    <float>(const float&);
-template mu::Vector<2, float> mu::operator*
-    <2, float, float>(const mu::Vector<2, float>&, const float&);
-template mu::Vector<2, float> mu::operator*
-    <2, float, float>(const float&, const mu::Vector<2, float>&);
-/* division */
-template mu::Vector<2, float>& mu::Vector<2, float>::operator/=
-    <float>(const float&);
-template mu::Vector<2, float> mu::operator/
-    <2, float, float>(const mu::Vector<2, float>&, const float&);
-
-/**
- * Vector <> Scalar test combinations
- */
 using VectorScalarCombinationTypes =
     ::testing::Types</* Vector */
                      std::tuple<mu::Vector<2, int>, int>,

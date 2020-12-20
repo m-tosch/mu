@@ -3,41 +3,6 @@
 #include "vector_type.h"
 
 /**
- * Instantiate this template class and template functions explicitly so that all
- * functions are generated and thus, the coverage report is accurate.
- */
-template class mu::Vector<2, float>;
-/* functions */
-template float mu::Vector<2, float>::length<float>() const;
-template float mu::Vector<2, int>::mean<float>() const;
-template float mu::Vector<2, int>::dot<float>(const mu::Vector<2, int> &) const;
-// workaround for "lambda functions are not allowed in unevaluated operands"
-struct LambdaCompare {
-  bool operator()(int a, int b) const { return a > b; }
-};
-template void mu::Vector<2, float>::sort(const LambdaCompare &);
-template mu::Vector<2, float> mu::Vector<2, float>::sorted(
-    const LambdaCompare &) const;
-
-/* operators */
-template std::ostream &mu::operator<<<2, float>(std::ostream &,
-                                                const mu::Vector<2, float> &);
-/* convenience functions */
-/* these functions take a single Vector as argument, so they're here. functions
- * that take e.g a combination of Vectors as argument are elsewhere */
-template float mu::min(const mu::Vector<2, float> &);
-template float mu::max(const mu::Vector<2, float> &);
-template float mu::sum(const mu::Vector<2, float> &);
-template float mu::mean<float>(const mu::Vector<2, int> &);
-template void mu::flip(mu::Vector<2, float> &);
-template mu::Vector<2, float> mu::flipped(const mu::Vector<2, float> &);
-template void mu::sort(mu::Vector<2, float> &);
-template void mu::sort(mu::Vector<2, float> &, const LambdaCompare &);
-template mu::Vector<2, float> mu::sorted(const mu::Vector<2, float> &);
-template mu::Vector<2, float> mu::sorted(const mu::Vector<2, float> &,
-                                         const LambdaCompare &);
-
-/**
  * Instantiate the Vector test suite
  */
 using VectorTypes = ::testing::Types<mu::Vector<1, float>, mu::Vector<2, float>,
