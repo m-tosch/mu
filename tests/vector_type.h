@@ -24,6 +24,9 @@
 template <typename T>
 class VectorTypeFixture : public virtual ::testing::Test {
  public:
+  /* true "value" and "size" types of the values that the vector contains */
+  using value_type = typename T::value_type;
+  using size_type = typename T::size_type;
   void SetUp() override {
     auto start = static_cast<typename T::value_type>(0);
     auto incr = static_cast<typename T::value_type>(1.5F);  // NOLINT

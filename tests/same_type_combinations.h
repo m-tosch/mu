@@ -123,9 +123,34 @@ TYPED_TEST_P(SameTypeCombinationsInitFixture,
   EXPECT_THAT(res3, ::testing::ContainerEq(comp));
 }
 
+TYPED_TEST_P(SameTypeCombinationsInitFixture,
+             ConstructorFromDifferentTypeSingleValue) {
+  /** arrange*/
+  /* get the value typ of the individual values inside the container. must be
+   * defined in the TestFixture class */
+  using TrueValueType = typename TestFixture::BaseTypeFixture1::value_type;
+  using T2 = typename TestFixture::T2;
+  TrueValueType value = 1.5F;
+  /** action */
+  T2 res1{value};     // direct initialization
+  T2 res2 = value;    // copy initialization
+  T2 res3 = {value};  // list initialization
+  /** assert */
+  T2 comp;
+  std::generate(comp.begin(), comp.end(), [&, i = -1]() mutable {
+    i++;
+    return value;
+  });
+  EXPECT_NO_THROW((T2{value}));  // NOLINT "pre-assert"
+  EXPECT_THAT(res1, ::testing::ContainerEq(comp));
+  EXPECT_THAT(res2, ::testing::ContainerEq(comp));
+  EXPECT_THAT(res3, ::testing::ContainerEq(comp));
+}
+
 REGISTER_TYPED_TEST_SUITE_P(SameTypeCombinationsInitFixture,
                             ConstructorFromDifferentType,
-                            ConstructorFromDifferentTypeArray);
+                            ConstructorFromDifferentTypeArray,
+                            ConstructorFromDifferentTypeSingleValue);
 
 /********************************* MATH ************************************/
 
