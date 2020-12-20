@@ -189,6 +189,18 @@ class Matrix {
   Vector<M, T> &operator[](size_type idx) noexcept { return data_[idx]; }
 
   /**
+   * @brief const access a row within the matrix
+   *
+   * does not throw an exception if \p idx is out of range
+   *
+   * @param idx
+   * @return const T&
+   */
+  const Vector<M, T> &operator[](size_type idx) const noexcept {
+    return data_[idx];
+  }
+
+  /**
    * @brief access a row within the matrix
    *
    * @exception out of range
@@ -205,18 +217,6 @@ class Matrix {
    * @return const T&
    */
   const Vector<M, T> &at(size_type idx) const { return data_.at(idx); }
-
-  /**
-   * @brief const access a row within the matrix
-   *
-   * does not throw an exception if \p idx is out of range
-   *
-   * @param idx
-   * @return const T&
-   */
-  const Vector<M, T> &operator[](size_type idx) const noexcept {
-    return data_[idx];
-  }
 
   /**
    * @brief returns the matrix dimensions as an array of size 2
