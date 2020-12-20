@@ -61,10 +61,10 @@ template bool mu::Matrix<2, 2, float>::operator!=
  */
 using MatrixTypeCombinationsMath = ::testing::Types<
     /* Matrix */
-    std::tuple<mu::Vector<2, float>, mu::Vector<2, float>>,
+    std::tuple<mu::Matrix<2, 2, float>, mu::Matrix<2, 2, float>>,
     // both ways
-    std::tuple<mu::Vector<2, float>, mu::Vector<2, int>>,
-    std::tuple<mu::Vector<2, int>, mu::Vector<2, float>>>;
+    std::tuple<mu::Matrix<2, 2, float>, mu::Matrix<2, 2, int>>,
+    std::tuple<mu::Matrix<2, 2, int>, mu::Matrix<2, 2, float>>>;
 
 INSTANTIATE_TYPED_TEST_SUITE_P(Matrix, SameTypeCombinationsMathFixture,
                                MatrixTypeCombinationsMath);
