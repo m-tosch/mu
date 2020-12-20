@@ -1,6 +1,7 @@
 #ifndef MU_MATRIX_H_
 #define MU_MATRIX_H_
 
+#include <algorithm>
 #include <array>
 #include <type_traits>
 
@@ -59,8 +60,9 @@ class Matrix {
   /**
    * @brief Construct a new Matrix from an existing Matrix of a different type
    *
-   * IMPORTANT implicit narrowing is applied
    * it is checked that the Matrix sizes are the same
+   * forwards intialization to Vector for every row
+   * implicit narrowing may be applied
    *
    * Example:
    * @code
@@ -78,9 +80,8 @@ class Matrix {
   Matrix(const Matrix<Nn, Mm, U> &m) {
     static_assert(N == Nn, "Matrix dimension mismatch (rows)");
     static_assert(M == Mm, "Matrix dimension mismatch (columns)");
-    for (std::size_t i = 0; i < N; i++) {
-      data_[i] = m[i];
-    }
+    std::transform(m.begin(), m.end(), begin(),
+                   [](Vector<M, U> data) { return data; });
   }
 
   /**
@@ -89,11 +90,14 @@ class Matrix {
    * @param arr
    */
   // NOLINTNEXTLINE(runtime/explicit) implicit to make copy-init. work
-  Matrix(const std::array<Vector<M, T>, N> &arr) : data_(arr) {}
+  Matrix(const std::array<Vector<M, T>, N> &arr) : data_{arr} {}
 
   /**
    * @brief Construct a new Matrix object from an std::array of Vectors of a
    * different type
+   *
+   * forwards intialization to Vector for every row
+   * implicit narrowing may be applied
    *
    * @tparam U
    * @param arr
@@ -101,14 +105,16 @@ class Matrix {
   template <typename U = T>
   // NOLINTNEXTLINE(runtime/explicit) implicit to make copy-init. work
   Matrix(const std::array<Vector<M, U>, N> &arr) {
-    for (std::size_t i = 0; i < N; i++) {
-      data_[i] = arr[i];  // narrowing may be applied
-    }
+    std::transform(arr.begin(), arr.end(), begin(),
+                   [](Vector<M, U> data) { return data; });
   }
 
   /**
    * @brief Construct a new Matrix object from an std::array of std::arrays.
    * possibly of a different type
+   *
+   * forwards intialization to Vector for every row
+   * implicit narrowing may be applied
    *
    * @tparam U
    * @param arr
@@ -116,16 +122,16 @@ class Matrix {
   template <typename U = T, std::enable_if_t<std::is_arithmetic_v<U>, int> = 0>
   // NOLINTNEXTLINE(runtime/explicit) implicit to make copy-init. work
   Matrix(const std::array<std::array<U, M>, N> &arr) {
-    for (std::size_t i = 0; i < N; i++) {
-      for (std::size_t j = 0; j < M; j++) {
-        data_[i][j] = arr[i][j];  // narrowing may be applied
-      }
-    }
+    std::transform(arr.begin(), arr.end(), begin(),
+                   [](Vector<M, U> data) { return data; });
   }
 
   /**
    * @brief Construct a new Matrix object from a single value
    * possibly of a different type
+   *
+   * forwards intialization to Vector for every row
+   * implicit narrowing may be applied
    *
    * @tparam U
    * @param value
@@ -133,9 +139,7 @@ class Matrix {
   template <typename U = T, std::enable_if_t<std::is_arithmetic_v<U>, int> = 0>
   // NOLINTNEXTLINE(runtime/explicit) implicit to make copy-init. work
   Matrix(const U &value) {
-    for (auto &item : data_) {
-      item = {value};
-    }
+    data_.fill(value);
   }
 
   /**

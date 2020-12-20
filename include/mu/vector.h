@@ -67,7 +67,7 @@ class Vector {
   /**
    * @brief Construct a new Vector from an existing Vector of a different type
    *
-   * IMPORTANT implicit narrowing is applied
+   * implicit narrowing may be applied
    * it is checked that the Vector sizes are the same
    *
    * Example:
@@ -84,8 +84,7 @@ class Vector {
   // NOLINTNEXTLINE(runtime/explicit) implicit conversion is intentional
   Vector(const Vector<Nn, U> &v) {
     static_assert(N == Nn, "Vector size mismatch");
-    std::transform(v.begin(), v.end(), begin(),
-                   [](U data) { return static_cast<T>(data); });
+    std::transform(v.begin(), v.end(), begin(), [](U data) { return data; });
   }
 
   /**
@@ -94,10 +93,12 @@ class Vector {
    * @param arr
    */
   // NOLINTNEXTLINE(runtime/explicit) implicit to make copy-init. work
-  Vector(const std::array<T, N> &arr) : data_(arr) {}
+  Vector(const std::array<T, N> &arr) : data_{arr} {}
 
   /**
    * @brief Construct a new Vector object from an std::array of a different type
+   *
+   * implicit narrowing may be applied
    *
    * @tparam U
    * @param arr
@@ -105,9 +106,8 @@ class Vector {
   template <typename U = T, std::enable_if_t<std::is_arithmetic_v<U>, int> = 0>
   // NOLINTNEXTLINE(runtime/explicit) implicit to make copy-init. work
   Vector(const std::array<U, N> &arr) {
-    for (std::size_t i = 0; i < N; i++) {
-      data_[i] = arr[i];  // narrowing may be applied
-    }
+    std::transform(arr.begin(), arr.end(), begin(),
+                   [](U data) { return data; });
   }
 
   /**
