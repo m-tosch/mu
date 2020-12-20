@@ -6,10 +6,10 @@
 
 using MatrixTypeCombinations = ::testing::Types<
     /* Matrix */
-    std::tuple<mu::Matrix<2, 2, float>, mu::Matrix<2, 2, float>>/*,
+    std::tuple<mu::Matrix<2, 2, float>, mu::Matrix<2, 2, float>>,
     // both ways
     std::tuple<mu::Matrix<2, 2, float>, mu::Matrix<2, 2, int>>,
-    std::tuple<mu::Matrix<2, 2, int>, mu::Matrix<2, 2, float>>*/>;
+    std::tuple<mu::Matrix<2, 2, int>, mu::Matrix<2, 2, float>>>;
 
 /********************************* INIT ************************************/
 
@@ -29,15 +29,15 @@ class MatrixCombinationsFixture : public SameTypeCombinationsFixture<T> {
   void SetUp() override {  // NOLINT
     SameTypeCombinationsFixture<T>::SetUp();
   }
-  static constexpr typename SameTypeCombinationsFixture<T>::T1 dummy;
 };
 
 TYPED_TEST_SUITE(MatrixCombinationsFixture, MatrixTypeCombinations);
 
 TYPED_TEST(MatrixCombinationsFixture, ConstructorFromArrayOfArrays) {
   /** arrange */
-  constexpr std::size_t rows = this->dummy.size()[0];
-  constexpr std::size_t cols = this->dummy.size()[1];
+  static typename TestFixture::T1 dummy;
+  constexpr auto rows = dummy.size()[0];
+  constexpr auto cols = dummy.size()[1];
   std::array<
       std::array<typename TestFixture::BaseTypeFixture2::value_type, cols>,
       rows>
