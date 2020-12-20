@@ -2,9 +2,10 @@ var hierarchy =
 [
     [ "BaseTypeFixture", null, [
       [ "SameTypeCombinationsFixture< T >", "classSameTypeCombinationsFixture.html", [
+        [ "MatrixCombinationsFixture< T >", "classMatrixCombinationsFixture.html", null ],
         [ "SameTypeCombinationsInitFixture< T >", "classSameTypeCombinationsInitFixture.html", null ],
         [ "SameTypeCombinationsMathFixture< T >", "classSameTypeCombinationsMathFixture.html", null ],
-        [ "VectorCombinationsMathFixture< T >", "classVectorCombinationsMathFixture.html", null ]
+        [ "VectorCombinationsFixture< T >", "classVectorCombinationsFixture.html", null ]
       ] ],
       [ "ScalarCombinationsFixture< T >", "classScalarCombinationsFixture.html", null ]
     ] ],

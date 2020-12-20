@@ -15,6 +15,7 @@ var annotated_dup =
     ] ],
     [ "EmptyBase", "structEmptyBase.html", null ],
     [ "LambdaCompare", "structLambdaCompare.html", "structLambdaCompare" ],
+    [ "MatrixCombinationsFixture", "classMatrixCombinationsFixture.html", "classMatrixCombinationsFixture" ],
     [ "MatrixTypeFixture", "classMatrixTypeFixture.html", "classMatrixTypeFixture" ],
     [ "SameTypeCombinationsFixture", "classSameTypeCombinationsFixture.html", "classSameTypeCombinationsFixture" ],
     [ "SameTypeCombinationsInitFixture", "classSameTypeCombinationsInitFixture.html", "classSameTypeCombinationsInitFixture" ],
@@ -24,6 +25,6 @@ var annotated_dup =
     [ "UtilityFixture", "classUtilityFixture.html", "classUtilityFixture" ],
     [ "Vector2DTypeFixture", "classVector2DTypeFixture.html", "classVector2DTypeFixture" ],
     [ "Vector3DTypeFixture", "classVector3DTypeFixture.html", "classVector3DTypeFixture" ],
-    [ "VectorCombinationsMathFixture", "classVectorCombinationsMathFixture.html", "classVectorCombinationsMathFixture" ],
+    [ "VectorCombinationsFixture", "classVectorCombinationsFixture.html", "classVectorCombinationsFixture" ],
     [ "VectorTypeFixture", "classVectorTypeFixture.html", "classVectorTypeFixture" ]
 ];

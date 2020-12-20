@@ -7,6 +7,6 @@ var searchData=
   ['vector3dtypefixture',['Vector3DTypeFixture',['../classVector3DTypeFixture.html',1,'']]],
   ['vector_3c_202_2c_20t_20_3e',['Vector&lt; 2, T &gt;',['../classmu_1_1Vector.html',1,'mu']]],
   ['vector_3c_203_2c_20t_20_3e',['Vector&lt; 3, T &gt;',['../classmu_1_1Vector.html',1,'mu']]],
-  ['vectorcombinationsmathfixture',['VectorCombinationsMathFixture',['../classVectorCombinationsMathFixture.html',1,'']]],
+  ['vectorcombinationsfixture',['VectorCombinationsFixture',['../classVectorCombinationsFixture.html',1,'']]],
   ['vectortypefixture',['VectorTypeFixture',['../classVectorTypeFixture.html',1,'']]]
 ];

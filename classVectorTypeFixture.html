@@ -119,6 +119,12 @@ Collaboration diagram for VectorTypeFixture&lt; T &gt;:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
+<tr class="memitem:ae13f3e0f22910a8f5643004562a20870"><td class="memItemLeft" align="right" valign="top"><a id="ae13f3e0f22910a8f5643004562a20870"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>value_type</b> = typename T::value_type</td></tr>
+<tr class="separator:ae13f3e0f22910a8f5643004562a20870"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca5db103cf839ab38549fc199bf61baa"><td class="memItemLeft" align="right" valign="top"><a id="aca5db103cf839ab38549fc199bf61baa"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>size_type</b> = typename T::size_type</td></tr>
+<tr class="separator:aca5db103cf839ab38549fc199bf61baa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42314fa1c7fd22aecbd7b6e4bd2661e0"><td class="memItemLeft" align="right" valign="top"><a id="a42314fa1c7fd22aecbd7b6e4bd2661e0"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>ConvertedType</b> = std::conditional_t&lt; std::is_integral_v&lt; typename T::value_type &gt;, float, std::conditional_t&lt; std::is_floating_point_v&lt; typename T::value_type &gt;, int, typename T::value_type &gt; &gt;</td></tr>
 <tr class="separator:a42314fa1c7fd22aecbd7b6e4bd2661e0"><td class="memSeparator" colspan="2">&#160;</td></tr>

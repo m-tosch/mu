@@ -1,5 +1,6 @@
 <map id="SameTypeCombinationsFixture&lt; T &gt;" name="SameTypeCombinationsFixture&lt; T &gt;">
-<area shape="rect" id="node4" href="$classSameTypeCombinationsInitFixture.html" title="SameTypeCombinationsInit\lFixture\&lt; T \&gt;" alt="" coords="565,5,748,47"/>
-<area shape="rect" id="node5" href="$classSameTypeCombinationsMathFixture.html" title="SameTypeCombinationsMath\lFixture\&lt; T \&gt;" alt="" coords="559,71,754,112"/>
-<area shape="rect" id="node6" href="$classVectorCombinationsMathFixture.html" title="VectorCombinationsMathFixture\&lt; T \&gt;" alt="" coords="536,137,777,163"/>
+<area shape="rect" id="node4" href="$classMatrixCombinationsFixture.html" title="MatrixCombinationsFixture\&lt; T \&gt;" alt="" coords="537,5,747,32"/>
+<area shape="rect" id="node5" href="$classSameTypeCombinationsInitFixture.html" title="SameTypeCombinationsInit\lFixture\&lt; T \&gt;" alt="" coords="551,57,733,98"/>
+<area shape="rect" id="node6" href="$classSameTypeCombinationsMathFixture.html" title="SameTypeCombinationsMath\lFixture\&lt; T \&gt;" alt="" coords="545,122,739,163"/>
+<area shape="rect" id="node7" href="$classVectorCombinationsFixture.html" title="VectorCombinationsFixture\&lt; T \&gt;" alt="" coords="536,188,748,215"/>
 </map>
