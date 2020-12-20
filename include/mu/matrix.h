@@ -87,10 +87,10 @@ class Matrix {
   /**
    * @brief Construct a new Matrix object from an std::array of Vectors
    *
-   * @param arr
+   * @param a
    */
   // NOLINTNEXTLINE(runtime/explicit) implicit to make copy-init. work
-  Matrix(const std::array<Vector<M, T>, N> &arr) : data_{arr} {}
+  Matrix(const std::array<Vector<M, T>, N> &a) : data_{a} {}
 
   /**
    * @brief Construct a new Matrix object from an std::array of Vectors of a
@@ -100,12 +100,12 @@ class Matrix {
    * implicit narrowing may be applied
    *
    * @tparam U
-   * @param arr
+   * @param a
    */
   template <typename U = T>
   // NOLINTNEXTLINE(runtime/explicit) implicit to make copy-init. work
-  Matrix(const std::array<Vector<M, U>, N> &arr) {
-    std::transform(arr.begin(), arr.end(), begin(),
+  Matrix(const std::array<Vector<M, U>, N> &a) {
+    std::transform(a.begin(), a.end(), begin(),
                    [](Vector<M, U> data) { return data; });
   }
 
@@ -117,12 +117,12 @@ class Matrix {
    * implicit narrowing may be applied
    *
    * @tparam U
-   * @param arr
+   * @param a
    */
   template <typename U = T, std::enable_if_t<std::is_arithmetic_v<U>, int> = 0>
   // NOLINTNEXTLINE(runtime/explicit) implicit to make copy-init. work
-  Matrix(const std::array<std::array<U, M>, N> &arr) {
-    std::transform(arr.begin(), arr.end(), begin(),
+  Matrix(const std::array<std::array<U, M>, N> &a) {
+    std::transform(a.begin(), a.end(), begin(),
                    [](Vector<M, U> data) { return data; });
   }
 

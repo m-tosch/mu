@@ -90,10 +90,10 @@ class Vector {
   /**
    * @brief Construct a new Vector object from an std::array
    *
-   * @param arr
+   * @param a
    */
   // NOLINTNEXTLINE(runtime/explicit) implicit to make copy-init. work
-  Vector(const std::array<T, N> &arr) : data_{arr} {}
+  Vector(const std::array<T, N> &a) : data_{a} {}
 
   /**
    * @brief Construct a new Vector object from an std::array of a different type
@@ -101,13 +101,12 @@ class Vector {
    * implicit narrowing may be applied
    *
    * @tparam U
-   * @param arr
+   * @param a
    */
   template <typename U = T, std::enable_if_t<std::is_arithmetic_v<U>, int> = 0>
   // NOLINTNEXTLINE(runtime/explicit) implicit to make copy-init. work
-  Vector(const std::array<U, N> &arr) {
-    std::transform(arr.begin(), arr.end(), begin(),
-                   [](U data) { return data; });
+  Vector(const std::array<U, N> &a) {
+    std::transform(a.begin(), a.end(), begin(), [](U data) { return data; });
   }
 
   /**
