@@ -113,7 +113,7 @@ class Matrix {
    * @tparam U
    * @param arr
    */
-  template <typename U = T>
+  template <typename U = T, std::enable_if_t<std::is_arithmetic_v<U>, int> = 0>
   // NOLINTNEXTLINE(runtime/explicit) implicit to make copy-init. work
   Matrix(const std::array<std::array<U, M>, N> &arr) {
     for (std::size_t i = 0; i < N; i++) {

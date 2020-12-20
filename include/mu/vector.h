@@ -99,9 +99,10 @@ class Vector {
   /**
    * @brief Construct a new Vector object from an std::array of a different type
    *
+   * @tparam U
    * @param arr
    */
-  template <typename U = T>
+  template <typename U = T, std::enable_if_t<std::is_arithmetic_v<U>, int> = 0>
   // NOLINTNEXTLINE(runtime/explicit) implicit to make copy-init. work
   Vector(const std::array<U, N> &arr) {
     for (std::size_t i = 0; i < N; i++) {
@@ -112,6 +113,7 @@ class Vector {
   /**
    * @brief Construct a new Vector object from a single value
    *
+   * @tparam U
    * @param value
    */
   template <typename U = T, std::enable_if_t<std::is_arithmetic_v<U>, int> = 0>
