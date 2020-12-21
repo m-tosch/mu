@@ -504,7 +504,7 @@ class Matrix {
   std::array<Vector<M, T>, N> data_;
 };
 
-/**************************** vector <> vector *****************************/
+/**************************** matrix <> matrix *****************************/
 
 /**
  * @brief plus operator
