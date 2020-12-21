@@ -16,4 +16,4 @@ llvm-profdata merge -sparse $WORKDIR/mu_tests.profraw -o $WORKDIR/mu_tests.profd
 # 4. generate html report. exclude some folders from the coverage
 llvm-cov show $WORKDIR/mu_tests -instr-profile=$WORKDIR/mu_tests.profdata -output-dir="$COVERAGEDIR/html_llvm" \
 -format="html" --show-line-counts-or-regions -Xdemangler c++filt \
---ignore-filename-regex="dependencies/*" --ignore-filename-regex="tests/*"
+--ignore-filename-regex="coverage/*" --ignore-filename-regex="dependencies/*" --ignore-filename-regex="tests/*" 

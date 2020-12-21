@@ -27,9 +27,11 @@ template mu::Vector<2, float> mu::Vector<2, float>::sorted(
 /* operators */
 template std::ostream &mu::operator<<<2, float>(std::ostream &,
                                                 const mu::Vector<2, float> &);
+
 /* convenience functions */
-/* these functions take a single Vector as argument, so they're here. functions
- * that take e.g a combination of Vectors as argument are elsewhere */
+/* these functions take a single Vector as argument, so they're here.
+ * functions that take e.g a combination of Vectors as argument are
+ * elsewhere */
 template float mu::min(const mu::Vector<2, float> &);
 template float mu::max(const mu::Vector<2, float> &);
 template float mu::sum(const mu::Vector<2, float> &);
