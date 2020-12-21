@@ -3,9 +3,6 @@
 #include "mu/vector3d.h"
 #include "vector_type.h"
 
-/**
- * Instantiate the Vector test suite
- */
 using Vector3DTypes = ::testing::Types<mu::Vector3D<float>, mu::Vector3D<int>>;
 INSTANTIATE_TYPED_TEST_SUITE_P(Vector3D, VectorTypeFixture, Vector3DTypes);
 

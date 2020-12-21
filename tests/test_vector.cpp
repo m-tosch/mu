@@ -2,9 +2,6 @@
 #include "mu/vector.h"
 #include "vector_type.h"
 
-/**
- * Instantiate the Vector test suite
- */
 using VectorTypes = ::testing::Types<mu::Vector<1, float>, mu::Vector<2, float>,
                                      mu::Vector<3, float>, mu::Vector<1, int>,
                                      mu::Vector<2, int>, mu::Vector<3, int>>;
