@@ -394,8 +394,13 @@ TYPED_TEST_P(VectorTypeFixture, OperatorStreamOut) {
   /* 3. put values from string(stream) in a vector */
   using vtype = typename TypeParam::value_type;
   std::vector<vtype> v;
-  std::copy(std::istream_iterator<vtype>(sss), std::istream_iterator<vtype>(),
-            std::back_inserter(v));
+  vtype i{};
+  while (sss >> i) {
+    v.push_back(i);
+    if (sss.peek() == ',' || sss.peek() == ' ') {
+      sss.ignore();
+    }
+  }
   /* 4. copy vector to array for easier comparison via gtest macro */
   static TypeParam dummy;
   std::array<vtype, dummy.size()> arr;

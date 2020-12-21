@@ -608,10 +608,15 @@ class Vector {
 /********************************** I/O ************************************/
 
 template <std::size_t Nn, class U>
-std::ostream &operator<<(std::ostream &os, const Vector<Nn, U> &vec) {
+std::ostream &operator<<(std::ostream &os, const Vector<Nn, U> &v) {
   os << "[ ";
-  for (auto v : vec.data_) {
-    os << v << " ";
+  for (std::size_t i = 0; i < Nn; i++) {
+    os << v.data_[i];
+    if (i < (Nn - 1)) {
+      os << ", ";
+    } else {
+      os << " ";
+    }
   }
   os << "]";
   return os;
