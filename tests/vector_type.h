@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <array>
 #include <cmath>
+#include <cstring>
 #include <numeric>
 #include <sstream>
 #include <string>
@@ -387,17 +388,21 @@ TYPED_TEST_P(VectorTypeFixture, OperatorStreamOut) {
   /* 1. read vector ostream in a stringstream */
   std::stringstream ss;
   ss << obj;
-  /* 2. remove first and last character */
-  std::string s = ss.str().substr(1, ss.str().size() - 2);
+  /* 2. remove unwanted characters. leave ',' separator in */
+  std::string s = ss.str();
+  char chars[] = " []\n";
+  for (unsigned int i = 0; i < strlen(chars); ++i) {              // NOLINT
+    s.erase(std::remove(s.begin(), s.end(), chars[i]), s.end());  // NOLINT
+  }
   std::stringstream sss;
   sss << s;
-  /* 3. put values from string(stream) in a vector */
-  using vtype = typename TypeParam::value_type;
+  /* 3. put values from string(stream) in a std::vector */
+  using vtype = typename TestFixture::value_type;
   std::vector<vtype> v;
   vtype i{};
   while (sss >> i) {
     v.push_back(i);
-    if (sss.peek() == ',' || sss.peek() == ' ') {
+    if (sss.peek() == ',') {
       sss.ignore();
     }
   }

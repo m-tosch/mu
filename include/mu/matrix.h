@@ -325,6 +325,22 @@ class Matrix {
     return U(sum()) / (N * M);
   }
 
+  /********************************* I/O ***********************************/
+
+  /**
+   * @brief print matrix values
+   *
+   * forwards Vector for every row
+   *
+   * @tparam Nn
+   * @tparam U
+   * @param os
+   * @param v
+   * @return std::ostream&
+   */
+  template <std::size_t Nn, std::size_t Mm, class U>
+  friend std::ostream &operator<<(std::ostream &os, const Matrix<Nn, Mm, U> &m);
+
   /*************************** matrix <> matrix ****************************/
 
   /**
@@ -503,6 +519,23 @@ class Matrix {
  protected:
   std::array<Vector<M, T>, N> data_;
 };
+
+/********************************** I/O ************************************/
+
+template <std::size_t Nn, std::size_t Mm, class U>
+std::ostream &operator<<(std::ostream &os, const Matrix<Nn, Mm, U> &m) {
+  os << "[ ";
+  for (std::size_t i = 0; i < Nn; i++) {
+    os << m.data_[i];
+    if (i < (Nn - 1)) {
+      os << ",\n  ";
+    } else {
+      os << " ";
+    }
+  }
+  os << "]";
+  return os;
+}
 
 /**************************** matrix <> matrix *****************************/
 

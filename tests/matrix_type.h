@@ -3,6 +3,11 @@
 
 #include <algorithm>
 #include <array>
+#include <cstring>
+#include <iostream>
+#include <sstream>
+#include <string>
+#include <vector>
 
 #include "gmock/gmock.h"
 #include "gtest/gtest.h"
@@ -328,6 +333,42 @@ TYPED_TEST_P(MatrixTypeFixture, MemberFuncMeanConvertedType) {
   EXPECT_EQ(mean, comp);
 }
 
+TYPED_TEST_P(MatrixTypeFixture, OperatorStreamOut) {
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  /* 1. read matrix ostream in a stringstream */
+  std::stringstream ss;
+  ss << obj;
+  /* 2. remove unwanted characters. leave ',' separator i */
+  std::string s = ss.str();
+  char chars[] = " []\n";
+  for (unsigned int i = 0; i < strlen(chars); ++i) {              // NOLINT
+    s.erase(std::remove(s.begin(), s.end(), chars[i]), s.end());  // NOLINT
+  }
+  std::stringstream sss;
+  sss << s;
+  /* 3. put values from string(stream) in a std::vector */
+  using vtype = typename TestFixture::value_type;
+  std::vector<vtype> v;
+  vtype i{};
+  while (sss >> i) {
+    v.push_back(i);
+    if (sss.peek() == ',') {
+      sss.ignore();
+    }
+  }
+  /** assert */
+  /* compare linear layed out std::vector with nested matrix structure */
+  auto rows = this->values.size();
+  auto cols = this->values[0].size();
+  for (std::size_t i = 0; i < rows; i++) {
+    for (std::size_t j = 0; j < cols; j++) {
+      EXPECT_EQ(v[i * cols + j], this->values[i][j]);
+    }
+  }
+}
+
 /************************* convenience functions****************************/
 
 TYPED_TEST_P(MatrixTypeFixture, UtilityFuncMin) {
@@ -409,7 +450,8 @@ REGISTER_TYPED_TEST_SUITE_P(
     MemberFuncAt, MemberFuncAtConst, MemberFuncSize, MemberFuncRows,
     MemberFuncCols, MemberFuncBegin, MemberFuncBeginConst, MemberFuncEnd,
     MemberFuncEndConst, MemberFuncMin, MemberFuncMax, MemberFuncSum,
-    MemberFuncMean, MemberFuncMeanConvertedType, UtilityFuncMin, UtilityFuncMax,
-    UtilityFuncSum, UtilityFuncMean, UtilityFuncMeanConvertedType);
+    MemberFuncMean, MemberFuncMeanConvertedType, OperatorStreamOut,
+    UtilityFuncMin, UtilityFuncMax, UtilityFuncSum, UtilityFuncMean,
+    UtilityFuncMeanConvertedType);
 
 #endif  // TESTS_MATRIX_TYPE_H_
