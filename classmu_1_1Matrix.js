@@ -41,5 +41,6 @@ var classmu_1_1Matrix =
     [ "rows", "classmu_1_1Matrix.html#a9cfc70b0213e853552632296317f7e8c", null ],
     [ "size", "classmu_1_1Matrix.html#a6ebbb484a736e514121ed8ebae4ac7e1", null ],
     [ "sum", "classmu_1_1Matrix.html#ae6c03480a44fc705d22230fb770a4e60", null ],
+    [ "operator<<", "classmu_1_1Matrix.html#a4ca7ccf7c062bca07acbc7d9f774f065", null ],
     [ "data_", "classmu_1_1Matrix.html#a06392532994af563ceb4d98613ec7eb9", null ]
 ];
