@@ -404,11 +404,11 @@ class Vector {
    * @tparam Nn
    * @tparam U
    * @param os
-   * @param vec
+   * @param v
    * @return std::ostream&
    */
   template <std::size_t Nn, class U>
-  friend std::ostream &operator<<(std::ostream &os, const Vector<Nn, U> &vec);
+  friend std::ostream &operator<<(std::ostream &os, const Vector<Nn, U> &v);
 
   /*************************** vector <> vector ****************************/
 
