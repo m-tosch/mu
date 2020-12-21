@@ -9,9 +9,6 @@
 #include "same_type_combinations.h"
 #include "vector_type.h"
 
-/*
- *  Vector <> Vector test combinations
- */
 using VectorTypeCombinations = ::testing::Types<
     /* Vector */
     std::tuple<mu::Vector<2, float>, mu::Vector<2, float>>,
