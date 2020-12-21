@@ -8,7 +8,7 @@
  * functions are generated and thus, the coverage report is accurate.
  */
 
-/*************************** test_vector.cpp ***************************/
+/********************************* Vector **********************************/
 
 /* class */
 template class mu::Vector<2, float>;
@@ -44,7 +44,7 @@ template mu::Vector<2, float> mu::sorted(const mu::Vector<2, float> &);
 template mu::Vector<2, float> mu::sorted(const mu::Vector<2, float> &,
                                          const LambdaCompare &);
 
-/*************************** test_vector2d.cpp ***************************/
+/******************************** Vector2D *********************************/
 
 /* class */
 template class mu::Vector2D<float>;
@@ -52,12 +52,12 @@ template class mu::Vector2D<float>;
 template void mu::Vector2D<float>::rotate<float>(float);
 template mu::Vector2D<float> mu::Vector2D<float>::rotated<float>(float);
 
-/*************************** test_vector3d.cpp ***************************/
+/******************************** Vector3D *********************************/
 
 /* class */
 template class mu::Vector3D<float>;
 
-/*************************** Vector <> Scalar ***************************/
+/**************************** Vector <> Scalar *****************************/
 
 /* addition */
 template mu::Vector<2, float> &mu::Vector<2, float>::operator+=
@@ -84,7 +84,7 @@ template mu::Vector<2, float> &mu::Vector<2, float>::operator/=
 template mu::Vector<2, float> mu::operator/
     <2, float, float>(const mu::Vector<2, float> &, const float &);
 
-/*************************** Vector <> Vector ***************************/
+/**************************** Vector <> Vector *****************************/
 
 /***** constructors *****/
 /* constructor (construct-from-different-typed-vector) */
@@ -122,10 +122,15 @@ template bool mu::Vector<2, float>::operator!=
 template int mu::dot<int, 2, float, 2, float>(const mu::Vector<2, float> &,
                                               const mu::Vector<2, float> &);
 
-/*************************** test_matrix.cpp ***************************/
+/********************************* Matrix **********************************/
 
 /* class */
 template class mu::Matrix<2, 2, float>;
+
+/* operators */
+template std::ostream &mu::operator<<<2, 2, float>(
+    std::ostream &, const mu::Matrix<2, 2, float> &);
+
 /* convenience functions */
 /* these functions take a single Matrix as argument, so they're here. functions
  * that take e.g a combination of Matrices as argument are elsewhere */
@@ -134,7 +139,7 @@ template float mu::max(const mu::Matrix<2, 2, float> &);
 template float mu::sum(const mu::Matrix<2, 2, float> &);
 template float mu::mean<float>(const mu::Matrix<2, 2, float> &);
 
-/*************************** Matrix <> Scalar ***************************/
+/**************************** Matrix <> Scalar *****************************/
 
 /* addition */
 template mu::Matrix<2, 2, float> &mu::Matrix<2, 2, float>::operator+=
@@ -161,7 +166,7 @@ template mu::Matrix<2, 2, float> &mu::Matrix<2, 2, float>::operator/=
 template mu::Matrix<2, 2, float> mu::operator/
     <2, 2, float, float>(const mu::Matrix<2, 2, float> &, const float &);
 
-/*************************** Matrix <> Matrix ***************************/
+/**************************** Matrix <> Matrix *****************************/
 
 /***** constructors *****/
 /* constructor (construct-from-different-typed-matrix) */
