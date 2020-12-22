@@ -333,6 +333,23 @@ TYPED_TEST_P(MatrixTypeFixture, MemberFuncMeanConvertedType) {
   EXPECT_EQ(mean, comp);
 }
 
+TYPED_TEST_P(MatrixTypeFixture, MemberFuncDiag) {
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action*/
+  auto res = obj.diag();
+  /** assert */
+  static TypeParam dummy;
+  constexpr std::size_t s =
+      dummy.size()[0] < dummy.size()[1] ? dummy.size()[0] : dummy.size()[1];
+  mu::Vector<s, typename TestFixture::value_type> comp;
+  std::generate(comp.begin(), comp.end(), [&, i = -1]() mutable {
+    i++;
+    return this->values[i][i];
+  });
+  EXPECT_THAT(res, ::testing::Pointwise(::testing::Eq(), comp));
+}
+
 TYPED_TEST_P(MatrixTypeFixture, OperatorStreamOut) {
   /** arrange */
   TypeParam obj{this->values};
@@ -442,6 +459,23 @@ TYPED_TEST_P(MatrixTypeFixture, UtilityFuncMeanConvertedType) { /** arrange */
   EXPECT_EQ(mean, comp);
 }
 
+TYPED_TEST_P(MatrixTypeFixture, UtilityFuncDiagMakeVector) {
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action*/
+  auto res = mu::diag(obj);
+  /** assert */
+  static TypeParam dummy;
+  constexpr std::size_t s =
+      dummy.size()[0] < dummy.size()[1] ? dummy.size()[0] : dummy.size()[1];
+  mu::Vector<s, typename TestFixture::value_type> comp;
+  std::generate(comp.begin(), comp.end(), [&, i = -1]() mutable {
+    i++;
+    return this->values[i][i];
+  });
+  EXPECT_THAT(res, ::testing::Pointwise(::testing::Eq(), comp));
+}
+
 REGISTER_TYPED_TEST_SUITE_P(
     MatrixTypeFixture, ConstructorDefault, ConstructorVariadicTemplateSize2x2,
     ConstructorVariadicTemplateAssignmentSize2x2, DestructorDefault,
@@ -450,8 +484,8 @@ REGISTER_TYPED_TEST_SUITE_P(
     MemberFuncAt, MemberFuncAtConst, MemberFuncSize, MemberFuncRows,
     MemberFuncCols, MemberFuncBegin, MemberFuncBeginConst, MemberFuncEnd,
     MemberFuncEndConst, MemberFuncMin, MemberFuncMax, MemberFuncSum,
-    MemberFuncMean, MemberFuncMeanConvertedType, OperatorStreamOut,
-    UtilityFuncMin, UtilityFuncMax, UtilityFuncSum, UtilityFuncMean,
-    UtilityFuncMeanConvertedType);
+    MemberFuncMean, MemberFuncDiag, MemberFuncMeanConvertedType,
+    OperatorStreamOut, UtilityFuncMin, UtilityFuncMax, UtilityFuncSum,
+    UtilityFuncMean, UtilityFuncMeanConvertedType, UtilityFuncDiagMakeVector);
 
 #endif  // TESTS_MATRIX_TYPE_H_
