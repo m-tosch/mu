@@ -325,6 +325,21 @@ class Matrix {
     return U(sum()) / (N * M);
   }
 
+  /**
+   * @brief returns the diagonale of the matrix as a vector
+   *
+   * the vector is of the size of the smallest matrix dimension. either N or M
+   *
+   */
+  std::conditional_t < N<M, Vector<N, T>, Vector<M, T>> diag() const {
+    constexpr std::size_t s = N < M ? N : M;
+    Vector<s, T> ret;
+    for (std::size_t i = 0; i < s; i++) {
+      ret[i] = data_[i][i];
+    }
+    return ret;
+  }
+
   /********************************* I/O ***********************************/
 
   /**
@@ -734,6 +749,31 @@ template <class U = void, std::size_t N, std::size_t M, typename T>
 inline std::conditional_t<std::is_same_v<U, void>, T, U> mean(
     const Matrix<N, M, T> &m) {
   return m.template mean<std::conditional_t<std::is_same_v<U, void>, T, U>>();
+}
+
+template <std::size_t N, std::size_t M, typename T>
+    std::conditional_t <
+    N<M, Vector<N, T>, Vector<M, T>> diag(const Matrix<N, M, T> &m) {
+  return m.diag();
+}
+
+/**
+ * @brief builds and returns a diagonal matrix from a vector
+ *
+ * where every element is 0 and the vector elements are on the diagonal
+ *
+ * @tparam N
+ * @tparam T
+ * @param v
+ * @return Matrix<N, N, T>
+ */
+template <std::size_t N, typename T>
+inline Matrix<N, N, T> diag(const Vector<N, T> &v) {
+  Matrix<N, N, T> ret{};
+  for (std::size_t i = 0; i < N; i++) {
+    ret[i][i] = v[i];
+  }
+  return ret;
 }
 
 }  // namespace mu
