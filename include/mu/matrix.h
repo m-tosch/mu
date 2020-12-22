@@ -54,7 +54,7 @@ class Matrix {
                 sizeof...(TArgs) == N &&
                     (std::is_same_v<T, std::remove_reference_t<TArgs>> && ...),
                 int> = 0>
-  // NOLINTNEXTLINE(runtime/explicit) impicit to make copy-init. work
+  // NOLINTNEXTLINE(runtime/explicit) implicit to make copy-init. work
   Matrix(TArgs const(&&... rows)[M]) : data_{mu::to_array(rows)...} {}
 
   /**
