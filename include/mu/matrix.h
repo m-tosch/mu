@@ -806,19 +806,19 @@ template <std::size_t S, typename T = int>
 Matrix<S, S, T> eye() {
   Matrix<S, S, T> ret{};
   for (std::size_t i = 0; i < S; i++) {
-    ret[i][i] = 1;
+    ret[i][i] = T{1};
   }
   return ret;
 }
 
 template <std::size_t N, std::size_t M, typename T = int>
 Matrix<N, M, T> ones() {
-  return Matrix<N, M, T>{1};
+  return Matrix<N, M, T>{T{1}};
 }
 
 template <std::size_t N, std::size_t M, typename T = int>
 Matrix<N, M, T> zeros() {
-  return Matrix<N, M, T>{0};
+  return Matrix<N, M, T>{T{0}};
 }
 
 }  // namespace mu

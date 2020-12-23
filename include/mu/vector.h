@@ -858,12 +858,12 @@ inline Vector<N, T> sorted(const Vector<N, T> &v, const Compare &compare) {
 
 template <std::size_t N, typename T = int>
 Vector<N, T> ones() {
-  return Vector<N, T>{1};
+  return Vector<N, T>{T{1}};
 }
 
 template <std::size_t N, typename T = int>
 Vector<N, T> zeros() {
-  return Vector<N, T>{0};
+  return Vector<N, T>{T{0}};
 }
 
 }  // namespace mu
