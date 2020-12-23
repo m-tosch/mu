@@ -560,6 +560,18 @@ TYPED_TEST_P(VectorTypeFixture, UtilityFuncOnes) {
   EXPECT_THAT(res, ::testing::ContainerEq(comp));
 }
 
+TYPED_TEST_P(VectorTypeFixture, UtilityFuncZeros) {
+  /** arrange */
+  static TypeParam dummy;  // get the size at compile time
+  /** action */
+  TypeParam res = mu::zeros<dummy.size()>();
+  /** assert */
+  TypeParam comp;
+  auto zero = static_cast<typename TestFixture::value_type>(0);
+  std::generate(comp.begin(), comp.end(), [&zero]() { return zero; });
+  EXPECT_THAT(res, ::testing::ContainerEq(comp));
+}
+
 REGISTER_TYPED_TEST_SUITE_P(
     VectorTypeFixture, ConstructorDefault, ConstructorVariadicTemplateSize2,
     ConstructorVariadicTemplateAssignmentSize2, DestructorDefault,
@@ -573,6 +585,7 @@ REGISTER_TYPED_TEST_SUITE_P(
     MemberFuncSortedLambda, OperatorStreamOut, UtilityFuncMin, UtilityFuncMax,
     UtilityFuncSum, UtilityFuncMean, UtilityFuncMeanConvertType,
     UtilityFuncFlip, UtilityFuncFlipped, UtilityFuncSort, UtilityFuncSortLambda,
-    UtilityFuncSorted, UtilityFuncSortedLambda, UtilityFuncOnes);
+    UtilityFuncSorted, UtilityFuncSortedLambda, UtilityFuncOnes,
+    UtilityFuncZeros);
 
 #endif  // TESTS_VECTOR_TYPE_H_
