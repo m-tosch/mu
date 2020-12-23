@@ -109,7 +109,8 @@ using unwrap_ref_t = typename UnwrapRef<T>::type;
  * available from c++20 upwards */
 
 template <std::size_t N, typename T, std::size_t... Is>
-std::array<T, N> to_array_impl(const T (&arr)[N], std::index_sequence<Is...>) {
+std::array<T, N> to_array_impl(const T (&arr)[N],
+                               std::index_sequence<Is...> /*unused*/) {
   return std::array<T, N>{arr[Is]...};
 }
 
