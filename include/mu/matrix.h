@@ -803,7 +803,7 @@ T det(const Matrix<N, M, T> &m) {
 }
 
 template <std::size_t S, typename T = int>
-Matrix<S, S, T> eye() {
+inline Matrix<S, S, T> eye() {
   Matrix<S, S, T> ret{};
   for (std::size_t i = 0; i < S; i++) {
     ret[i][i] = T{1};
@@ -812,12 +812,12 @@ Matrix<S, S, T> eye() {
 }
 
 template <std::size_t N, std::size_t M, typename T = int>
-Matrix<N, M, T> ones() {
+inline Matrix<N, M, T> ones() {
   return Matrix<N, M, T>{T{1}};
 }
 
 template <std::size_t N, std::size_t M, typename T = int>
-Matrix<N, M, T> zeros() {
+inline Matrix<N, M, T> zeros() {
   return Matrix<N, M, T>{T{0}};
 }
 
