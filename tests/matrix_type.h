@@ -542,6 +542,22 @@ TYPED_TEST_P(MatrixTypeFixture, UtilityFuncEye) {
   }
 }
 
+TYPED_TEST_P(MatrixTypeFixture, UtilityFuncOnes) {
+  /** arrange */
+  static TypeParam dummy;  // get the size at compile time
+  /** action */
+  TypeParam res = mu::ones<dummy.size()[0], dummy.size()[1]>();
+  /** assert */
+  TypeParam comp;
+  auto one = static_cast<typename TestFixture::value_type>(1);
+  for (auto& row : comp) {
+    for (auto& item : row) {
+      item = one;
+    }
+  }
+  EXPECT_THAT(res, ::testing::ContainerEq(comp));
+}
+
 REGISTER_TYPED_TEST_SUITE_P(
     MatrixTypeFixture, ConstructorDefault, ConstructorVariadicTemplateSize2x2,
     ConstructorVariadicTemplateAssignmentSize2x2, DestructorDefault,
@@ -553,6 +569,6 @@ REGISTER_TYPED_TEST_SUITE_P(
     MemberFuncMean, MemberFuncDiag, MemberFuncDet, MemberFuncMeanConvertedType,
     OperatorStreamOut, UtilityFuncMin, UtilityFuncMax, UtilityFuncSum,
     UtilityFuncMean, UtilityFuncMeanConvertedType, UtilityFuncDiagMakeVector,
-    UtilityFuncDet, UtilityFuncEye);
+    UtilityFuncDet, UtilityFuncEye, UtilityFuncOnes);
 
 #endif  // TESTS_MATRIX_TYPE_H_
