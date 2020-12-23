@@ -802,5 +802,14 @@ T det(const Matrix<N, M, T> &m) {
   return m.det();
 }
 
+template <std::size_t S, typename T = int>
+Matrix<S, S, T> eye() {
+  Matrix<S, S, T> ret{};
+  for (std::size_t i = 0; i < S; i++) {
+    ret[i][i] = 1;
+  }
+  return ret;
+}
+
 }  // namespace mu
 #endif  // MU_MATRIX_H_
