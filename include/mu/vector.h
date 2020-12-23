@@ -856,7 +856,10 @@ inline Vector<N, T> sorted(const Vector<N, T> &v, const Compare &compare) {
   return v.sorted(compare);
 }
 
-/***************************************************************************/
+template <std::size_t N, typename T = int>
+Vector<N, T> ones() {
+  return Vector<N, T>{1};
+}
 
 }  // namespace mu
 #endif  // MU_VECTOR_H_

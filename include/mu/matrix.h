@@ -811,5 +811,10 @@ Matrix<S, S, T> eye() {
   return ret;
 }
 
+template <std::size_t N, std::size_t M, typename T = int>
+Matrix<N, M, T> ones() {
+  return Matrix<N, M, T>{1};
+}
+
 }  // namespace mu
 #endif  // MU_MATRIX_H_
