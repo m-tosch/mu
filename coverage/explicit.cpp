@@ -43,6 +43,7 @@ template void mu::sort(mu::Vector<2, float> &, const LambdaCompare &);
 template mu::Vector<2, float> mu::sorted(const mu::Vector<2, float> &);
 template mu::Vector<2, float> mu::sorted(const mu::Vector<2, float> &,
                                          const LambdaCompare &);
+template mu::Vector<2, int> mu::ones<2>();
 
 /******************************** Vector2D *********************************/
 
@@ -141,6 +142,7 @@ template float mu::mean<float>(const mu::Matrix<2, 2, float> &);
 template mu::Vector<2, float> mu::diag(const mu::Matrix<2, 2, float> &);
 template int mu::det(const mu::Matrix<2, 2, int> &);
 template mu::Matrix<3, 3, int> mu::eye<3>();
+template mu::Matrix<3, 3, int> mu::ones<3, 3>();
 
 /**************************** Matrix <> Scalar *****************************/
 
