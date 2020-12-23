@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <array>
 #include <type_traits>
+#include <vector>
 
 #include "mu/typetraits.h"
 #include "mu/utility.h"
@@ -340,6 +341,26 @@ class Matrix {
     return ret;
   }
 
+  /**
+   * @brief calculates the determinant of the matrix
+   *
+   * matrix must be symmetrical with N == M
+   *
+   * @return T
+   */
+  T det() const {
+    static_assert(N == M,
+                  "Matrix dimensions must match to calculate the determinant");
+    std::vector<std::vector<T>> vv;
+    for (std::size_t i = 0; i < N; i++) {
+      vv.push_back(std::vector<T>());
+      for (const auto &item : data_[i]) {
+        vv[i].push_back(item);
+      }
+    }
+    return calc_det(vv);
+  }
+
   /********************************* I/O ***********************************/
 
   /**
@@ -533,7 +554,7 @@ class Matrix {
 
  protected:
   std::array<Vector<M, T>, N> data_;
-};
+};  // namespace mu
 
 /********************************** I/O ************************************/
 
@@ -774,6 +795,11 @@ inline Matrix<N, N, T> diag(const Vector<N, T> &v) {
     ret[i][i] = v[i];
   }
   return ret;
+}
+
+template <std::size_t N, std::size_t M, typename T>
+T det(const Matrix<N, M, T> &m) {
+  return m.det();
 }
 
 }  // namespace mu
