@@ -861,5 +861,10 @@ Vector<N, T> ones() {
   return Vector<N, T>{1};
 }
 
+template <std::size_t N, typename T = int>
+Vector<N, T> zeros() {
+  return Vector<N, T>{0};
+}
+
 }  // namespace mu
 #endif  // MU_VECTOR_H_

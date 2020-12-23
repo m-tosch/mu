@@ -816,5 +816,10 @@ Matrix<N, M, T> ones() {
   return Matrix<N, M, T>{1};
 }
 
+template <std::size_t N, std::size_t M, typename T = int>
+Matrix<N, M, T> zeros() {
+  return Matrix<N, M, T>{0};
+}
+
 }  // namespace mu
 #endif  // MU_MATRIX_H_
