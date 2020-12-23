@@ -277,6 +277,8 @@ class Matrix {
   /**
    * @brief get a matrix row as a vector
    *
+   * an invalid index that exceeds the matrix dimension causes a runtime error
+   *
    * @param idx
    * @return Vector<M, T>
    */
@@ -288,6 +290,8 @@ class Matrix {
 
   /**
    * @brief get a matrix column as a vector
+   *
+   * an invalid index that exceeds the matrix dimension causes a runtime error
    *
    * @param idx
    * @return Vector<N, T>
