@@ -12,6 +12,7 @@
 #include "gmock/gmock.h"
 #include "gtest/gtest.h"
 #include "matrix.h"
+#include "utility.h"
 
 template <typename T>
 class MatrixTypeFixture : public virtual ::testing::Test {
@@ -350,6 +351,32 @@ TYPED_TEST_P(MatrixTypeFixture, MemberFuncDiag) {
   EXPECT_THAT(res, ::testing::Pointwise(::testing::Eq(), comp));
 }
 
+TYPED_TEST_P(MatrixTypeFixture, MemberFuncDet) {
+  static TypeParam dummy;  // just to get the size at compile time here
+  /* this test is ony for symmetrical matrices */
+  if constexpr (dummy.size()[0] == dummy.size()[1]) {
+    /** arrange */
+    TypeParam obj{this->values};
+    /** action*/
+    auto res = obj.det();
+    /** assert */
+    static TypeParam dummy;
+    std::vector<std::vector<typename TestFixture::value_type>> vv;
+    for (std::size_t i = 0; i < dummy.size()[0]; i++) {
+      vv.push_back(std::vector<typename TestFixture::value_type>());
+      for (const auto& item : this->values[i]) {
+        vv[i].push_back(item);
+      }
+    }
+    /* not an independent comparison value, since the same function to calculate
+     * the determinant is used that the matrix function uses. but this test at
+     * least ensures that building the 2D nested std::vector from the matrix
+     * object works for different sym. matrices */
+    typename TestFixture::value_type comp = mu::calc_det(vv);
+    EXPECT_EQ(res, comp);
+  }
+}
+
 TYPED_TEST_P(MatrixTypeFixture, OperatorStreamOut) {
   /** arrange */
   TypeParam obj{this->values};
@@ -476,6 +503,29 @@ TYPED_TEST_P(MatrixTypeFixture, UtilityFuncDiagMakeVector) {
   EXPECT_THAT(res, ::testing::Pointwise(::testing::Eq(), comp));
 }
 
+TYPED_TEST_P(MatrixTypeFixture, UtilityFuncDet) {
+  static TypeParam dummy;  // just to get the size at compile time here
+  /* this test is ony for symmetrical matrices */
+  if constexpr (dummy.size()[0] == dummy.size()[1]) {
+    /** arrange */
+    TypeParam obj{this->values};
+    /** action*/
+    auto res = mu::det(obj);
+    /** assert */
+    static TypeParam dummy;
+    std::vector<std::vector<typename TestFixture::value_type>> vv;
+    for (std::size_t i = 0; i < dummy.size()[0]; i++) {
+      vv.push_back(std::vector<typename TestFixture::value_type>());
+      for (const auto& item : this->values[i]) {
+        vv[i].push_back(item);
+      }
+    }
+    /* not an independent comparison value! (see det() member function test) */
+    typename TestFixture::value_type comp = mu::calc_det(vv);
+    EXPECT_EQ(res, comp);
+  }
+}
+
 REGISTER_TYPED_TEST_SUITE_P(
     MatrixTypeFixture, ConstructorDefault, ConstructorVariadicTemplateSize2x2,
     ConstructorVariadicTemplateAssignmentSize2x2, DestructorDefault,
@@ -484,8 +534,9 @@ REGISTER_TYPED_TEST_SUITE_P(
     MemberFuncAt, MemberFuncAtConst, MemberFuncSize, MemberFuncRows,
     MemberFuncCols, MemberFuncBegin, MemberFuncBeginConst, MemberFuncEnd,
     MemberFuncEndConst, MemberFuncMin, MemberFuncMax, MemberFuncSum,
-    MemberFuncMean, MemberFuncDiag, MemberFuncMeanConvertedType,
+    MemberFuncMean, MemberFuncDiag, MemberFuncDet, MemberFuncMeanConvertedType,
     OperatorStreamOut, UtilityFuncMin, UtilityFuncMax, UtilityFuncSum,
-    UtilityFuncMean, UtilityFuncMeanConvertedType, UtilityFuncDiagMakeVector);
+    UtilityFuncMean, UtilityFuncMeanConvertedType, UtilityFuncDiagMakeVector,
+    UtilityFuncDet);
 
 #endif  // TESTS_MATRIX_TYPE_H_
