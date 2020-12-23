@@ -526,6 +526,22 @@ TYPED_TEST_P(MatrixTypeFixture, UtilityFuncDet) {
   }
 }
 
+TYPED_TEST_P(MatrixTypeFixture, UtilityFuncEye) {
+  static TypeParam dummy;  // just to get the size at compile time here
+  /* this test is ony for symmetrical matrices */
+  if constexpr (dummy.size()[0] == dummy.size()[1]) {
+    /** arrange */
+    /** action*/
+    TypeParam res = mu::eye<dummy.size()[0]>();
+    /** assert */
+    TypeParam comp{};
+    for (std::size_t i = 0; i < dummy.size()[0]; i++) {
+      comp[i][i] = 1;
+    }
+    EXPECT_THAT(res, ::testing::ContainerEq(comp));
+  }
+}
+
 REGISTER_TYPED_TEST_SUITE_P(
     MatrixTypeFixture, ConstructorDefault, ConstructorVariadicTemplateSize2x2,
     ConstructorVariadicTemplateAssignmentSize2x2, DestructorDefault,
@@ -537,6 +553,6 @@ REGISTER_TYPED_TEST_SUITE_P(
     MemberFuncMean, MemberFuncDiag, MemberFuncDet, MemberFuncMeanConvertedType,
     OperatorStreamOut, UtilityFuncMin, UtilityFuncMax, UtilityFuncSum,
     UtilityFuncMean, UtilityFuncMeanConvertedType, UtilityFuncDiagMakeVector,
-    UtilityFuncDet);
+    UtilityFuncDet, UtilityFuncEye);
 
 #endif  // TESTS_MATRIX_TYPE_H_
