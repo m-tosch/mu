@@ -200,24 +200,24 @@ TYPED_TEST_P(MatrixTypeFixture, MemberFuncSize) {
   EXPECT_TRUE(noexcept(obj.size()));
 }
 
-TYPED_TEST_P(MatrixTypeFixture, MemberFuncRows) {
+TYPED_TEST_P(MatrixTypeFixture, MemberFuncNRows) {
   /** arrange */
   TypeParam obj{this->values};
   /** action */
-  typename TestFixture::size_type rows = obj.rows();
+  typename TestFixture::size_type rows = obj.n_rows();
   /** assert */
-  EXPECT_EQ(rows, TypeParam().rows());
-  EXPECT_TRUE(noexcept(obj.rows()));
+  EXPECT_EQ(rows, TypeParam().n_rows());
+  EXPECT_TRUE(noexcept(obj.n_rows()));
 }
 
-TYPED_TEST_P(MatrixTypeFixture, MemberFuncCols) {
+TYPED_TEST_P(MatrixTypeFixture, MemberFuncNCols) {
   /** arrange */
   TypeParam obj{this->values};
   /** action */
-  typename TestFixture::size_type cols = obj.cols();
+  typename TestFixture::size_type cols = obj.n_cols();
   /** assert */
-  EXPECT_EQ(cols, TypeParam().cols());
-  EXPECT_TRUE(noexcept(obj.cols()));
+  EXPECT_EQ(cols, TypeParam().n_cols());
+  EXPECT_TRUE(noexcept(obj.n_cols()));
 }
 
 TYPED_TEST_P(MatrixTypeFixture, MemberFuncBegin) {
@@ -260,6 +260,46 @@ TYPED_TEST_P(MatrixTypeFixture, MemberFuncEndConst) {
   /** assert */
   EXPECT_THAT(res, ::testing::ContainerEq(kObj[kObj.size()[0] - 1]));
   EXPECT_TRUE(noexcept(*(kObj.end() - 1)));
+}
+
+TYPED_TEST_P(MatrixTypeFixture, MemberFuncRow) {
+  static TypeParam dummy;  // get the size at compile time
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  auto row_first = obj.row(0);
+  auto row_last = obj.row(dummy.n_rows() - 1);
+  /** assert */
+  auto comp_first = obj[0];
+  auto comp_last = obj[dummy.n_rows() - 1];
+  EXPECT_THAT(row_first, ::testing::ContainerEq(comp_first));
+  EXPECT_THAT(row_last, ::testing::ContainerEq(comp_last));
+  /* access outside the dimension bounds should cause failure */
+  EXPECT_DEATH({ obj.row(-1); }, "");                  // NOLINT
+  EXPECT_DEATH({ obj.row(dummy.n_rows() + 1); }, "");  // NOLINT
+}
+
+TYPED_TEST_P(MatrixTypeFixture, MemberFuncCol) {
+  static TypeParam dummy;  // get the size at compile time
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  auto col_first = obj.col(0);
+  auto col_last = obj.col(dummy.n_cols() - 1);
+  /** assert */
+  mu::Vector<dummy.size()[0], typename TestFixture::value_type> comp_first;
+  for (std::size_t i = 0; i < dummy.size()[0]; i++) {
+    comp_first[i] = this->values[i][0];
+  }
+  mu::Vector<dummy.size()[0], typename TestFixture::value_type> comp_last;
+  for (std::size_t i = 0; i < dummy.size()[0]; i++) {
+    comp_last[i] = this->values[i][dummy.n_cols() - 1];
+  }
+  EXPECT_THAT(col_first, ::testing::ContainerEq(comp_first));
+  EXPECT_THAT(col_last, ::testing::ContainerEq(comp_last));
+  /* access outside the dimension bounds should cause failure */
+  EXPECT_DEATH({ obj.col(-1); }, "");                  // NOLINT
+  EXPECT_DEATH({ obj.col(dummy.n_cols() + 1); }, "");  // NOLINT
 }
 
 TYPED_TEST_P(MatrixTypeFixture, MemberFuncMin) {
@@ -579,12 +619,13 @@ REGISTER_TYPED_TEST_SUITE_P(
     ConstructorVariadicTemplateAssignmentSize2x2, DestructorDefault,
     ConstructorCopy, ConstructorMove, OperatorCopyAssignment,
     OperatorMoveAssignment, OperatorBrackets, OperatorBracketsConst,
-    MemberFuncAt, MemberFuncAtConst, MemberFuncSize, MemberFuncRows,
-    MemberFuncCols, MemberFuncBegin, MemberFuncBeginConst, MemberFuncEnd,
-    MemberFuncEndConst, MemberFuncMin, MemberFuncMax, MemberFuncSum,
-    MemberFuncMean, MemberFuncDiag, MemberFuncDet, MemberFuncMeanConvertedType,
-    OperatorStreamOut, UtilityFuncMin, UtilityFuncMax, UtilityFuncSum,
-    UtilityFuncMean, UtilityFuncMeanConvertedType, UtilityFuncDiagMakeVector,
-    UtilityFuncDet, UtilityFuncEye, UtilityFuncOnes, UtilityFuncZeros);
+    MemberFuncAt, MemberFuncAtConst, MemberFuncSize, MemberFuncNRows,
+    MemberFuncNCols, MemberFuncBegin, MemberFuncBeginConst, MemberFuncEnd,
+    MemberFuncEndConst, MemberFuncRow, MemberFuncCol, MemberFuncMin,
+    MemberFuncMax, MemberFuncSum, MemberFuncMean, MemberFuncDiag, MemberFuncDet,
+    MemberFuncMeanConvertedType, OperatorStreamOut, UtilityFuncMin,
+    UtilityFuncMax, UtilityFuncSum, UtilityFuncMean,
+    UtilityFuncMeanConvertedType, UtilityFuncDiagMakeVector, UtilityFuncDet,
+    UtilityFuncEye, UtilityFuncOnes, UtilityFuncZeros);
 
 #endif  // TESTS_MATRIX_TYPE_H_
