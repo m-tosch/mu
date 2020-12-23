@@ -3,6 +3,7 @@
 
 #include <algorithm>
 #include <array>
+#include <cassert>
 #include <type_traits>
 #include <vector>
 
@@ -236,14 +237,14 @@ class Matrix {
    *
    * @return constexpr size_type
    */
-  constexpr size_type rows() const noexcept { return N; }
+  constexpr size_type n_rows() const noexcept { return N; }
 
   /**
    * @brief returns the number of columns
    *
    * @return constexpr size_type
    */
-  constexpr size_type cols() const noexcept { return M; }
+  constexpr size_type n_cols() const noexcept { return M; }
 
   /**
    * @brief returns an iterator starting at the first row
@@ -272,6 +273,34 @@ class Matrix {
    * @return const_iterator
    */
   const_iterator end() const noexcept { return data_.end(); }
+
+  /**
+   * @brief get a matrix row as a vector
+   *
+   * @param idx
+   * @return Vector<M, T>
+   */
+  Vector<M, T> row(const size_type &idx) const {
+    /* access to outside the matrix bounds can only be checked at runtime */
+    assert(idx >= 0 && idx < N);
+    return data_[idx];
+  }
+
+  /**
+   * @brief get a matrix column as a vector
+   *
+   * @param idx
+   * @return Vector<N, T>
+   */
+  Vector<N, T> col(const size_type &idx) const {
+    /* access to outside the matrix bounds can only be checked at runtime */
+    assert(idx >= 0 && idx < M);
+    Vector<N, T> ret;
+    for (std::size_t i = 0; i < N; i++) {
+      ret[i] = data_[i][idx];
+    }
+    return ret;
+  }
 
   /**
    * @brief get the min value of the matrix
