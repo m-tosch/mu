@@ -394,6 +394,51 @@ class Matrix {
     return calc_det(vv);
   }
 
+  /**
+   * @brief dot product between two matrices
+   *
+   * creates a new matrix with dimensions according to matrix multiplication
+   * rules. for a matrix A (m x n) and a matrix B (n x p), the matrix C (m x p)
+   * is defined as the product of A and B
+   * see
+   * https://en.wikipedia.org/wiki/Matrix_multiplication#Dot_product,_bilinear_form_and_inner_product
+   *
+   *
+   * @tparam U
+   * @tparam N2
+   * @tparam M2
+   * @tparam T2
+   * @param rhs
+   * @return std::conditional_t<std::is_same_v<U, void>, Matrix<N, M2, T>,
+   * Matrix<N, M2, U>>
+   */
+  template <typename U = void, std::size_t N2, std::size_t M2, typename T2>
+  std::conditional_t<std::is_same_v<U, void>, Matrix<N, M2, T>,
+                     Matrix<N, M2, U>>
+  dot(const Matrix<N2, M2, T2> &rhs) const {
+    static_assert(
+        M == N2,
+        "Matrix dimension mismatch. Second dimension of first matrix must be "
+        "equal to the first dimension of the second matrix");
+    if constexpr (!std::is_same_v<T, T2>) {
+      static_assert(!std::is_same_v<U, void>,
+                    "Matrix types are different. please specify the return "
+                    "type. e.g. \"mat1.dot<float>(mat2);\"");
+    }
+    using U_ = std::conditional_t<std::is_same_v<U, void>, T, U>;
+    Matrix<N, M2, U_> ret;
+    for (std::size_t i = 0; i < N; i++) {
+      for (std::size_t j = 0; j < M2; j++) {
+        U_ sum{0};
+        for (std::size_t k = 0; k < M; k++) {
+          sum += (data_[i][k] * rhs[k][j]);
+        }
+        ret[i][j] = sum;
+      }
+    }
+    return ret;
+  }
+
   /********************************* I/O ***********************************/
 
   /**
