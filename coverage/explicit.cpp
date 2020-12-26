@@ -145,6 +145,7 @@ template int mu::det(const mu::Matrix<2, 2, int> &);
 template mu::Matrix<3, 3, int> mu::eye<3>();
 template mu::Matrix<3, 3, int> mu::ones<3, 3>();
 template mu::Matrix<3, 3, int> mu::zeros<3, 3>();
+template mu::Matrix<2, 3, int> mu::transpose(const mu::Matrix<3, 2, int> &);
 
 /**************************** Matrix <> Scalar *****************************/
 
