@@ -395,6 +395,21 @@ class Matrix {
   }
 
   /**
+   * @brief creates and returns a transposed Matrix object
+   *
+   * @return Matrix<M, N, T>
+   */
+  Matrix<M, N, T> transpose() const {
+    Matrix<M, N, T> ret;
+    for (std::size_t i = 0; i < N; i++) {
+      for (std::size_t j = 0; j < M; j++) {
+        ret[j][i] = data_[i][j];
+      }
+    }
+    return ret;
+  }
+
+  /**
    * @brief dot product between two matrices
    *
    * creates a new matrix with dimensions according to matrix multiplication
@@ -873,6 +888,11 @@ inline Matrix<N, N, T> diag(const Vector<N, T> &v) {
     ret[i][i] = v[i];
   }
   return ret;
+}
+
+template <std::size_t N, std::size_t M, typename T>
+Matrix<M, N, T> transpose(const Matrix<N, M, T> &m) {
+  return m.transpose();
 }
 
 template <std::size_t N, std::size_t M, typename T>
