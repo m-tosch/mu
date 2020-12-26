@@ -905,7 +905,7 @@ template <typename U = void, std::size_t N1, std::size_t M1, typename T1,
 std::conditional_t<std::is_same_v<U, void>, Matrix<N1, M2, T1>,
                    Matrix<N1, M2, U>>
 dot(const Matrix<N1, M1, T1> &lhs, const Matrix<N2, M2, T2> &rhs) {
-  return lhs.template dot<std::conditional_t<std::is_same_v<U, void>, T1, U>>(
+  return lhs.template dot<std::conditional_t<std::is_same_v<U, void>, void, U>>(
       rhs);
 }
 
