@@ -417,6 +417,20 @@ TYPED_TEST_P(MatrixTypeFixture, MemberFuncDet) {
   }
 }
 
+TYPED_TEST_P(MatrixTypeFixture, MemberFuncTranspose) {
+  static TypeParam dummy;  // just to get the size at compile time here
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  auto res = obj.transpose();
+  /** assert */
+  for (std::size_t i = 0; i < dummy.size()[0]; i++) {
+    for (std::size_t j = 0; j < dummy.size()[1]; j++) {
+      EXPECT_EQ(res[j][i], obj[i][j]);
+    }
+  }
+}
+
 TYPED_TEST_P(MatrixTypeFixture, OperatorStreamOut) {
   /** arrange */
   TypeParam obj{this->values};
@@ -566,6 +580,20 @@ TYPED_TEST_P(MatrixTypeFixture, UtilityFuncDet) {
   }
 }
 
+TYPED_TEST_P(MatrixTypeFixture, UtilityFuncTranspose) {
+  static TypeParam dummy;  // just to get the size at compile time here
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  auto res = mu::transpose(obj);
+  /** assert */
+  for (std::size_t i = 0; i < dummy.size()[0]; i++) {
+    for (std::size_t j = 0; j < dummy.size()[1]; j++) {
+      EXPECT_EQ(res[j][i], obj[i][j]);
+    }
+  }
+}
+
 TYPED_TEST_P(MatrixTypeFixture, UtilityFuncEye) {
   static TypeParam dummy;  // just to get the size at compile time here
   /* this test is ony for symmetrical matrices */
@@ -623,9 +651,9 @@ REGISTER_TYPED_TEST_SUITE_P(
     MemberFuncNCols, MemberFuncBegin, MemberFuncBeginConst, MemberFuncEnd,
     MemberFuncEndConst, MemberFuncRow, MemberFuncCol, MemberFuncMin,
     MemberFuncMax, MemberFuncSum, MemberFuncMean, MemberFuncDiag, MemberFuncDet,
-    MemberFuncMeanConvertedType, OperatorStreamOut, UtilityFuncMin,
-    UtilityFuncMax, UtilityFuncSum, UtilityFuncMean,
+    MemberFuncMeanConvertedType, MemberFuncTranspose, OperatorStreamOut,
+    UtilityFuncMin, UtilityFuncMax, UtilityFuncSum, UtilityFuncMean,
     UtilityFuncMeanConvertedType, UtilityFuncDiagMakeVector, UtilityFuncDet,
-    UtilityFuncEye, UtilityFuncOnes, UtilityFuncZeros);
+    UtilityFuncTranspose, UtilityFuncEye, UtilityFuncOnes, UtilityFuncZeros);
 
 #endif  // TESTS_MATRIX_TYPE_H_
