@@ -128,7 +128,9 @@ template int mu::dot<int, 2, float, 2, float>(const mu::Vector<2, float> &,
 
 /* class */
 template class mu::Matrix<2, 2, float>;
-
+/* functions */
+template mu::Matrix<2, 2, int> mu::Matrix<2, 3, int>::dot(
+    const mu::Matrix<3, 2, int> &) const;
 /* operators */
 template std::ostream &mu::operator<<<2, 2, float>(
     std::ostream &, const mu::Matrix<2, 2, float> &);
@@ -142,10 +144,11 @@ template float mu::sum(const mu::Matrix<2, 2, float> &);
 template float mu::mean<float>(const mu::Matrix<2, 2, float> &);
 template mu::Vector<2, float> mu::diag(const mu::Matrix<2, 2, float> &);
 template int mu::det(const mu::Matrix<2, 2, int> &);
+template mu::Matrix<2, 3, int> mu::transpose(const mu::Matrix<3, 2, int> &);
+
 template mu::Matrix<3, 3, int> mu::eye<3>();
 template mu::Matrix<3, 3, int> mu::ones<3, 3>();
 template mu::Matrix<3, 3, int> mu::zeros<3, 3>();
-template mu::Matrix<2, 3, int> mu::transpose(const mu::Matrix<3, 2, int> &);
 
 /**************************** Matrix <> Scalar *****************************/
 
@@ -214,3 +217,8 @@ template bool mu::Matrix<2, 2, float>::operator!=
 /* constructor (construct-from-different-typed-array-of-array) */
 template mu::Matrix<2, 2, float>::Matrix(
     const std::array<std::array<int, 2>, 2> &);
+/* convenience functions */
+/* these functions should take a combination of Matrices, so they're here.
+ * functions that take e.g a single Matrix as argument are elsewhere */
+template mu::Matrix<2, 2, int> mu::dot(const mu::Matrix<2, 3, int> &,
+                                       const mu::Matrix<3, 2, int> &);
