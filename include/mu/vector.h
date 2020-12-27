@@ -355,6 +355,24 @@ class Vector {
   }
 
   /**
+   * @brief calculates the standard deviation
+   *
+   * \f$ \sigma = \sqrt{\frac{\sum(x_i - \mu)^2}{N}} \f$
+   *
+   * @tparam U
+   * @return U
+   */
+  template <class U = T>
+  U std() {
+    U sum{0};
+    U m = mean<U>();
+    for (const auto &item : data_) {
+      sum += mu::pow(item - m, 2);
+    }
+    return U(mu::sqrt(sum / N));
+  }
+
+  /**
    * @brief euclidean vector length
    *
    * returns the length as
