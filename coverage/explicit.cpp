@@ -16,6 +16,7 @@ template class mu::Vector<2, float>;
 template float mu::Vector<2, float>::length<float>() const;
 template float mu::Vector<2, int>::mean<float>() const;
 template float mu::Vector<2, int>::dot<float>(const mu::Vector<2, int> &) const;
+template float mu::Vector<2, int>::std<float>() const;
 // workaround for "lambda functions are not allowed in unevaluated operands"
 struct LambdaCompare {
   bool operator()(int a, int b) const { return a > b; }
@@ -136,6 +137,7 @@ template class mu::Matrix<2, 2, float>;
 /* functions */
 template mu::Matrix<2, 2, int> mu::Matrix<2, 3, int>::dot(
     const mu::Matrix<3, 2, int> &) const;
+template float mu::Matrix<2, 2, int>::std<float>() const;
 /* operators */
 template std::ostream &mu::operator<<<2, 2, float>(
     std::ostream &, const mu::Matrix<2, 2, float> &);
