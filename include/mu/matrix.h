@@ -12,7 +12,7 @@
 #include "vector.h"
 
 namespace mu {
-
+  
 /**
  * @brief A generic matrix
  *
@@ -450,6 +450,45 @@ class Matrix {
         }
         ret[i][j] = sum;
       }
+    }
+    return ret;
+  }
+
+  /**
+   * @brief dot product between a matrix and a vector
+   *
+   * creates a new vector with a size according to matrix multiplication
+   * rules. for a matrix A (m x n) and a vector B (n), the vector C (m)
+   * is defined as the product of A and B
+   *
+   * @tparam U
+   * @tparam N2
+   * @tparam T2
+   * @param rhs
+   * @return std::conditional_t<std::is_same_v<U, void>, Vector<N, T>, Vector<N,
+   * U>>
+   */
+  template <typename U = void, std::size_t N2, typename T2>
+  std::conditional_t<std::is_same_v<U, void>, Vector<N, T>, Vector<N, U>> dot(
+      const Vector<N2, T2> &rhs) const {
+    static_assert(
+        M == N2,
+        "Matrix-Vector dimension mismatch. Second dimension of the matrix "
+        "must be equal to the vector size");
+    if constexpr (!std::is_same_v<T, T2>) {
+      static_assert(
+          !std::is_same_v<U, void>,
+          "Matrix and Vector types are different. please specify the return "
+          "type. e.g. \"mat.dot<float>(vec);\"");
+    }
+    using U_ = std::conditional_t<std::is_same_v<U, void>, T, U>;
+    Vector<N, U_> ret;
+    for (std::size_t i = 0; i < N; i++) {
+      U_ sum{0};
+      for (std::size_t k = 0; k < M; k++) {
+        sum += (data_[i][k] * rhs[k]);
+      }
+      ret[i] = sum;
     }
     return ret;
   }
@@ -905,8 +944,14 @@ template <typename U = void, std::size_t N1, std::size_t M1, typename T1,
 std::conditional_t<std::is_same_v<U, void>, Matrix<N1, M2, T1>,
                    Matrix<N1, M2, U>>
 dot(const Matrix<N1, M1, T1> &lhs, const Matrix<N2, M2, T2> &rhs) {
-  return lhs.template dot<std::conditional_t<std::is_same_v<U, void>, void, U>>(
-      rhs);
+  return lhs.template dot<U>(rhs);
+}
+
+template <typename U = void, std::size_t N, std::size_t M, typename T,
+          std::size_t N2, typename T2>
+std::conditional_t<std::is_same_v<U, void>, Vector<N, T>, Vector<N, U>> dot(
+    const Matrix<N, M, T> &lhs, const Vector<N2, T2> &rhs) {
+  return lhs.template dot<U>(rhs);
 }
 
 template <std::size_t S, typename T = int>
