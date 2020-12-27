@@ -374,6 +374,57 @@ TYPED_TEST_P(MatrixTypeFixture, MemberFuncMeanConvertedType) {
   EXPECT_EQ(mean, comp);
 }
 
+TYPED_TEST_P(MatrixTypeFixture, MemberFuncStd) {
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  typename TestFixture::value_type std = obj.std();
+  /** assert */
+  typename TestFixture::value_type sum{};
+  for (const auto& row : this->values) {
+    sum += std::accumulate(row.begin(), row.end(),
+                           static_cast<typename TestFixture::value_type>(0));
+  }
+  typename TestFixture::value_type mean;
+  mean = sum / (this->values.size() * this->values[0].size());
+
+  typename TestFixture::value_type sum2{0};
+  for (const auto& row : this->values) {
+    for (const auto& item : row) {
+      sum2 += mu::pow(item - mean, 2);
+    }
+  }
+  typename TestFixture::value_type comp;
+  comp = std::sqrt(sum2 / (this->values.size() * this->values[0].size()));
+  EXPECT_FLOAT_EQ(std, comp);
+}
+
+TYPED_TEST_P(MatrixTypeFixture, MemberFuncStdConvertedType) {
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  typename TestFixture::ConvertedType std =
+      obj.template std<typename TestFixture::ConvertedType>();
+  /** assert */
+  typename TestFixture::ConvertedType sum{};
+  for (const auto& row : this->values) {
+    sum += std::accumulate(row.begin(), row.end(),
+                           static_cast<typename TestFixture::value_type>(0));
+  }
+  typename TestFixture::ConvertedType mean;
+  mean = sum / (this->values.size() * this->values[0].size());
+
+  typename TestFixture::ConvertedType sum2{0};
+  for (const auto& row : this->values) {
+    for (const auto& item : row) {
+      sum2 += mu::pow(item - mean, 2);
+    }
+  }
+  typename TestFixture::ConvertedType comp;
+  comp = std::sqrt(sum2 / (this->values.size() * this->values[0].size()));
+  EXPECT_FLOAT_EQ(std, comp);
+}
+
 TYPED_TEST_P(MatrixTypeFixture, MemberFuncDiag) {
   /** arrange */
   TypeParam obj{this->values};
@@ -651,9 +702,10 @@ REGISTER_TYPED_TEST_SUITE_P(
     MemberFuncNCols, MemberFuncBegin, MemberFuncBeginConst, MemberFuncEnd,
     MemberFuncEndConst, MemberFuncRow, MemberFuncCol, MemberFuncMin,
     MemberFuncMax, MemberFuncSum, MemberFuncMean, MemberFuncDiag, MemberFuncDet,
-    MemberFuncMeanConvertedType, MemberFuncTranspose, OperatorStreamOut,
-    UtilityFuncMin, UtilityFuncMax, UtilityFuncSum, UtilityFuncMean,
-    UtilityFuncMeanConvertedType, UtilityFuncDiagMakeVector, UtilityFuncDet,
-    UtilityFuncTranspose, UtilityFuncEye, UtilityFuncOnes, UtilityFuncZeros);
+    MemberFuncMeanConvertedType, MemberFuncStd, MemberFuncStdConvertedType,
+    MemberFuncTranspose, OperatorStreamOut, UtilityFuncMin, UtilityFuncMax,
+    UtilityFuncSum, UtilityFuncMean, UtilityFuncMeanConvertedType,
+    UtilityFuncDiagMakeVector, UtilityFuncDet, UtilityFuncTranspose,
+    UtilityFuncEye, UtilityFuncOnes, UtilityFuncZeros);
 
 #endif  // TESTS_MATRIX_TYPE_H_

@@ -281,6 +281,45 @@ TYPED_TEST_P(VectorTypeFixture, MemberFuncMeanConvertType) {
   EXPECT_FLOAT_EQ(mean, comp);
 }
 
+TYPED_TEST_P(VectorTypeFixture, MemberFuncStd) {
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  typename TypeParam::value_type std = obj.std();
+  /** assert */
+  typename TypeParam::value_type mean =
+      std::accumulate(this->values.begin(), this->values.end(),
+                      static_cast<typename TypeParam::value_type>(0));
+  mean /= this->values.size();
+  typename TypeParam::value_type sum{0};
+  for (const auto &item : this->values) {
+    sum += mu::pow(item - mean, 2);
+  }
+  typename TypeParam::value_type comp;
+  comp = std::sqrt(sum / this->values.size());
+  EXPECT_FLOAT_EQ(std, comp);
+}
+
+TYPED_TEST_P(VectorTypeFixture, MemberFuncStdConvertedType) {
+  /** arrange */
+  TypeParam obj{this->values};
+  /** action */
+  typename TestFixture::ConvertedType std =
+      obj.template std<typename TestFixture::ConvertedType>();
+  /** assert */
+  typename TestFixture::ConvertedType mean =
+      std::accumulate(this->values.begin(), this->values.end(),
+                      static_cast<typename TypeParam::value_type>(0));
+  mean /= this->values.size();
+  typename TestFixture::ConvertedType sum{0};
+  for (const auto &item : this->values) {
+    sum += mu::pow(item - mean, 2);
+  }
+  typename TestFixture::ConvertedType comp;
+  comp = std::sqrt(sum / this->values.size());
+  EXPECT_FLOAT_EQ(std, comp);
+}
+
 TYPED_TEST_P(VectorTypeFixture, MemberFuncLength) {
   /** arrange */
   TypeParam obj{this->values};
@@ -580,8 +619,9 @@ REGISTER_TYPED_TEST_SUITE_P(
     MemberFuncAt, MemberFuncAtConst, MemberFuncSize, MemberFuncBegin,
     MemberFuncBeginConst, MemberFuncEnd, MemberFuncEndConst, MemberFuncMin,
     MemberFuncMax, MemberFuncSum, MemberFuncMean, MemberFuncMeanConvertType,
-    MemberFuncLength, MemberFuncLengthConvertType, MemberFuncFlip,
-    MemberFuncFlipped, MemberFuncSort, MemberFuncSortLambda, MemberFuncSorted,
+    MemberFuncStd, MemberFuncStdConvertedType, MemberFuncLength,
+    MemberFuncLengthConvertType, MemberFuncFlip, MemberFuncFlipped,
+    MemberFuncSort, MemberFuncSortLambda, MemberFuncSorted,
     MemberFuncSortedLambda, OperatorStreamOut, UtilityFuncMin, UtilityFuncMax,
     UtilityFuncSum, UtilityFuncMean, UtilityFuncMeanConvertType,
     UtilityFuncFlip, UtilityFuncFlipped, UtilityFuncSort, UtilityFuncSortLambda,
