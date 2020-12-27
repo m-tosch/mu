@@ -502,7 +502,7 @@ class Matrix {
    * @return U
    */
   template <class U = T>
-  U std() {
+  U std() const {
     U sum{0};
     U m = mean<U>();
     for (const auto &row : data_) {
