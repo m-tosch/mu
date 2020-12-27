@@ -12,7 +12,7 @@
 #include "vector.h"
 
 namespace mu {
-  
+
 /**
  * @brief A generic matrix
  *
@@ -491,6 +491,26 @@ class Matrix {
       ret[i] = sum;
     }
     return ret;
+  }
+
+  /**
+   * @brief calculates the standard deviation
+   *
+   * \f$ \sigma = \sqrt{\frac{\sum(x_ij - \mu)^2}{N}} \f$
+   *
+   * @tparam U
+   * @return U
+   */
+  template <class U = T>
+  U std() {
+    U sum{0};
+    U m = mean<U>();
+    for (const auto &row : data_) {
+      for (const auto &item : row) {
+        sum += mu::pow(item - m, 2);
+      }
+    }
+    return U(mu::sqrt(sum / N));
   }
 
   /********************************* I/O ***********************************/
