@@ -510,7 +510,7 @@ class Matrix {
         sum += mu::pow(item - m, 2);
       }
     }
-    return U(mu::sqrt(sum / N));
+    return U(mu::sqrt(sum / (N * M)));
   }
 
   /********************************* I/O ***********************************/
