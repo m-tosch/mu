@@ -15,6 +15,13 @@
 #include "mu/utility.h"
 
 namespace mu {
+
+/* forward declaration */
+/* lets the Vector class in this header know what "Matrix" is, so the alias can
+ * be used for function arguments, return types ... */
+template <std::size_t X, std::size_t Y, typename Z>
+class Matrix;
+
 /**
  * @brief A generic vector
  *
@@ -34,6 +41,10 @@ class Vector {
   static_assert(std::is_arithmetic_v<mu::unwrap_ref_t<T>>,
                 "Vector type T must be an arithmetic type or a "
                 "std::reference_wrapper that holds an arithmetic type");
+
+  //  private:
+  //   template <std::size_t Nn, std::size_t Mm, typename Tt>
+  //   class Matrix;
 
  public:
   /* value and size type from the underlying container */
@@ -315,6 +326,30 @@ class Vector {
     U_ ret{};
     for (std::size_t i = 0; i < N; i++) {
       ret += data_[i] * rhs[i];
+    }
+    return ret;
+  }
+
+  template <typename U = void, std::size_t N2, std::size_t M2, typename T2>
+  std::conditional_t<std::is_same_v<U, void>, Vector<M2, T>, Vector<M2, U>> dot(
+      const Matrix<N2, M2, T2> &rhs) const {
+    static_assert(N == N2,
+                  "Vector-Matrix dimension mismatch. Vector size must be equal "
+                  "to the first dimension of the matrix");
+    if constexpr (!std::is_same_v<T, T2>) {
+      static_assert(
+          !std::is_same_v<U, void>,
+          "Vector and Matrix types are different. please specify the return "
+          "type. e.g. \"vec.dot<float>(mat);\"");
+    }
+    using U_ = std::conditional_t<std::is_same_v<U, void>, T, U>;
+    Vector<M2, U_> ret;
+    for (std::size_t i = 0; i < M2; i++) {
+      U_ sum{0};
+      for (std::size_t k = 0; k < N; k++) {
+        sum += (data_[k] * rhs[k][i]);
+      }
+      ret[i] = sum;
     }
     return ret;
   }
@@ -821,6 +856,13 @@ inline std::conditional_t<std::is_same_v<U, void>, T, U> mean(
 template <class U = void, std::size_t N1, class T1, std::size_t N2, class T2>
 inline std::conditional_t<std::is_same_v<U, void>, T1, U> dot(
     const Vector<N1, T1> &lhs, const Vector<N2, T2> &rhs) {
+  return lhs.template dot<U>(rhs);
+}
+
+template <typename U = void, std::size_t N, typename T, std::size_t N2,
+          std::size_t M2, typename T2>
+std::conditional_t<std::is_same_v<U, void>, Vector<M2, T>, Vector<M2, U>> dot(
+    const Vector<N, T> &lhs, const Matrix<N2, M2, T2> &rhs) {
   return lhs.template dot<U>(rhs);
 }
 
