@@ -124,6 +124,11 @@ template bool mu::Vector<2, float>::operator!=
 template int mu::dot<int, 2, float, 2, float>(const mu::Vector<2, float> &,
                                               const mu::Vector<2, float> &);
 
+/**************************** Vector <> Matrix *****************************/
+
+template mu::Vector<3, int> mu::dot(const mu::Vector<2, int> &,
+                                    const mu::Matrix<2, 3, int> &);
+
 /********************************* Matrix **********************************/
 
 /* class */
@@ -222,3 +227,8 @@ template mu::Matrix<2, 2, float>::Matrix(
  * functions that take e.g a single Matrix as argument are elsewhere */
 template mu::Matrix<2, 2, int> mu::dot(const mu::Matrix<2, 3, int> &,
                                        const mu::Matrix<3, 2, int> &);
+
+/**************************** Matrix <> Vector *****************************/
+
+template mu::Vector<2, int> mu::dot(const mu::Matrix<2, 3, int> &,
+                                    const mu::Vector<3, int> &);
