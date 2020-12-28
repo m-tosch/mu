@@ -9,20 +9,20 @@ A small, simple c++ math library
 
 ### Example 1
 
-Calculate the mean and standard deviation of an integer vector.
+Calculate the mean and standard deviation of a vector.
 
 ```cpp
-mu::Vector<5,int> v = {8,1,7,3,4};
-float mean = v.mean<float>();
-float std = v.std<float>();
+mu::Vector<3,float> v = {8.3F, 1.9F, 4.5F};
+float mean = v.mean();
+float std = v.std();
 std::cout << "mean: " << mean << std::endl;
 std::cout << "std: " << std << std::endl;
 ```
 
 output
 ```txt
-mean: 4.6
-std: 2.57682
+mean: 4.9
+std: 2.62805
 ```
 
 ### Example 2
@@ -62,7 +62,6 @@ output
 before: [ 2.25, 5.75 ]
 after: [ -5.75, 2.25 ]
 ```
-
 
 ## Usage
 
