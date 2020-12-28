@@ -23,7 +23,7 @@ jobs:
       - name: Generate coverage report
         shell: bash
         run: |
-          cd coverage/
+          cd mu/coverage/
           bash coverage_llvm.sh
 
       - name: Upload coverage to codecov
