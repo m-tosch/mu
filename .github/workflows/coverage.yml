@@ -17,18 +17,17 @@ jobs:
         run: |
           git submodule init
           git submodule update
-          sudo apt-get install -y lcov
-          mkdir -p build
+          pip install gcovr
 
-      - name: Generate coverage report
+      - name: Build & Generate coverage report
         shell: bash
         run: |
           cd $PWD/coverage/
-          bash coverage_gcov.sh
-
+          bash coverage_gcovr.sh
+          
       - name: Upload coverage to codecov
         uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          file: ./html_gcov/index.html
+          file: $PWD/xml_gcovr/index.xml
           fail_ci_if_error: true
