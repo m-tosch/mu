@@ -23,6 +23,7 @@ jobs:
       - name: Generate coverage report
         shell: bash
         run: |
+          echo $PWD
           cd mu/coverage/
           bash coverage_llvm.sh
 
