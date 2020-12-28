@@ -42,10 +42,6 @@ class Vector {
                 "Vector type T must be an arithmetic type or a "
                 "std::reference_wrapper that holds an arithmetic type");
 
-  //  private:
-  //   template <std::size_t Nn, std::size_t Mm, typename Tt>
-  //   class Matrix;
-
  public:
   /* value and size type from the underlying container */
   using value_type = typename std::array<T, N>::value_type;
