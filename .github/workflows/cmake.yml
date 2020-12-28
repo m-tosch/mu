@@ -36,7 +36,7 @@ jobs:
     - name: Generate coverage report
       working-directory: ${{runner.workspace}}/coverage
       shell: bash
-      run: ./coverage_llvm.sh
+      run: pwd
 
     - name: Upload coverage to codecov
       uses: codecov/codecov-action@v1
