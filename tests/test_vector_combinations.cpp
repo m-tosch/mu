@@ -76,7 +76,7 @@ TYPED_TEST(VectorCombinationsFixture, MemberFuncDot) {
   typename TestFixture::T1::value_type comp =
       std::inner_product(obj1.begin(), obj1.end(), obj2.begin(),
                          static_cast<typename TestFixture::T1::value_type>(0));
-  EXPECT_FLOAT_EQ(res, comp);
+  EXPECT_EQ(res, comp);
 }
 
 /************************* convenience functions ***************************/
@@ -97,5 +97,5 @@ TYPED_TEST(VectorCombinationsFixture, UtilityFuncDot) {
   typename TestFixture::T1::value_type comp =
       std::inner_product(obj1.begin(), obj1.end(), obj2.begin(),
                          static_cast<typename TestFixture::T1::value_type>(0));
-  EXPECT_FLOAT_EQ(res, comp);
+  EXPECT_EQ(res, comp);
 }
