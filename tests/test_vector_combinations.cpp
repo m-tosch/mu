@@ -65,7 +65,7 @@ TYPED_TEST(VectorCombinationsFixture, MemberFuncDot) {
   typename TestFixture::T1 obj1{this->values()};
   typename TestFixture::T2 obj2{this->values2()};
   /** action */
-  typename TestFixture::T1::value_type res{};
+  typename TestFixture::T1::value_type res;
   if constexpr (std::is_same_v<typename TestFixture::T1,
                                typename TestFixture::T2>) {
     res = obj1.template dot(obj2);
@@ -86,7 +86,7 @@ TYPED_TEST(VectorCombinationsFixture, UtilityFuncDot) {
   typename TestFixture::T1 obj1{this->values()};
   typename TestFixture::T2 obj2{this->values2()};
   /** action */
-  typename TestFixture::T1::value_type res{};
+  typename TestFixture::T1::value_type res;
   if constexpr (std::is_same_v<typename TestFixture::T1,
                                typename TestFixture::T2>) {
     res = mu::dot(obj1, obj2);
