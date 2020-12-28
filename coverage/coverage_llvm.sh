@@ -14,6 +14,6 @@ LLVM_PROFILE_FILE="$WORKDIR/mu_tests.profraw" $WORKDIR/mu_tests --gtest_brief=1
 # 3. "Raw profiles have to be indexed before they can be used to generate coverage reports"
 llvm-profdata merge -sparse $WORKDIR/mu_tests.profraw -o $WORKDIR/mu_tests.profdata
 # 4. generate html report. exclude some folders from the coverage
-llvm-cov show $WORKDIR/mu_tests -instr-profile=$WORKDIR/mu_tests.profdata -output-dir="$COVERAGEDIR/html_llvm" \
--format="html" --show-line-counts-or-regions -Xdemangler c++filt \
+llvm-cov show $WORKDIR/mu_tests -instr-profile=$WORKDIR/mu_tests.profdata -output-dir="$COVERAGEDIR/text_llvm" \
+-format="text" --show-line-counts-or-regions -Xdemangler c++filt \
 --ignore-filename-regex="coverage/*" --ignore-filename-regex="dependencies/*" --ignore-filename-regex="tests/*" 
