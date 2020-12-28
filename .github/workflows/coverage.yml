@@ -23,8 +23,7 @@ jobs:
       - name: Generate coverage report
         shell: bash
         run: |
-          echo $PWD
-          cd mu/coverage/
+          cd $PWD/coverage/
           bash coverage_llvm.sh
 
       - name: Upload coverage to codecov
