@@ -49,6 +49,16 @@
       "problemMatcher": []
     },
     {
+      "label": "generate coverage (gcovr)",
+      "type": "shell",
+      "command": "bash coverage_gcovr.sh",
+      "options": {
+        "cwd": "${workspaceFolder}/coverage"
+      },
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
       "label": "generate coverage (llvm)",
       "type": "shell",
       "command": "bash coverage_llvm.sh",

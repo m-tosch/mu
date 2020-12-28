@@ -15,4 +15,4 @@ mkdir -p $ROOTDIR/build && cd $ROOTDIR/build && CC=gcc CXX=g++ cmake .. -G "Unix
 $ROOTDIR/build/tests/mu_tests --gtest_brief=1
 # 3. generate xml gcovr report. include only the "include" folder for coverage
 mkdir -p $COVERAGEDIR/xml_gcovr
-cd $WORKDIR && gcovr -r $ROOTDIR/.. -f ../../../../include --xml > $COVERAGEDIR/xml_gcovr/index.xml
+cd $WORKDIR && gcovr -r $ROOTDIR/.. -f ../../../../include --xml -o $COVERAGEDIR/xml_gcovr/index.xml
