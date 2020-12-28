@@ -113,7 +113,7 @@ You can generate the documentation locally from the command line inside the `doc
 doxygen Doxyfile
 ```
 
-The documentation will be generated in html form inside a  doc/html folder. View the report by opening the index.html file inside that folder in a browser.
+The documentation will be generated in html form inside a doc/html folder. View the report by opening the index.html file inside that folder in a browser.
 
 ## Tests
 
@@ -124,14 +124,6 @@ After successfully building the project (with cmake), you can run the unit tests
 ```cmd
 ./mu_tests
 ```
-
-If you want to only print the overall test results, run the test executable like this:
-
-```cmd
-./mu_tests --gtest_brief=1
-```
-
-*note: individual test failures will still be reported if a test fails*
 
 ## Coverage
 
@@ -153,4 +145,4 @@ For llvm-cov (requires clang)
 ./coverage_llvm.sh
 ```
 
-The coverage report will be generated in html form in a `coverage/html_gcov` or a `coverage/html_llvm` folder respectively. View the report by opening the index.html file inside that folder in a browser.
+The coverage report will be generated in html form in a `coverage/html_gcov` or a `coverage/html_llvm` folder respectively. View the report by opening the `index.html` file inside that folder in a browser.
