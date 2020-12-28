@@ -31,5 +31,5 @@ jobs:
         uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          file: $PWD/xml_gcovr/index.xml
+          file: $PWD/coverage/xml_gcovr/index.xml
           fail_ci_if_error: true
