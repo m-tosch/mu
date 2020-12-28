@@ -68,7 +68,7 @@ TYPED_TEST(VectorCombinationsFixture, MemberFuncDot) {
   typename TestFixture::T1::value_type res;
   if constexpr (std::is_same_v<typename TestFixture::T1,
                                typename TestFixture::T2>) {
-    res = obj1.template dot(obj2);
+    res = obj1.dot(obj2);
   } else {
     res = obj1.template dot<typename TestFixture::T1::value_type>(obj2);
   }
