@@ -320,7 +320,7 @@ class Vector {
     if constexpr (!std::is_same_v<T, T2>) {
       static_assert(!std::is_same_v<U, void>,
                     "Vector types are different. please specify the return "
-                    "type. e.g. \"dot<float>(vec1, vec2);\"");
+                    "type. e.g. \"vec1.dot<float>(vec2);\"");
     }
     using U_ = std::conditional_t<std::is_same_v<U, void>, T, U>;
     U_ ret{};
