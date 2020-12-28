@@ -24,11 +24,11 @@ jobs:
         shell: bash
         run: |
           cd $PWD/coverage/
-          bash coverage_llvm.sh
+          bash coverage_gcov.sh
 
       - name: Upload coverage to codecov
         uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          file: ./text_llvm/index.txt
+          file: ./html_gcov/index.html
           fail_ci_if_error: true
