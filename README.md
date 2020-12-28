@@ -2,6 +2,7 @@
 
 [![](https://github.com/m-tosch/mu/workflows/cmake/badge.svg)](https://github.com/m-tosch/mu/actions?query=workflow%3ACMake)
 [![](https://github.com/m-tosch/mu/workflows/doc/badge.svg)](https://m-tosch.github.io/mu/index.html)
+[![codecov](https://codecov.io/gh/m-tosch/mu/branch/master/graph/badge.svg?token=K4O5W48EUX)](https://codecov.io/gh/m-tosch/mu)
 
 A small, simple c++ math library
 
