@@ -11,12 +11,16 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
+      - name: Setup
+        run: |
+          sudo apt-get install -y llvm
+
       - name: Generate coverage report
         run: |
-          git submodule update --init --recursive
-          apt-get install -y llvm
-          cd coverage
+          cd coverage/
           bash coverage_llvm.sh
+
       - name: Upload coverage to codecov
         uses: codecov/codecov-action@v1
         with:
