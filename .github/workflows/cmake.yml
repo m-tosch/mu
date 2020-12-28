@@ -32,3 +32,15 @@ jobs:
       working-directory: ${{runner.workspace}}/build
       shell: bash
       run: cmake --build .
+
+    - name: Generate coverage report
+      working-directory: ${{runner.workspace}}/coverage
+      shell: bash
+      run: bash coverage_llvm.sh
+
+    - name: Upload coverage to codecov
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          file: ./text_llvm/index.txt
+          fail_ci_if_error: true
