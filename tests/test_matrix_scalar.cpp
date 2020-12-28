@@ -5,7 +5,7 @@
 #include "scalar_combinations.h"
 
 using MatrixScalarCombinationTypes =
-    ::testing::Types</* Vector */
+    ::testing::Types</* Matrix */
                      std::tuple<mu::Matrix<2, 2, int>, int>,
                      std::tuple<mu::Matrix<2, 2, float>, float>,
                      // different types
