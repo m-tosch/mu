@@ -34,7 +34,6 @@ jobs:
       run: cmake --build .
 
     - name: Generate coverage report
-      working-directory: ${{runner.workspace}}/coverage
       shell: bash
       run: pwd
 
