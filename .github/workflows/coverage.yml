@@ -14,11 +14,14 @@ jobs:
 
       - name: Setup
         run: |
+          git submodule init
+          git submodule update
           sudo apt-get install -y llvm
+          mkdir -p ${{runner.workspace}}/build
 
       - name: Generate coverage report
         run: |
-          cd coverage/
+          cd ${{runner.workspace}}/coverage
           bash coverage_llvm.sh
 
       - name: Upload coverage to codecov
