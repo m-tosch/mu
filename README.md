@@ -20,6 +20,7 @@ std::cout << "std: " << std << std::endl;
 ```
 
 output
+
 ```txt
 mean: 4.9
 std: 2.62805
@@ -61,6 +62,26 @@ output
 ```txt
 before: [ 2.25, 5.75 ]
 after: [ -5.75, 2.25 ]
+```
+
+### Example 4
+
+Use references in a vector.
+
+```cpp
+int a = 3;
+int b = 4;
+mu::Vector<2, std::reference_wrapper<int>> v = {std::ref(a), std::ref(b)};
+v += 10;
+std::cout << "v: " << v << std::endl;
+std::cout << "a: " << a << " b: " << b << std::endl;
+```
+
+output
+
+```txt
+v: [ 13, 14 ]
+a: 13 b: 14
 ```
 
 ## Usage
