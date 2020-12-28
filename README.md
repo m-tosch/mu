@@ -128,7 +128,7 @@ After successfully building the project (with cmake), you can run the unit tests
 
 ## Coverage
 
-The coverage can be found [TODO](https://github.com)
+The coverage can be found [here](https://codecov.io/gh/m-tosch/mu)
 
 The code coverage can be generated using [gcov](https://gcc.gnu.org/onlinedocs/gcc/Gcov.html) or [llvm-cov](https://clang.llvm.org/docs/SourceBasedCodeCoverage.html). gcov uses the gcc compiler while llvm-cov uses clang. The latter was implemented to be able to inspect branch coverage or, the llvm equivalent, "region coverage".
 
