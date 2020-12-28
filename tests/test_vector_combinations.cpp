@@ -60,7 +60,7 @@ class VectorCombinationsFixture : public SameTypeCombinationsFixture<T> {
 
 TYPED_TEST_SUITE(VectorCombinationsFixture, VectorTypeCombinations);
 
-TYPED_TEST(VectorCombinationsFixture, MemberFuncDot) {
+TYPED_TEST(VectorCombinationsFixture, MemberFuncDotVectorVector) {
   /** arrange */
   typename TestFixture::T1 obj1{this->values()};
   typename TestFixture::T2 obj2{this->values2()};
@@ -81,7 +81,7 @@ TYPED_TEST(VectorCombinationsFixture, MemberFuncDot) {
 
 /************************* convenience functions ***************************/
 
-TYPED_TEST(VectorCombinationsFixture, UtilityFuncDot) {
+TYPED_TEST(VectorCombinationsFixture, UtilityFuncDotVectorVector) {
   /** arrange */
   typename TestFixture::T1 obj1{this->values()};
   typename TestFixture::T2 obj2{this->values2()};
