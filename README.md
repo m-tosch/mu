@@ -5,10 +5,74 @@
 
 A small, simple c++ math library
 
-## Usage
+## Demo
+
+### Example 1
+
+Calculate the mean and standard deviation of an integer vector.
 
 ```cpp
+mu::Vector<5,int> v = {8,1,7,3,4};
+float mean = v.mean<float>();
+float std = v.std<float>();
+std::cout << "mean: " << mean << std::endl;
+std::cout << "std: " << std << std::endl;
+```
+
+output
+```txt
+mean: 4.6
+std: 2.57682
+```
+
+### Example 2
+
+Find the maximum value on a matrix diagonal.
+
+```cpp
+mu::Matrix<3,3,int> m = { {3,5,7}, {6,1,9}, {4,8,6} };
+int max = mu::max(m.diag());
+std::cout << m << std::endl;
+std::cout << "max element on diagonal: " << max << std::endl;
+```
+
+output
+
+```txt
+[ [ 3, 5, 7 ],
+  [ 6, 1, 9 ],
+  [ 4, 8, 6 ] ]
+max element on diagonal: 6
+```
+
+### Example 3
+
+Rotate a 2D vector by π/2.
+
+```cpp
+mu::Vector2D<float> v = {2.25F, 5.75F};
+std::cout << "before: " << v << std::endl;
+v.rotate(mu::pi / 2);
+std::cout << "after: " << v << std::endl;
+```
+
+output
+
+```txt
+before: [ 2.25, 5.75 ]
+after: [ -5.75, 2.25 ]
+```
+
+
+## Usage
+
 TODO
+
+1. link with cmake
+2. include header
+```cpp
+#include "mu/vector.h"
+#include "mu/matrix.h"
 ```
 
 ## Installation
