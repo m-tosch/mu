@@ -93,7 +93,7 @@ TYPED_TEST(MatrixCombinationsFixture, MemberFuncDotMatrixMatrix) {
 }
 
 /* test "cheats" by building a Vector from the second matrix type and size in
- * the combination. effective way to test the Matrix-Vector dot function. */
+ * the combination. easy way to test the Matrix-Vector dot function. */
 TYPED_TEST(MatrixCombinationsFixture, MemberFuncDotMatrixVector) {
   /** arrange */
   static typename TestFixture::T1 dummy1;
