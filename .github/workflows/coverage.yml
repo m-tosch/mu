@@ -13,15 +13,17 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Setup
+        shell: bash
         run: |
           git submodule init
           git submodule update
           sudo apt-get install -y llvm
-          mkdir -p ${{runner.workspace}}/build
+          mkdir -p build
 
       - name: Generate coverage report
+        shell: bash
         run: |
-          cd ${{runner.workspace}}/coverage
+          cd coverage/
           bash coverage_llvm.sh
 
       - name: Upload coverage to codecov
