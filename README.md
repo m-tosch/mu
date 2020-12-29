@@ -27,9 +27,13 @@ mean: 4.9
 std: 2.62805
 ```
 
+
 ### Example 2
 
 Find the maximum value on a matrix diagonal.
+
+<details>
+<summary>code</summary>
 
 ```cpp
 mu::Matrix<3,3,int> m = { {3,5,7}, {6,1,9}, {4,8,6} };
@@ -47,9 +51,14 @@ output
 max element on diagonal: 6
 ```
 
+</details>
+
 ### Example 3
 
 Rotate a 2D vector by π/2.
+
+<details>
+<summary>code</summary>
 
 ```cpp
 mu::Vector2D<float> v = {2.25F, 5.75F};
@@ -65,9 +74,14 @@ before: [ 2.25, 5.75 ]
 after: [ -5.75, 2.25 ]
 ```
 
+</details>
+
 ### Example 4
 
 Use references in a vector.
+
+<details>
+<summary>code</summary>
 
 ```cpp
 int a = 3;
@@ -84,6 +98,8 @@ output
 v: [ 13, 14 ]
 a: 13 b: 14
 ```
+
+</details>
 
 ## Usage
 
