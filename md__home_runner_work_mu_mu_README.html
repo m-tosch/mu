@@ -127,17 +127,17 @@ $(document).ready(function(){initNavTree('md__home_runner_work_mu_mu_README.html
 <h2>Documentation</h2>
 <p>The documentation can be found <a href="https://m-tosch.github.io/mu/index.html">here</a></p>
 <p>You can generate the documentation locally from the command line inside the <code>doc</code> folder:</p>
-<div class="fragment"><div class="line">doxygen Doxyfile</div></div><!-- fragment --><p>The documentation will be generated in html form inside a doc/html folder. View the report by opening the index.html file inside that folder in a browser.</p>
+<div class="fragment"><div class="line">doxygen Doxyfile</div></div><!-- fragment --><p>The documentation will be generated in html form inside a <code>doc/html</code> folder. View the report by opening the index.html file inside that folder in a browser.</p>
 <h2>Tests</h2>
-<p>The unit tests are written using <a href="https://github.com/google/googletest">googletest</a></p>
-<p>After successfully building the project (with cmake), you can run the unit tests locally from the command line inside the generated <code>build/tests</code> folder:</p>
+<p>The tests use <a href="https://github.com/google/googletest">googletest</a></p>
+<p>After successfully building the project (with cmake), you can run the tests locally from the command line inside the generated <code>build/tests</code> folder:</p>
 <div class="fragment"><div class="line">./mu_tests</div></div><!-- fragment --><h2>Coverage</h2>
 <p>The coverage can be found <a href="https://codecov.io/gh/m-tosch/mu">here</a></p>
 <p>The code coverage can be generated using <a href="https://gcc.gnu.org/onlinedocs/gcc/Gcov.html">gcov</a> or <a href="https://clang.llvm.org/docs/SourceBasedCodeCoverage.html">llvm-cov</a>. gcov uses the gcc compiler while llvm-cov uses clang. The latter was implemented to be able to inspect branch coverage or, the llvm equivalent, "region coverage".</p>
 <p>You can generate both coverage reports locally from the command line inside the <code>coverage</code> folder:</p>
 <p>For gcov (requires gcc)</p>
-<div class="fragment"><div class="line">./coverage_gcov.sh</div></div><!-- fragment --><p>For llvm-cov (requires clang)</p>
-<div class="fragment"><div class="line">./coverage_llvm.sh</div></div><!-- fragment --><p>The coverage report will be generated in html form in a <code>coverage/html_gcov</code> or a <code>coverage/html_llvm</code> folder respectively. View the report by opening the <code>index.html</code> file inside that folder in a browser. </p>
+<div class="fragment"><div class="line">bash coverage_gcov.sh</div></div><!-- fragment --><p>For llvm-cov (requires clang)</p>
+<div class="fragment"><div class="line">bash coverage_llvm.sh</div></div><!-- fragment --><p>The coverage report will be generated in html form in a <code>coverage/html_gcov</code> or a <code>coverage/html_llvm</code> folder respectively. View the report by opening the <code>index.html</code> file inside that folder in a browser. </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
