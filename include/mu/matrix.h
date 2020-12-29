@@ -997,5 +997,11 @@ inline Matrix<N, M, T> zeros() {
 template <std::size_t N, typename T>
 using MatrixNxN = Matrix<N, N, T>;
 
+template <typename T>
+using Matrix2x2 = Matrix<2, 2, T>;
+
+template <typename T>
+using Matrix3x3 = Matrix<3, 3, T>;
+
 }  // namespace mu
 #endif  // MU_MATRIX_H_
