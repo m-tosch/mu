@@ -131,7 +131,7 @@ You can generate the documentation locally from the command line inside the `doc
 doxygen Doxyfile
 ```
 
-The documentation will be generated in html form inside a doc/html folder. View the report by opening the index.html file inside that folder in a browser.
+The documentation will be generated in html form inside a `doc/html` folder. View the report by opening the index.html file inside that folder in a browser.
 
 ## Tests
 
@@ -154,13 +154,13 @@ You can generate both coverage reports locally from the command line inside the 
 For gcov (requires gcc)
 
 ```cmd
-./coverage_gcov.sh
+bash coverage_gcov.sh
 ```
 
 For llvm-cov (requires clang)
 
 ```cmd
-./coverage_llvm.sh
+bash coverage_llvm.sh
 ```
 
 The coverage report will be generated in html form in a `coverage/html_gcov` or a `coverage/html_llvm` folder respectively. View the report by opening the `index.html` file inside that folder in a browser.
