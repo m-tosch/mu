@@ -59,14 +59,15 @@ class Vector2D : public Vector<2, T> {
   const T& y() const noexcept { return Vector<2, T>::data_[1]; }
 
   /**
-   * @brief rotates this vector by an angle [rad]
+   * @brief rotates this Vector by an angle [rad]
    *
    * @tparam T
    * @param angle
    * @return std::enable_if<std::is_floating_point<U>::value, void>::type
    */
-  template <class U = T>
-  typename std::enable_if_t<std::is_floating_point_v<U>, void> rotate(T angle) {
+  template <class TScalar = T>
+  typename std::enable_if_t<std::is_arithmetic_v<TScalar>, void> rotate(
+      TScalar angle) {
     const T kX = x();
     const T kY = y();
     Vector<2, T>::data_[0] = ((kX * mu::cos(angle)) - (kY * mu::sin(angle)));
@@ -74,7 +75,7 @@ class Vector2D : public Vector<2, T> {
   }
 
   /**
-   * @brief returns a rotated Vector2D
+   * @brief returns a Vector2D that is rotated by an angle [rad]
    *
    * @see @ref rotate()
    * @tparam T
@@ -82,9 +83,9 @@ class Vector2D : public Vector<2, T> {
    * @return std::enable_if<std::is_floating_point<U>::value,
    * Vector2D<T>>::type
    */
-  template <class U = T>
-  typename std::enable_if_t<std::is_floating_point_v<U>, Vector2D<T>> rotated(
-      T angle) {
+  template <class TScalar = T>
+  typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Vector2D<T>> rotated(
+      TScalar angle) {
     Vector2D<T> ret(*this);
     ret.rotate(angle);
     return ret;
