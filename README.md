@@ -27,7 +27,6 @@ mean: 4.9
 std: 2.62805
 ```
 
-
 ### Example 2
 
 Find the maximum value on a matrix diagonal.
