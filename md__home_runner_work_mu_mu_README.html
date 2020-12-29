@@ -89,22 +89,32 @@ $(document).ready(function(){initNavTree('md__home_runner_work_mu_mu_README.html
 <div class="title">&lt;font size="7"&gt; μ &lt;/font&gt; </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a href="https://github.com/m-tosch/mu/actions?query=workflow%3ACMake"></a> <a href="https://m-tosch.github.io/mu/index.html"></a> <a href="https://codecov.io/gh/m-tosch/mu"></a></p>
+<div class="textblock"><p>code</p>
+<p><a href="https://github.com/m-tosch/mu/actions?query=workflow%3ACMake"></a> <a href="https://m-tosch.github.io/mu/index.html"></a> <a href="https://codecov.io/gh/m-tosch/mu"></a></p>
 <p>A small, simple c++ math library</p>
+<p>The goal of this repository is to provide a header library for fixed size vector and matrix math that is easy to use and fully covered by tests.</p>
 <h2>Demo</h2>
 <h3>Example 1</h3>
 <p>Calculate the mean and standard deviation of a vector.</p>
 <div class="fragment"><div class="line"><a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;3,float&gt;</a> v = {8.3F, 1.9F, 4.5F};</div><div class="line"><span class="keywordtype">float</span> mean = v.<a class="code" href="classmu_1_1Vector.html#a21538d374825d19f7ce70a6649c03418">mean</a>();</div><div class="line"><span class="keywordtype">float</span> std = v.<a class="code" href="classmu_1_1Vector.html#aa706bb810519c20ff759be4661d26371">std</a>();</div><div class="line">std::cout &lt;&lt; <span class="stringliteral">&quot;mean: &quot;</span> &lt;&lt; mean &lt;&lt; std::endl;</div><div class="line">std::cout &lt;&lt; <span class="stringliteral">&quot;std: &quot;</span> &lt;&lt; std &lt;&lt; std::endl;</div></div><!-- fragment --><p>output</p>
 <div class="fragment"><div class="line">mean: 4.9</div><div class="line">std: 2.62805</div></div><!-- fragment --><h3>Example 2</h3>
 <p>Find the maximum value on a matrix diagonal.</p>
+<p>&lt;details&gt;</p>
 <div class="fragment"><div class="line"><a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;3,3,int&gt;</a> m = { {3,5,7}, {6,1,9}, {4,8,6} };</div><div class="line"><span class="keywordtype">int</span> max = mu::max(m.diag());</div><div class="line">std::cout &lt;&lt; m &lt;&lt; std::endl;</div><div class="line">std::cout &lt;&lt; <span class="stringliteral">&quot;max element on diagonal: &quot;</span> &lt;&lt; max &lt;&lt; std::endl;</div></div><!-- fragment --><p>output</p>
-<div class="fragment"><div class="line">[ [ 3, 5, 7 ],</div><div class="line">  [ 6, 1, 9 ],</div><div class="line">  [ 4, 8, 6 ] ]</div><div class="line">max element on diagonal: 6</div></div><!-- fragment --><h3>Example 3</h3>
+<div class="fragment"><div class="line">[ [ 3, 5, 7 ],</div><div class="line">  [ 6, 1, 9 ],</div><div class="line">  [ 4, 8, 6 ] ]</div><div class="line">max element on diagonal: 6</div></div><!-- fragment --><p>&lt;/details&gt;</p>
+<h3>Example 3</h3>
 <p>Rotate a 2D vector by π/2.</p>
+<p>&lt;details&gt; </p>
+<p>code</p>
 <div class="fragment"><div class="line"><a class="code" href="classmu_1_1Vector2D.html">mu::Vector2D&lt;float&gt;</a> v = {2.25F, 5.75F};</div><div class="line">std::cout &lt;&lt; <span class="stringliteral">&quot;before: &quot;</span> &lt;&lt; v &lt;&lt; std::endl;</div><div class="line">v.<a class="code" href="classmu_1_1Vector2D.html#a7d84c3519d44b238f178a146e44d923a">rotate</a>(mu::pi / 2);</div><div class="line">std::cout &lt;&lt; <span class="stringliteral">&quot;after: &quot;</span> &lt;&lt; v &lt;&lt; std::endl;</div></div><!-- fragment --><p>output</p>
-<div class="fragment"><div class="line">before: [ 2.25, 5.75 ]</div><div class="line">after: [ -5.75, 2.25 ]</div></div><!-- fragment --><h3>Example 4</h3>
+<div class="fragment"><div class="line">before: [ 2.25, 5.75 ]</div><div class="line">after: [ -5.75, 2.25 ]</div></div><!-- fragment --><p>&lt;/details&gt;</p>
+<h3>Example 4</h3>
 <p>Use references in a vector.</p>
+<p>&lt;details&gt; </p>
+<p>code</p>
 <div class="fragment"><div class="line"><span class="keywordtype">int</span> a = 3;</div><div class="line"><span class="keywordtype">int</span> b = 4;</div><div class="line"><a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, std::reference_wrapper&lt;int&gt;</a>&gt; v = {std::ref(a), std::ref(b)};</div><div class="line">v += 10;</div><div class="line">std::cout &lt;&lt; <span class="stringliteral">&quot;v: &quot;</span> &lt;&lt; v &lt;&lt; std::endl;</div><div class="line">std::cout &lt;&lt; <span class="stringliteral">&quot;a: &quot;</span> &lt;&lt; a &lt;&lt; <span class="stringliteral">&quot; b: &quot;</span> &lt;&lt; b &lt;&lt; std::endl;</div></div><!-- fragment --><p>output</p>
-<div class="fragment"><div class="line">v: [ 13, 14 ]</div><div class="line">a: 13 b: 14</div></div><!-- fragment --><h2>Usage</h2>
+<div class="fragment"><div class="line">v: [ 13, 14 ]</div><div class="line">a: 13 b: 14</div></div><!-- fragment --><p>&lt;/details&gt;</p>
+<h2>Usage</h2>
 <p>TODO</p>
 <ol type="1">
 <li>link with cmake</li>
