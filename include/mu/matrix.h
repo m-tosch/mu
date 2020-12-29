@@ -993,5 +993,9 @@ inline Matrix<N, M, T> zeros() {
   return Matrix<N, M, T>{T{0}};
 }
 
+/* alias templates */
+template <std::size_t N, typename T>
+using MatrixNxN = Matrix<N, N, T>;
+
 }  // namespace mu
 #endif  // MU_MATRIX_H_
