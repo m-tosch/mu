@@ -383,7 +383,7 @@ TEST(Vector, MemberFuncSortLambda) {
   a.sort([](int a, int b) { return a > b; });  // a is now [ 9, 6, 4, 3, 1 ]
 
   //! [vector sort lambda function]
-  EXPECT_THAT(a, ::testing::ElementsAre(1, 3, 4, 6, 9));
+  EXPECT_THAT(a, ::testing::ElementsAre(9, 6, 4, 3, 1));
 }
 
 TEST(Vector, MemberFuncSorted) {
@@ -393,7 +393,7 @@ TEST(Vector, MemberFuncSorted) {
   mu::Vector<5, int> b = a.sorted();  // b is now [ 1, 3, 4, 6, 9 ]
 
   //! [vector sorted function]
-  EXPECT_THAT(a, ::testing::ElementsAre(1, 3, 4, 6, 9));
+  EXPECT_THAT(b, ::testing::ElementsAre(1, 3, 4, 6, 9));
 }
 
 TEST(Vector, MemberFuncSortedLambda) {
@@ -404,5 +404,5 @@ TEST(Vector, MemberFuncSortedLambda) {
       [](int a, int b) { return a > b; });  // b is now [ 9, 6, 4, 3, 1 ]
 
   //! [vector sorted lambda function]
-  EXPECT_THAT(a, ::testing::ElementsAre(1, 3, 4, 6, 9));
+  EXPECT_THAT(b, ::testing::ElementsAre(9, 6, 4, 3, 1));
 }
