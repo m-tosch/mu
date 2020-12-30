@@ -24,5 +24,6 @@ add_library(${CMAKE_PROJECT_NAME}_lib INTERFACE)
 target_include_directories(${CMAKE_PROJECT_NAME}_lib INTERFACE include/${CMAKE_PROJECT_NAME})
 
 # subdirectories that have their own CMakeLists.txt
-add_subdirectory(tests)
 add_subdirectory(dependencies/googletest)
+add_subdirectory(examples)
+add_subdirectory(tests)
