@@ -32,6 +32,9 @@ class Matrix;
  * - implementation-defined extended floating-point types including any
  *   cv-qualified variants. (float, double, long double)
  *
+ * Can be instantiated with a reference of an arithemtic type using
+ * std::reference_wrapper and std::ref
+ *
  * @tparam N size
  * @tparam T type
  */
@@ -53,14 +56,19 @@ class Vector {
   /**
    * @brief Construct a new Vector object
    *
+   * @par Example
+   * @snippet example_vector.cpp vector constructor
    */
   constexpr Vector() = default;
 
   /**
-   * @brief Construct a new Vector object from an amount of N values
+   * @brief Construct a new Vector object from a number of N values
    *
-   * the amount of values must match the static size of this Vector
+   * the number of values must match the static size of this Vector
+   * the type must be arithmetic or a reference of an arithmetic
    *
+   * @par Example
+   * @snippet example_vector.cpp vector variadic template constructor
    * @tparam TArgs
    * @param args
    */
@@ -79,12 +87,8 @@ class Vector {
    * implicit narrowing may be applied
    * it is checked that the Vector sizes are the same
    *
-   * Example:
-   * @code
-   * mu::Vector<2, int> a = {1, 2};
-   * mu::Vector<2, double> b = {a};
-   * @endcode
-   *
+   * @par Example
+   * @snippet example_vector.cpp vector different type constructor
    * @tparam Nn
    * @tparam U
    * @param v
@@ -99,6 +103,8 @@ class Vector {
   /**
    * @brief Construct a new Vector object from an std::array
    *
+   * @par Example
+   * @snippet example_vector.cpp vector array constructor
    * @param a
    */
   // NOLINTNEXTLINE(runtime/explicit) implicit to make copy-init. work
@@ -109,6 +115,8 @@ class Vector {
    *
    * implicit narrowing may be applied
    *
+   * @par Example
+   * @snippet example_vector.cpp vector array different type constructor
    * @tparam U
    * @param a
    */
@@ -122,8 +130,10 @@ class Vector {
   /**
    * @brief Construct a new Vector object from a single value
    *
+   * all the values inside the vector will be set to this value
+   *
    * @par Example
-   * @snippet example_vector.cpp example of vector single value constructor
+   * @snippet example_vector.cpp vector single value constructor
    * @tparam U
    * @param value
    */
@@ -143,6 +153,8 @@ class Vector {
   /**
    * @brief Copy construct a new Vector object
    *
+   * @par Example
+   * @snippet example_vector.cpp vector copy constructor
    * @param other
    */
   Vector(const Vector &other) = default;
@@ -150,6 +162,8 @@ class Vector {
   /**
    * @brief Move construct a new Vector object
    *
+   * @par Example
+   * @snippet example_vector.cpp vector move constructor
    * @param other
    */
   Vector(Vector &&other) noexcept = default;
@@ -157,6 +171,8 @@ class Vector {
   /**
    * @brief Copy assignment operator
    *
+   * @par Example
+   * @snippet example_vector.cpp vector copy assignment operator
    * @param other
    * @return Vector&
    */
@@ -165,6 +181,8 @@ class Vector {
   /**
    * @brief Move assignment operator
    *
+   * @par Example
+   * @snippet example_vector.cpp vector move assignment operator
    * @param other
    * @return Vector&
    */
@@ -175,6 +193,8 @@ class Vector {
    *
    * does not throw an exception if \p idx is out of range
    *
+   * @par Example
+   * @snippet example_vector.cpp vector brackets operator
    * @param idx
    * @return T&
    */
@@ -185,6 +205,8 @@ class Vector {
    *
    * does not throw an exception if \p idx is out of range
    *
+   * @par Example
+   * @snippet example_vector.cpp vector const brackets operator
    * @param idx
    * @return const T&
    */
@@ -193,6 +215,8 @@ class Vector {
   /**
    * @brief access an element within the vector
    *
+   * @par Example
+   * @snippet example_vector.cpp vector at function
    * @exception out of range
    * @param idx
    * @return T&
@@ -202,6 +226,8 @@ class Vector {
   /**
    * @brief const access an element within the vector
    *
+   * @par Example
+   * @snippet example_vector.cpp vector const at function
    * @exception out of range
    * @param idx
    * @return const T&
@@ -211,34 +237,46 @@ class Vector {
   /**
    * @brief returns the size of the vector
    *
+   * @par Example
+   * @snippet example_vector.cpp vector size function
    * @return size_type
    */
   constexpr size_type size() const noexcept { return N; }
 
   /**
-   * @brief
+   * @brief returns an iterator pointing to the first element
    *
+   * @par Example
+   * @snippet example_vector.cpp vector begin function
    * @return iterator
    */
   iterator begin() noexcept { return data_.begin(); }
 
   /**
-   * @brief
+   * @brief returns a const iterator pointing to the first element
    *
+   * @par Example
+   * @snippet example_vector.cpp vector const begin function
    * @return const_iterator
    */
   const_iterator begin() const noexcept { return data_.begin(); }
 
   /**
-   * @brief
+   * @brief returns an iterator pointing to the element following the last
+   * element
    *
+   * @par Example
+   * @snippet example_vector.cpp vector end function
    * @return iterator
    */
   iterator end() noexcept { return data_.end(); }
 
   /**
-   * @brief
+   * @brief returns a const iterator pointing to the element following the last
+   * element
    *
+   * @par Example
+   * @snippet example_vector.cpp vector const end function
    * @return const_iterator
    */
   const_iterator end() const noexcept { return data_.end(); }
@@ -246,6 +284,8 @@ class Vector {
   /**
    * @brief get the min value of the vector
    *
+   * @par Example
+   * @snippet example_vector.cpp vector min function
    * @return T
    */
   T min() const {
@@ -259,6 +299,8 @@ class Vector {
   /**
    * @brief get the max value of the vector
    *
+   * @par Example
+   * @snippet example_vector.cpp vector max function
    * @return T
    */
   T max() const {
@@ -272,6 +314,8 @@ class Vector {
   /**
    * @brief sum up all the elements of the vector
    *
+   * @par Example
+   * @snippet example_vector.cpp vector sum function
    * @return T
    */
   T sum() const {
@@ -285,10 +329,14 @@ class Vector {
   /**
    * @brief mean of all the elements of the vector
    *
+   * \f$ \mu = \frac{\sum(x_i)}{N} \f$
+   *
    * returns the mean as
    * - the type of this vector (default)
    * - the explicitly stated type
    *
+   * @par Example
+   * @snippet example_vector.cpp vector mean function
    * @tparam U
    * @return U
    */
@@ -300,14 +348,23 @@ class Vector {
   /**
    * @brief dot product of two vectors
    *
+   * For a Vector \f$ a \f$ of size \f$ N \f$ and a Vector \f$ b \f$ of size \f$
+   * N \f$ the result is a scalar,
+   *
+   * \f$ a \cdot b = \sum_{i=1}^{N} a_i b_i \f$
+   *
+   * Vector sizes must be equal
+   *
    * For two Vectors of the same type, specifying the return type is optional.
    * It will be of the type of the two Vectors by default.
    *
    * For two Vectors of different types, specifying the return type is required.
-   * Otherwise the code will not compile. (this is to mitigate unwanted
-   * precision loss due to implicit casting. the trade-off is that the caller
-   * has to state the return type explicitly.)
    *
+   * return value is a scalar of the type of the two Vectors or else of the
+   * explicitly stated type
+   *
+   * @par Example
+   * @snippet example_vector.cpp vector vector dot function
    * @tparam U
    * @tparam N2
    * @tparam T2
@@ -329,6 +386,38 @@ class Vector {
     return ret;
   }
 
+  /**
+   * @brief dot product of a vector and a matrix
+   *
+   * For a Vector \f$ a \f$ of size \f$ N \f$ and a Matrix \f$ B \f$ of size \f$
+   * N \times M \f$ the result is a Vector \f$ c \f$ of size \f$ M \f$,
+   *
+   *  \f$ c = a \cdot B \f$ with
+   *
+   *  \f$ c_{j} = a_1 b_{1j} + a_2 b_{2j} + ... + a_N b_{Nj} =
+   * \sum_{i=1}^{N} a_i B_{ij} \f$
+   *
+   * Vector size must be equal to the size of the first Matrix dimension (N)
+   *
+   * For two objects of the same type, specifying the return type is optional.
+   * It will be of the type of the two objects by default.
+   *
+   * For two objects of different types, specifying the return type is required.
+   *
+   * return value is a Vector of the size of the second Matrix dimension (M)
+   * containing the type of the two objects or else of the explicitly stated
+   * type
+   *
+   * @par Example
+   * @snippet example_vector.cpp vector matrix dot function
+   * @tparam U
+   * @tparam N2
+   * @tparam M2
+   * @tparam T2
+   * @param rhs
+   * @return std::conditional_t<std::is_same<U, void>::value, Vector<M2, T>,
+   * Vector<M2, U>>
+   */
   template <typename U = void, std::size_t N2, std::size_t M2, typename T2>
   std::conditional_t<std::is_same<U, void>::value, Vector<M2, T>, Vector<M2, U>>
   dot(const Matrix<N2, M2, T2> &rhs) const {
@@ -356,6 +445,8 @@ class Vector {
    *
    * \f$ \sigma = \sqrt{\frac{\sum(x_i - \mu)^2}{N}} \f$
    *
+   * @par Example
+   * @snippet example_vector.cpp vector std function
    * @tparam U
    * @return U
    */
@@ -376,6 +467,8 @@ class Vector {
    * - the type of this vector (default)
    * - the explicitly stated type
    *
+   * @par Example
+   * @snippet example_vector.cpp vector length function
    * @tparam U
    * @return U
    */
@@ -387,13 +480,16 @@ class Vector {
   /**
    * @brief flips this vector, i.e. reverses its elements
    *
-   * For example: (1,2,3) becomes (3,2,1)
+   * @par Example
+   * @snippet example_vector.cpp vector flip function
    */
   void flip() { mu::reverse(begin(), end()); }
 
   /**
    * @brief returns a flipped vector
    *
+   * @par Example
+   * @snippet example_vector.cpp vector flipped function
    * @see @ref flip()
    * @return Vector<N, T>
    */
@@ -406,6 +502,8 @@ class Vector {
   /**
    * @brief sort vector elements in ascending order
    *
+   * @par Example
+   * @snippet example_vector.cpp vector sort function
    */
   void sort() { mu::sort(begin(), end()); }
 
@@ -414,6 +512,8 @@ class Vector {
    *
    * the condition should be a lambda function. it must return a bool
    *
+   * @par Example
+   * @snippet example_vector.cpp vector sort lambda function
    * @tparam Compare
    * @param comp
    */
@@ -425,6 +525,8 @@ class Vector {
   /**
    * @brief returns a sorted vector
    *
+   * @par Example
+   * @snippet example_vector.cpp vector sorted function
    * @return Vector<N, T>
    */
   Vector<N, T> sorted() const {
@@ -436,6 +538,8 @@ class Vector {
   /**
    * @brief
    *
+   * @par Example
+   * @snippet example_vector.cpp vector sorted lambda function
    * @tparam Compare
    * @param comp
    * @return Vector<N, T>

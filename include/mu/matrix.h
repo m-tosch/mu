@@ -16,6 +16,16 @@ namespace mu {
 /**
  * @brief A generic matrix
  *
+ * Can be instantiated with an arithmetic type as defined by the standard
+ * library.
+ * - implementation-defined extended integer types, including any signed,
+ *   unsigned, and cv-qualified variants. (bool, char, int, long ...)
+ * - implementation-defined extended floating-point types including any
+ *   cv-qualified variants. (float, double, long double)
+ *
+ * Can be instantiated with a reference of an arithemtic type using
+ * std::reference_wrapper and std::ref
+ *
  * @tparam N first matrix dimension (rows)
  * @tparam M second matrix dimension (columns)
  * @tparam T
@@ -43,9 +53,9 @@ class Matrix {
   constexpr Matrix() = default;
 
   /**
-   * @brief Construct a new Matrix object from an amount of NxM values
+   * @brief Construct a new Matrix object from a number of NxM values
    *
-   * the amount of values in every dimension must match the static size of this
+   * the number of values in every dimension must match the static size of this
    * Matrix.
    *
    * @tparam TArgs
@@ -413,15 +423,32 @@ class Matrix {
   }
 
   /**
-   * @brief dot product between two matrices
+   * @brief dot product of two matrices
    *
-   * creates a new matrix with dimensions according to matrix multiplication
-   * rules. for a matrix A (m x n) and a matrix B (n x p), the matrix C (m x p)
-   * is defined as the product of A and B
-   * see
-   * https://en.wikipedia.org/wiki/Matrix_multiplication#Dot_product,_bilinear_form_and_inner_product
+   * For a Matrix \f$ A \f$ of size \f$ M \times N \f$ and a Matrix \f$ B \f$ of
+   * size \f$ N \times P \f$ the result is a Matrix \f$ C \f$ of size \f$ M
+   * \times P \f$,
    *
+   *  \f$ C = A \cdot B \f$ with
    *
+   *  \f$ c_{ij} = A_{i1} B_{1j} + A_{i2} B_{2j} + ... + A_{iN} B_{Nj} =
+   * \sum_{k=1}^{N} A_{ik} B_{kj} \f$
+   *
+   * Second Matrix dimension (N) of first Matrix must be equal to the first
+   * Matrix dimension of the second Matrix (N)
+   *
+   * For two objects of the same type, specifying the return type is optional.
+   * It will be of the type of the two objects by default.
+   *
+   * For two objects of different types, specifying the return type is required.
+   *
+   * return value is a Matrix of the size of the first Matrix's first dimension
+   * (M) and the second Matrix's second dimension (P) containing the type of the
+   * two objects or else of the explicitly stated type
+   *
+   * @ref https://en.wikipedia.org/wiki/Matrix_multiplication#Definition
+   * @par Example
+   * @snippet example_matrix.cpp matrix matrix dot function
    * @tparam U
    * @tparam N2
    * @tparam M2
@@ -456,12 +483,29 @@ class Matrix {
   }
 
   /**
-   * @brief dot product between a matrix and a vector
+   * @brief dot product of a matrix and a vector
    *
-   * creates a new vector with a size according to matrix multiplication
-   * rules. for a matrix A (m x n) and a vector B (n), the vector C (m)
-   * is defined as the product of A and B
+   * For a Matrix \f$ A \f$ of size \f$ N \times M \f$ and a Vector \f$ b \f$ of
+   * size \f$ M \f$ the result is a Vector \f$ c \f$ of size \f$ N \f$,
    *
+   *  \f$ c = A \cdot b \f$ with
+   *
+   *  \f$ c_{j} = A_{j1} b_1 + A_{j2} b_2 + ... + A_{jM} b_M =
+   * \sum_{i=1}^{M} A_{ji} b_i \f$
+   *
+   * Second Matrix dimension (M) must be equal to the size of the Vector (N)
+   *
+   * For two objects of the same type, specifying the return type is optional.
+   * It will be of the type of the two objects by default.
+   *
+   * For two objects of different types, specifying the return type is required.
+   *
+   * return value is a Vector of the size of the first Matrix dimension (N)
+   * containing the type of the two objects or else of the explicitly stated
+   * type
+   *
+   * @par Example
+   * @snippet example_matrix.cpp matrix vector dot function
    * @tparam U
    * @tparam N2
    * @tparam T2
