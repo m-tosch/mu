@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['sametypecombinationsfixture',['SameTypeCombinationsFixture',['../classSameTypeCombinationsFixture.html',1,'']]],
-  ['sametypecombinationsinitfixture',['SameTypeCombinationsInitFixture',['../classSameTypeCombinationsInitFixture.html',1,'']]],
-  ['sametypecombinationsmathfixture',['SameTypeCombinationsMathFixture',['../classSameTypeCombinationsMathFixture.html',1,'']]],
-  ['scalarcombinationsfixture',['ScalarCombinationsFixture',['../classScalarCombinationsFixture.html',1,'']]]
+  ['matrix',['Matrix',['../classmu_1_1Matrix.html',1,'mu']]],
+  ['matrixcombinationsfixture',['MatrixCombinationsFixture',['../classMatrixCombinationsFixture.html',1,'']]],
+  ['matrixtypefixture',['MatrixTypeFixture',['../classMatrixTypeFixture.html',1,'']]]
 ];

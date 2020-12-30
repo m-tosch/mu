@@ -122,7 +122,7 @@ constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href=
 <tr class="separator:ab126945354b536c2496b14c160b9d01f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc1b75f24a9dd859365e5a421ca849a3"><td class="memTemplParams" colspan="2">template&lt;typename... TArgs&gt; </td></tr>
 <tr class="memitem:abc1b75f24a9dd859365e5a421ca849a3"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Matrix.html#abc1b75f24a9dd859365e5a421ca849a3">Matrix</a> (TArgs const(&amp;&amp;... rows)[M])</td></tr>
-<tr class="memdesc:abc1b75f24a9dd859365e5a421ca849a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> object from an amount of NxM values.  <a href="#abc1b75f24a9dd859365e5a421ca849a3">More...</a><br /></td></tr>
+<tr class="memdesc:abc1b75f24a9dd859365e5a421ca849a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> object from a number of NxM values.  <a href="#abc1b75f24a9dd859365e5a421ca849a3">More...</a><br /></td></tr>
 <tr class="separator:abc1b75f24a9dd859365e5a421ca849a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9781ab4df035ed1d90ae2d03478c5d1f"><td class="memTemplParams" colspan="2">template&lt;std::size_t Nn, std::size_t Mm, class U &gt; </td></tr>
 <tr class="memitem:a9781ab4df035ed1d90ae2d03478c5d1f"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Matrix.html#a9781ab4df035ed1d90ae2d03478c5d1f">Matrix</a> (const <a class="el" href="classmu_1_1Matrix.html">Matrix</a>&lt; Nn, Mm, U &gt; &amp;m)</td></tr>
@@ -135,11 +135,11 @@ constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href=
 <tr class="memitem:ad9fa9dcf8a12ae0d945744d259112a03"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Matrix.html#ad9fa9dcf8a12ae0d945744d259112a03">Matrix</a> (const std::array&lt; <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; M, U &gt;, N &gt; &amp;a)</td></tr>
 <tr class="memdesc:ad9fa9dcf8a12ae0d945744d259112a03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> object from an std::array of Vectors of a different type.  <a href="#ad9fa9dcf8a12ae0d945744d259112a03">More...</a><br /></td></tr>
 <tr class="separator:ad9fa9dcf8a12ae0d945744d259112a03"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afbe2ad02d5fd3a5c9824e1acd825dc75"><td class="memTemplParams" colspan="2">template&lt;typename U  = T, std::enable_if_t&lt; std::is_arithmetic_v&lt; U &gt;, int &gt;  = 0&gt; </td></tr>
+<tr class="memitem:afbe2ad02d5fd3a5c9824e1acd825dc75"><td class="memTemplParams" colspan="2">template&lt;typename U  = T, std::enable_if_t&lt; std::is_arithmetic&lt; U &gt;::value, int &gt;  = 0&gt; </td></tr>
 <tr class="memitem:afbe2ad02d5fd3a5c9824e1acd825dc75"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Matrix.html#afbe2ad02d5fd3a5c9824e1acd825dc75">Matrix</a> (const std::array&lt; std::array&lt; U, M &gt;, N &gt; &amp;a)</td></tr>
 <tr class="memdesc:afbe2ad02d5fd3a5c9824e1acd825dc75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> object from an std::array of std::arrays. possibly of a different type.  <a href="#afbe2ad02d5fd3a5c9824e1acd825dc75">More...</a><br /></td></tr>
 <tr class="separator:afbe2ad02d5fd3a5c9824e1acd825dc75"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28fee3a19c75cea16c6dab39a61e48c7"><td class="memTemplParams" colspan="2">template&lt;typename U  = T, std::enable_if_t&lt; std::is_arithmetic_v&lt; U &gt;, int &gt;  = 0&gt; </td></tr>
+<tr class="memitem:a28fee3a19c75cea16c6dab39a61e48c7"><td class="memTemplParams" colspan="2">template&lt;typename U  = T, std::enable_if_t&lt; std::is_arithmetic&lt; U &gt;::value, int &gt;  = 0&gt; </td></tr>
 <tr class="memitem:a28fee3a19c75cea16c6dab39a61e48c7"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Matrix.html#a28fee3a19c75cea16c6dab39a61e48c7">Matrix</a> (const U &amp;value)</td></tr>
 <tr class="memdesc:a28fee3a19c75cea16c6dab39a61e48c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> object from a single value possibly of a different type.  <a href="#a28fee3a19c75cea16c6dab39a61e48c7">More...</a><br /></td></tr>
 <tr class="separator:a28fee3a19c75cea16c6dab39a61e48c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -217,6 +217,11 @@ constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href=
 class mu::Matrix&lt; N, M, T &gt;</h3>
 
 <p>A generic matrix. </p>
+<p>Can be instantiated with an arithmetic type as defined by the standard library.</p><ul>
+<li>implementation-defined extended integer types, including any signed, unsigned, and cv-qualified variants. (bool, char, int, long ...)</li>
+<li>implementation-defined extended floating-point types including any cv-qualified variants. (float, double, long double)</li>
+</ul>
+<p>Can be instantiated with a reference of an arithemtic type using std::reference_wrapper and std::ref</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">N</td><td>first matrix dimension (rows) </td></tr>
@@ -254,8 +259,8 @@ template&lt;typename... TArgs&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Construct a new <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> object from an amount of NxM values. </p>
-<p>the amount of values in every dimension must match the static size of this <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a>.</p>
+<p>Construct a new <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> object from a number of NxM values. </p>
+<p>the number of values in every dimension must match the static size of this <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a>.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">TArgs</td><td></td></tr>
@@ -424,7 +429,7 @@ Here is the call graph for this function:</div>
 <div class="memtemplate">
 template&lt;std::size_t N, std::size_t M, typename T&gt; </div>
 <div class="memtemplate">
-template&lt;typename U  = T, std::enable_if_t&lt; std::is_arithmetic_v&lt; U &gt;, int &gt;  = 0&gt; </div>
+template&lt;typename U  = T, std::enable_if_t&lt; std::is_arithmetic&lt; U &gt;::value, int &gt;  = 0&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -477,7 +482,7 @@ Here is the call graph for this function:</div>
 <div class="memtemplate">
 template&lt;std::size_t N, std::size_t M, typename T&gt; </div>
 <div class="memtemplate">
-template&lt;typename U  = T, std::enable_if_t&lt; std::is_arithmetic_v&lt; U &gt;, int &gt;  = 0&gt; </div>
+template&lt;typename U  = T, std::enable_if_t&lt; std::is_arithmetic&lt; U &gt;::value, int &gt;  = 0&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">

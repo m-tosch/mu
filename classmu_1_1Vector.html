@@ -118,13 +118,12 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>const_iterator</b> =
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7931e7af478ad36f64e196dade093c30"><td class="memItemLeft" align="right" valign="top"><a id="a7931e7af478ad36f64e196dade093c30"></a>
-constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#a7931e7af478ad36f64e196dade093c30">Vector</a> ()=default</td></tr>
-<tr class="memdesc:a7931e7af478ad36f64e196dade093c30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> object. <br /></td></tr>
+<tr class="memitem:a7931e7af478ad36f64e196dade093c30"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#a7931e7af478ad36f64e196dade093c30">Vector</a> ()=default</td></tr>
+<tr class="memdesc:a7931e7af478ad36f64e196dade093c30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> object.  <a href="#a7931e7af478ad36f64e196dade093c30">More...</a><br /></td></tr>
 <tr class="separator:a7931e7af478ad36f64e196dade093c30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae1811fcd0b41864a64127eb82c7b699d"><td class="memTemplParams" colspan="2">template&lt;typename... TArgs&gt; </td></tr>
 <tr class="memitem:ae1811fcd0b41864a64127eb82c7b699d"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#ae1811fcd0b41864a64127eb82c7b699d">Vector</a> (TArgs &amp;&amp;... args)</td></tr>
-<tr class="memdesc:ae1811fcd0b41864a64127eb82c7b699d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> object from an amount of N values.  <a href="#ae1811fcd0b41864a64127eb82c7b699d">More...</a><br /></td></tr>
+<tr class="memdesc:ae1811fcd0b41864a64127eb82c7b699d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> object from a number of N values.  <a href="#ae1811fcd0b41864a64127eb82c7b699d">More...</a><br /></td></tr>
 <tr class="separator:ae1811fcd0b41864a64127eb82c7b699d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1fd85178491c5d9b5b67468bbed29e33"><td class="memTemplParams" colspan="2">template&lt;std::size_t Nn, class U &gt; </td></tr>
 <tr class="memitem:a1fd85178491c5d9b5b67468bbed29e33"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#a1fd85178491c5d9b5b67468bbed29e33">Vector</a> (const <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; Nn, U &gt; &amp;v)</td></tr>
@@ -133,11 +132,11 @@ constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href=
 <tr class="memitem:a37d9bc2c4e9c085ff813c8f7a59fa629"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#a37d9bc2c4e9c085ff813c8f7a59fa629">Vector</a> (const std::array&lt; T, N &gt; &amp;a)</td></tr>
 <tr class="memdesc:a37d9bc2c4e9c085ff813c8f7a59fa629"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> object from an std::array.  <a href="#a37d9bc2c4e9c085ff813c8f7a59fa629">More...</a><br /></td></tr>
 <tr class="separator:a37d9bc2c4e9c085ff813c8f7a59fa629"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8cf1a96dfed8a52ec7abc54029f240c"><td class="memTemplParams" colspan="2">template&lt;typename U  = T, std::enable_if_t&lt; std::is_arithmetic_v&lt; U &gt;, int &gt;  = 0&gt; </td></tr>
+<tr class="memitem:af8cf1a96dfed8a52ec7abc54029f240c"><td class="memTemplParams" colspan="2">template&lt;typename U  = T, std::enable_if_t&lt; std::is_arithmetic&lt; U &gt;::value, int &gt;  = 0&gt; </td></tr>
 <tr class="memitem:af8cf1a96dfed8a52ec7abc54029f240c"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#af8cf1a96dfed8a52ec7abc54029f240c">Vector</a> (const std::array&lt; U, N &gt; &amp;a)</td></tr>
 <tr class="memdesc:af8cf1a96dfed8a52ec7abc54029f240c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> object from an std::array of a different type.  <a href="#af8cf1a96dfed8a52ec7abc54029f240c">More...</a><br /></td></tr>
 <tr class="separator:af8cf1a96dfed8a52ec7abc54029f240c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8eaa13db8e49bc60779bb8bcc7c958b"><td class="memTemplParams" colspan="2">template&lt;typename U  = T, std::enable_if_t&lt; std::is_arithmetic_v&lt; U &gt;, int &gt;  = 0&gt; </td></tr>
+<tr class="memitem:ac8eaa13db8e49bc60779bb8bcc7c958b"><td class="memTemplParams" colspan="2">template&lt;typename U  = T, std::enable_if_t&lt; std::is_arithmetic&lt; U &gt;::value, int &gt;  = 0&gt; </td></tr>
 <tr class="memitem:ac8eaa13db8e49bc60779bb8bcc7c958b"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#ac8eaa13db8e49bc60779bb8bcc7c958b">Vector</a> (const U &amp;value)</td></tr>
 <tr class="memdesc:ac8eaa13db8e49bc60779bb8bcc7c958b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> object from a single value.  <a href="#ac8eaa13db8e49bc60779bb8bcc7c958b">More...</a><br /></td></tr>
 <tr class="separator:ac8eaa13db8e49bc60779bb8bcc7c958b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -173,12 +172,16 @@ constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href=
 <tr class="memdesc:a1a6c382df2038bb89209087f1df0d60c"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the size of the vector  <a href="#a1a6c382df2038bb89209087f1df0d60c">More...</a><br /></td></tr>
 <tr class="separator:a1a6c382df2038bb89209087f1df0d60c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d9d1c3218082522712fea2d5bc32868"><td class="memItemLeft" align="right" valign="top">iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#a7d9d1c3218082522712fea2d5bc32868">begin</a> () noexcept</td></tr>
+<tr class="memdesc:a7d9d1c3218082522712fea2d5bc32868"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns an iterator pointing to the first element  <a href="#a7d9d1c3218082522712fea2d5bc32868">More...</a><br /></td></tr>
 <tr class="separator:a7d9d1c3218082522712fea2d5bc32868"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab02fae7a5770b7980686695979b99a74"><td class="memItemLeft" align="right" valign="top">const_iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#ab02fae7a5770b7980686695979b99a74">begin</a> () const noexcept</td></tr>
+<tr class="memdesc:ab02fae7a5770b7980686695979b99a74"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns a const iterator pointing to the first element  <a href="#ab02fae7a5770b7980686695979b99a74">More...</a><br /></td></tr>
 <tr class="separator:ab02fae7a5770b7980686695979b99a74"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2caa4d33d64d146ca8c101d5005e025e"><td class="memItemLeft" align="right" valign="top">iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#a2caa4d33d64d146ca8c101d5005e025e">end</a> () noexcept</td></tr>
+<tr class="memdesc:a2caa4d33d64d146ca8c101d5005e025e"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns an iterator pointing to the element following the last element  <a href="#a2caa4d33d64d146ca8c101d5005e025e">More...</a><br /></td></tr>
 <tr class="separator:a2caa4d33d64d146ca8c101d5005e025e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c733864c02356902b5d92e8fe2cd56c"><td class="memItemLeft" align="right" valign="top">const_iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#a3c733864c02356902b5d92e8fe2cd56c">end</a> () const noexcept</td></tr>
+<tr class="memdesc:a3c733864c02356902b5d92e8fe2cd56c"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns a const iterator pointing to the element following the last element  <a href="#a3c733864c02356902b5d92e8fe2cd56c">More...</a><br /></td></tr>
 <tr class="separator:a3c733864c02356902b5d92e8fe2cd56c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57ac0fa3add5609d667d37b934793acd"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#a57ac0fa3add5609d667d37b934793acd">min</a> () const</td></tr>
 <tr class="memdesc:a57ac0fa3add5609d667d37b934793acd"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the min value of the vector  <a href="#a57ac0fa3add5609d667d37b934793acd">More...</a><br /></td></tr>
@@ -193,14 +196,14 @@ constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href=
 <tr class="memitem:a21538d374825d19f7ce70a6649c03418"><td class="memTemplItemLeft" align="right" valign="top">U&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#a21538d374825d19f7ce70a6649c03418">mean</a> () const</td></tr>
 <tr class="memdesc:a21538d374825d19f7ce70a6649c03418"><td class="mdescLeft">&#160;</td><td class="mdescRight">mean of all the elements of the vector  <a href="#a21538d374825d19f7ce70a6649c03418">More...</a><br /></td></tr>
 <tr class="separator:a21538d374825d19f7ce70a6649c03418"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f7031194349b2570aeb0ef17fca454b"><td class="memTemplParams" colspan="2">template&lt;typename U  = void, std::size_t N2, typename T2 &gt; </td></tr>
-<tr class="memitem:a9f7031194349b2570aeb0ef17fca454b"><td class="memTemplItemLeft" align="right" valign="top">std::conditional_t&lt; std::is_same_v&lt; U, void &gt;, T, U &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#a9f7031194349b2570aeb0ef17fca454b">dot</a> (const <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N2, T2 &gt; &amp;rhs) const</td></tr>
-<tr class="memdesc:a9f7031194349b2570aeb0ef17fca454b"><td class="mdescLeft">&#160;</td><td class="mdescRight">dot product of two vectors  <a href="#a9f7031194349b2570aeb0ef17fca454b">More...</a><br /></td></tr>
-<tr class="separator:a9f7031194349b2570aeb0ef17fca454b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b18c0e720a71db992888f483efad627"><td class="memTemplParams" colspan="2"><a id="a6b18c0e720a71db992888f483efad627"></a>
-template&lt;typename U  = void, std::size_t N2, std::size_t M2, typename T2 &gt; </td></tr>
-<tr class="memitem:a6b18c0e720a71db992888f483efad627"><td class="memTemplItemLeft" align="right" valign="top">std::conditional_t&lt; std::is_same_v&lt; U, void &gt;, <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; M2, T &gt;, <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; M2, U &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>dot</b> (const <a class="el" href="classmu_1_1Matrix.html">Matrix</a>&lt; N2, M2, T2 &gt; &amp;rhs) const</td></tr>
-<tr class="separator:a6b18c0e720a71db992888f483efad627"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab113053889eb0a7821678b60787ae610"><td class="memTemplParams" colspan="2">template&lt;typename U  = void, std::size_t N2, typename T2 &gt; </td></tr>
+<tr class="memitem:ab113053889eb0a7821678b60787ae610"><td class="memTemplItemLeft" align="right" valign="top">std::conditional_t&lt; std::is_same&lt; U, void &gt;::value, T, U &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#ab113053889eb0a7821678b60787ae610">dot</a> (const <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N2, T2 &gt; &amp;rhs) const</td></tr>
+<tr class="memdesc:ab113053889eb0a7821678b60787ae610"><td class="mdescLeft">&#160;</td><td class="mdescRight">dot product of two vectors  <a href="#ab113053889eb0a7821678b60787ae610">More...</a><br /></td></tr>
+<tr class="separator:ab113053889eb0a7821678b60787ae610"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83237a7c6384e21a1b0f834c24dd26ad"><td class="memTemplParams" colspan="2">template&lt;typename U  = void, std::size_t N2, std::size_t M2, typename T2 &gt; </td></tr>
+<tr class="memitem:a83237a7c6384e21a1b0f834c24dd26ad"><td class="memTemplItemLeft" align="right" valign="top">std::conditional_t&lt; std::is_same&lt; U, void &gt;::value, <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; M2, T &gt;, <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; M2, U &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#a83237a7c6384e21a1b0f834c24dd26ad">dot</a> (const <a class="el" href="classmu_1_1Matrix.html">Matrix</a>&lt; N2, M2, T2 &gt; &amp;rhs) const</td></tr>
+<tr class="memdesc:a83237a7c6384e21a1b0f834c24dd26ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">dot product of a vector and a matrix  <a href="#a83237a7c6384e21a1b0f834c24dd26ad">More...</a><br /></td></tr>
+<tr class="separator:a83237a7c6384e21a1b0f834c24dd26ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa706bb810519c20ff759be4661d26371"><td class="memTemplParams" colspan="2">template&lt;class U  = T&gt; </td></tr>
 <tr class="memitem:aa706bb810519c20ff759be4661d26371"><td class="memTemplItemLeft" align="right" valign="top">U&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#aa706bb810519c20ff759be4661d26371">std</a> () const</td></tr>
 <tr class="memdesc:aa706bb810519c20ff759be4661d26371"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculates the standard deviation  <a href="#aa706bb810519c20ff759be4661d26371">More...</a><br /></td></tr>
@@ -215,9 +218,8 @@ template&lt;typename U  = void, std::size_t N2, std::size_t M2, typename T2 &gt;
 <tr class="memitem:a4cc2ef12039a1bc51b8e048a48054b49"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#a4cc2ef12039a1bc51b8e048a48054b49">flipped</a> () const</td></tr>
 <tr class="memdesc:a4cc2ef12039a1bc51b8e048a48054b49"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns a flipped vector  <a href="#a4cc2ef12039a1bc51b8e048a48054b49">More...</a><br /></td></tr>
 <tr class="separator:a4cc2ef12039a1bc51b8e048a48054b49"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3274e01fb6a31b8e750ef2bd32cf61a3"><td class="memItemLeft" align="right" valign="top"><a id="a3274e01fb6a31b8e750ef2bd32cf61a3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#a3274e01fb6a31b8e750ef2bd32cf61a3">sort</a> ()</td></tr>
-<tr class="memdesc:a3274e01fb6a31b8e750ef2bd32cf61a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">sort vector elements in ascending order <br /></td></tr>
+<tr class="memitem:a3274e01fb6a31b8e750ef2bd32cf61a3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#a3274e01fb6a31b8e750ef2bd32cf61a3">sort</a> ()</td></tr>
+<tr class="memdesc:a3274e01fb6a31b8e750ef2bd32cf61a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">sort vector elements in ascending order  <a href="#a3274e01fb6a31b8e750ef2bd32cf61a3">More...</a><br /></td></tr>
 <tr class="separator:a3274e01fb6a31b8e750ef2bd32cf61a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a345ca284147c9d01c541548256c67a49"><td class="memTemplParams" colspan="2">template&lt;typename Compare &gt; </td></tr>
 <tr class="memitem:a345ca284147c9d01c541548256c67a49"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#a345ca284147c9d01c541548256c67a49">sort</a> (const Compare &amp;comp)</td></tr>
@@ -253,22 +255,22 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:aa790abe736d6907382139e21fc29fa73"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, T &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#aa790abe736d6907382139e21fc29fa73">operator/=</a> (const <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, U &gt; &amp;rhs)</td></tr>
 <tr class="memdesc:aa790abe736d6907382139e21fc29fa73"><td class="mdescLeft">&#160;</td><td class="mdescRight">divison equal operator  <a href="#aa790abe736d6907382139e21fc29fa73">More...</a><br /></td></tr>
 <tr class="separator:aa790abe736d6907382139e21fc29fa73"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa19ffa96f0ea27c8c25fc854c50e18f7"><td class="memTemplParams" colspan="2">template&lt;class TScalar &gt; </td></tr>
-<tr class="memitem:aa19ffa96f0ea27c8c25fc854c50e18f7"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if_t&lt; std::is_arithmetic_v&lt; TScalar &gt;, <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, T &gt; &amp; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#aa19ffa96f0ea27c8c25fc854c50e18f7">operator+=</a> (const TScalar &amp;scalar)</td></tr>
-<tr class="memdesc:aa19ffa96f0ea27c8c25fc854c50e18f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">add a scalar to this vector  <a href="#aa19ffa96f0ea27c8c25fc854c50e18f7">More...</a><br /></td></tr>
-<tr class="separator:aa19ffa96f0ea27c8c25fc854c50e18f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00853b170ad61e3e0e662de55ed0e8db"><td class="memTemplParams" colspan="2">template&lt;class TScalar &gt; </td></tr>
-<tr class="memitem:a00853b170ad61e3e0e662de55ed0e8db"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if_t&lt; std::is_arithmetic_v&lt; TScalar &gt;, <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, T &gt; &amp; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#a00853b170ad61e3e0e662de55ed0e8db">operator-=</a> (const TScalar &amp;scalar)</td></tr>
-<tr class="memdesc:a00853b170ad61e3e0e662de55ed0e8db"><td class="mdescLeft">&#160;</td><td class="mdescRight">subtract a scalar from every element of this vector  <a href="#a00853b170ad61e3e0e662de55ed0e8db">More...</a><br /></td></tr>
-<tr class="separator:a00853b170ad61e3e0e662de55ed0e8db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5414c8c1ccbc49de284c9814c1abe5ff"><td class="memTemplParams" colspan="2">template&lt;class TScalar &gt; </td></tr>
-<tr class="memitem:a5414c8c1ccbc49de284c9814c1abe5ff"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if_t&lt; std::is_arithmetic_v&lt; TScalar &gt;, <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, T &gt; &amp; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#a5414c8c1ccbc49de284c9814c1abe5ff">operator*=</a> (const TScalar &amp;scalar)</td></tr>
-<tr class="memdesc:a5414c8c1ccbc49de284c9814c1abe5ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">multiply a scalar with this vector  <a href="#a5414c8c1ccbc49de284c9814c1abe5ff">More...</a><br /></td></tr>
-<tr class="separator:a5414c8c1ccbc49de284c9814c1abe5ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3bc39f40d0f048d6586d3f5a4107bc52"><td class="memTemplParams" colspan="2">template&lt;class TScalar &gt; </td></tr>
-<tr class="memitem:a3bc39f40d0f048d6586d3f5a4107bc52"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if_t&lt; std::is_arithmetic_v&lt; TScalar &gt;, <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, T &gt; &amp; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#a3bc39f40d0f048d6586d3f5a4107bc52">operator/=</a> (const TScalar &amp;scalar)</td></tr>
-<tr class="memdesc:a3bc39f40d0f048d6586d3f5a4107bc52"><td class="mdescLeft">&#160;</td><td class="mdescRight">divide every element of this vector by a scalar  <a href="#a3bc39f40d0f048d6586d3f5a4107bc52">More...</a><br /></td></tr>
-<tr class="separator:a3bc39f40d0f048d6586d3f5a4107bc52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e215d45bc65563848f90bab09695e73"><td class="memTemplParams" colspan="2">template&lt;class TScalar &gt; </td></tr>
+<tr class="memitem:a3e215d45bc65563848f90bab09695e73"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if_t&lt; std::is_arithmetic&lt; TScalar &gt;::value, <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, T &gt; &amp; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#a3e215d45bc65563848f90bab09695e73">operator+=</a> (const TScalar &amp;scalar)</td></tr>
+<tr class="memdesc:a3e215d45bc65563848f90bab09695e73"><td class="mdescLeft">&#160;</td><td class="mdescRight">add a scalar to this vector  <a href="#a3e215d45bc65563848f90bab09695e73">More...</a><br /></td></tr>
+<tr class="separator:a3e215d45bc65563848f90bab09695e73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ba8714c055dac1ef7fefb41658f6f0b"><td class="memTemplParams" colspan="2">template&lt;class TScalar &gt; </td></tr>
+<tr class="memitem:a0ba8714c055dac1ef7fefb41658f6f0b"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if_t&lt; std::is_arithmetic&lt; TScalar &gt;::value, <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, T &gt; &amp; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#a0ba8714c055dac1ef7fefb41658f6f0b">operator-=</a> (const TScalar &amp;scalar)</td></tr>
+<tr class="memdesc:a0ba8714c055dac1ef7fefb41658f6f0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">subtract a scalar from every element of this vector  <a href="#a0ba8714c055dac1ef7fefb41658f6f0b">More...</a><br /></td></tr>
+<tr class="separator:a0ba8714c055dac1ef7fefb41658f6f0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2b8e0e149ed4f3c706a65d269546967"><td class="memTemplParams" colspan="2">template&lt;class TScalar &gt; </td></tr>
+<tr class="memitem:ad2b8e0e149ed4f3c706a65d269546967"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if_t&lt; std::is_arithmetic&lt; TScalar &gt;::value, <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, T &gt; &amp; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#ad2b8e0e149ed4f3c706a65d269546967">operator*=</a> (const TScalar &amp;scalar)</td></tr>
+<tr class="memdesc:ad2b8e0e149ed4f3c706a65d269546967"><td class="mdescLeft">&#160;</td><td class="mdescRight">multiply a scalar with this vector  <a href="#ad2b8e0e149ed4f3c706a65d269546967">More...</a><br /></td></tr>
+<tr class="separator:ad2b8e0e149ed4f3c706a65d269546967"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf6b5c6511e7a5faad1854ea241d5d2e"><td class="memTemplParams" colspan="2">template&lt;class TScalar &gt; </td></tr>
+<tr class="memitem:aaf6b5c6511e7a5faad1854ea241d5d2e"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if_t&lt; std::is_arithmetic&lt; TScalar &gt;::value, <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, T &gt; &amp; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#aaf6b5c6511e7a5faad1854ea241d5d2e">operator/=</a> (const TScalar &amp;scalar)</td></tr>
+<tr class="memdesc:aaf6b5c6511e7a5faad1854ea241d5d2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">divide every element of this vector by a scalar  <a href="#aaf6b5c6511e7a5faad1854ea241d5d2e">More...</a><br /></td></tr>
+<tr class="separator:aaf6b5c6511e7a5faad1854ea241d5d2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -292,6 +294,7 @@ class mu::Vector&lt; N, T &gt;</h3>
 <li>implementation-defined extended integer types, including any signed, unsigned, and cv-qualified variants. (bool, char, int, long ...)</li>
 <li>implementation-defined extended floating-point types including any cv-qualified variants. (float, double, long double)</li>
 </ul>
+<p>Can be instantiated with a reference of an arithemtic type using std::reference_wrapper and std::ref</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">N</td><td>size </td></tr>
@@ -300,8 +303,46 @@ class mu::Vector&lt; N, T &gt;</h3>
   </dd>
 </dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a7931e7af478ad36f64e196dade093c30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7931e7af478ad36f64e196dade093c30">&#9670;&nbsp;</a></span>Vector() <span class="overload">[1/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="classmu_1_1Vector.html">mu::Vector</a>&lt; N, T &gt;::<a class="el" href="classmu_1_1Vector.html">Vector</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Construct a new <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> object. </p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> a;</div><div class="line"></div></div><!-- fragment --></dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classmu_1_1Vector_a7931e7af478ad36f64e196dade093c30_icgraph.png" border="0" usemap="#classmu_1_1Vector_a7931e7af478ad36f64e196dade093c30_icgraph" alt=""/></div>
+<map name="classmu_1_1Vector_a7931e7af478ad36f64e196dade093c30_icgraph" id="classmu_1_1Vector_a7931e7af478ad36f64e196dade093c30_icgraph">
+<area shape="rect" id="node2" href="classmu_1_1Vector.html#ac8eaa13db8e49bc60779bb8bcc7c958b" title="Construct a new Vector object from a single value. " alt="" coords="185,5,319,47"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="ae1811fcd0b41864a64127eb82c7b699d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae1811fcd0b41864a64127eb82c7b699d">&#9670;&nbsp;</a></span>Vector() <span class="overload">[1/7]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1811fcd0b41864a64127eb82c7b699d">&#9670;&nbsp;</a></span>Vector() <span class="overload">[2/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -328,8 +369,9 @@ template&lt;typename... TArgs&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Construct a new <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> object from an amount of N values. </p>
-<p>the amount of values must match the static size of this <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a></p>
+<p>Construct a new <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> object from a number of N values. </p>
+<p>the number of values must match the static size of this <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> the type must be arithmetic or a reference of an arithmetic</p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <span class="comment">// direct initialization</span></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> a{2, 3};</div><div class="line">  <span class="comment">// list initialization</span></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> b = {2, 3};</div><div class="line"></div><div class="line">  <span class="comment">// hold references</span></div><div class="line">  <span class="keywordtype">int</span> num1 = 2;</div><div class="line">  <span class="keywordtype">int</span> num2 = 3;</div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, std::reference_wrapper&lt;int&gt;</a>&gt; c{std::ref(num1), std::ref(num2)};</div><div class="line">  c += 1;  <span class="comment">// this changes num1 and num2 too</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">TArgs</td><td></td></tr>
@@ -346,7 +388,7 @@ template&lt;typename... TArgs&gt; </div>
 </div>
 </div>
 <a id="a1fd85178491c5d9b5b67468bbed29e33"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1fd85178491c5d9b5b67468bbed29e33">&#9670;&nbsp;</a></span>Vector() <span class="overload">[2/7]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fd85178491c5d9b5b67468bbed29e33">&#9670;&nbsp;</a></span>Vector() <span class="overload">[3/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -375,7 +417,8 @@ template&lt;std::size_t Nn, class U &gt; </div>
 
 <p>Construct a new <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> from an existing <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> of a different type. </p>
 <p>implicit narrowing may be applied it is checked that the <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> sizes are the same</p>
-<p>Example: </p><div class="fragment"><div class="line"><a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> a = {1, 2};</div><div class="line"><a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, double&gt;</a> b = {a};</div></div><!-- fragment --><dl class="tparams"><dt>Template Parameters</dt><dd>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, float&gt;</a> a = {1.5F, 2.5F};</div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> b = {a};</div><div class="line"></div></div><!-- fragment --></dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Nn</td><td></td></tr>
     <tr><td class="paramname">U</td><td></td></tr>
@@ -392,7 +435,7 @@ template&lt;std::size_t Nn, class U &gt; </div>
 </div>
 </div>
 <a id="a37d9bc2c4e9c085ff813c8f7a59fa629"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a37d9bc2c4e9c085ff813c8f7a59fa629">&#9670;&nbsp;</a></span>Vector() <span class="overload">[3/7]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a37d9bc2c4e9c085ff813c8f7a59fa629">&#9670;&nbsp;</a></span>Vector() <span class="overload">[4/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -418,6 +461,7 @@ template&lt;std::size_t N, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>Construct a new <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> object from an std::array. </p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  std::array&lt;int, 3&gt; arr = {3, 4, 5};</div><div class="line">  <span class="comment">// direct initialization</span></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;3, int&gt;</a> a{arr};</div><div class="line">  <span class="comment">// copy initialization</span></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;3, int&gt;</a> b = arr;</div><div class="line">  <span class="comment">// list initialization</span></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;3, int&gt;</a> c = {arr};</div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">a</td><td></td></tr>
@@ -428,14 +472,14 @@ template&lt;std::size_t N, typename T&gt; </div>
 </div>
 </div>
 <a id="af8cf1a96dfed8a52ec7abc54029f240c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af8cf1a96dfed8a52ec7abc54029f240c">&#9670;&nbsp;</a></span>Vector() <span class="overload">[4/7]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af8cf1a96dfed8a52ec7abc54029f240c">&#9670;&nbsp;</a></span>Vector() <span class="overload">[5/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;std::size_t N, typename T&gt; </div>
 <div class="memtemplate">
-template&lt;typename U  = T, std::enable_if_t&lt; std::is_arithmetic_v&lt; U &gt;, int &gt;  = 0&gt; </div>
+template&lt;typename U  = T, std::enable_if_t&lt; std::is_arithmetic&lt; U &gt;::value, int &gt;  = 0&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -457,6 +501,7 @@ template&lt;typename U  = T, std::enable_if_t&lt; std::is_arithmetic_v&lt; U &gt
 
 <p>Construct a new <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> object from an std::array of a different type. </p>
 <p>implicit narrowing may be applied</p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  std::array&lt;float, 3&gt; arr = {3.5F, 4.5F, 5.5F};</div><div class="line">  <span class="comment">// direct initialization</span></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;3, int&gt;</a> a{arr};</div><div class="line">  <span class="comment">// copy initialization</span></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;3, int&gt;</a> b = arr;</div><div class="line">  <span class="comment">// list initialization</span></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;3, int&gt;</a> c = {arr};</div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">U</td><td></td></tr>
@@ -473,14 +518,14 @@ template&lt;typename U  = T, std::enable_if_t&lt; std::is_arithmetic_v&lt; U &gt
 </div>
 </div>
 <a id="ac8eaa13db8e49bc60779bb8bcc7c958b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac8eaa13db8e49bc60779bb8bcc7c958b">&#9670;&nbsp;</a></span>Vector() <span class="overload">[5/7]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8eaa13db8e49bc60779bb8bcc7c958b">&#9670;&nbsp;</a></span>Vector() <span class="overload">[6/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;std::size_t N, typename T&gt; </div>
 <div class="memtemplate">
-template&lt;typename U  = T, std::enable_if_t&lt; std::is_arithmetic_v&lt; U &gt;, int &gt;  = 0&gt; </div>
+template&lt;typename U  = T, std::enable_if_t&lt; std::is_arithmetic&lt; U &gt;::value, int &gt;  = 0&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -501,6 +546,8 @@ template&lt;typename U  = T, std::enable_if_t&lt; std::is_arithmetic_v&lt; U &gt
 </div><div class="memdoc">
 
 <p>Construct a new <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> object from a single value. </p>
+<p>all the values inside the vector will be set to this value</p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <span class="comment">// direct initialization</span></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;3, int&gt;</a> a{5};</div><div class="line">  <span class="comment">// copy initialization</span></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;3, int&gt;</a> b = 5;</div><div class="line">  <span class="comment">// list initialization</span></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;3, int&gt;</a> c = {5};</div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">U</td><td></td></tr>
@@ -517,7 +564,7 @@ template&lt;typename U  = T, std::enable_if_t&lt; std::is_arithmetic_v&lt; U &gt
 </div>
 </div>
 <a id="a0685dd9a3b39d92caa55c7e2f4336e37"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0685dd9a3b39d92caa55c7e2f4336e37">&#9670;&nbsp;</a></span>Vector() <span class="overload">[6/7]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0685dd9a3b39d92caa55c7e2f4336e37">&#9670;&nbsp;</a></span>Vector() <span class="overload">[7/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -543,6 +590,7 @@ template&lt;std::size_t N, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>Copy construct a new <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> object. </p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> a{1, 2};</div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> b{a};</div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td></td></tr>
@@ -553,7 +601,7 @@ template&lt;std::size_t N, typename T&gt; </div>
 </div>
 </div>
 <a id="ad3a6a139b333da003ccfc49c01bf60eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad3a6a139b333da003ccfc49c01bf60eb">&#9670;&nbsp;</a></span>Vector() <span class="overload">[7/7]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3a6a139b333da003ccfc49c01bf60eb">&#9670;&nbsp;</a></span>Vector() <span class="overload">[8/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -579,6 +627,7 @@ template&lt;std::size_t N, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>Move construct a new <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> object. </p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> a{1, 2};</div><div class="line">  <span class="comment">// direct initialization</span></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> b{std::move(a)};</div><div class="line">  <span class="comment">// copy initialization</span></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> c = std::move(a);</div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td></td></tr>
@@ -616,6 +665,7 @@ template&lt;std::size_t N, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>access an element within the vector </p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> a{2, 3};</div><div class="line">  <span class="keywordtype">int</span> first = a.<a class="code" href="classmu_1_1Vector.html#a29173887541bdface45e662338f25d44">at</a>(0);</div><div class="line">  <span class="keywordtype">int</span> second = a.<a class="code" href="classmu_1_1Vector.html#a29173887541bdface45e662338f25d44">at</a>(1);</div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">out</td><td>of range </td></tr>
@@ -659,6 +709,7 @@ template&lt;std::size_t N, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>const access an element within the vector </p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <span class="keyword">const</span> <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> a{2, 3};</div><div class="line">  <span class="keywordtype">int</span> first = a.<a class="code" href="classmu_1_1Vector.html#a29173887541bdface45e662338f25d44">at</a>(0);</div><div class="line">  <span class="keywordtype">int</span> second = a.<a class="code" href="classmu_1_1Vector.html#a29173887541bdface45e662338f25d44">at</a>(1);</div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">out</td><td>of range </td></tr>
@@ -699,6 +750,9 @@ template&lt;std::size_t N, typename T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>returns an iterator pointing to the first element </p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> a{2, 3};</div><div class="line">  <span class="keywordtype">int</span> first = *a.<a class="code" href="classmu_1_1Vector.html#a7d9d1c3218082522712fea2d5bc32868">begin</a>();</div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>iterator </dd></dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -737,12 +791,15 @@ template&lt;std::size_t N, typename T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>returns a const iterator pointing to the first element </p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <span class="keyword">const</span> <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> a{2, 3};</div><div class="line">  <span class="keywordtype">int</span> first = *a.<a class="code" href="classmu_1_1Vector.html#a7d9d1c3218082522712fea2d5bc32868">begin</a>();</div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>const_iterator </dd></dl>
 
 </div>
 </div>
-<a id="a9f7031194349b2570aeb0ef17fca454b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9f7031194349b2570aeb0ef17fca454b">&#9670;&nbsp;</a></span>dot()</h2>
+<a id="ab113053889eb0a7821678b60787ae610"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab113053889eb0a7821678b60787ae610">&#9670;&nbsp;</a></span>dot() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -755,7 +812,7 @@ template&lt;typename U  = void, std::size_t N2, typename T2 &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::conditional_t&lt;std::is_same_v&lt;U, void&gt;, T, U&gt; <a class="el" href="classmu_1_1Vector.html">mu::Vector</a>&lt; N, T &gt;::dot </td>
+          <td class="memname">std::conditional_t&lt;std::is_same&lt;U, void&gt;::value, T, U&gt; <a class="el" href="classmu_1_1Vector.html">mu::Vector</a>&lt; N, T &gt;::dot </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N2, T2 &gt; &amp;&#160;</td>
           <td class="paramname"><em>rhs</em></td><td>)</td>
@@ -770,8 +827,13 @@ template&lt;typename U  = void, std::size_t N2, typename T2 &gt; </div>
 </div><div class="memdoc">
 
 <p>dot product of two vectors </p>
+<p>For a <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> \( a \) of size \( N \) and a <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> \( b \) of size \( N \) the result is a scalar,</p>
+<p>\( a \cdot b = \sum_{i=1}^{N} a_i b_i \)</p>
+<p><a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> sizes must be equal</p>
 <p>For two Vectors of the same type, specifying the return type is optional. It will be of the type of the two Vectors by default.</p>
-<p>For two Vectors of different types, specifying the return type is required. Otherwise the code will not compile. (this is to mitigate unwanted precision loss due to implicit casting. the trade-off is that the caller has to state the return type explicitly.)</p>
+<p>For two Vectors of different types, specifying the return type is required.</p>
+<p>return value is a scalar of the type of the two Vectors or else of the explicitly stated type</p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <span class="comment">// same types</span></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> a{1, 2};</div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> b{3, 4};</div><div class="line">  <span class="keywordtype">int</span> res1 = a.<a class="code" href="classmu_1_1Vector.html#ab113053889eb0a7821678b60787ae610">dot</a>(b);  <span class="comment">// 11</span></div><div class="line"></div><div class="line">  <span class="comment">// different types (must specify internal precision)</span></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> c{1, 2};</div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, float&gt;</a> d{3.5F, 4.5F};</div><div class="line">  <span class="keywordtype">float</span> res2 = c.<a class="code" href="classmu_1_1Vector.html#ab113053889eb0a7821678b60787ae610">dot</a>&lt;<span class="keywordtype">int</span>&gt;(d);    <span class="comment">// 12</span></div><div class="line">  <span class="keywordtype">float</span> res3 = c.<a class="code" href="classmu_1_1Vector.html#ab113053889eb0a7821678b60787ae610">dot</a>&lt;<span class="keywordtype">float</span>&gt;(d);  <span class="comment">// 12.5</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">U</td><td></td></tr>
@@ -786,15 +848,71 @@ template&lt;typename U  = void, std::size_t N2, typename T2 &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>std::conditional_t&lt;std::is_same_v&lt;U, void&gt;, T, U&gt; </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>std::conditional_t&lt;std::is_same&lt;U, void&gt;::value, T, U&gt; </dd></dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classmu_1_1Vector_a9f7031194349b2570aeb0ef17fca454b_icgraph.png" border="0" usemap="#classmu_1_1Vector_a9f7031194349b2570aeb0ef17fca454b_icgraph" alt=""/></div>
-<map name="classmu_1_1Vector_a9f7031194349b2570aeb0ef17fca454b_icgraph" id="classmu_1_1Vector_a9f7031194349b2570aeb0ef17fca454b_icgraph">
-<area shape="rect" id="node2" href="classmu_1_1Vector.html#afe4d3c4dfa03eb4c8f9240f89c7f6139" title="euclidean vector length " alt="" coords="165,22,299,63"/>
+<div class="center"><img src="classmu_1_1Vector_ab113053889eb0a7821678b60787ae610_icgraph.png" border="0" usemap="#classmu_1_1Vector_ab113053889eb0a7821678b60787ae610_icgraph" alt=""/></div>
+<map name="classmu_1_1Vector_ab113053889eb0a7821678b60787ae610_icgraph" id="classmu_1_1Vector_ab113053889eb0a7821678b60787ae610_icgraph">
+<area shape="rect" id="node2" href="classmu_1_1Vector.html#afe4d3c4dfa03eb4c8f9240f89c7f6139" title="euclidean vector length " alt="" coords="165,5,299,47"/>
 </map>
 </div>
+
+</div>
+</div>
+<a id="a83237a7c6384e21a1b0f834c24dd26ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83237a7c6384e21a1b0f834c24dd26ad">&#9670;&nbsp;</a></span>dot() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, typename T&gt; </div>
+<div class="memtemplate">
+template&lt;typename U  = void, std::size_t N2, std::size_t M2, typename T2 &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::conditional_t&lt;std::is_same&lt;U, void&gt;::value, <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt;M2, T&gt;, <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt;M2, U&gt; &gt; <a class="el" href="classmu_1_1Vector.html">mu::Vector</a>&lt; N, T &gt;::dot </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classmu_1_1Matrix.html">Matrix</a>&lt; N2, M2, T2 &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>dot product of a vector and a matrix </p>
+<p>For a <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> \( a \) of size \( N \) and a <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> \( B \) of size \( N \times M \) the result is a <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> \( c \) of size \( M \),</p>
+<p>\( c = a \cdot B \) with</p>
+<p>\( c_{j} = a_1 b_{1j} + a_2 b_{2j} + ... + a_N b_{Nj} = \sum_{i=1}^{N} a_i B_{ij} \)</p>
+<p><a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> size must be equal to the size of the first <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> dimension (N)</p>
+<p>For two objects of the same type, specifying the return type is optional. It will be of the type of the two objects by default.</p>
+<p>For two objects of different types, specifying the return type is required.</p>
+<p>return value is a <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> of the size of the second <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> dimension (M) containing the type of the two objects or else of the explicitly stated type</p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <span class="comment">// same types</span></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> a{1, 2};</div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;2, 3, int&gt;</a> b{{3, 4, 5}, {6, 7, 8}};</div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;3, int&gt;</a> res1 = a.<a class="code" href="classmu_1_1Vector.html#ab113053889eb0a7821678b60787ae610">dot</a>(b);  <span class="comment">// [ 15, 18, 21 ]</span></div><div class="line"></div><div class="line">  <span class="comment">// different types (must specify internal precision)</span></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, float&gt;</a> c{1.5F, 2.5F};</div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;2, 3, int&gt;</a> d{{3, 4, 5}, {6, 7, 8}};</div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;3, float&gt;</a> res2 = c.<a class="code" href="classmu_1_1Vector.html#ab113053889eb0a7821678b60787ae610">dot</a>&lt;<span class="keywordtype">int</span>&gt;(d);    <span class="comment">// [ 19, 23, 27 ]</span></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;3, float&gt;</a> res3 = c.<a class="code" href="classmu_1_1Vector.html#ab113053889eb0a7821678b60787ae610">dot</a>&lt;<span class="keywordtype">float</span>&gt;(d);  <span class="comment">// [ 19.5, 23.5, 27.5 ]</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">U</td><td></td></tr>
+    <tr><td class="paramname">N2</td><td></td></tr>
+    <tr><td class="paramname">M2</td><td></td></tr>
+    <tr><td class="paramname">T2</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rhs</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::conditional_t&lt;std::is_same&lt;U, void&gt;::value, Vector&lt;M2, T&gt;, Vector&lt;M2, U&gt;&gt; </dd></dl>
 
 </div>
 </div>
@@ -822,6 +940,9 @@ template&lt;std::size_t N, typename T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>returns an iterator pointing to the element following the last element </p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> a{2, 3};</div><div class="line">  <span class="keywordtype">int</span> last = *(a.<a class="code" href="classmu_1_1Vector.html#a2caa4d33d64d146ca8c101d5005e025e">end</a>() - 1);</div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>iterator </dd></dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -860,6 +981,9 @@ template&lt;std::size_t N, typename T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>returns a const iterator pointing to the element following the last element </p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <span class="keyword">const</span> <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> a{2, 3};</div><div class="line">  <span class="keywordtype">int</span> last = *(a.<a class="code" href="classmu_1_1Vector.html#a2caa4d33d64d146ca8c101d5005e025e">end</a>() - 1);</div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>const_iterator </dd></dl>
 
 </div>
@@ -890,7 +1014,7 @@ template&lt;std::size_t N, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>flips this vector, i.e. reverses its elements </p>
-<p>For example: (1,2,3) becomes (3,2,1) </p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;3, int&gt;</a> a{1, 2, 3};</div><div class="line">  a.<a class="code" href="classmu_1_1Vector.html#a597ca2de6348a91e896f3f2296a5bcd2">flip</a>();  <span class="comment">// a is now [ 3, 2, 1 ]</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -928,6 +1052,7 @@ template&lt;std::size_t N, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>returns a flipped vector </p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;3, int&gt;</a> a{1, 2, 3};</div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;3, int&gt;</a> b = a.<a class="code" href="classmu_1_1Vector.html#a4cc2ef12039a1bc51b8e048a48054b49">flipped</a>();  <span class="comment">// b is now [ 3, 2, 1 ]</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classmu_1_1Vector.html#a597ca2de6348a91e896f3f2296a5bcd2">flip()</a> </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>Vector&lt;N, T&gt; </dd></dl>
 
@@ -965,6 +1090,7 @@ template&lt;class U  = T&gt; </div>
 <li>the type of this vector (default)</li>
 <li>the explicitly stated type</li>
 </ul>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> a{1, 2};</div><div class="line">  <span class="keywordtype">float</span> len1 = a.<a class="code" href="classmu_1_1Vector.html#afe4d3c4dfa03eb4c8f9240f89c7f6139">length</a>();         <span class="comment">// 2 (because a holds type int)</span></div><div class="line">  <span class="keywordtype">float</span> len2 = a.<a class="code" href="classmu_1_1Vector.html#afe4d3c4dfa03eb4c8f9240f89c7f6139">length</a>&lt;<span class="keywordtype">float</span>&gt;();  <span class="comment">// 2.23606801</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">U</td><td></td></tr>
@@ -1001,6 +1127,7 @@ template&lt;std::size_t N, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>get the max value of the vector </p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> a{2, 3};</div><div class="line">  <span class="keywordtype">int</span> <a class="code" href="classmu_1_1Vector.html#a0bcb8df801149ed1a5654a141aae14d7">max</a> = a.<a class="code" href="classmu_1_1Vector.html#a0bcb8df801149ed1a5654a141aae14d7">max</a>();</div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>T </dd></dl>
 
 </div>
@@ -1033,10 +1160,12 @@ template&lt;typename U  = T&gt; </div>
 </div><div class="memdoc">
 
 <p>mean of all the elements of the vector </p>
+<p>\( \mu = \frac{\sum(x_i)}{N} \)</p>
 <p>returns the mean as</p><ul>
 <li>the type of this vector (default)</li>
 <li>the explicitly stated type</li>
 </ul>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> a{2, 3};</div><div class="line">  <span class="keywordtype">float</span> mean1 = a.<a class="code" href="classmu_1_1Vector.html#a21538d374825d19f7ce70a6649c03418">mean</a>();         <span class="comment">// 2 (because a holds type int)</span></div><div class="line">  <span class="keywordtype">float</span> mean2 = a.<a class="code" href="classmu_1_1Vector.html#a21538d374825d19f7ce70a6649c03418">mean</a>&lt;<span class="keywordtype">float</span>&gt;();  <span class="comment">// 2.5F</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">U</td><td></td></tr>
@@ -1073,6 +1202,7 @@ template&lt;std::size_t N, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>get the min value of the vector </p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> a{2, 3};</div><div class="line">  <span class="keywordtype">int</span> <a class="code" href="classmu_1_1Vector.html#a57ac0fa3add5609d667d37b934793acd">min</a> = a.<a class="code" href="classmu_1_1Vector.html#a57ac0fa3add5609d667d37b934793acd">min</a>();</div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>T </dd></dl>
 
 </div>
@@ -1162,8 +1292,8 @@ template&lt;typename U  = T&gt; </div>
 
 </div>
 </div>
-<a id="a5414c8c1ccbc49de284c9814c1abe5ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5414c8c1ccbc49de284c9814c1abe5ff">&#9670;&nbsp;</a></span>operator*=() <span class="overload">[2/2]</span></h2>
+<a id="ad2b8e0e149ed4f3c706a65d269546967"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2b8e0e149ed4f3c706a65d269546967">&#9670;&nbsp;</a></span>operator*=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1176,7 +1306,7 @@ template&lt;class TScalar &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::enable_if_t&lt;std::is_arithmetic_v&lt;TScalar&gt;, <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt;N, T&gt; &amp;&gt; <a class="el" href="classmu_1_1Vector.html">mu::Vector</a>&lt; N, T &gt;::operator*= </td>
+          <td class="memname">std::enable_if_t&lt;std::is_arithmetic&lt;TScalar&gt;::value, <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt;N, T&gt; &amp;&gt; <a class="el" href="classmu_1_1Vector.html">mu::Vector</a>&lt; N, T &gt;::operator*= </td>
           <td>(</td>
           <td class="paramtype">const TScalar &amp;&#160;</td>
           <td class="paramname"><em>scalar</em></td><td>)</td>
@@ -1203,7 +1333,7 @@ template&lt;class TScalar &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>std::enable_if_t&lt;std::is_arithmetic_v&lt;TScalar&gt;,Vector&lt;N, T&gt; &amp;&gt; </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>std::enable_if_t&lt;std::is_arithmetic&lt;TScalar&gt;::value,Vector&lt;N, T&gt; &amp;&gt; </dd></dl>
 
 </div>
 </div>
@@ -1253,8 +1383,8 @@ template&lt;typename U  = T&gt; </div>
 
 </div>
 </div>
-<a id="aa19ffa96f0ea27c8c25fc854c50e18f7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa19ffa96f0ea27c8c25fc854c50e18f7">&#9670;&nbsp;</a></span>operator+=() <span class="overload">[2/2]</span></h2>
+<a id="a3e215d45bc65563848f90bab09695e73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e215d45bc65563848f90bab09695e73">&#9670;&nbsp;</a></span>operator+=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1267,7 +1397,7 @@ template&lt;class TScalar &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::enable_if_t&lt;std::is_arithmetic_v&lt;TScalar&gt;, <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt;N, T&gt; &amp;&gt; <a class="el" href="classmu_1_1Vector.html">mu::Vector</a>&lt; N, T &gt;::operator+= </td>
+          <td class="memname">std::enable_if_t&lt;std::is_arithmetic&lt;TScalar&gt;::value, <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt;N, T&gt; &amp;&gt; <a class="el" href="classmu_1_1Vector.html">mu::Vector</a>&lt; N, T &gt;::operator+= </td>
           <td>(</td>
           <td class="paramtype">const TScalar &amp;&#160;</td>
           <td class="paramname"><em>scalar</em></td><td>)</td>
@@ -1294,7 +1424,7 @@ template&lt;class TScalar &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>std::enable_if_t&lt;std::is_arithmetic_v&lt;TScalar&gt;,Vector&lt;N, T&gt; &amp;&gt; </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>std::enable_if_t&lt;std::is_arithmetic&lt;TScalar&gt;::value,Vector&lt;N, T&gt; &amp;&gt; </dd></dl>
 
 </div>
 </div>
@@ -1344,8 +1474,8 @@ template&lt;typename U  = T&gt; </div>
 
 </div>
 </div>
-<a id="a00853b170ad61e3e0e662de55ed0e8db"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a00853b170ad61e3e0e662de55ed0e8db">&#9670;&nbsp;</a></span>operator-=() <span class="overload">[2/2]</span></h2>
+<a id="a0ba8714c055dac1ef7fefb41658f6f0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ba8714c055dac1ef7fefb41658f6f0b">&#9670;&nbsp;</a></span>operator-=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1358,7 +1488,7 @@ template&lt;class TScalar &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::enable_if_t&lt;std::is_arithmetic_v&lt;TScalar&gt;, <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt;N, T&gt; &amp;&gt; <a class="el" href="classmu_1_1Vector.html">mu::Vector</a>&lt; N, T &gt;::operator-= </td>
+          <td class="memname">std::enable_if_t&lt;std::is_arithmetic&lt;TScalar&gt;::value, <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt;N, T&gt; &amp;&gt; <a class="el" href="classmu_1_1Vector.html">mu::Vector</a>&lt; N, T &gt;::operator-= </td>
           <td>(</td>
           <td class="paramtype">const TScalar &amp;&#160;</td>
           <td class="paramname"><em>scalar</em></td><td>)</td>
@@ -1385,7 +1515,7 @@ template&lt;class TScalar &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>std::enable_if_t&lt;std::is_arithmetic_v&lt;TScalar&gt;, Vector&lt;N, T&gt; &amp;&gt; </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>std::enable_if_t&lt;std::is_arithmetic&lt;TScalar&gt;::value, Vector&lt;N, T&gt; &amp;&gt; </dd></dl>
 
 </div>
 </div>
@@ -1435,8 +1565,8 @@ template&lt;typename U  = T&gt; </div>
 
 </div>
 </div>
-<a id="a3bc39f40d0f048d6586d3f5a4107bc52"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3bc39f40d0f048d6586d3f5a4107bc52">&#9670;&nbsp;</a></span>operator/=() <span class="overload">[2/2]</span></h2>
+<a id="aaf6b5c6511e7a5faad1854ea241d5d2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf6b5c6511e7a5faad1854ea241d5d2e">&#9670;&nbsp;</a></span>operator/=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1449,7 +1579,7 @@ template&lt;class TScalar &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::enable_if_t&lt;std::is_arithmetic_v&lt;TScalar&gt;, <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt;N, T&gt; &amp;&gt; <a class="el" href="classmu_1_1Vector.html">mu::Vector</a>&lt; N, T &gt;::operator/= </td>
+          <td class="memname">std::enable_if_t&lt;std::is_arithmetic&lt;TScalar&gt;::value, <a class="el" href="classmu_1_1Vector.html">Vector</a>&lt;N, T&gt; &amp;&gt; <a class="el" href="classmu_1_1Vector.html">mu::Vector</a>&lt; N, T &gt;::operator/= </td>
           <td>(</td>
           <td class="paramtype">const TScalar &amp;&#160;</td>
           <td class="paramname"><em>scalar</em></td><td>)</td>
@@ -1477,7 +1607,7 @@ template&lt;class TScalar &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>std::enable_if_t&lt;std::is_arithmetic_v&lt;TScalar&gt;, Vector&lt;N, T&gt; &amp;&gt; </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>std::enable_if_t&lt;std::is_arithmetic&lt;TScalar&gt;::value, Vector&lt;N, T&gt; &amp;&gt; </dd></dl>
 
 </div>
 </div>
@@ -1508,6 +1638,7 @@ template&lt;std::size_t N, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>Copy assignment operator. </p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> a{1, 2};</div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> b = a;</div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td></td></tr>
@@ -1553,6 +1684,7 @@ template&lt;std::size_t N, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>Move assignment operator. </p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> a{1, 2};</div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> b = std::move(a);</div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td></td></tr>
@@ -1640,6 +1772,7 @@ template&lt;std::size_t N, typename T&gt; </div>
 
 <p>access an element within the vector </p>
 <p>does not throw an exception if <code>idx</code> is out of range</p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> a{2, 3};</div><div class="line">  <span class="keywordtype">int</span> first = a[0];</div><div class="line">  <span class="keywordtype">int</span> second = a[1];</div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">idx</td><td></td></tr>
@@ -1678,6 +1811,7 @@ template&lt;std::size_t N, typename T&gt; </div>
 
 <p>const access an element within the vector </p>
 <p>does not throw an exception if <code>idx</code> is out of range</p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <span class="keyword">const</span> <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> a{2, 3};</div><div class="line">  <span class="keywordtype">int</span> first = a[0];</div><div class="line">  <span class="keywordtype">int</span> second = a[1];</div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">idx</td><td></td></tr>
@@ -1714,12 +1848,51 @@ template&lt;std::size_t N, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>returns the size of the vector </p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;3, int&gt;</a> a{2, 3, 4};</div><div class="line">  std::size_t <a class="code" href="classmu_1_1Vector.html#a1a6c382df2038bb89209087f1df0d60c">size</a> = a.<a class="code" href="classmu_1_1Vector.html#a1a6c382df2038bb89209087f1df0d60c">size</a>();</div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>size_type </dd></dl>
 
 </div>
 </div>
+<a id="a3274e01fb6a31b8e750ef2bd32cf61a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3274e01fb6a31b8e750ef2bd32cf61a3">&#9670;&nbsp;</a></span>sort() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classmu_1_1Vector.html">mu::Vector</a>&lt; N, T &gt;::sort </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>sort vector elements in ascending order </p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;5, int&gt;</a> a{6, 4, 9, 3, 1};</div><div class="line">  a.<a class="code" href="classmu_1_1Vector.html#a3274e01fb6a31b8e750ef2bd32cf61a3">sort</a>();  <span class="comment">// a is now [ 1, 3, 4, 6, 9 ]</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classmu_1_1Vector_a3274e01fb6a31b8e750ef2bd32cf61a3_icgraph.png" border="0" usemap="#classmu_1_1Vector_a3274e01fb6a31b8e750ef2bd32cf61a3_icgraph" alt=""/></div>
+<map name="classmu_1_1Vector_a3274e01fb6a31b8e750ef2bd32cf61a3_icgraph" id="classmu_1_1Vector_a3274e01fb6a31b8e750ef2bd32cf61a3_icgraph">
+<area shape="rect" id="node2" href="classmu_1_1Vector.html#a268fadef8c3774945acc651f22d18e16" title="returns a sorted vector " alt="" coords="169,5,303,47"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="a345ca284147c9d01c541548256c67a49"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a345ca284147c9d01c541548256c67a49">&#9670;&nbsp;</a></span>sort()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a345ca284147c9d01c541548256c67a49">&#9670;&nbsp;</a></span>sort() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1748,6 +1921,7 @@ template&lt;typename Compare &gt; </div>
 
 <p>sort vector elements by providing a condition </p>
 <p>the condition should be a lambda function. it must return a bool</p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;5, int&gt;</a> a{6, 4, 9, 3, 1};</div><div class="line">  a.<a class="code" href="classmu_1_1Vector.html#a3274e01fb6a31b8e750ef2bd32cf61a3">sort</a>([](<span class="keywordtype">int</span> a, <span class="keywordtype">int</span> b) { <span class="keywordflow">return</span> a &gt; b; });  <span class="comment">// a is now [ 9, 6, 4, 3, 1 ]</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Compare</td><td></td></tr>
@@ -1789,6 +1963,7 @@ template&lt;std::size_t N, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>returns a sorted vector </p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;5, int&gt;</a> a{6, 4, 9, 3, 1};</div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;5, int&gt;</a> b = a.<a class="code" href="classmu_1_1Vector.html#a268fadef8c3774945acc651f22d18e16">sorted</a>();  <span class="comment">// b is now [ 1, 3, 4, 6, 9 ]</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>Vector&lt;N, T&gt; </dd></dl>
 
 </div>
@@ -1820,6 +1995,7 @@ template&lt;typename Compare &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;5, int&gt;</a> a{6, 4, 9, 3, 1};</div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;5, int&gt;</a> b = a.<a class="code" href="classmu_1_1Vector.html#a268fadef8c3774945acc651f22d18e16">sorted</a>(</div><div class="line">      [](<span class="keywordtype">int</span> a, <span class="keywordtype">int</span> b) { <span class="keywordflow">return</span> a &gt; b; });  <span class="comment">// b is now [ 9, 6, 4, 3, 1 ]</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Compare</td><td></td></tr>
@@ -1865,6 +2041,7 @@ template&lt;class U  = T&gt; </div>
 
 <p>calculates the standard deviation </p>
 <p>\( \sigma = \sqrt{\frac{\sum(x_i - \mu)^2}{N}} \)</p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;4, int&gt;</a> a{2, 3, 5, 7};</div><div class="line">  <span class="keywordtype">float</span> std1 = a.<a class="code" href="classmu_1_1Vector.html#aa706bb810519c20ff759be4661d26371">std</a>();         <span class="comment">// 1 (because a holds type int)</span></div><div class="line">  <span class="keywordtype">float</span> std2 = a.std&lt;<span class="keywordtype">float</span>&gt;();  <span class="comment">// 1.92028642</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">U</td><td></td></tr>
@@ -1901,6 +2078,7 @@ template&lt;std::size_t N, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>sum up all the elements of the vector </p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"></div><!-- fragment --></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>T </dd></dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1908,7 +2086,7 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="classmu_1_1Vector_a5aaede8fa7e0cfa50b044fcaf89cf1f2_icgraph.png" border="0" usemap="#classmu_1_1Vector_a5aaede8fa7e0cfa50b044fcaf89cf1f2_icgraph" alt=""/></div>
 <map name="classmu_1_1Vector_a5aaede8fa7e0cfa50b044fcaf89cf1f2_icgraph" id="classmu_1_1Vector_a5aaede8fa7e0cfa50b044fcaf89cf1f2_icgraph">
 <area shape="rect" id="node2" href="classmu_1_1Vector.html#a21538d374825d19f7ce70a6649c03418" title="mean of all the elements of the vector " alt="" coords="185,5,318,47"/>
-<area shape="rect" id="node3" href="classmu_1_1Vector.html#a9f7031194349b2570aeb0ef17fca454b" title="dot product of two vectors " alt="" coords="172,71,331,98"/>
+<area shape="rect" id="node3" href="classmu_1_1Vector.html#a83237a7c6384e21a1b0f834c24dd26ad" title="dot product of a vector and a matrix " alt="" coords="172,71,331,98"/>
 <area shape="rect" id="node4" href="classmu_1_1Vector.html#aa706bb810519c20ff759be4661d26371" title="calculates the standard deviation " alt="" coords="172,122,331,149"/>
 </map>
 </div>

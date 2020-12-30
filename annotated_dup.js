@@ -1,6 +1,9 @@
 var annotated_dup =
 [
     [ "mu", null, [
+      [ "conjunction", "structmu_1_1conjunction.html", null ],
+      [ "conjunction< B >", "structmu_1_1conjunction_3_01B_01_4.html", null ],
+      [ "conjunction< Head, Tail... >", "structmu_1_1conjunction_3_01Head_00_01Tail_8_8_8_01_4.html", null ],
       [ "Matrix", "classmu_1_1Matrix.html", "classmu_1_1Matrix" ],
       [ "TypeTraits", "structmu_1_1TypeTraits.html", "structmu_1_1TypeTraits" ],
       [ "TypeTraits< double >", "structmu_1_1TypeTraits_3_01double_01_4.html", null ],

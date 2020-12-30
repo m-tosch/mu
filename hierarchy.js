@@ -9,7 +9,12 @@ var hierarchy =
       ] ],
       [ "ScalarCombinationsFixture< T >", "classScalarCombinationsFixture.html", null ]
     ] ],
+    [ "mu::conjunction< B >", "structmu_1_1conjunction.html", null ],
     [ "EmptyBase", "structEmptyBase.html", null ],
+    [ "integral_constant", null, [
+      [ "mu::conjunction< B >", "structmu_1_1conjunction_3_01B_01_4.html", null ],
+      [ "mu::conjunction< Head, Tail... >", "structmu_1_1conjunction_3_01Head_00_01Tail_8_8_8_01_4.html", null ]
+    ] ],
     [ "LambdaCompare", "structLambdaCompare.html", null ],
     [ "mu::Matrix< N, M, T >", "classmu_1_1Matrix.html", null ],
     [ "SecondBaseTypeFixture", null, [
