@@ -38,7 +38,7 @@ class Matrix;
 template <std::size_t N, typename T>
 class Vector {
   static_assert(N != 0, "Vector dimension cannot be zero");
-  static_assert(std::is_arithmetic_v<mu::unwrap_ref_t<T>>,
+  static_assert(std::is_arithmetic<mu::unwrap_ref_t<T>>::value,
                 "Vector type T must be an arithmetic type or a "
                 "std::reference_wrapper that holds an arithmetic type");
 
@@ -67,7 +67,8 @@ class Vector {
   template <typename... TArgs,
             std::enable_if_t<
                 sizeof...(TArgs) == N &&
-                    (std::is_same_v<T, std::remove_reference_t<TArgs>> && ...),
+                    (mu::conjunction<std::is_same<
+                         T, std::remove_reference_t<TArgs>>::value...>::value),
                 int> = 0>
   // NOLINTNEXTLINE(runtime/explicit) implicit to make copy-init. work
   Vector(TArgs &&... args) : data_{std::forward<TArgs>(args)...} {}
@@ -111,7 +112,8 @@ class Vector {
    * @tparam U
    * @param a
    */
-  template <typename U = T, std::enable_if_t<std::is_arithmetic_v<U>, int> = 0>
+  template <typename U = T,
+            std::enable_if_t<std::is_arithmetic<U>::value, int> = 0>
   // NOLINTNEXTLINE(runtime/explicit) implicit to make copy-init. work
   Vector(const std::array<U, N> &a) {
     std::transform(a.begin(), a.end(), begin(), [](U data) { return data; });
@@ -120,10 +122,13 @@ class Vector {
   /**
    * @brief Construct a new Vector object from a single value
    *
+   * @par Example
+   * @snippet example_vector.cpp example of vector single value constructor
    * @tparam U
    * @param value
    */
-  template <typename U = T, std::enable_if_t<std::is_arithmetic_v<U>, int> = 0>
+  template <typename U = T,
+            std::enable_if_t<std::is_arithmetic<U>::value, int> = 0>
   // NOLINTNEXTLINE(runtime/explicit) implicit to make copy-init. work
   Vector(const U &value) {
     data_.fill(value);
@@ -307,18 +312,18 @@ class Vector {
    * @tparam N2
    * @tparam T2
    * @param rhs
-   * @return std::conditional_t<std::is_same_v<U, void>, T, U>
+   * @return std::conditional_t<std::is_same<U, void>::value, T, U>
    */
   template <typename U = void, std::size_t N2, typename T2>
-  std::conditional_t<std::is_same_v<U, void>, T, U> dot(
+  std::conditional_t<std::is_same<U, void>::value, T, U> dot(
       const Vector<N2, T2> &rhs) const {
     static_assert(N == N2, "Vector size mismatch");
-    if constexpr (!std::is_same_v<T, T2>) {
-      static_assert(!std::is_same_v<U, void>,
-                    "Vector types are different. please specify the return "
-                    "type. e.g. \"vec1.dot<float>(vec2);\"");
-    }
-    using U_ = std::conditional_t<std::is_same_v<U, void>, T, U>;
+    /* if the two types are not the same, use U which must not be void */
+    using cond1 = std::conditional_t<!std::is_same<T, T2>::value, U, T>;
+    static_assert(!std::is_same<cond1, void>::value,
+                  "Vector types are different. please specify the return "
+                  "type. e.g. \"vec1.dot<float>(vec2);\"");
+    using U_ = std::conditional_t<std::is_same<U, void>::value, T, U>;
     U_ ret{};
     for (std::size_t i = 0; i < N; i++) {
       ret += data_[i] * rhs[i];
@@ -327,18 +332,18 @@ class Vector {
   }
 
   template <typename U = void, std::size_t N2, std::size_t M2, typename T2>
-  std::conditional_t<std::is_same_v<U, void>, Vector<M2, T>, Vector<M2, U>> dot(
-      const Matrix<N2, M2, T2> &rhs) const {
+  std::conditional_t<std::is_same<U, void>::value, Vector<M2, T>, Vector<M2, U>>
+  dot(const Matrix<N2, M2, T2> &rhs) const {
     static_assert(N == N2,
                   "Vector-Matrix dimension mismatch. Vector size must be equal "
                   "to the first dimension of the matrix");
-    if constexpr (!std::is_same_v<T, T2>) {
-      static_assert(
-          !std::is_same_v<U, void>,
-          "Vector and Matrix types are different. please specify the return "
-          "type. e.g. \"vec.dot<float>(mat);\"");
-    }
-    using U_ = std::conditional_t<std::is_same_v<U, void>, T, U>;
+    /* if the two types are not the same, use U which must not be void */
+    using cond1 = std::conditional_t<!std::is_same<T, T2>::value, U, T>;
+    static_assert(
+        !std::is_same<cond1, void>::value,
+        "Vector and Matrix types are different. please specify the return "
+        "type. e.g. \"vec.dot<float>(mat);\"");
+    using U_ = std::conditional_t<std::is_same<U, void>::value, T, U>;
     Vector<M2, U_> ret;
     for (std::size_t i = 0; i < M2; i++) {
       U_ sum{0};
@@ -582,10 +587,10 @@ class Vector {
    *
    * @tparam TScalar
    * @param scalar
-   * @return std::enable_if_t<std::is_arithmetic_v<TScalar>,Vector<N, T> &>
+   * @return std::enable_if_t<std::is_arithmetic<TScalar>::value,Vector<N, T> &>
    */
   template <class TScalar>
-  typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Vector<N, T> &>
+  typename std::enable_if_t<std::is_arithmetic<TScalar>::value, Vector<N, T> &>
   operator+=(const TScalar &scalar) {
     for (auto &item : data_) {
       item += scalar;
@@ -598,10 +603,11 @@ class Vector {
    *
    * @tparam TScalar
    * @param scalar
-   * @return std::enable_if_t<std::is_arithmetic_v<TScalar>, Vector<N, T> &>
+   * @return std::enable_if_t<std::is_arithmetic<TScalar>::value, Vector<N, T>
+   * &>
    */
   template <class TScalar>
-  typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Vector<N, T> &>
+  typename std::enable_if_t<std::is_arithmetic<TScalar>::value, Vector<N, T> &>
   operator-=(const TScalar &scalar) {
     for (auto &item : data_) {
       item -= scalar;
@@ -614,10 +620,10 @@ class Vector {
    *
    * @tparam TScalar
    * @param scalar
-   * @return std::enable_if_t<std::is_arithmetic_v<TScalar>,Vector<N, T> &>
+   * @return std::enable_if_t<std::is_arithmetic<TScalar>::value,Vector<N, T> &>
    */
   template <class TScalar>
-  typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Vector<N, T> &>
+  typename std::enable_if_t<std::is_arithmetic<TScalar>::value, Vector<N, T> &>
   operator*=(const TScalar &scalar) {
     for (auto &item : data_) {
       item *= scalar;
@@ -632,15 +638,16 @@ class Vector {
    *
    * @tparam TScalar
    * @param scalar
-   * @return std::enable_if_t<std::is_arithmetic_v<TScalar>, Vector<N, T> &>
+   * @return std::enable_if_t<std::is_arithmetic<TScalar>::value, Vector<N, T>
+   * &>
    */
   template <class TScalar>
-  typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Vector<N, T> &>
+  typename std::enable_if_t<std::is_arithmetic<TScalar>::value, Vector<N, T> &>
   operator/=(const TScalar &scalar) {
     /* a division by zero of an integral type is undefined in standard c++
      * however, in the context of this Vector class, it is seen as rather
      * harmful and can become the source of non obvious bugs */
-    if constexpr (std::is_integral_v<TScalar>) {
+    if (std::is_integral<TScalar>::value) {
       assert(scalar != static_cast<TScalar>(0));
     }
     for (auto &item : data_) {
@@ -750,10 +757,11 @@ inline Vector<N, T> operator/(const Vector<N, T> &lhs,
  * @tparam TScalar
  * @param lhs
  * @param rhs
- * @return std::enable_if_t<std::is_arithmetic_v<TScalar>, Vector<N, T>>
+ * @return std::enable_if_t<std::is_arithmetic<TScalar>::value, Vector<N, T>>
  */
 template <std::size_t N, class T, class TScalar>
-typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Vector<N, T>> inline
+typename std::enable_if_t<std::is_arithmetic<TScalar>::value,
+                          Vector<N, T>> inline
 operator+(const Vector<N, T> &lhs, const TScalar &rhs) {
   return Vector<N, T>(lhs) += rhs;
 }
@@ -768,10 +776,11 @@ operator+(const Vector<N, T> &lhs, const TScalar &rhs) {
  * @tparam TScalar
  * @param lhs
  * @param rhs
- * @return std::enable_if_t<std::is_arithmetic_v<TScalar>, Vector<N, T>>
+ * @return std::enable_if_t<std::is_arithmetic<TScalar>::value, Vector<N, T>>
  */
 template <std::size_t N, class T, class TScalar>
-typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Vector<N, T>> inline
+typename std::enable_if_t<std::is_arithmetic<TScalar>::value,
+                          Vector<N, T>> inline
 operator+(const TScalar &lhs, const Vector<N, T> &rhs) {
   return Vector<N, T>(rhs) += lhs;
 }
@@ -784,10 +793,11 @@ operator+(const TScalar &lhs, const Vector<N, T> &rhs) {
  * @tparam TScalar
  * @param lhs
  * @param rhs
- * @return std::enable_if_t<std::is_arithmetic_v<TScalar>, Vector<N, T>>
+ * @return std::enable_if_t<std::is_arithmetic<TScalar>::value, Vector<N, T>>
  */
 template <std::size_t N, class T, class TScalar>
-typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Vector<N, T>> inline
+typename std::enable_if_t<std::is_arithmetic<TScalar>::value,
+                          Vector<N, T>> inline
 operator-(const Vector<N, T> &lhs, const TScalar &rhs) {
   return Vector<N, T>(lhs) -= rhs;
 }
@@ -802,10 +812,11 @@ operator-(const Vector<N, T> &lhs, const TScalar &rhs) {
  * @tparam TScalar
  * @param lhs
  * @param rhs
- * @return std::enable_if_t<std::is_arithmetic_v<TScalar>, Vector<N, T>>
+ * @return std::enable_if_t<std::is_arithmetic<TScalar>::value, Vector<N, T>>
  */
 template <std::size_t N, class T, class TScalar>
-typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Vector<N, T>> inline
+typename std::enable_if_t<std::is_arithmetic<TScalar>::value,
+                          Vector<N, T>> inline
 operator*(const Vector<N, T> &lhs, const TScalar &rhs) {
   return Vector<N, T>(lhs) *= rhs;
 }
@@ -820,10 +831,11 @@ operator*(const Vector<N, T> &lhs, const TScalar &rhs) {
  * @tparam TScalar
  * @param lhs
  * @param rhs
- * @return std::enable_if_t<std::is_arithmetic_v<TScalar>, Vector<N, T>>
+ * @return std::enable_if_t<std::is_arithmetic<TScalar>::value, Vector<N, T>>
  */
 template <std::size_t N, class T, class TScalar>
-typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Vector<N, T>> inline
+typename std::enable_if_t<std::is_arithmetic<TScalar>::value,
+                          Vector<N, T>> inline
 operator*(const TScalar &lhs, const Vector<N, T> &rhs) {
   return Vector<N, T>(rhs) *= lhs;
 }
@@ -836,10 +848,11 @@ operator*(const TScalar &lhs, const Vector<N, T> &rhs) {
  * @tparam TScalar
  * @param lhs
  * @param rhs
- * @return std::enable_if_t<std::is_arithmetic_v<TScalar>, Vector<N, T>>
+ * @return std::enable_if_t<std::is_arithmetic<TScalar>::value, Vector<N, T>>
  */
 template <std::size_t N, class T, class TScalar>
-typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Vector<N, T>> inline
+typename std::enable_if_t<std::is_arithmetic<TScalar>::value,
+                          Vector<N, T>> inline
 operator/(const Vector<N, T> &lhs, const TScalar &rhs) {
   return Vector<N, T>(lhs) /= rhs;
 }
@@ -862,21 +875,22 @@ inline T sum(const Vector<N, T> &v) {
 }
 
 template <class U = void, std::size_t N, typename T>
-inline std::conditional_t<std::is_same_v<U, void>, T, U> mean(
+inline std::conditional_t<std::is_same<U, void>::value, T, U> mean(
     const Vector<N, T> &v) {
-  return v.template mean<std::conditional_t<std::is_same_v<U, void>, T, U>>();
+  return v
+      .template mean<std::conditional_t<std::is_same<U, void>::value, T, U>>();
 }
 
 template <class U = void, std::size_t N1, class T1, std::size_t N2, class T2>
-inline std::conditional_t<std::is_same_v<U, void>, T1, U> dot(
+inline std::conditional_t<std::is_same<U, void>::value, T1, U> dot(
     const Vector<N1, T1> &lhs, const Vector<N2, T2> &rhs) {
   return lhs.template dot<U>(rhs);
 }
 
 template <typename U = void, std::size_t N, typename T, std::size_t N2,
           std::size_t M2, typename T2>
-std::conditional_t<std::is_same_v<U, void>, Vector<M2, T>, Vector<M2, U>> dot(
-    const Vector<N, T> &lhs, const Matrix<N2, M2, T2> &rhs) {
+std::conditional_t<std::is_same<U, void>::value, Vector<M2, T>, Vector<M2, U>>
+dot(const Vector<N, T> &lhs, const Matrix<N2, M2, T2> &rhs) {
   return lhs.template dot<U>(rhs);
 }
 

@@ -104,10 +104,14 @@ struct UnwrapRef<std::reference_wrapper<T>> {  // NOLINT
 template <typename T>
 using unwrap_ref_t = typename UnwrapRef<T>::type;
 
-/****************************** pre c++20 **********************************/
+/******************************* c++14 *************************************/
 /* the code here helps to substitute some standard library code that is
- * available from c++20 upwards */
+ * not available in 14 */
 
+/* to_array helper  (c++20 has std::to_array)
+ * see
+ * https://stackoverflow.com/questions/65310179/initialize-double-nested-stdarray-from-variadic-template-array-reference-const
+ */
 template <std::size_t N, typename T, std::size_t... Is>
 std::array<T, N> to_array_impl(const T (&arr)[N],
                                std::index_sequence<Is...> /*unused*/) {
@@ -118,6 +122,20 @@ template <std::size_t N, typename T>
 std::array<T, N> to_array(const T (&arr)[N]) {
   return to_array_impl(arr, std::make_index_sequence<N>{});
 }
+
+/* conjunction helper (c++17 has std::conjunction)
+ * see
+ * https://stackoverflow.com/questions/39659127/restrict-variadic-template-arguments
+ */
+template <bool... B>
+struct conjunction {};  // NOLINT
+
+template <bool Head, bool... Tail>
+struct conjunction<Head, Tail...>
+    : std::integral_constant<bool, Head && conjunction<Tail...>::value> {};
+
+template <bool B>
+struct conjunction<B> : std::integral_constant<bool, B> {};
 
 }  // namespace mu
 #endif  // MU_TYPETRAITS_H_

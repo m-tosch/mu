@@ -66,7 +66,7 @@ class Vector2D : public Vector<2, T> {
    * @return std::enable_if<std::is_floating_point<U>::value, void>::type
    */
   template <class TScalar = T>
-  typename std::enable_if_t<std::is_arithmetic_v<TScalar>, void> rotate(
+  typename std::enable_if_t<std::is_arithmetic<TScalar>::value, void> rotate(
       TScalar angle) {
     const T kX = x();
     const T kY = y();
@@ -84,8 +84,8 @@ class Vector2D : public Vector<2, T> {
    * Vector2D<T>>::type
    */
   template <class TScalar = T>
-  typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Vector2D<T>> rotated(
-      TScalar angle) {
+  typename std::enable_if_t<std::is_arithmetic<TScalar>::value, Vector2D<T>>
+  rotated(TScalar angle) {
     Vector2D<T> ret(*this);
     ret.rotate(angle);
     return ret;

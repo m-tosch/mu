@@ -24,7 +24,7 @@ template <std::size_t N, std::size_t M, typename T>
 class Matrix {
   static_assert(N != 0, "first matrix dimension (rows) cannot be zero");
   static_assert(M != 0, "second matrix dimension (columns) cannot be zero");
-  static_assert(std::is_arithmetic_v<mu::unwrap_ref_t<T>>,
+  static_assert(std::is_arithmetic<mu::unwrap_ref_t<T>>::value,
                 "Matrix type T must be an arithmetic type or a "
                 "std::reference_wrapper that holds an arithmetic type");
 
@@ -54,7 +54,8 @@ class Matrix {
   template <typename... TArgs,
             std::enable_if_t<
                 sizeof...(TArgs) == N &&
-                    (std::is_same_v<T, std::remove_reference_t<TArgs>> && ...),
+                    (mu::conjunction<std::is_same<
+                         T, std::remove_reference_t<TArgs>>::value...>::value),
                 int> = 0>
   // NOLINTNEXTLINE(runtime/explicit) implicit to make copy-init. work
   Matrix(TArgs const(&&... rows)[M]) : data_{mu::to_array(rows)...} {}
@@ -121,7 +122,8 @@ class Matrix {
    * @tparam U
    * @param a
    */
-  template <typename U = T, std::enable_if_t<std::is_arithmetic_v<U>, int> = 0>
+  template <typename U = T,
+            std::enable_if_t<std::is_arithmetic<U>::value, int> = 0>
   // NOLINTNEXTLINE(runtime/explicit) implicit to make copy-init. work
   Matrix(const std::array<std::array<U, M>, N> &a) {
     std::transform(a.begin(), a.end(), begin(),
@@ -138,7 +140,8 @@ class Matrix {
    * @tparam U
    * @param value
    */
-  template <typename U = T, std::enable_if_t<std::is_arithmetic_v<U>, int> = 0>
+  template <typename U = T,
+            std::enable_if_t<std::is_arithmetic<U>::value, int> = 0>
   // NOLINTNEXTLINE(runtime/explicit) implicit to make copy-init. work
   Matrix(const U &value) {
     data_.fill(value);
@@ -424,23 +427,23 @@ class Matrix {
    * @tparam M2
    * @tparam T2
    * @param rhs
-   * @return std::conditional_t<std::is_same_v<U, void>, Matrix<N, M2, T>,
+   * @return std::conditional_t<std::is_same<U, void>::value, Matrix<N, M2, T>,
    * Matrix<N, M2, U>>
    */
   template <typename U = void, std::size_t N2, std::size_t M2, typename T2>
-  std::conditional_t<std::is_same_v<U, void>, Matrix<N, M2, T>,
+  std::conditional_t<std::is_same<U, void>::value, Matrix<N, M2, T>,
                      Matrix<N, M2, U>>
   dot(const Matrix<N2, M2, T2> &rhs) const {
     static_assert(
         M == N2,
         "Matrix dimension mismatch. Second dimension of first matrix must be "
         "equal to the first dimension of the second matrix");
-    if constexpr (!std::is_same_v<T, T2>) {
-      static_assert(!std::is_same_v<U, void>,
-                    "Matrix types are different. please specify the return "
-                    "type. e.g. \"mat1.dot<float>(mat2);\"");
-    }
-    using U_ = std::conditional_t<std::is_same_v<U, void>, T, U>;
+    /* if the two types are not the same, use U which must not be void */
+    using cond1 = std::conditional_t<!std::is_same<T, T2>::value, U, T>;
+    static_assert(!std::is_same<cond1, void>::value,
+                  "Matrix types are different. please specify the return "
+                  "type. e.g. \"mat1.dot<float>(mat2);\"");
+    using U_ = std::conditional_t<std::is_same<U, void>::value, T, U>;
     Matrix<N, M2, U_> ret;
     for (std::size_t i = 0; i < N; i++) {
       for (std::size_t j = 0; j < M2; j++) {
@@ -465,23 +468,23 @@ class Matrix {
    * @tparam N2
    * @tparam T2
    * @param rhs
-   * @return std::conditional_t<std::is_same_v<U, void>, Vector<N, T>, Vector<N,
-   * U>>
+   * @return std::conditional_t<std::is_same<U, void>::value, Vector<N, T>,
+   * Vector<N, U>>
    */
   template <typename U = void, std::size_t N2, typename T2>
-  std::conditional_t<std::is_same_v<U, void>, Vector<N, T>, Vector<N, U>> dot(
-      const Vector<N2, T2> &rhs) const {
+  std::conditional_t<std::is_same<U, void>::value, Vector<N, T>, Vector<N, U>>
+  dot(const Vector<N2, T2> &rhs) const {
     static_assert(
         M == N2,
         "Matrix-Vector dimension mismatch. Second dimension of the matrix "
         "must be equal to the vector size");
-    if constexpr (!std::is_same_v<T, T2>) {
-      static_assert(
-          !std::is_same_v<U, void>,
-          "Matrix and Vector types are different. please specify the return "
-          "type. e.g. \"mat.dot<float>(vec);\"");
-    }
-    using U_ = std::conditional_t<std::is_same_v<U, void>, T, U>;
+    /* if the two types are not the same, use U which must not be void */
+    using cond1 = std::conditional_t<!std::is_same<T, T2>::value, U, T>;
+    static_assert(
+        !std::is_same<cond1, void>::value,
+        "Matrix and Vector types are different. please specify the return "
+        "type. e.g. \"mat.dot<float>(vec);\"");
+    using U_ = std::conditional_t<std::is_same<U, void>::value, T, U>;
     Vector<N, U_> ret;
     for (std::size_t i = 0; i < N; i++) {
       U_ sum{0};
@@ -640,10 +643,12 @@ class Matrix {
    *
    * @tparam TScalar
    * @param scalar
-   * @return std::enable_if_t<std::is_arithmetic_v<TScalar>,Matrix<N, M, T> &>
+   * @return std::enable_if_t<std::is_arithmetic<TScalar>::value,Matrix<N, M, T>
+   * &>
    */
   template <class TScalar>
-  typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Matrix<N, M, T> &>
+  typename std::enable_if_t<std::is_arithmetic<TScalar>::value,
+                            Matrix<N, M, T> &>
   operator+=(const TScalar &scalar) {
     for (auto &row : data_) {
       row += scalar;
@@ -656,10 +661,12 @@ class Matrix {
    *
    * @tparam TScalar
    * @param scalar
-   * @return std::enable_if_t<std::is_arithmetic_v<TScalar>, Matrix<N, M, T> &>
+   * @return std::enable_if_t<std::is_arithmetic<TScalar>::value, Matrix<N, M,
+   * T> &>
    */
   template <class TScalar>
-  typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Matrix<N, M, T> &>
+  typename std::enable_if_t<std::is_arithmetic<TScalar>::value,
+                            Matrix<N, M, T> &>
   operator-=(const TScalar &scalar) {
     for (auto &row : data_) {
       row -= scalar;
@@ -672,10 +679,12 @@ class Matrix {
    *
    * @tparam TScalar
    * @param scalar
-   * @return std::enable_if_t<std::is_arithmetic_v<TScalar>,Matrix<N, M, T> &>
+   * @return std::enable_if_t<std::is_arithmetic<TScalar>::value,Matrix<N, M, T>
+   * &>
    */
   template <class TScalar>
-  typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Matrix<N, M, T> &>
+  typename std::enable_if_t<std::is_arithmetic<TScalar>::value,
+                            Matrix<N, M, T> &>
   operator*=(const TScalar &scalar) {
     for (auto &row : data_) {
       row *= scalar;
@@ -690,10 +699,12 @@ class Matrix {
    *
    * @tparam TScalar
    * @param scalar
-   * @return std::enable_if_t<std::is_arithmetic_v<TScalar>, Matrix<N, M, T> &>
+   * @return std::enable_if_t<std::is_arithmetic<TScalar>::value, Matrix<N, M,
+   * T> &>
    */
   template <class TScalar>
-  typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Matrix<N, M, T> &>
+  typename std::enable_if_t<std::is_arithmetic<TScalar>::value,
+                            Matrix<N, M, T> &>
   operator/=(const TScalar &scalar) {
     /* a division by zero is forwarded to and handled by the Vector class */
     for (auto &row : data_) {
@@ -807,10 +818,11 @@ inline Matrix<N, M, T> operator/(const Matrix<N, M, T> &lhs,
  * @tparam TScalar
  * @param lhs
  * @param rhs
- * @return std::enable_if_t<std::is_arithmetic_v<TScalar>, Matrix<N, M, T>>
+ * @return std::enable_if_t<std::is_arithmetic<TScalar>::value, Matrix<N, M, T>>
  */
 template <std::size_t N, std::size_t M, class T, class TScalar>
-typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Matrix<N, M, T>> inline
+typename std::enable_if_t<std::is_arithmetic<TScalar>::value,
+                          Matrix<N, M, T>> inline
 operator+(const Matrix<N, M, T> &lhs, const TScalar &rhs) {
   return Matrix<N, M, T>(lhs) += rhs;
 }
@@ -825,10 +837,11 @@ operator+(const Matrix<N, M, T> &lhs, const TScalar &rhs) {
  * @tparam TScalar
  * @param lhs
  * @param rhs
- * @return std::enable_if_t<std::is_arithmetic_v<TScalar>, Matrix<N, M, T>>
+ * @return std::enable_if_t<std::is_arithmetic<TScalar>::value, Matrix<N, M, T>>
  */
 template <std::size_t N, std::size_t M, class T, class TScalar>
-typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Matrix<N, M, T>> inline
+typename std::enable_if_t<std::is_arithmetic<TScalar>::value,
+                          Matrix<N, M, T>> inline
 operator+(const TScalar &lhs, const Matrix<N, M, T> &rhs) {
   return Matrix<N, M, T>(rhs) += lhs;
 }
@@ -841,10 +854,11 @@ operator+(const TScalar &lhs, const Matrix<N, M, T> &rhs) {
  * @tparam TScalar
  * @param lhs
  * @param rhs
- * @return std::enable_if_t<std::is_arithmetic_v<TScalar>, Matrix<N, M, T>>
+ * @return std::enable_if_t<std::is_arithmetic<TScalar>::value, Matrix<N, M, T>>
  */
 template <std::size_t N, std::size_t M, class T, class TScalar>
-typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Matrix<N, M, T>> inline
+typename std::enable_if_t<std::is_arithmetic<TScalar>::value,
+                          Matrix<N, M, T>> inline
 operator-(const Matrix<N, M, T> &lhs, const TScalar &rhs) {
   return Matrix<N, M, T>(lhs) -= rhs;
 }
@@ -859,10 +873,11 @@ operator-(const Matrix<N, M, T> &lhs, const TScalar &rhs) {
  * @tparam TScalar
  * @param lhs
  * @param rhs
- * @return std::enable_if_t<std::is_arithmetic_v<TScalar>, Matrix<N, M, T>>
+ * @return std::enable_if_t<std::is_arithmetic<TScalar>::value, Matrix<N, M, T>>
  */
 template <std::size_t N, std::size_t M, class T, class TScalar>
-typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Matrix<N, M, T>> inline
+typename std::enable_if_t<std::is_arithmetic<TScalar>::value,
+                          Matrix<N, M, T>> inline
 operator*(const Matrix<N, M, T> &lhs, const TScalar &rhs) {
   return Matrix<N, M, T>(lhs) *= rhs;
 }
@@ -877,10 +892,11 @@ operator*(const Matrix<N, M, T> &lhs, const TScalar &rhs) {
  * @tparam TScalar
  * @param lhs
  * @param rhs
- * @return std::enable_if_t<std::is_arithmetic_v<TScalar>, Matrix<N, M, T>>
+ * @return std::enable_if_t<std::is_arithmetic<TScalar>::value, Matrix<N, M, T>>
  */
 template <std::size_t N, std::size_t M, class T, class TScalar>
-typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Matrix<N, M, T>> inline
+typename std::enable_if_t<std::is_arithmetic<TScalar>::value,
+                          Matrix<N, M, T>> inline
 operator*(const TScalar &lhs, const Matrix<N, M, T> &rhs) {
   return Matrix<N, M, T>(rhs) *= lhs;
 }
@@ -893,10 +909,11 @@ operator*(const TScalar &lhs, const Matrix<N, M, T> &rhs) {
  * @tparam TScalar
  * @param lhs
  * @param rhs
- * @return std::enable_if_t<std::is_arithmetic_v<TScalar>, Matrix<N, M, T>>
+ * @return std::enable_if_t<std::is_arithmetic<TScalar>::value, Matrix<N, M, T>>
  */
 template <std::size_t N, std::size_t M, class T, class TScalar>
-typename std::enable_if_t<std::is_arithmetic_v<TScalar>, Matrix<N, M, T>> inline
+typename std::enable_if_t<std::is_arithmetic<TScalar>::value,
+                          Matrix<N, M, T>> inline
 operator/(const Matrix<N, M, T> &lhs, const TScalar &rhs) {
   return Matrix<N, M, T>(lhs) /= rhs;
 }
@@ -919,9 +936,10 @@ inline T sum(const Matrix<N, M, T> &m) {
 }
 
 template <class U = void, std::size_t N, std::size_t M, typename T>
-inline std::conditional_t<std::is_same_v<U, void>, T, U> mean(
+inline std::conditional_t<std::is_same<U, void>::value, T, U> mean(
     const Matrix<N, M, T> &m) {
-  return m.template mean<std::conditional_t<std::is_same_v<U, void>, T, U>>();
+  return m
+      .template mean<std::conditional_t<std::is_same<U, void>::value, T, U>>();
 }
 
 template <std::size_t N, std::size_t M, typename T>
@@ -961,7 +979,7 @@ Matrix<M, N, T> transpose(const Matrix<N, M, T> &m) {
 
 template <typename U = void, std::size_t N1, std::size_t M1, typename T1,
           std::size_t N2, std::size_t M2, typename T2>
-std::conditional_t<std::is_same_v<U, void>, Matrix<N1, M2, T1>,
+std::conditional_t<std::is_same<U, void>::value, Matrix<N1, M2, T1>,
                    Matrix<N1, M2, U>>
 dot(const Matrix<N1, M1, T1> &lhs, const Matrix<N2, M2, T2> &rhs) {
   return lhs.template dot<U>(rhs);
@@ -969,8 +987,8 @@ dot(const Matrix<N1, M1, T1> &lhs, const Matrix<N2, M2, T2> &rhs) {
 
 template <typename U = void, std::size_t N, std::size_t M, typename T,
           std::size_t N2, typename T2>
-std::conditional_t<std::is_same_v<U, void>, Vector<N, T>, Vector<N, U>> dot(
-    const Matrix<N, M, T> &lhs, const Vector<N2, T2> &rhs) {
+std::conditional_t<std::is_same<U, void>::value, Vector<N, T>, Vector<N, U>>
+dot(const Matrix<N, M, T> &lhs, const Vector<N2, T2> &rhs) {
   return lhs.template dot<U>(rhs);
 }
 
