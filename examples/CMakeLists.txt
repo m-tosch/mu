@@ -9,6 +9,3 @@ target_link_libraries(${BINARY} PRIVATE ${CMAKE_PROJECT_NAME}_lib gtest_main gmo
 # add_dependencies(${CMAKE_PROJECT_NAME}_tests ${BINARY})
 set(cmd "${CMAKE_CURRENT_BINARY_DIR}/${BINARY}")
 add_test(NAME ${BINARY} COMMAND ${cmd} --gtest_output=xml:${CMAKE_CURRENT_BINARY_DIR})
-
-# compile this target as c++17
-set_target_properties(${BINARY} PROPERTIES CXX_STANDARD 14 CXX_STANDARD_REQUIRED ON)
