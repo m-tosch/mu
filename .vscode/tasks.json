@@ -29,6 +29,16 @@
       "problemMatcher": []
     },
     {
+      "label": "run examples",
+      "type": "shell",
+      "command": "${workspaceFolder}/build/examples/mu_examples",
+      "args": [
+        "--gtest_brief=1"
+      ],
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
       "label": "generate doc (doxygen)",
       "type": "shell",
       "command": "doxygen Doxyfile",
