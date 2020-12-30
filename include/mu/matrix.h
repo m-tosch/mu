@@ -438,12 +438,10 @@ class Matrix {
         M == N2,
         "Matrix dimension mismatch. Second dimension of first matrix must be "
         "equal to the first dimension of the second matrix");
-    /* if the two types are not the same, use U which must not be void */
-    using cond1 = std::conditional_t<!std::is_same<T, T2>::value, U, T>;
-    static_assert(!std::is_same<cond1, void>::value,
+    using U_ = std::conditional_t<!std::is_same<T, T2>::value, U, T>;
+    static_assert(!std::is_same<U_, void>::value,
                   "Matrix types are different. please specify the return "
                   "type. e.g. \"mat1.dot<float>(mat2);\"");
-    using U_ = std::conditional_t<std::is_same<U, void>::value, T, U>;
     Matrix<N, M2, U_> ret;
     for (std::size_t i = 0; i < N; i++) {
       for (std::size_t j = 0; j < M2; j++) {
@@ -478,13 +476,11 @@ class Matrix {
         M == N2,
         "Matrix-Vector dimension mismatch. Second dimension of the matrix "
         "must be equal to the vector size");
-    /* if the two types are not the same, use U which must not be void */
-    using cond1 = std::conditional_t<!std::is_same<T, T2>::value, U, T>;
+    using U_ = std::conditional_t<!std::is_same<T, T2>::value, U, T>;
     static_assert(
-        !std::is_same<cond1, void>::value,
+        !std::is_same<U_, void>::value,
         "Matrix and Vector types are different. please specify the return "
         "type. e.g. \"mat.dot<float>(vec);\"");
-    using U_ = std::conditional_t<std::is_same<U, void>::value, T, U>;
     Vector<N, U_> ret;
     for (std::size_t i = 0; i < N; i++) {
       U_ sum{0};
