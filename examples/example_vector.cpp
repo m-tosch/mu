@@ -241,7 +241,7 @@ TEST(Vector, MemberFuncMin) {
   //! [vector min function]
 
   mu::Vector<2, int> a{2, 3};
-  int min = a.min();
+  int min = a.min();  // 2
 
   //! [vector min function]
   EXPECT_EQ(min, 2);
@@ -251,7 +251,7 @@ TEST(Vector, MemberFuncMax) {
   //! [vector max function]
 
   mu::Vector<2, int> a{2, 3};
-  int max = a.max();
+  int max = a.max();  // 3
 
   //! [vector max function]
   EXPECT_EQ(max, 3);
@@ -261,7 +261,7 @@ TEST(Vector, MemberFuncSum) {
   //! [vector sum function]
 
   mu::Vector<2, int> a{2, 3};
-  int sum = a.sum();
+  int sum = a.sum();  // 5
 
   //! [vector sum function]
   EXPECT_EQ(sum, 5);
