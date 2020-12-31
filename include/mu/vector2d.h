@@ -20,9 +20,8 @@ class Vector2D : public Vector<2, T> {
   /**
    * @brief Construct a new Vector2D object from a Vector object
    *
-   * also implicitly used for copy initialization. purposely not marked
-   * "explicit" for exactly this usecase.
-   *
+   * @par Example
+   * @snippet example_vector2d.cpp vector2d different type constructor
    * @tparam Tt
    * @param other
    */
@@ -33,6 +32,8 @@ class Vector2D : public Vector<2, T> {
   /**
    * @brief x component
    *
+   * @par Example
+   * @snippet example_vector2d.cpp vector2d x function
    * @return T&
    */
   T& x() noexcept { return Vector<2, T>::data_[0]; }
@@ -40,6 +41,8 @@ class Vector2D : public Vector<2, T> {
   /**
    * @brief const x component
    *
+   * @par Example
+   * @snippet example_vector2d.cpp vector2d const x function
    * @return const T&
    */
   const T& x() const noexcept { return Vector<2, T>::data_[0]; }
@@ -47,6 +50,8 @@ class Vector2D : public Vector<2, T> {
   /**
    * @brief y component
    *
+   * @par Example
+   * @snippet example_vector2d.cpp vector2d y function
    * @return T&
    */
   T& y() noexcept { return Vector<2, T>::data_[1]; }
@@ -54,6 +59,8 @@ class Vector2D : public Vector<2, T> {
   /**
    * @brief const y component
    *
+   * @par Example
+   * @snippet example_vector2d.cpp vector2d const y function
    * @return const T&
    */
   const T& y() const noexcept { return Vector<2, T>::data_[1]; }
@@ -61,6 +68,10 @@ class Vector2D : public Vector<2, T> {
   /**
    * @brief rotates this Vector by an angle [rad]
    *
+   * the euclidean vector length remains unchanged by rotation!
+   *
+   * @par Example
+   * @snippet example_vector2d.cpp vector2d rotate function
    * @tparam T
    * @param angle
    * @return std::enable_if<std::is_floating_point<U>::value, void>::type
@@ -77,6 +88,8 @@ class Vector2D : public Vector<2, T> {
   /**
    * @brief returns a Vector2D that is rotated by an angle [rad]
    *
+   * @par Example
+   * @snippet example_vector2d.cpp vector2d rotated function
    * @see @ref rotate()
    * @tparam T
    * @param angle
