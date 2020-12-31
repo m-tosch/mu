@@ -20,9 +20,9 @@ class Vector3D : public Vector<3, T> {
   /**
    * @brief Construct a new Vector3D object from a Vector object
    *
-   * also implicitly used for copy initialization. purposely not marked
-   * "explicit" for exactly this usecase.
-   *
+   * @par Example
+   * @snippet example_vector3d.cpp vector3d different type constructor
+   * @param idx
    * @tparam Tt
    * @param other
    */
@@ -33,6 +33,8 @@ class Vector3D : public Vector<3, T> {
   /**
    * @brief x component
    *
+   * @par Example
+   * @snippet example_vector3d.cpp vector3d x function
    * @return T&
    */
   T& x() noexcept { return Vector<3, T>::data_[0]; }
@@ -40,6 +42,8 @@ class Vector3D : public Vector<3, T> {
   /**
    * @brief const x component
    *
+   * @par Example
+   * @snippet example_vector3d.cpp vector3d const x function
    * @return const T&
    */
   const T& x() const noexcept { return Vector<3, T>::data_[0]; }
@@ -47,6 +51,8 @@ class Vector3D : public Vector<3, T> {
   /**
    * @brief y component
    *
+   * @par Example
+   * @snippet example_vector3d.cpp vector3d y function
    * @return T&
    */
   T& y() noexcept { return Vector<3, T>::data_[1]; }
@@ -54,6 +60,8 @@ class Vector3D : public Vector<3, T> {
   /**
    * @brief const y component
    *
+   * @par Example
+   * @snippet example_vector3d.cpp vector3d const y function
    * @return const T&
    */
   const T& y() const noexcept { return Vector<3, T>::data_[1]; }
@@ -61,6 +69,8 @@ class Vector3D : public Vector<3, T> {
   /**
    * @brief z component
    *
+   * @par Example
+   * @snippet example_vector3d.cpp vector3d z function
    * @return T&
    */
   T& z() noexcept { return Vector<3, T>::data_[2]; }
@@ -68,6 +78,8 @@ class Vector3D : public Vector<3, T> {
   /**
    * @brief const z component
    *
+   * @par Example
+   * @snippet example_vector3d.cpp vector3d const z function
    * @return const T&
    */
   const T& z() const noexcept { return Vector<3, T>::data_[2]; }
