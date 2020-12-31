@@ -293,6 +293,8 @@ class Matrix {
   /**
    * @brief returns an iterator starting at the first row
    *
+   * @par Example
+   * @snippet example_matrix.cpp matrix begin function
    * @return iterator
    */
   iterator begin() noexcept { return data_.begin(); }
@@ -300,6 +302,8 @@ class Matrix {
   /**
    * @brief returns a const iterator starting at the first row
    *
+   * @par Example
+   * @snippet example_matrix.cpp matrix const begin function
    * @return const_iterator
    */
   const_iterator begin() const noexcept { return data_.begin(); }
@@ -307,6 +311,8 @@ class Matrix {
   /**
    * @brief returns a iterator starting at one after the last row
    *
+   * @par Example
+   * @snippet example_matrix.cpp matrix end function
    * @return iterator
    */
   iterator end() noexcept { return data_.end(); }
@@ -314,6 +320,8 @@ class Matrix {
   /**
    * @brief returns a const iterator starting at one after the last row
    *
+   * @par Example
+   * @snippet example_matrix.cpp matrix const end function
    * @return const_iterator
    */
   const_iterator end() const noexcept { return data_.end(); }

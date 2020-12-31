@@ -277,6 +277,46 @@ TEST(Matrix, MemberFuncNCols) {
   EXPECT_EQ(n_cols, 3);
 }
 
+TEST(Matrix, MemberFuncBegin) {
+  //! [matrix begin function]
+
+  mu::Matrix<2, 3, int> a{{1, 2, 4}, {2, 4, 8}};
+  mu::Vector<3, int> first = *a.begin();  // [ 1, 2, 4 ]
+
+  //! [matrix begin function]
+  EXPECT_THAT(first, ::testing::ElementsAre(1, 2, 4));
+}
+
+TEST(Matrix, MemberFuncBeginConst) {
+  //! [matrix const begin function]
+
+  const mu::Matrix<2, 3, int> a{{1, 2, 4}, {2, 4, 8}};
+  mu::Vector<3, int> first = *a.begin();  // [ 1, 2, 4 ]
+
+  //! [matrix const begin function]
+  EXPECT_THAT(first, ::testing::ElementsAre(1, 2, 4));
+}
+
+TEST(Matrix, MemberFuncEnd) {
+  //! [matrix end function]
+
+  mu::Matrix<2, 3, int> a{{1, 2, 4}, {2, 4, 8}};
+  mu::Vector<3, int> last = *(a.end() - 1);  // [ 2, 4, 8 ]
+
+  //! [matrix end function]
+  EXPECT_THAT(last, ::testing::ElementsAre(2, 4, 8));
+}
+
+TEST(Matrix, MemberFuncEndConst) {
+  //! [matrix const end function]
+
+  const mu::Matrix<2, 3, int> a{{1, 2, 4}, {2, 4, 8}};
+  mu::Vector<3, int> last = *(a.end() - 1);  // [ 2, 4, 8 ]
+
+  //! [matrix const end function]
+  EXPECT_THAT(last, ::testing::ElementsAre(2, 4, 8));
+}
+
 TEST(Matrix, MemberFuncDotMatrixMatrix) {
   //! [matrix matrix dot function]
 
