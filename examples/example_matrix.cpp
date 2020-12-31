@@ -146,15 +146,55 @@ TEST(Matrix, ConstructorFromSingleValue) {
   mu::Matrix<3, 3, int> c = {5};
 
   //! [matrix single value constructor]
-  EXPECT_THAT(a[0], ::testing::Each(::testing::AllOf(5)));
-  EXPECT_THAT(a[1], ::testing::Each(::testing::AllOf(5)));
-  EXPECT_THAT(a[2], ::testing::Each(::testing::AllOf(5)));
-  EXPECT_THAT(b[0], ::testing::Each(::testing::AllOf(5)));
-  EXPECT_THAT(b[1], ::testing::Each(::testing::AllOf(5)));
-  EXPECT_THAT(b[2], ::testing::Each(::testing::AllOf(5)));
-  EXPECT_THAT(c[0], ::testing::Each(::testing::AllOf(5)));
-  EXPECT_THAT(c[1], ::testing::Each(::testing::AllOf(5)));
-  EXPECT_THAT(c[2], ::testing::Each(::testing::AllOf(5)));
+  for (std::size_t i = 0; i < a.size()[0]; i++) {
+    EXPECT_THAT(a[i], ::testing::Each(::testing::AllOf(5)));
+    EXPECT_THAT(b[i], ::testing::Each(::testing::AllOf(5)));
+    EXPECT_THAT(c[i], ::testing::Each(::testing::AllOf(5)));
+  }
+}
+
+TEST(Matrix, ConstructorCopy) {
+  //! [matrix copy constructor]
+
+  mu::Matrix<2, 2, int> a{{1, 2}, {3, 4}};
+  mu::Matrix<2, 2, int> b{a};
+
+  //! [matrix copy constructor]
+  EXPECT_THAT(b[0], ::testing::ContainerEq(a[0]));
+  EXPECT_THAT(b[1], ::testing::ContainerEq(a[1]));
+}
+
+TEST(Matrix, ConstructorMove) {
+  //! [matrix move constructor]
+
+  mu::Matrix<2, 2, int> a{{1, 2}, {3, 4}};
+  mu::Matrix<2, 2, int> b{std::move(a)};
+
+  //! [matrix move constructor]
+  EXPECT_THAT(b[0], ::testing::ContainerEq(a[0]));
+  EXPECT_THAT(b[1], ::testing::ContainerEq(a[1]));
+}
+
+TEST(Matrix, OperatorCopyAssignment) {
+  //! [matrix copy assignment operator]
+
+  mu::Matrix<2, 2, int> a{{1, 2}, {3, 4}};
+  mu::Matrix<2, 2, int> b = a;
+
+  //! [matrix copy assignment operator]
+  EXPECT_THAT(b[0], ::testing::ContainerEq(a[0]));
+  EXPECT_THAT(b[1], ::testing::ContainerEq(a[1]));
+}
+
+TEST(Matrix, OperatorMoveAssignment) {
+  //! [matrix move assignment operator]
+
+  mu::Matrix<2, 2, int> a{{1, 2}, {3, 4}};
+  mu::Matrix<2, 2, int> b = std::move(a);
+
+  //! [matrix move assignment operator]
+  EXPECT_THAT(b[0], ::testing::ContainerEq(a[0]));
+  EXPECT_THAT(b[1], ::testing::ContainerEq(a[1]));
 }
 
 TEST(Matrix, MemberFuncDotMatrixMatrix) {

@@ -175,6 +175,8 @@ class Matrix {
   /**
    * @brief Copy construct a new Matrix object
    *
+   * @par Example
+   * @snippet example_matrix.cpp matrix copy constructor
    * @param other
    */
   Matrix(const Matrix &other) = default;
@@ -182,6 +184,8 @@ class Matrix {
   /**
    * @brief Move construct a new Matrix object
    *
+   * @par Example
+   * @snippet example_matrix.cpp matrix move constructor
    * @param other
    */
   Matrix(Matrix &&other) noexcept = default;
@@ -189,6 +193,8 @@ class Matrix {
   /**
    * @brief Copy assignment operator
    *
+   * @par Example
+   * @snippet example_matrix.cpp matrix copy assignment operator
    * @param other
    * @return Matrix&
    */
@@ -197,6 +203,8 @@ class Matrix {
   /**
    * @brief Move assignment operator
    *
+   * @par Example
+   * @snippet example_matrix.cpp matrix move assignment operator
    * @param other
    * @return Matrix&
    */
