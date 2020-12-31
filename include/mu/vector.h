@@ -556,6 +556,8 @@ class Vector {
   /**
    * @brief print vector values
    *
+   * @par Example
+   * @snippet example_vector.cpp vector operator stream out
    * @tparam Nn
    * @tparam U
    * @param os

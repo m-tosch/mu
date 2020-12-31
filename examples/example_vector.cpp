@@ -1,5 +1,6 @@
 #include <array>
 #include <functional>
+#include <iostream>
 #include <utility>
 
 #include "gmock/gmock.h"
@@ -261,12 +262,12 @@ TEST(Vector, MemberFuncMax) {
 }
 
 TEST(Vector, MemberFuncSum) {
-  //! [vector min function]
+  //! [vector sum function]
 
   mu::Vector<2, int> a{2, 3};
   int sum = a.sum();
 
-  //! [vector min function]
+  //! [vector sum function]
   EXPECT_EQ(sum, 5);
 }
 
@@ -405,4 +406,15 @@ TEST(Vector, MemberFuncSortedLambda) {
 
   //! [vector sorted lambda function]
   EXPECT_THAT(b, ::testing::ElementsAre(9, 6, 4, 3, 1));
+}
+
+TEST(Vector, OperatorStreamOut) {
+  //! [vector operator stream out]
+
+  mu::Vector<4, int> a{2, 3, 4, 5};
+  // std::cout << a << std::endl;
+  // [ 2, 3, 4, 5 ]
+
+  //! [vector operator stream out]
+  EXPECT_THAT(a, ::testing::ElementsAre(2, 3, 4, 5));
 }
