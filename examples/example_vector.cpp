@@ -113,14 +113,10 @@ TEST(Vector, ConstructorMove) {
   //! [vector move constructor]
 
   mu::Vector<2, int> a{1, 2};
-  // direct initialization
   mu::Vector<2, int> b{std::move(a)};
-  // copy initialization
-  mu::Vector<2, int> c = std::move(a);
 
   //! [vector move constructor]
   EXPECT_THAT(b, ::testing::ContainerEq(a));
-  EXPECT_THAT(c, ::testing::ContainerEq(a));
 }
 
 TEST(Vector, OperatorCopyAssignment) {
