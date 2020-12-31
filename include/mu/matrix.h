@@ -28,7 +28,7 @@ namespace mu {
  *
  * @tparam N first matrix dimension (rows)
  * @tparam M second matrix dimension (columns)
- * @tparam T
+ * @tparam T the type of the values inside the matrix
  */
 template <std::size_t N, std::size_t M, typename T>
 class Matrix {
@@ -49,6 +49,8 @@ class Matrix {
   /**
    * @brief Construct a new Matrix object
    *
+   * @par Example
+   * @snippet example_matrix.cpp matrix constructor
    */
   constexpr Matrix() = default;
 
@@ -58,6 +60,8 @@ class Matrix {
    * the number of values in every dimension must match the static size of this
    * Matrix.
    *
+   * @par Example
+   * @snippet example_matrix.cpp matrix variadic template constructor
    * @tparam TArgs
    * @param rows
    */
@@ -73,16 +77,12 @@ class Matrix {
   /**
    * @brief Construct a new Matrix from an existing Matrix of a different type
    *
-   * it is checked that the Matrix sizes are the same
+   * implicit narrowing may be applied \n
+   * it is checked that the Matrix sizes are the same \n
    * forwards intialization to Vector for every row
-   * implicit narrowing may be applied
    *
-   * Example:
-   * @code
-   * mu::Matrix<2, 2, int> a = {{1, 2}, {3, 4}};
-   * mu::Matrix<2, 2, double> b = {a};
-   * @endcode
-   *
+   * @par Example
+   * @snippet example_matrix.cpp matrix different type constructor
    * @tparam Nn
    * @tparam Mm
    * @tparam U
@@ -100,6 +100,8 @@ class Matrix {
   /**
    * @brief Construct a new Matrix object from an std::array of Vectors
    *
+   * @par Example
+   * @snippet example_matrix.cpp matrix array of vectors constructor
    * @param a
    */
   // NOLINTNEXTLINE(runtime/explicit) implicit to make copy-init. work
@@ -109,9 +111,11 @@ class Matrix {
    * @brief Construct a new Matrix object from an std::array of Vectors of a
    * different type
    *
+   * implicit narrowing may be applied \n
    * forwards intialization to Vector for every row
-   * implicit narrowing may be applied
    *
+   * @par Example
+   * @snippet example_matrix.cpp matrix array of vectors diff. type constructor
    * @tparam U
    * @param a
    */
@@ -126,9 +130,11 @@ class Matrix {
    * @brief Construct a new Matrix object from an std::array of std::arrays.
    * possibly of a different type
    *
+   * implicit narrowing may be applied \n
    * forwards intialization to Vector for every row
-   * implicit narrowing may be applied
    *
+   * @par Example
+   * @snippet example_matrix.cpp matrix array of arrays constructor
    * @tparam U
    * @param a
    */
@@ -144,9 +150,12 @@ class Matrix {
    * @brief Construct a new Matrix object from a single value
    * possibly of a different type
    *
+   * all the values inside the vector will be set to this value \n
+   * implicit narrowing may be applied \n
    * forwards intialization to Vector for every row
-   * implicit narrowing may be applied
    *
+   * @par Example
+   * @snippet example_matrix.cpp matrix single value constructor
    * @tparam U
    * @param value
    */
