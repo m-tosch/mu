@@ -191,7 +191,7 @@ TEST(Vector, MemberFuncSize) {
   //! [vector size function]
 
   mu::Vector<3, int> a{2, 3, 4};
-  std::size_t size = a.size();
+  std::size_t size = a.size();  // 3
 
   //! [vector size function]
   EXPECT_EQ(size, 3);
@@ -201,7 +201,7 @@ TEST(Vector, MemberFuncBegin) {
   //! [vector begin function]
 
   mu::Vector<2, int> a{2, 3};
-  int first = *a.begin();
+  int first = *a.begin();  // 2
 
   //! [vector begin function]
   EXPECT_EQ(first, a[0]);
@@ -211,7 +211,7 @@ TEST(Vector, MemberFuncBeginConst) {
   //! [vector const begin function]
 
   const mu::Vector<2, int> a{2, 3};
-  int first = *a.begin();
+  int first = *a.begin();  // 2
 
   //! [vector const begin function]
   EXPECT_EQ(first, a[0]);
@@ -221,7 +221,7 @@ TEST(Vector, MemberFuncEnd) {
   //! [vector end function]
 
   mu::Vector<2, int> a{2, 3};
-  int last = *(a.end() - 1);
+  int last = *(a.end() - 1);  // 3
 
   //! [vector end function]
   EXPECT_EQ(last, a[1]);
@@ -231,7 +231,7 @@ TEST(Vector, MemberFuncEndConst) {
   //! [vector const end function]
 
   const mu::Vector<2, int> a{2, 3};
-  int last = *(a.end() - 1);
+  int last = *(a.end() - 1);  // 3
 
   //! [vector const end function]
   EXPECT_EQ(last, a[1]);
