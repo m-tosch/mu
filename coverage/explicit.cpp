@@ -127,6 +127,10 @@ template int mu::dot<int, 2, float, 2, float>(const mu::Vector<2, float> &,
 
 /**************************** Vector <> Matrix *****************************/
 
+/* member functions */
+template mu::Vector<3, int> mu::Vector<2, int>::dot(
+    const mu::Matrix<2, 3, int> &) const;
+/* convenience functions */
 template mu::Vector<3, int> mu::dot(const mu::Vector<2, int> &,
                                     const mu::Matrix<2, 3, int> &);
 
@@ -232,5 +236,9 @@ template mu::Matrix<2, 2, int> mu::dot(const mu::Matrix<2, 3, int> &,
 
 /**************************** Matrix <> Vector *****************************/
 
+/* member functions */
+template mu::Vector<2, int> mu::Matrix<2, 3, int>::dot(
+    const mu::Vector<3, int> &) const;
+/* convenience functions */
 template mu::Vector<2, int> mu::dot(const mu::Matrix<2, 3, int> &,
                                     const mu::Vector<3, int> &);
