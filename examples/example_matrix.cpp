@@ -396,7 +396,7 @@ TEST(Matrix, MemberFuncDet) {
   int det = a.det();  // -2
 
   //! [matrix det function]
-  EXPECT_EQ(det, 1);
+  EXPECT_EQ(det, -2);
 }
 
 TEST(Matrix, MemberFuncTranspose) {
