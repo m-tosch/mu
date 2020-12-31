@@ -1112,12 +1112,29 @@ inline Matrix<N, M, T> zeros() {
 }
 
 /* alias templates */
+
+/**
+ * @brief a symmetrical matrix
+ *
+ * @tparam N
+ * @tparam T
+ */
 template <std::size_t N, typename T>
 using MatrixNxN = Matrix<N, N, T>;
 
+/**
+ * @brief a 2x2 matrix
+ *
+ * @tparam T
+ */
 template <typename T>
 using Matrix2x2 = Matrix<2, 2, T>;
 
+/**
+ * @brief a 3x3 matrix
+ *
+ * @tparam T
+ */
 template <typename T>
 using Matrix3x3 = Matrix<3, 3, T>;
 
