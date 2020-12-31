@@ -298,7 +298,7 @@ class mu::Vector&lt; N, T &gt;</h3>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">N</td><td>size </td></tr>
-    <tr><td class="paramname">T</td><td>type </td></tr>
+    <tr><td class="paramname">T</td><td>the type of the values inside the vector </td></tr>
   </table>
   </dd>
 </dl>
@@ -370,7 +370,8 @@ template&lt;typename... TArgs&gt; </div>
 </div><div class="memdoc">
 
 <p>Construct a new <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> object from a number of N values. </p>
-<p>the number of values must match the static size of this <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> the type must be arithmetic or a reference of an arithmetic</p>
+<p>the number of values must match the static size of this <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> <br />
+the type must be arithmetic or a reference of an arithmetic</p>
 <dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <span class="comment">// direct initialization</span></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> a{2, 3};</div><div class="line">  <span class="comment">// list initialization</span></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> b = {2, 3};</div><div class="line"></div><div class="line">  <span class="comment">// hold references</span></div><div class="line">  <span class="keywordtype">int</span> num1 = 2;</div><div class="line">  <span class="keywordtype">int</span> num2 = 3;</div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, std::reference_wrapper&lt;int&gt;</a>&gt; c{std::ref(num1), std::ref(num2)};</div><div class="line">  c += 1;  <span class="comment">// this changes num1 and num2 too</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
@@ -416,7 +417,8 @@ template&lt;std::size_t Nn, class U &gt; </div>
 </div><div class="memdoc">
 
 <p>Construct a new <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> from an existing <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> of a different type. </p>
-<p>implicit narrowing may be applied it is checked that the <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> sizes are the same</p>
+<p>implicit narrowing may be applied <br />
+it is checked that the <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> sizes are the same</p>
 <dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, float&gt;</a> a = {1.5F, 2.5F};</div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> b = {a};</div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
@@ -627,7 +629,7 @@ template&lt;std::size_t N, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>Move construct a new <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> object. </p>
-<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> a{1, 2};</div><div class="line">  <span class="comment">// direct initialization</span></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> b{std::move(a)};</div><div class="line">  <span class="comment">// copy initialization</span></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> c = std::move(a);</div><div class="line"></div></div><!-- fragment --></dd></dl>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> a{1, 2};</div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> b{std::move(a)};</div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td></td></tr>
@@ -752,7 +754,7 @@ template&lt;std::size_t N, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>returns an iterator pointing to the first element </p>
-<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> a{2, 3};</div><div class="line">  <span class="keywordtype">int</span> first = *a.<a class="code" href="classmu_1_1Vector.html#a7d9d1c3218082522712fea2d5bc32868">begin</a>();</div><div class="line"></div></div><!-- fragment --></dd></dl>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> a{2, 3};</div><div class="line">  <span class="keywordtype">int</span> first = *a.<a class="code" href="classmu_1_1Vector.html#a7d9d1c3218082522712fea2d5bc32868">begin</a>();  <span class="comment">// 2</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>iterator </dd></dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -793,7 +795,7 @@ template&lt;std::size_t N, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>returns a const iterator pointing to the first element </p>
-<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <span class="keyword">const</span> <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> a{2, 3};</div><div class="line">  <span class="keywordtype">int</span> first = *a.<a class="code" href="classmu_1_1Vector.html#a7d9d1c3218082522712fea2d5bc32868">begin</a>();</div><div class="line"></div></div><!-- fragment --></dd></dl>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <span class="keyword">const</span> <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> a{2, 3};</div><div class="line">  <span class="keywordtype">int</span> first = *a.<a class="code" href="classmu_1_1Vector.html#a7d9d1c3218082522712fea2d5bc32868">begin</a>();  <span class="comment">// 2</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>const_iterator </dd></dl>
 
 </div>
@@ -942,7 +944,7 @@ template&lt;std::size_t N, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>returns an iterator pointing to the element following the last element </p>
-<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> a{2, 3};</div><div class="line">  <span class="keywordtype">int</span> last = *(a.<a class="code" href="classmu_1_1Vector.html#a2caa4d33d64d146ca8c101d5005e025e">end</a>() - 1);</div><div class="line"></div></div><!-- fragment --></dd></dl>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> a{2, 3};</div><div class="line">  <span class="keywordtype">int</span> last = *(a.<a class="code" href="classmu_1_1Vector.html#a2caa4d33d64d146ca8c101d5005e025e">end</a>() - 1);  <span class="comment">// 3</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>iterator </dd></dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -983,7 +985,7 @@ template&lt;std::size_t N, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>returns a const iterator pointing to the element following the last element </p>
-<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <span class="keyword">const</span> <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> a{2, 3};</div><div class="line">  <span class="keywordtype">int</span> last = *(a.<a class="code" href="classmu_1_1Vector.html#a2caa4d33d64d146ca8c101d5005e025e">end</a>() - 1);</div><div class="line"></div></div><!-- fragment --></dd></dl>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <span class="keyword">const</span> <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> a{2, 3};</div><div class="line">  <span class="keywordtype">int</span> last = *(a.<a class="code" href="classmu_1_1Vector.html#a2caa4d33d64d146ca8c101d5005e025e">end</a>() - 1);  <span class="comment">// 3</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>const_iterator </dd></dl>
 
 </div>
@@ -1127,7 +1129,7 @@ template&lt;std::size_t N, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>get the max value of the vector </p>
-<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> a{2, 3};</div><div class="line">  <span class="keywordtype">int</span> <a class="code" href="classmu_1_1Vector.html#a0bcb8df801149ed1a5654a141aae14d7">max</a> = a.<a class="code" href="classmu_1_1Vector.html#a0bcb8df801149ed1a5654a141aae14d7">max</a>();</div><div class="line"></div></div><!-- fragment --></dd></dl>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> a{2, 3};</div><div class="line">  <span class="keywordtype">int</span> max = a.<a class="code" href="classmu_1_1Vector.html#a0bcb8df801149ed1a5654a141aae14d7">max</a>();  <span class="comment">// 3</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>T </dd></dl>
 
 </div>
@@ -1202,7 +1204,7 @@ template&lt;std::size_t N, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>get the min value of the vector </p>
-<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> a{2, 3};</div><div class="line">  <span class="keywordtype">int</span> <a class="code" href="classmu_1_1Vector.html#a57ac0fa3add5609d667d37b934793acd">min</a> = a.<a class="code" href="classmu_1_1Vector.html#a57ac0fa3add5609d667d37b934793acd">min</a>();</div><div class="line"></div></div><!-- fragment --></dd></dl>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> a{2, 3};</div><div class="line">  <span class="keywordtype">int</span> min = a.<a class="code" href="classmu_1_1Vector.html#a57ac0fa3add5609d667d37b934793acd">min</a>();  <span class="comment">// 2</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>T </dd></dl>
 
 </div>
@@ -1848,7 +1850,7 @@ template&lt;std::size_t N, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>returns the size of the vector </p>
-<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;3, int&gt;</a> a{2, 3, 4};</div><div class="line">  std::size_t <a class="code" href="classmu_1_1Vector.html#a1a6c382df2038bb89209087f1df0d60c">size</a> = a.<a class="code" href="classmu_1_1Vector.html#a1a6c382df2038bb89209087f1df0d60c">size</a>();</div><div class="line"></div></div><!-- fragment --></dd></dl>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;3, int&gt;</a> a{2, 3, 4};</div><div class="line">  std::size_t <a class="code" href="classmu_1_1Vector.html#a1a6c382df2038bb89209087f1df0d60c">size</a> = a.<a class="code" href="classmu_1_1Vector.html#a1a6c382df2038bb89209087f1df0d60c">size</a>();  <span class="comment">// 3</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>size_type </dd></dl>
 
 </div>
@@ -2078,7 +2080,7 @@ template&lt;std::size_t N, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>sum up all the elements of the vector </p>
-<dl class="section user"><dt>Example</dt><dd><div class="fragment"></div><!-- fragment --></dd></dl>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> a{2, 3};</div><div class="line">  <span class="keywordtype">int</span> sum = a.<a class="code" href="classmu_1_1Vector.html#a5aaede8fa7e0cfa50b044fcaf89cf1f2">sum</a>();  <span class="comment">// 5</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>T </dd></dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -2133,6 +2135,7 @@ template&lt;std::size_t Nn, class U &gt; </div>
 </div><div class="memdoc">
 
 <p>print vector values </p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;4, int&gt;</a> a{2, 3, 4, 5};</div><div class="line">  <span class="comment">// std::cout &lt;&lt; a &lt;&lt; std::endl;</span></div><div class="line">  <span class="comment">// [ 2, 3, 4, 5 ]</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Nn</td><td></td></tr>

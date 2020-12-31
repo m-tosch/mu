@@ -116,9 +116,8 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>const_iterator</b> =
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab126945354b536c2496b14c160b9d01f"><td class="memItemLeft" align="right" valign="top"><a id="ab126945354b536c2496b14c160b9d01f"></a>
-constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmu_1_1Matrix.html#ab126945354b536c2496b14c160b9d01f">Matrix</a> ()=default</td></tr>
-<tr class="memdesc:ab126945354b536c2496b14c160b9d01f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> object. <br /></td></tr>
+<tr class="memitem:ab126945354b536c2496b14c160b9d01f"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmu_1_1Matrix.html#ab126945354b536c2496b14c160b9d01f">Matrix</a> ()=default</td></tr>
+<tr class="memdesc:ab126945354b536c2496b14c160b9d01f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> object.  <a href="#ab126945354b536c2496b14c160b9d01f">More...</a><br /></td></tr>
 <tr class="separator:ab126945354b536c2496b14c160b9d01f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc1b75f24a9dd859365e5a421ca849a3"><td class="memTemplParams" colspan="2">template&lt;typename... TArgs&gt; </td></tr>
 <tr class="memitem:abc1b75f24a9dd859365e5a421ca849a3"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Matrix.html#abc1b75f24a9dd859365e5a421ca849a3">Matrix</a> (TArgs const(&amp;&amp;... rows)[M])</td></tr>
@@ -226,13 +225,51 @@ class mu::Matrix&lt; N, M, T &gt;</h3>
   <table class="tparams">
     <tr><td class="paramname">N</td><td>first matrix dimension (rows) </td></tr>
     <tr><td class="paramname">M</td><td>second matrix dimension (columns) </td></tr>
-    <tr><td class="paramname">T</td><td></td></tr>
+    <tr><td class="paramname">T</td><td>the type of the values inside the matrix </td></tr>
   </table>
   </dd>
 </dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ab126945354b536c2496b14c160b9d01f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab126945354b536c2496b14c160b9d01f">&#9670;&nbsp;</a></span>Matrix() <span class="overload">[1/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::size_t M, typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="classmu_1_1Matrix.html">mu::Matrix</a>&lt; N, M, T &gt;::<a class="el" href="classmu_1_1Matrix.html">Matrix</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Construct a new <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> object. </p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;2, 2, int&gt;</a> a;</div><div class="line"></div></div><!-- fragment --></dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classmu_1_1Matrix_ab126945354b536c2496b14c160b9d01f_icgraph.png" border="0" usemap="#classmu_1_1Matrix_ab126945354b536c2496b14c160b9d01f_icgraph" alt=""/></div>
+<map name="classmu_1_1Matrix_ab126945354b536c2496b14c160b9d01f_icgraph" id="classmu_1_1Matrix_ab126945354b536c2496b14c160b9d01f_icgraph">
+<area shape="rect" id="node2" href="classmu_1_1Matrix.html#a28fee3a19c75cea16c6dab39a61e48c7" title="Construct a new Matrix object from a single value possibly of a different type. " alt="" coords="181,5,309,32"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="abc1b75f24a9dd859365e5a421ca849a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc1b75f24a9dd859365e5a421ca849a3">&#9670;&nbsp;</a></span>Matrix() <span class="overload">[1/8]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#abc1b75f24a9dd859365e5a421ca849a3">&#9670;&nbsp;</a></span>Matrix() <span class="overload">[2/9]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -261,6 +298,7 @@ template&lt;typename... TArgs&gt; </div>
 
 <p>Construct a new <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> object from a number of NxM values. </p>
 <p>the number of values in every dimension must match the static size of this <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a>.</p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <span class="comment">// direct initialization</span></div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;2, 3, int&gt;</a> a{{2, 3, 4}, {5, 6, 7}};</div><div class="line">  <span class="comment">// list initialization</span></div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;2, 3, int&gt;</a> b = {{2, 3, 4}, {5, 6, 7}};</div><div class="line"></div><div class="line">  <span class="comment">// hold references</span></div><div class="line">  <span class="keywordtype">int</span> num1 = 2;</div><div class="line">  <span class="keywordtype">int</span> num2 = 3;</div><div class="line">  <span class="keywordtype">int</span> num3 = 4;</div><div class="line">  <span class="keywordtype">int</span> num4 = 5;</div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;2, 2, std::reference_wrapper&lt;int&gt;</a>&gt; c{</div><div class="line">      {std::ref(num1), std::ref(num2)}, {std::ref(num3), std::ref(num4)}};</div><div class="line">  c += 1;  <span class="comment">// this changes num1, num2, num3 and num4 too</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">TArgs</td><td></td></tr>
@@ -277,7 +315,7 @@ template&lt;typename... TArgs&gt; </div>
 </div>
 </div>
 <a id="a9781ab4df035ed1d90ae2d03478c5d1f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9781ab4df035ed1d90ae2d03478c5d1f">&#9670;&nbsp;</a></span>Matrix() <span class="overload">[2/8]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9781ab4df035ed1d90ae2d03478c5d1f">&#9670;&nbsp;</a></span>Matrix() <span class="overload">[3/9]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -305,8 +343,11 @@ template&lt;std::size_t Nn, std::size_t Mm, class U &gt; </div>
 </div><div class="memdoc">
 
 <p>Construct a new <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> from an existing <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> of a different type. </p>
-<p>it is checked that the <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> sizes are the same forwards intialization to <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> for every row implicit narrowing may be applied</p>
-<p>Example: </p><div class="fragment"><div class="line"><a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;2, 2, int&gt;</a> a = {{1, 2}, {3, 4}};</div><div class="line"><a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;2, 2, double&gt;</a> b = {a};</div></div><!-- fragment --><dl class="tparams"><dt>Template Parameters</dt><dd>
+<p>implicit narrowing may be applied <br />
+it is checked that the <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> sizes are the same <br />
+forwards intialization to <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> for every row</p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;2, 2, float&gt;</a> a = {{1.5F, 2.5F}, {3.5F, 4.5F}};</div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;2, 2, int&gt;</a> b = {a};</div><div class="line"></div></div><!-- fragment --></dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Nn</td><td></td></tr>
     <tr><td class="paramname">Mm</td><td></td></tr>
@@ -333,7 +374,7 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <a id="a476485c5ef0e64d95f55e043327fe7ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a476485c5ef0e64d95f55e043327fe7ad">&#9670;&nbsp;</a></span>Matrix() <span class="overload">[3/8]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a476485c5ef0e64d95f55e043327fe7ad">&#9670;&nbsp;</a></span>Matrix() <span class="overload">[4/9]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -359,6 +400,7 @@ template&lt;std::size_t N, std::size_t M, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>Construct a new <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> object from an std::array of Vectors. </p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  std::array&lt;mu::Vector&lt;2, int&gt;, 3&gt; arr;</div><div class="line">  arr[0] = {3, 4};</div><div class="line">  arr[1] = {5, 6};</div><div class="line">  arr[2] = {7, 8};</div><div class="line"></div><div class="line">  <span class="comment">// direct initialization</span></div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;3, 2, int&gt;</a> a{arr};</div><div class="line">  <span class="comment">// copy initialization</span></div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;3, 2, int&gt;</a> b = arr;</div><div class="line">  <span class="comment">// list initialization</span></div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;3, 2, int&gt;</a> c = {arr};</div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">a</td><td></td></tr>
@@ -369,7 +411,7 @@ template&lt;std::size_t N, std::size_t M, typename T&gt; </div>
 </div>
 </div>
 <a id="ad9fa9dcf8a12ae0d945744d259112a03"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad9fa9dcf8a12ae0d945744d259112a03">&#9670;&nbsp;</a></span>Matrix() <span class="overload">[4/8]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9fa9dcf8a12ae0d945744d259112a03">&#9670;&nbsp;</a></span>Matrix() <span class="overload">[5/9]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -397,7 +439,9 @@ template&lt;typename U  = T&gt; </div>
 </div><div class="memdoc">
 
 <p>Construct a new <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> object from an std::array of Vectors of a different type. </p>
-<p>forwards intialization to <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> for every row implicit narrowing may be applied</p>
+<p>implicit narrowing may be applied <br />
+forwards intialization to <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> for every row</p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  std::array&lt;mu::Vector&lt;2, float&gt;, 3&gt; arr;</div><div class="line">  arr[0] = {3.5F, 4.5F};</div><div class="line">  arr[1] = {5.5F, 6.5F};</div><div class="line">  arr[2] = {7.5F, 8.5F};</div><div class="line"></div><div class="line">  <span class="comment">// direct initialization</span></div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;3, 2, int&gt;</a> a{arr};</div><div class="line">  <span class="comment">// copy initialization</span></div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;3, 2, int&gt;</a> b = arr;</div><div class="line">  <span class="comment">// list initialization</span></div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;3, 2, int&gt;</a> c = {arr};</div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">U</td><td></td></tr>
@@ -422,7 +466,7 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <a id="afbe2ad02d5fd3a5c9824e1acd825dc75"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afbe2ad02d5fd3a5c9824e1acd825dc75">&#9670;&nbsp;</a></span>Matrix() <span class="overload">[5/8]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#afbe2ad02d5fd3a5c9824e1acd825dc75">&#9670;&nbsp;</a></span>Matrix() <span class="overload">[6/9]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -450,7 +494,9 @@ template&lt;typename U  = T, std::enable_if_t&lt; std::is_arithmetic&lt; U &gt;:
 </div><div class="memdoc">
 
 <p>Construct a new <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> object from an std::array of std::arrays. possibly of a different type. </p>
-<p>forwards intialization to <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> for every row implicit narrowing may be applied</p>
+<p>implicit narrowing may be applied <br />
+forwards intialization to <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> for every row</p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  std::array&lt;std::array&lt;int, 2&gt;, 3&gt; arr;</div><div class="line">  arr[0] = {3, 4};</div><div class="line">  arr[1] = {5, 6};</div><div class="line">  arr[2] = {7, 8};</div><div class="line"></div><div class="line">  <span class="comment">// direct initialization</span></div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;3, 2, int&gt;</a> a{arr};</div><div class="line">  <span class="comment">// copy initialization</span></div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;3, 2, int&gt;</a> b = arr;</div><div class="line">  <span class="comment">// list initialization</span></div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;3, 2, int&gt;</a> c = {arr};</div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">U</td><td></td></tr>
@@ -475,7 +521,7 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <a id="a28fee3a19c75cea16c6dab39a61e48c7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a28fee3a19c75cea16c6dab39a61e48c7">&#9670;&nbsp;</a></span>Matrix() <span class="overload">[6/8]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a28fee3a19c75cea16c6dab39a61e48c7">&#9670;&nbsp;</a></span>Matrix() <span class="overload">[7/9]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -503,7 +549,10 @@ template&lt;typename U  = T, std::enable_if_t&lt; std::is_arithmetic&lt; U &gt;:
 </div><div class="memdoc">
 
 <p>Construct a new <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> object from a single value possibly of a different type. </p>
-<p>forwards intialization to <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> for every row implicit narrowing may be applied</p>
+<p>all the values inside the vector will be set to this value <br />
+implicit narrowing may be applied <br />
+forwards intialization to <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> for every row</p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <span class="comment">// direct initialization</span></div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;3, 3, int&gt;</a> a{5};</div><div class="line">  <span class="comment">// copy initialization</span></div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;3, 3, int&gt;</a> b = 5;</div><div class="line">  <span class="comment">// list initialization</span></div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;3, 3, int&gt;</a> c = {5};</div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">U</td><td></td></tr>
@@ -530,7 +579,7 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <a id="a3afefe10b422afce13b01f5184118f7b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3afefe10b422afce13b01f5184118f7b">&#9670;&nbsp;</a></span>Matrix() <span class="overload">[7/8]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a3afefe10b422afce13b01f5184118f7b">&#9670;&nbsp;</a></span>Matrix() <span class="overload">[8/9]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -556,6 +605,7 @@ template&lt;std::size_t N, std::size_t M, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>Copy construct a new <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> object. </p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;2, 2, int&gt;</a> a{{1, 2}, {3, 4}};</div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;2, 2, int&gt;</a> b{a};</div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td></td></tr>
@@ -566,7 +616,7 @@ template&lt;std::size_t N, std::size_t M, typename T&gt; </div>
 </div>
 </div>
 <a id="a340350076f5abe05dbc6a45f384335f8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a340350076f5abe05dbc6a45f384335f8">&#9670;&nbsp;</a></span>Matrix() <span class="overload">[8/8]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a340350076f5abe05dbc6a45f384335f8">&#9670;&nbsp;</a></span>Matrix() <span class="overload">[9/9]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -592,6 +642,7 @@ template&lt;std::size_t N, std::size_t M, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>Move construct a new <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> object. </p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;2, 2, int&gt;</a> a{{1, 2}, {3, 4}};</div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;2, 2, int&gt;</a> b{std::move(a)};</div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td></td></tr>
@@ -629,6 +680,7 @@ template&lt;std::size_t N, std::size_t M, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>access a row within the matrix </p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;2, 2, int&gt;</a> a{{1, 2}, {3, 4}};</div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> b = a.<a class="code" href="classmu_1_1Matrix.html#a32589645cbcc4b235c5b547a9ba63219">at</a>(0);  <span class="comment">// [ 1, 2 ]</span></div><div class="line">  <span class="keywordtype">int</span> a21 = a.<a class="code" href="classmu_1_1Matrix.html#a32589645cbcc4b235c5b547a9ba63219">at</a>(1).at(0);         <span class="comment">// 3</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">out</td><td>of range </td></tr>
@@ -672,6 +724,7 @@ template&lt;std::size_t N, std::size_t M, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>const access a row within the matrix </p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <span class="keyword">const</span> <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;2, 2, int&gt;</a> a{{1, 2}, {3, 4}};</div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> b = a.<a class="code" href="classmu_1_1Matrix.html#a32589645cbcc4b235c5b547a9ba63219">at</a>(0);  <span class="comment">// [ 1, 2 ]</span></div><div class="line">  <span class="keywordtype">int</span> a21 = a.<a class="code" href="classmu_1_1Matrix.html#a32589645cbcc4b235c5b547a9ba63219">at</a>(1).at(0);         <span class="comment">// 3</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">out</td><td>of range </td></tr>
@@ -714,6 +767,7 @@ template&lt;std::size_t N, std::size_t M, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>returns an iterator starting at the first row </p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;2, 3, int&gt;</a> a{{1, 2, 4}, {2, 4, 8}};</div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;3, int&gt;</a> first = *a.<a class="code" href="classmu_1_1Matrix.html#a26ae977dbc3ce3a1ad57bd79b7ed4a9b">begin</a>();  <span class="comment">// [ 1, 2, 4 ]</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>iterator </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
@@ -759,6 +813,7 @@ template&lt;std::size_t N, std::size_t M, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>returns a const iterator starting at the first row </p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <span class="keyword">const</span> <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;2, 3, int&gt;</a> a{{1, 2, 4}, {2, 4, 8}};</div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;3, int&gt;</a> first = *a.<a class="code" href="classmu_1_1Matrix.html#a26ae977dbc3ce3a1ad57bd79b7ed4a9b">begin</a>();  <span class="comment">// [ 1, 2, 4 ]</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>const_iterator </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
@@ -799,6 +854,7 @@ template&lt;std::size_t N, std::size_t M, typename T&gt; </div>
 
 <p>get a matrix column as a vector </p>
 <p>an invalid index that exceeds the matrix dimension causes a runtime error</p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"></div><!-- fragment --></dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">idx</td><td></td></tr>
@@ -835,6 +891,7 @@ template&lt;std::size_t N, std::size_t M, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>returns a iterator starting at one after the last row </p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;2, 3, int&gt;</a> a{{1, 2, 4}, {2, 4, 8}};</div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;3, int&gt;</a> last = *(a.<a class="code" href="classmu_1_1Matrix.html#a69ee6cd820674fe11ddd4f265a2d71c5">end</a>() - 1);  <span class="comment">// [ 2, 4, 8 ]</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>iterator </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
@@ -880,6 +937,7 @@ template&lt;std::size_t N, std::size_t M, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>returns a const iterator starting at one after the last row </p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <span class="keyword">const</span> <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;2, 3, int&gt;</a> a{{1, 2, 4}, {2, 4, 8}};</div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;3, int&gt;</a> last = *(a.<a class="code" href="classmu_1_1Matrix.html#a69ee6cd820674fe11ddd4f265a2d71c5">end</a>() - 1);  <span class="comment">// [ 2, 4, 8 ]</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>const_iterator </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
@@ -918,6 +976,7 @@ template&lt;std::size_t N, std::size_t M, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>get the max value of the matrix </p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;2, 3, int&gt;</a> a{{8, 5, 3}, {4, 5, 6}};</div><div class="line">  <span class="keywordtype">int</span> <a class="code" href="classmu_1_1Matrix.html#a6754a5eb5065b9cbdccd25dec8ed1561">max</a> = a.<a class="code" href="classmu_1_1Matrix.html#a6754a5eb5065b9cbdccd25dec8ed1561">max</a>();  <span class="comment">// 8</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>T </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
@@ -967,6 +1026,7 @@ template&lt;typename U  = T&gt; </div>
 
 <p>mean of all the elements of the matrix </p>
 <p>specifying the return type is optional. It will be of the type of the <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> by default.</p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;2, 2, int&gt;</a> a{{1, 2}, {3, 4}};</div><div class="line">  <span class="keywordtype">float</span> mean1 = a.<a class="code" href="classmu_1_1Matrix.html#af5bb9793e811451fbbdde9017ac551b5">mean</a>();         <span class="comment">// 2 (because a holds type int)</span></div><div class="line">  <span class="keywordtype">float</span> mean2 = a.<a class="code" href="classmu_1_1Matrix.html#af5bb9793e811451fbbdde9017ac551b5">mean</a>&lt;<span class="keywordtype">float</span>&gt;();  <span class="comment">// 2.5F</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">U</td><td></td></tr>
@@ -1014,6 +1074,7 @@ template&lt;std::size_t N, std::size_t M, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>get the min value of the matrix </p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;2, 3, int&gt;</a> a{{8, 5, 3}, {4, 5, 6}};</div><div class="line">  <span class="keywordtype">int</span> <a class="code" href="classmu_1_1Matrix.html#aacdd03a161afa051f7006e17af9d7483">min</a> = a.<a class="code" href="classmu_1_1Matrix.html#aacdd03a161afa051f7006e17af9d7483">min</a>();  <span class="comment">// 3</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>T </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
@@ -1060,6 +1121,7 @@ template&lt;std::size_t N, std::size_t M, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>returns the number of columns </p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;2, 3, int&gt;</a> a{{1, 2, 4}, {2, 4, 8}};</div><div class="line">  std::size_t <a class="code" href="classmu_1_1Matrix.html#a905a2b88a45025c1fd9c88d988ef974f">n_cols</a> = a.<a class="code" href="classmu_1_1Matrix.html#a905a2b88a45025c1fd9c88d988ef974f">n_cols</a>();  <span class="comment">// 3</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>constexpr size_type </dd></dl>
 
 </div>
@@ -1090,6 +1152,7 @@ template&lt;std::size_t N, std::size_t M, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>returns the number of rows </p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;2, 3, int&gt;</a> a{{1, 2, 4}, {2, 4, 8}};</div><div class="line">  std::size_t <a class="code" href="classmu_1_1Matrix.html#a9769d4a3be64ddad0b4296280c458392">n_rows</a> = a.<a class="code" href="classmu_1_1Matrix.html#a9769d4a3be64ddad0b4296280c458392">n_rows</a>();  <span class="comment">// 2</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>constexpr size_type </dd></dl>
 
 </div>
@@ -1121,6 +1184,7 @@ template&lt;std::size_t N, std::size_t M, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>Copy assignment operator. </p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;2, 2, int&gt;</a> a{{1, 2}, {3, 4}};</div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;2, 2, int&gt;</a> b = a;</div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td></td></tr>
@@ -1166,6 +1230,7 @@ template&lt;std::size_t N, std::size_t M, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>Move assignment operator. </p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;2, 2, int&gt;</a> a{{1, 2}, {3, 4}};</div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;2, 2, int&gt;</a> b = std::move(a);</div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td></td></tr>
@@ -1204,6 +1269,7 @@ template&lt;std::size_t N, std::size_t M, typename T&gt; </div>
 
 <p>access a row within the matrix </p>
 <p>does not throw an exception if <code>idx</code> is out of range</p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;2, 2, int&gt;</a> a{{1, 2}, {3, 4}};</div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> b = a[0];  <span class="comment">// [ 1, 2 ]</span></div><div class="line">  <span class="keywordtype">int</span> a21 = a[1][0];            <span class="comment">// 3</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">idx</td><td></td></tr>
@@ -1242,6 +1308,7 @@ template&lt;std::size_t N, std::size_t M, typename T&gt; </div>
 
 <p>const access a row within the matrix </p>
 <p>does not throw an exception if <code>idx</code> is out of range</p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <span class="keyword">const</span> <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;2, 2, int&gt;</a> a{{1, 2}, {3, 4}};</div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, int&gt;</a> b = a[0];  <span class="comment">// [ 1, 2 ]</span></div><div class="line">  <span class="keywordtype">int</span> a21 = a[1][0];            <span class="comment">// 3</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">idx</td><td></td></tr>
@@ -1280,6 +1347,7 @@ template&lt;std::size_t N, std::size_t M, typename T&gt; </div>
 
 <p>get a matrix row as a vector </p>
 <p>an invalid index that exceeds the matrix dimension causes a runtime error</p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;2, 3, int&gt;</a> a{{1, 2, 4}, {2, 4, 8}};</div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;3, int&gt;</a> first_row = a.<a class="code" href="classmu_1_1Matrix.html#a64db8855e699278c4d17e146281eaf43">row</a>(0);  <span class="comment">// [ 1, 2, 4 ]</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">idx</td><td></td></tr>
@@ -1328,6 +1396,7 @@ template&lt;std::size_t N, std::size_t M, typename T&gt; </div>
 
 <p>returns the matrix dimensions as an array of size 2 </p>
 <p>[0] rows [1] columns</p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;2, 3, int&gt;</a> a{{1, 2, 4}, {2, 4, 8}};</div><div class="line">  std::size_t n_rows = a.<a class="code" href="classmu_1_1Matrix.html#a6ebbb484a736e514121ed8ebae4ac7e1">size</a>()[0];  <span class="comment">// 2</span></div><div class="line">  std::size_t n_cols = a.<a class="code" href="classmu_1_1Matrix.html#a6ebbb484a736e514121ed8ebae4ac7e1">size</a>()[1];  <span class="comment">// 3</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>constexpr std::array&lt;size_type, 2&gt; </dd></dl>
 
 </div>
@@ -1358,6 +1427,7 @@ template&lt;std::size_t N, std::size_t M, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>sum up all the elements of the matrix </p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;2, 2, int&gt;</a> a{{1, 2}, {3, 4}};</div><div class="line">  <span class="keywordtype">int</span> <a class="code" href="classmu_1_1Matrix.html#ae6c03480a44fc705d22230fb770a4e60">sum</a> = a.<a class="code" href="classmu_1_1Matrix.html#ae6c03480a44fc705d22230fb770a4e60">sum</a>();  <span class="comment">// 10</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>T </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>

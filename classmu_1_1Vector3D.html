@@ -310,7 +310,7 @@ class mu::Vector3D&lt; T &gt;</h3>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <div class="memtemplate">
 template&lt;class Tt  = T&gt; </div>
 <table class="mlabels">
@@ -333,7 +333,13 @@ template&lt;class Tt  = T&gt; </div>
 </div><div class="memdoc">
 
 <p>Construct a new <a class="el" href="classmu_1_1Vector3D.html" title="A three dimensional vector. ">Vector3D</a> object from a <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> object. </p>
-<p>also implicitly used for copy initialization. purposely not marked "explicit" for exactly this usecase.</p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Vector3D.html">mu::Vector3D&lt;float&gt;</a> a = {1.5F, 2.5F, 3.5F};</div><div class="line">  <a class="code" href="classmu_1_1Vector3D.html">mu::Vector3D&lt;int&gt;</a> b = {a};</div><div class="line"></div></div><!-- fragment --></dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idx</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Tt</td><td></td></tr>
@@ -356,7 +362,7 @@ template&lt;class Tt  = T&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -376,6 +382,7 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>x component </p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Vector3D.html">mu::Vector3D&lt;int&gt;</a> a = {7, 8, 9};</div><div class="line">  <span class="keywordtype">int</span> x = a.<a class="code" href="classmu_1_1Vector3D.html#a0e6f3810ced360a5274de8b0665b77c5">x</a>();</div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>T&amp; </dd></dl>
 
 </div>
@@ -386,7 +393,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -406,6 +413,7 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>const x component </p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <span class="keyword">const</span> <a class="code" href="classmu_1_1Vector3D.html">mu::Vector3D&lt;int&gt;</a> a = {7, 8, 9};</div><div class="line">  <span class="keywordtype">int</span> x = a.<a class="code" href="classmu_1_1Vector3D.html#a0e6f3810ced360a5274de8b0665b77c5">x</a>();</div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>const T&amp; </dd></dl>
 
 </div>
@@ -416,7 +424,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -436,6 +444,7 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>y component </p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Vector3D.html">mu::Vector3D&lt;int&gt;</a> a = {7, 8, 9};</div><div class="line">  <span class="keywordtype">int</span> y = a.<a class="code" href="classmu_1_1Vector3D.html#ac60c79a5625f1c4c3f72963eadfaa69d">y</a>();</div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>T&amp; </dd></dl>
 
 </div>
@@ -446,7 +455,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -466,6 +475,7 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>const y component </p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <span class="keyword">const</span> <a class="code" href="classmu_1_1Vector3D.html">mu::Vector3D&lt;int&gt;</a> a = {7, 8, 9};</div><div class="line">  <span class="keywordtype">int</span> y = a.<a class="code" href="classmu_1_1Vector3D.html#ac60c79a5625f1c4c3f72963eadfaa69d">y</a>();</div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>const T&amp; </dd></dl>
 
 </div>
@@ -476,7 +486,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -496,6 +506,7 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>z component </p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Vector3D.html">mu::Vector3D&lt;int&gt;</a> a = {7, 8, 9};</div><div class="line">  <span class="keywordtype">int</span> <a class="code" href="classmu_1_1Vector3D.html#ae2a78749e4c19fd16df1020fa5e80b3a">z</a> = a.<a class="code" href="classmu_1_1Vector3D.html#ae2a78749e4c19fd16df1020fa5e80b3a">z</a>();</div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>T&amp; </dd></dl>
 
 </div>
@@ -506,7 +517,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -526,6 +537,7 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>const z component </p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <span class="keyword">const</span> <a class="code" href="classmu_1_1Vector3D.html">mu::Vector3D&lt;int&gt;</a> a = {7, 8, 9};</div><div class="line">  <span class="keywordtype">int</span> z = a.<a class="code" href="classmu_1_1Vector3D.html#ae2a78749e4c19fd16df1020fa5e80b3a">z</a>();</div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>const T&amp; </dd></dl>
 
 </div>
