@@ -215,6 +215,8 @@ class Matrix {
    *
    * does not throw an exception if \p idx is out of range
    *
+   * @par Example
+   * @snippet example_matrix.cpp matrix brackets operator
    * @param idx
    * @return T&
    */
@@ -225,6 +227,8 @@ class Matrix {
    *
    * does not throw an exception if \p idx is out of range
    *
+   * @par Example
+   * @snippet example_matrix.cpp matrix const brackets operator
    * @param idx
    * @return const T&
    */
@@ -235,6 +239,8 @@ class Matrix {
   /**
    * @brief access a row within the matrix
    *
+   * @par Example
+   * @snippet example_matrix.cpp matrix at function
    * @exception out of range
    * @param idx
    * @return T&
@@ -244,6 +250,8 @@ class Matrix {
   /**
    * @brief const access a row within the matrix
    *
+   * @par Example
+   * @snippet example_matrix.cpp matrix const at function
    * @exception out of range
    * @param idx
    * @return const T&
@@ -256,6 +264,8 @@ class Matrix {
    * [0] rows
    * [1] columns
    *
+   * @par Example
+   * @snippet example_matrix.cpp matrix size function
    * @return constexpr std::array<size_type, 2>
    */
   constexpr std::array<size_type, 2> size() const noexcept {
@@ -265,6 +275,8 @@ class Matrix {
   /**
    * @brief returns the number of rows
    *
+   * @par Example
+   * @snippet example_matrix.cpp matrix nrows function
    * @return constexpr size_type
    */
   constexpr size_type n_rows() const noexcept { return N; }
@@ -272,6 +284,8 @@ class Matrix {
   /**
    * @brief returns the number of columns
    *
+   * @par Example
+   * @snippet example_matrix.cpp matrix ncols function
    * @return constexpr size_type
    */
   constexpr size_type n_cols() const noexcept { return M; }

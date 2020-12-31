@@ -197,6 +197,86 @@ TEST(Matrix, OperatorMoveAssignment) {
   EXPECT_THAT(b[1], ::testing::ContainerEq(a[1]));
 }
 
+TEST(Matrix, OperatorBrackets) {
+  //! [matrix brackets operator]
+
+  mu::Matrix<2, 2, int> a{{1, 2}, {3, 4}};
+  mu::Vector<2, int> b = a[0];  // [ 1, 2 ]
+  int a21 = a[1][0];            // 3
+
+  //! [matrix brackets operator]
+  EXPECT_THAT(b, ::testing::ContainerEq(a[0]));
+  EXPECT_EQ(a21, a[1][0]);
+}
+
+TEST(Matrix, OperatorBracketsConst) {
+  //! [matrix const brackets operator]
+
+  const mu::Matrix<2, 2, int> a{{1, 2}, {3, 4}};
+  mu::Vector<2, int> b = a[0];  // [ 1, 2 ]
+  int a21 = a[1][0];            // 3
+
+  //! [matrix const brackets operator]
+  EXPECT_THAT(b, ::testing::ContainerEq(a[0]));
+  EXPECT_EQ(a21, a[1][0]);
+}
+
+TEST(Matrix, MemberFuncAt) {
+  //! [matrix at function]
+
+  mu::Matrix<2, 2, int> a{{1, 2}, {3, 4}};
+  mu::Vector<2, int> b = a.at(0);  // [ 1, 2 ]
+  int a21 = a.at(1).at(0);         // 3
+
+  //! [matrix at function]
+  EXPECT_THAT(b, ::testing::ContainerEq(a[0]));
+  EXPECT_EQ(a21, a[1][0]);
+}
+
+TEST(Matrix, MemberFuncAtConst) {
+  //! [matrix const at function]
+
+  const mu::Matrix<2, 2, int> a{{1, 2}, {3, 4}};
+  mu::Vector<2, int> b = a.at(0);  // [ 1, 2 ]
+  int a21 = a.at(1).at(0);         // 3
+
+  //! [matrix const at function]
+  EXPECT_THAT(b, ::testing::ContainerEq(a[0]));
+  EXPECT_EQ(a21, a[1][0]);
+}
+
+TEST(Matrix, MemberFuncSize) {
+  //! [matrix size function]
+
+  mu::Matrix<2, 3, int> a{{1, 2, 4}, {2, 4, 8}};
+  std::size_t n_rows = a.size()[0];  // 2
+  std::size_t n_cols = a.size()[1];  // 3
+
+  //! [matrix size function]
+  EXPECT_EQ(n_rows, 2);
+  EXPECT_EQ(n_cols, 3);
+}
+
+TEST(Matrix, MemberFuncNRows) {
+  //! [matrix nrows function]
+
+  mu::Matrix<2, 3, int> a{{1, 2, 4}, {2, 4, 8}};
+  std::size_t n_rows = a.n_rows();  // 2
+
+  //! [matrix nrows function]
+  EXPECT_EQ(n_rows, 2);
+}
+
+TEST(Matrix, MemberFuncNCols) {
+  //! [matrix ncols function]
+
+  mu::Matrix<2, 3, int> a{{1, 2, 4}, {2, 4, 8}};
+  std::size_t n_cols = a.n_cols();  // 3
+
+  //! [matrix ncols function]
+  EXPECT_EQ(n_cols, 3);
+}
+
 TEST(Matrix, MemberFuncDotMatrixMatrix) {
   //! [matrix matrix dot function]
 
