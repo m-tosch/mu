@@ -36,7 +36,7 @@ class Matrix;
  * std::reference_wrapper and std::ref
  *
  * @tparam N size
- * @tparam T type
+ * @tparam T the type of the values inside the vector
  */
 template <std::size_t N, typename T>
 class Vector {
@@ -64,7 +64,7 @@ class Vector {
   /**
    * @brief Construct a new Vector object from a number of N values
    *
-   * the number of values must match the static size of this Vector
+   * the number of values must match the static size of this Vector \n
    * the type must be arithmetic or a reference of an arithmetic
    *
    * @par Example
@@ -84,7 +84,7 @@ class Vector {
   /**
    * @brief Construct a new Vector from an existing Vector of a different type
    *
-   * implicit narrowing may be applied
+   * implicit narrowing may be applied \n
    * it is checked that the Vector sizes are the same
    *
    * @par Example

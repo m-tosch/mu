@@ -39,6 +39,16 @@ TEST(Vector, ConstructorVariadicTemplate) {
   EXPECT_EQ(num2, 4);
 }
 
+TEST(Vector, ConstructorFromDifferentType) {
+  //! [vector different type constructor]
+
+  mu::Vector<2, float> a = {1.5F, 2.5F};
+  mu::Vector<2, int> b = {a};
+
+  //! [vector different type constructor]
+  EXPECT_THAT(b, ::testing::ElementsAre(1, 2));
+}
+
 TEST(Vector, ConstructorArray) {
   //! [vector array constructor]
 
@@ -71,16 +81,6 @@ TEST(Vector, ConstructorArrayDifferentType) {
   EXPECT_THAT(a, ::testing::ElementsAre(3, 4, 5));
   EXPECT_THAT(b, ::testing::ElementsAre(3, 4, 5));
   EXPECT_THAT(c, ::testing::ElementsAre(3, 4, 5));
-}
-
-TEST(Vector, ConstructorFromDifferentType) {
-  //! [vector different type constructor]
-
-  mu::Vector<2, float> a = {1.5F, 2.5F};
-  mu::Vector<2, int> b = {a};
-
-  //! [vector different type constructor]
-  EXPECT_THAT(b, ::testing::ElementsAre(1, 2));
 }
 
 TEST(Vector, ConstructorFromSingleValue) {
