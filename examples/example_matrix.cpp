@@ -317,6 +317,99 @@ TEST(Matrix, MemberFuncEndConst) {
   EXPECT_THAT(last, ::testing::ElementsAre(2, 4, 8));
 }
 
+TEST(Matrix, MemberFuncRow) {
+  //! [matrix row function]
+
+  mu::Matrix<2, 3, int> a{{1, 2, 4}, {2, 4, 8}};
+  mu::Vector<3, int> first_row = a.row(0);  // [ 1, 2, 4 ]
+
+  //! [matrix row function]
+  EXPECT_THAT(first_row, ::testing::ElementsAre(1, 2, 4));
+}
+
+TEST(Matrix, MemberFuncCol) {
+  //! [matrix row function]
+
+  mu::Matrix<2, 3, int> a{{1, 2, 3}, {4, 5, 6}};
+  mu::Vector<2, int> second_col = a.col(1);  // [ 2, 5 ]
+
+  //! [matrix row function]
+  EXPECT_THAT(second_col, ::testing::ElementsAre(2, 5));
+}
+
+TEST(Matrix, MemberFuncMin) {
+  //! [matrix min function]
+
+  mu::Matrix<2, 3, int> a{{8, 5, 3}, {4, 5, 6}};
+  int min = a.min();  // 3
+
+  //! [matrix min function]
+  EXPECT_EQ(min, 3);
+}
+
+TEST(Matrix, MemberFuncMax) {
+  //! [matrix max function]
+
+  mu::Matrix<2, 3, int> a{{8, 5, 3}, {4, 5, 6}};
+  int max = a.max();  // 8
+
+  //! [matrix max function]
+  EXPECT_EQ(max, 8);
+}
+
+TEST(Matrix, MemberFuncSum) {
+  //! [matrix sum function]
+
+  mu::Matrix<2, 2, int> a{{1, 2}, {3, 4}};
+  int sum = a.sum();  // 10
+
+  //! [matrix sum function]
+  EXPECT_EQ(sum, 10);
+}
+
+TEST(Matrix, MemberFuncMean) {
+  //! [matrix mean function]
+
+  mu::Matrix<2, 2, int> a{{1, 2}, {3, 4}};
+  float mean1 = a.mean();         // 2 (because a holds type int)
+  float mean2 = a.mean<float>();  // 2.5F
+
+  //! [matrix mean function]
+  EXPECT_EQ(mean1, 2);
+  EXPECT_EQ(mean2, 2.5F);
+}
+
+TEST(Matrix, MemberFuncDiag) {
+  //! [matrix diag function]
+
+  mu::Matrix<2, 2, int> a{{1, 2}, {3, 4}};
+  mu::Vector<2, int> diag = a.diag();  // [ 1, 4 ]
+
+  //! [matrix diag function]
+  EXPECT_THAT(diag, ::testing::ElementsAre(1, 4));
+}
+
+TEST(Matrix, MemberFuncDet) {
+  //! [matrix det function]
+
+  mu::Matrix<2, 2, int> a{{1, 2}, {3, 4}};
+  int det = a.det();  // -2
+
+  //! [matrix det function]
+  EXPECT_EQ(det, 1);
+}
+
+TEST(Matrix, MemberFuncTranspose) {
+  //! [matrix transpose function]
+
+  mu::Matrix<2, 2, int> a{{1, 2}, {3, 4}};
+  mu::Matrix<2, 2, int> a_transposed = a.transpose();
+
+  //! [matrix transpose function]
+  EXPECT_THAT(a_transposed[0], ::testing::ElementsAre(1, 3));
+  EXPECT_THAT(a_transposed[1], ::testing::ElementsAre(2, 4));
+}
+
 TEST(Matrix, MemberFuncDotMatrixMatrix) {
   //! [matrix matrix dot function]
 
@@ -358,4 +451,29 @@ TEST(Matrix, MemberFuncDotMatrixVector) {
   EXPECT_THAT(res1, ::testing::ElementsAre(26, 44));
   EXPECT_THAT(res2, ::testing::ElementsAre(31, 54));
   EXPECT_THAT(res3, ::testing::ElementsAre(32, 54.5));
+}
+
+TEST(Matrix, MemberFuncStd) {
+  //! [matrix std function]
+
+  mu::Matrix<2, 2, int> a{{2, 3}, {5, 7}};
+  float std1 = a.std();         // 1 (because a holds type int)
+  float std2 = a.std<float>();  // 1.92028642
+
+  //! [matrix std function]
+  EXPECT_EQ(std1, 1);
+  EXPECT_FLOAT_EQ(std2, 1.92028642F);
+}
+
+TEST(Matrix, OperatorStreamOut) {
+  //! [matrix operator stream out]
+
+  mu::Matrix<2, 2, int> a{{2, 3}, {5, 7}};
+  // std::cout << a << std::endl;
+  // [ [ 2, 3 ],
+  //   [ 5, 7 ] ]
+
+  //! [matrix operator stream out]
+  EXPECT_THAT(a[0], ::testing::ElementsAre(2, 3));
+  EXPECT_THAT(a[1], ::testing::ElementsAre(5, 7));
 }

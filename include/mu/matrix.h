@@ -331,6 +331,8 @@ class Matrix {
    *
    * an invalid index that exceeds the matrix dimension causes a runtime error
    *
+   * @par Example
+   * @snippet example_matrix.cpp matrix row function
    * @param idx
    * @return Vector<M, T>
    */
@@ -345,6 +347,8 @@ class Matrix {
    *
    * an invalid index that exceeds the matrix dimension causes a runtime error
    *
+   * @par Example
+   * @snippet example_matrix.cpp matrix col function
    * @param idx
    * @return Vector<N, T>
    */
@@ -361,6 +365,8 @@ class Matrix {
   /**
    * @brief get the min value of the matrix
    *
+   * @par Example
+   * @snippet example_matrix.cpp matrix min function
    * @return T
    */
   T min() const {
@@ -374,6 +380,8 @@ class Matrix {
   /**
    * @brief get the max value of the matrix
    *
+   * @par Example
+   * @snippet example_matrix.cpp matrix max function
    * @return T
    */
   T max() const {
@@ -387,6 +395,8 @@ class Matrix {
   /**
    * @brief sum up all the elements of the matrix
    *
+   * @par Example
+   * @snippet example_matrix.cpp matrix sum function
    * @return T
    */
   T sum() const {
@@ -403,6 +413,8 @@ class Matrix {
    * specifying the return type is optional.
    * It will be of the type of the Vector by default.
    *
+   * @par Example
+   * @snippet example_matrix.cpp matrix mean function
    * @tparam U
    * @return U
    */
@@ -416,6 +428,9 @@ class Matrix {
    *
    * the vector is of the size of the smallest matrix dimension. either N or M
    *
+   * @par Example
+   * @snippet example_matrix.cpp matrix diag function
+   * @return Vector<N,T> or Vector<M,T>
    */
   std::conditional_t < N<M, Vector<N, T>, Vector<M, T>> diag() const {
     constexpr std::size_t s = N < M ? N : M;
@@ -431,6 +446,8 @@ class Matrix {
    *
    * matrix must be symmetrical with N == M
    *
+   * @par Example
+   * @snippet example_matrix.cpp matrix det function
    * @return T
    */
   T det() const {
@@ -449,6 +466,8 @@ class Matrix {
   /**
    * @brief creates and returns a transposed Matrix object
    *
+   * @par Example
+   * @snippet example_matrix.cpp matrix transpose function
    * @return Matrix<M, N, T>
    */
   Matrix<M, N, T> transpose() const {
@@ -580,6 +599,8 @@ class Matrix {
    *
    * \f$ \sigma = \sqrt{\frac{\sum(x_ij - \mu)^2}{N}} \f$
    *
+   * @par Example
+   * @snippet example_matrix.cpp matrix std function
    * @tparam U
    * @return U
    */
