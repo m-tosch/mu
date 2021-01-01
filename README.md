@@ -131,7 +131,7 @@ You can generate the documentation locally from the command line inside the `doc
 doxygen Doxyfile
 ```
 
-The documentation will be generated in html form inside a `doc/html` folder. View the report by opening the index.html file inside that folder in a browser.
+The documentation will be generated in html form inside a `doc/html` folder. View the report by opening the `index.html` file inside that folder in a browser.
 
 ## Tests
 
