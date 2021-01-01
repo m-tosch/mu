@@ -1,3 +1,8 @@
+/**
+ * @file utility.h
+ *
+ * Utility math functions
+ */
 #ifndef MU_UTILITY_H_
 #define MU_UTILITY_H_
 
