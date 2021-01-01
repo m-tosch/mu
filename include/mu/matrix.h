@@ -822,7 +822,7 @@ class Matrix {
 
  protected:
   std::array<Vector<M, T>, N> data_;
-};  // namespace mu
+};
 
 /********************************** I/O ************************************/
 
@@ -1116,10 +1116,14 @@ inline Matrix<N, M, T> zeros() {
   return Matrix<N, M, T>{T{0}};
 }
 
-/* alias templates */
+}  // namespace mu
+
+namespace mu {
+
+/* alias templates for Matrix */
 
 /**
- * @brief a symmetrical matrix
+ * @brief A symmetrical matrix
  *
  * @tparam N
  * @tparam T
@@ -1128,7 +1132,7 @@ template <std::size_t N, typename T>
 using MatrixNxN = Matrix<N, N, T>;
 
 /**
- * @brief a 2x2 matrix
+ * @brief A 2x2 matrix
  *
  * @tparam T
  */
@@ -1136,7 +1140,7 @@ template <typename T>
 using Matrix2x2 = Matrix<2, 2, T>;
 
 /**
- * @brief a 3x3 matrix
+ * @brief A 3x3 matrix
  *
  * @tparam T
  */
