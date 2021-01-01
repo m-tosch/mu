@@ -1,8 +1,12 @@
 var dir_ded7b4172052051ab01a736d8d0e2f45 =
 [
-    [ "literals.h", "literals_8h_source.html", null ],
-    [ "matrix.h", "matrix_8h_source.html", null ],
-    [ "vector.h", "vector_8h_source.html", null ],
-    [ "vector2d.h", "vector2d_8h_source.html", null ],
-    [ "vector3d.h", "vector3d_8h_source.html", null ]
+    [ "literals.h", "literals_8h.html", "literals_8h" ],
+    [ "matrix.h", "matrix_8h.html", "matrix_8h" ],
+    [ "vector.h", "vector_8h.html", "vector_8h" ],
+    [ "vector2d.h", "vector2d_8h.html", [
+      [ "Vector2D", "classmu_1_1Vector2D.html", "classmu_1_1Vector2D" ]
+    ] ],
+    [ "vector3d.h", "vector3d_8h.html", [
+      [ "Vector3D", "classmu_1_1Vector3D.html", "classmu_1_1Vector3D" ]
+    ] ]
 ];

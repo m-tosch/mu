@@ -1,0 +1,8 @@
+<map id="mu::operator/" name="mu::operator/">
+<area shape="rect" id="node2" href="$matrix_8h.html#a2c2ebfd9667ee0f3060848abbfb43aaa" title="division operator " alt="" coords="166,29,265,56"/>
+<area shape="rect" id="node3" href="$classmu_1_1Vector.html#a57ac0fa3add5609d667d37b934793acd" title="get the min value of the vector " alt="" coords="158,80,273,107"/>
+<area shape="rect" id="node4" href="$classmu_1_1Vector.html#a0bcb8df801149ed1a5654a141aae14d7" title="get the max value of the vector " alt="" coords="156,131,275,157"/>
+<area shape="rect" id="node5" href="$classmu_1_1Vector.html#a5aaede8fa7e0cfa50b044fcaf89cf1f2" title="sum up all the elements of the vector " alt="" coords="156,181,275,208"/>
+<area shape="rect" id="node6" href="$classmu_1_1Vector.html#a003efac25bdb30912c6481c0c3c9742a" title="mean of all the elements of the vector " alt="" coords="152,232,279,259"/>
+<area shape="rect" id="node7" href="$classmu_1_1Vector.html#ab113053889eb0a7821678b60787ae610" title="dot product of two vectors " alt="" coords="159,283,271,309"/>
+</map>

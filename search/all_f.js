@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['z',['z',['../classmu_1_1Vector3D.html#ae2a78749e4c19fd16df1020fa5e80b3a',1,'mu::Vector3D::z() noexcept'],['../classmu_1_1Vector3D.html#a26a1e4940e37220d01b340da7fca0214',1,'mu::Vector3D::z() const noexcept']]]
+  ['x',['x',['../classmu_1_1Vector2D.html#a99d8677c48b61d323a8c9967e92126f3',1,'mu::Vector2D::x() noexcept'],['../classmu_1_1Vector2D.html#a7403eac3da3b826b145981648e6aeb77',1,'mu::Vector2D::x() const noexcept'],['../classmu_1_1Vector3D.html#a0e6f3810ced360a5274de8b0665b77c5',1,'mu::Vector3D::x() noexcept'],['../classmu_1_1Vector3D.html#af70c07c879200f5ef66dd5c0a542eaff',1,'mu::Vector3D::x() const noexcept']]]
 ];

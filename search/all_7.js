@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['matrix',['Matrix',['../classmu_1_1Matrix.html',1,'mu::Matrix&lt; N, M, T &gt;'],['../classmu_1_1Matrix.html#ab126945354b536c2496b14c160b9d01f',1,'mu::Matrix::Matrix()=default'],['../classmu_1_1Matrix.html#abc1b75f24a9dd859365e5a421ca849a3',1,'mu::Matrix::Matrix(TArgs const(&amp;&amp;... rows)[M])'],['../classmu_1_1Matrix.html#a9781ab4df035ed1d90ae2d03478c5d1f',1,'mu::Matrix::Matrix(const Matrix&lt; Nn, Mm, U &gt; &amp;m)'],['../classmu_1_1Matrix.html#a476485c5ef0e64d95f55e043327fe7ad',1,'mu::Matrix::Matrix(const std::array&lt; Vector&lt; M, T &gt;, N &gt; &amp;a)'],['../classmu_1_1Matrix.html#ad9fa9dcf8a12ae0d945744d259112a03',1,'mu::Matrix::Matrix(const std::array&lt; Vector&lt; M, U &gt;, N &gt; &amp;a)'],['../classmu_1_1Matrix.html#afbe2ad02d5fd3a5c9824e1acd825dc75',1,'mu::Matrix::Matrix(const std::array&lt; std::array&lt; U, M &gt;, N &gt; &amp;a)'],['../classmu_1_1Matrix.html#a28fee3a19c75cea16c6dab39a61e48c7',1,'mu::Matrix::Matrix(const U &amp;value)'],['../classmu_1_1Matrix.html#a3afefe10b422afce13b01f5184118f7b',1,'mu::Matrix::Matrix(const Matrix &amp;other)=default'],['../classmu_1_1Matrix.html#a340350076f5abe05dbc6a45f384335f8',1,'mu::Matrix::Matrix(Matrix &amp;&amp;other) noexcept=default']]],
-  ['max',['max',['../classmu_1_1Matrix.html#a6754a5eb5065b9cbdccd25dec8ed1561',1,'mu::Matrix::max()'],['../classmu_1_1Vector.html#a0bcb8df801149ed1a5654a141aae14d7',1,'mu::Vector::max()']]],
-  ['mean',['mean',['../classmu_1_1Matrix.html#af5bb9793e811451fbbdde9017ac551b5',1,'mu::Matrix::mean()'],['../classmu_1_1Vector.html#a003efac25bdb30912c6481c0c3c9742a',1,'mu::Vector::mean()']]],
-  ['min',['min',['../classmu_1_1Matrix.html#aacdd03a161afa051f7006e17af9d7483',1,'mu::Matrix::min()'],['../classmu_1_1Vector.html#a57ac0fa3add5609d667d37b934793acd',1,'mu::Vector::min()']]]
+  ['length',['length',['../classmu_1_1Vector.html#ae4ab117cf7e8e11fc8b2b8f2b984b6bd',1,'mu::Vector']]],
+  ['literals_2eh',['literals.h',['../literals_8h.html',1,'']]],
+  ['ln10',['ln10',['../literals_8h.html#a7d1d66ee5424c19473cf190cd3a0b2d6',1,'mu']]],
+  ['ln2',['ln2',['../literals_8h.html#a381f87765bd4cb5e4d8a863ece6a01e7',1,'mu']]],
+  ['log10e',['log10e',['../literals_8h.html#a6fd4cf482187ac8f7049c372a784f297',1,'mu']]],
+  ['log2e',['log2e',['../literals_8h.html#a0d70c3dcc20dceb5cac5623aa55f08dd',1,'mu']]]
 ];
