@@ -1,3 +1,8 @@
+/**
+ * @file matrix.h
+ *
+ * Matrix class and free functions
+ */
 #ifndef MU_MATRIX_H_
 #define MU_MATRIX_H_
 

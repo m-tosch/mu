@@ -1,3 +1,8 @@
+/**
+ * @file vector3d.h
+ *
+ * Vector3D class
+ */
 #ifndef MU_VECTOR3D_H_
 #define MU_VECTOR3D_H_
 

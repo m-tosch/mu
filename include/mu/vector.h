@@ -1,3 +1,8 @@
+/**
+ * @file vector.h
+ *
+ * Vector class and free functions
+ */
 #ifndef MU_VECTOR_H_
 #define MU_VECTOR_H_
 
@@ -16,9 +21,13 @@
 
 namespace mu {
 
-/* forward declaration */
-/* lets the Vector class in this header know what "Matrix" is, so the alias can
- * be used for function arguments, return types ... */
+/**
+ * forward declaration of the Matrix class
+ *
+ * @tparam X
+ * @tparam Y
+ * @tparam Z
+ */
 template <std::size_t X, std::size_t Y, typename Z>
 class Matrix;
 
@@ -996,6 +1005,13 @@ dot(const Vector<N, T> &lhs, const Matrix<N2, M2, T2> &rhs) {
   return lhs.template dot<U>(rhs);
 }
 
+/**
+ * @brief free fucking function flip
+ *
+ * @tparam N
+ * @tparam T
+ * @param v
+ */
 template <std::size_t N, class T>
 // NOLINTNEXTLINE(runtime/references) intentional non-const reference
 inline void flip(Vector<N, T> &v) {

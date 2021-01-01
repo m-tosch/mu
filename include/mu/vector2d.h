@@ -1,3 +1,8 @@
+/**
+ * @file vector2d.h
+ *
+ * Vector2D class
+ */
 #ifndef MU_VECTOR2D_H_
 #define MU_VECTOR2D_H_
 
