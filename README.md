@@ -79,7 +79,7 @@ after: [ -5.75, 2.25 ]
 
 ### Example 4
 
-Use references in a vector.
+Use references in a vector. (use carefully)
 
 <details>
 <summary>code</summary>
