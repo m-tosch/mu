@@ -88,7 +88,7 @@ Use references in a vector.
 int a = 3;
 int b = 4;
 mu::Vector<2, std::reference_wrapper<int>> v = {std::ref(a), std::ref(b)};
-v += 10;
+v[0].get() = 10;
 std::cout << "v: " << v << std::endl;
 std::cout << "a: " << a << " b: " << b << std::endl;
 ```
@@ -96,8 +96,8 @@ std::cout << "a: " << a << " b: " << b << std::endl;
 output
 
 ```txt
-v: [ 13, 14 ]
-a: 13 b: 14
+v: [ 10, 4 ]
+a: 10 b: 4
 ```
 
 </details>
