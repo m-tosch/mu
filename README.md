@@ -6,7 +6,7 @@
 
 A small, simple c++ math library
 
-The goal of this repository is to provide a header library for fixed size vector and matrix math that is easy to use and fully covered by tests.
+The goal of this repository is to provide a header library for fixed size vector and matrix math that is easy to use and fully verified by tests.
 
 ## Demo
 
