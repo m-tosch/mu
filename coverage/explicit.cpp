@@ -155,7 +155,8 @@ template float mu::sum(const mu::Matrix<2, 2, float> &);
 template float mu::mean<float>(const mu::Matrix<2, 2, float> &);
 template mu::Vector<2, float> mu::diag(const mu::Matrix<2, 2, float> &);
 template int mu::det(const mu::Matrix<2, 2, int> &);
-template mu::Matrix<2, 3, int> mu::transpose(const mu::Matrix<3, 2, int> &);
+template void mu::transpose(mu::Matrix<2, 2, int> &);
+template mu::Matrix<2, 3, int> mu::transposed(const mu::Matrix<3, 2, int> &);
 
 template mu::Matrix<3, 3, int> mu::eye<3>();
 template mu::Matrix<3, 3, int> mu::ones<3, 3>();
