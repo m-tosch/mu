@@ -27,6 +27,8 @@ var classmu_1_1Vector =
     [ "max", "classmu_1_1Vector.html#a0bcb8df801149ed1a5654a141aae14d7", null ],
     [ "mean", "classmu_1_1Vector.html#a003efac25bdb30912c6481c0c3c9742a", null ],
     [ "min", "classmu_1_1Vector.html#a57ac0fa3add5609d667d37b934793acd", null ],
+    [ "normalize", "classmu_1_1Vector.html#a76c03271da59a3497cfee6a0d3f65731", null ],
+    [ "normalized", "classmu_1_1Vector.html#a45f0595761890fb5527d3aa87b9a7fa6", null ],
     [ "operator!=", "classmu_1_1Vector.html#ab1890f33fa79c2c77ef1cca859227411", null ],
     [ "operator*=", "classmu_1_1Vector.html#acb469ba14b1c71a664c89a2718111cd3", null ],
     [ "operator*=", "classmu_1_1Vector.html#ad2b8e0e149ed4f3c706a65d269546967", null ],

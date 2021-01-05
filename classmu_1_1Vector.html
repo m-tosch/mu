@@ -212,6 +212,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae4ab117cf7e8e11fc8b2b8f2b984b6bd"><td class="memTemplItemLeft" align="right" valign="top">U&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#ae4ab117cf7e8e11fc8b2b8f2b984b6bd">length</a> () const</td></tr>
 <tr class="memdesc:ae4ab117cf7e8e11fc8b2b8f2b984b6bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">euclidean vector length  <a href="#ae4ab117cf7e8e11fc8b2b8f2b984b6bd">More...</a><br /></td></tr>
 <tr class="separator:ae4ab117cf7e8e11fc8b2b8f2b984b6bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76c03271da59a3497cfee6a0d3f65731"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#a76c03271da59a3497cfee6a0d3f65731">normalize</a> ()</td></tr>
+<tr class="memdesc:a76c03271da59a3497cfee6a0d3f65731"><td class="mdescLeft">&#160;</td><td class="mdescRight">normalizes this vector  <a href="#a76c03271da59a3497cfee6a0d3f65731">More...</a><br /></td></tr>
+<tr class="separator:a76c03271da59a3497cfee6a0d3f65731"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45f0595761890fb5527d3aa87b9a7fa6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmu_1_1Vector.html">Vector</a>&lt; N, T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#a45f0595761890fb5527d3aa87b9a7fa6">normalized</a> ()</td></tr>
+<tr class="memdesc:a45f0595761890fb5527d3aa87b9a7fa6"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns a normalized vector  <a href="#a45f0595761890fb5527d3aa87b9a7fa6">More...</a><br /></td></tr>
+<tr class="separator:a45f0595761890fb5527d3aa87b9a7fa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a597ca2de6348a91e896f3f2296a5bcd2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmu_1_1Vector.html#a597ca2de6348a91e896f3f2296a5bcd2">flip</a> ()</td></tr>
 <tr class="memdesc:a597ca2de6348a91e896f3f2296a5bcd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">flips this vector, i.e. reverses its elements  <a href="#a597ca2de6348a91e896f3f2296a5bcd2">More...</a><br /></td></tr>
 <tr class="separator:a597ca2de6348a91e896f3f2296a5bcd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1108,6 +1114,14 @@ template&lt;class U  = T&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>U </dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classmu_1_1Vector_ae4ab117cf7e8e11fc8b2b8f2b984b6bd_icgraph.png" border="0" usemap="#classmu_1_1Vector_ae4ab117cf7e8e11fc8b2b8f2b984b6bd_icgraph" alt=""/></div>
+<map name="classmu_1_1Vector_ae4ab117cf7e8e11fc8b2b8f2b984b6bd_icgraph" id="classmu_1_1Vector_ae4ab117cf7e8e11fc8b2b8f2b984b6bd_icgraph">
+<area shape="rect" id="node2" href="classmu_1_1Vector.html#a76c03271da59a3497cfee6a0d3f65731" title="normalizes this vector " alt="" coords="183,5,316,47"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -1238,6 +1252,77 @@ Here is the caller graph for this function:</div>
 <area shape="rect" id="node2" href="vector_8h.html#ab0558347259c01daacd31bb4cce2e00a" title="vector and scalar division " alt="" coords="168,5,267,32"/>
 </map>
 </div>
+
+</div>
+</div>
+<a id="a76c03271da59a3497cfee6a0d3f65731"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76c03271da59a3497cfee6a0d3f65731">&#9670;&nbsp;</a></span>normalize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classmu_1_1Vector.html">mu::Vector</a>&lt; N, T &gt;::normalize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>normalizes this vector </p>
+<p>\( v_{norm} = \frac{v}{\sqrt \sum_{i=1}^{N} v_i^2} \)</p>
+<p>divides every element by the euclidean vector length <br />
+the resulting euclidean vector length will be 1 </p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classmu_1_1Vector_a76c03271da59a3497cfee6a0d3f65731_icgraph.png" border="0" usemap="#classmu_1_1Vector_a76c03271da59a3497cfee6a0d3f65731_icgraph" alt=""/></div>
+<map name="classmu_1_1Vector_a76c03271da59a3497cfee6a0d3f65731_icgraph" id="classmu_1_1Vector_a76c03271da59a3497cfee6a0d3f65731_icgraph">
+<area shape="rect" id="node2" href="classmu_1_1Vector.html#a45f0595761890fb5527d3aa87b9a7fa6" title="returns a normalized vector " alt="" coords="204,5,337,47"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a45f0595761890fb5527d3aa87b9a7fa6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45f0595761890fb5527d3aa87b9a7fa6">&#9670;&nbsp;</a></span>normalized()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmu_1_1Vector.html">Vector</a>&lt;N, T&gt; <a class="el" href="classmu_1_1Vector.html">mu::Vector</a>&lt; N, T &gt;::normalized </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>returns a normalized vector </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classmu_1_1Vector.html#a76c03271da59a3497cfee6a0d3f65731">normalize()</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Vector&lt;N, T&gt; </dd></dl>
 
 </div>
 </div>
@@ -1582,7 +1667,7 @@ template&lt;typename U  = T&gt; </div>
 </div><div class="memdoc">
 
 <p>divison equal operator </p>
-<p>subject to implicit conversions</p>
+<p>subject to implicit conversions division by zero on integral type vector elements results in undefined behavior</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">U</td><td></td></tr>
