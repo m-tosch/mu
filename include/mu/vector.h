@@ -690,6 +690,8 @@ class Vector {
    * @brief divison equal operator
    *
    * subject to implicit conversions
+   * division by zero on integral type vector elements results in undefined
+   * behavior
    *
    * @tparam U
    * @param rhs
