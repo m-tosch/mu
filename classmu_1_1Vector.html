@@ -1283,7 +1283,7 @@ template&lt;std::size_t N, typename T&gt; </div>
 <p>normalizes this vector </p>
 <p>\( v_{norm} = \frac{v}{\sqrt \sum_{i=1}^{N} v_i^2} \)</p>
 <p>divides every element by the euclidean vector length <br />
-the resulting euclidean vector length will be 1 </p>
+the resulting euclidean vector length will be 1 </p><dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, float&gt;</a> a{3.0F, 4.0F};</div><div class="line">  a.<a class="code" href="classmu_1_1Vector.html#a76c03271da59a3497cfee6a0d3f65731">normalize</a>();  <span class="comment">// a is now [ 0.6, 0.8 ]</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1321,6 +1321,7 @@ template&lt;std::size_t N, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>returns a normalized vector </p>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, float&gt;</a> a{3.0F, 4.0F};</div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, float&gt;</a> a_norm = a.<a class="code" href="classmu_1_1Vector.html#a45f0595761890fb5527d3aa87b9a7fa6">normalized</a>();  <span class="comment">// a_norm is [ 0.6, 0.8 ]</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classmu_1_1Vector.html#a76c03271da59a3497cfee6a0d3f65731">normalize()</a> </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>Vector&lt;N, T&gt; </dd></dl>
 
