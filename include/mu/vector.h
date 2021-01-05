@@ -489,9 +489,10 @@ class Vector {
   /**
    * @brief normalizes this vector
    *
-   * divides every element by the euclidean vector length
-   * the resulting euclidean vector length will be 1
+   * \f$ v_{norm} = \frac{v}{\sqrt \sum_{i=1}^{N} v_i^2} \f$
    *
+   * divides every element by the euclidean vector length \n
+   * the resulting euclidean vector length will be 1
    */
   void normalize() { *this /= length(); }
 
@@ -499,6 +500,7 @@ class Vector {
    * @brief returns a normalized vector
    *
    * @see @ref normalize()
+   * @return Vector<N, T>
    */
   Vector<N, T> normalized() {
     Vector<N, T> ret(*this);
