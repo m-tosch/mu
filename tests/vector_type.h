@@ -326,9 +326,9 @@ TYPED_TEST_P(VectorTypeFixture, MemberFuncLength) {
   /** action */
   typename TypeParam::value_type len = obj.length();
   /** assert */
-  typename TypeParam::value_type comp = std::sqrt(
-      std::inner_product(obj.begin(), obj.end(), obj.begin(),
-                         static_cast<typename TypeParam::value_type>(0)));
+  typename TypeParam::value_type comp = std::sqrt(std::inner_product(
+      this->values.begin(), this->values.end(), this->values.begin(),
+      static_cast<typename TypeParam::value_type>(0)));
   EXPECT_FLOAT_EQ(len, comp);
 }
 
@@ -339,9 +339,9 @@ TYPED_TEST_P(VectorTypeFixture, MemberFuncLengthConvertType) {
   typename TestFixture::ConvertedType len =
       obj.template length<typename TestFixture::ConvertedType>();
   /** assert */
-  typename TestFixture::ConvertedType comp = std::sqrt(
-      std::inner_product(obj.begin(), obj.end(), obj.begin(),
-                         static_cast<typename TypeParam::value_type>(0)));
+  typename TestFixture::ConvertedType comp = std::sqrt(std::inner_product(
+      this->values.begin(), this->values.end(), this->values.begin(),
+      static_cast<typename TypeParam::value_type>(0)));
   EXPECT_FLOAT_EQ(len, comp);
 }
 
