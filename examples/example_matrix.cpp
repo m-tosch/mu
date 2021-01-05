@@ -403,11 +403,23 @@ TEST(Matrix, MemberFuncTranspose) {
   //! [matrix transpose function]
 
   mu::Matrix<2, 2, int> a{{1, 2}, {3, 4}};
-  mu::Matrix<2, 2, int> a_transposed = a.transpose();
+  a.transpose();
 
   //! [matrix transpose function]
-  EXPECT_THAT(a_transposed[0], ::testing::ElementsAre(1, 3));
-  EXPECT_THAT(a_transposed[1], ::testing::ElementsAre(2, 4));
+  EXPECT_THAT(a[0], ::testing::ElementsAre(1, 3));
+  EXPECT_THAT(a[1], ::testing::ElementsAre(2, 4));
+}
+
+TEST(Matrix, MemberFuncTransposed) {
+  //! [matrix transposed function]
+
+  mu::Matrix<2, 3, int> a{{1, 2, 3}, {4, 5, 6}};
+  mu::Matrix<3, 2, int> a_transposed = a.transposed();
+
+  //! [matrix transposed function]
+  EXPECT_THAT(a_transposed[0], ::testing::ElementsAre(1, 4));
+  EXPECT_THAT(a_transposed[1], ::testing::ElementsAre(2, 5));
+  EXPECT_THAT(a_transposed[2], ::testing::ElementsAre(3, 6));
 }
 
 TEST(Matrix, MemberFuncDotMatrixMatrix) {
