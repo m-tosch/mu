@@ -470,10 +470,27 @@ TYPED_TEST_P(MatrixTypeFixture, MemberFuncDet) {
 
 TYPED_TEST_P(MatrixTypeFixture, MemberFuncTranspose) {
   static TypeParam dummy;  // just to get the size at compile time here
+  /* this test is ony for symmetrical matrices */
+  if constexpr (dummy.size()[0] == dummy.size()[1]) {
+    /** arrange */
+    TypeParam obj{this->values};
+    /** action */
+    obj.transpose();
+    /** assert */
+    for (std::size_t i = 0; i < dummy.size()[0]; i++) {
+      for (std::size_t j = 0; j < dummy.size()[1]; j++) {
+        EXPECT_EQ(obj[j][i], this->values[i][j]);
+      }
+    }
+  }
+}
+
+TYPED_TEST_P(MatrixTypeFixture, MemberFuncTransposed) {
+  static TypeParam dummy;  // just to get the size at compile time here
   /** arrange */
   TypeParam obj{this->values};
   /** action */
-  auto res = obj.transpose();
+  auto res = obj.transposed();
   /** assert */
   for (std::size_t i = 0; i < dummy.size()[0]; i++) {
     for (std::size_t j = 0; j < dummy.size()[1]; j++) {
@@ -633,10 +650,27 @@ TYPED_TEST_P(MatrixTypeFixture, UtilityFuncDet) {
 
 TYPED_TEST_P(MatrixTypeFixture, UtilityFuncTranspose) {
   static TypeParam dummy;  // just to get the size at compile time here
+  /* this test is ony for symmetrical matrices */
+  if constexpr (dummy.size()[0] == dummy.size()[1]) {
+    /** arrange */
+    TypeParam obj{this->values};
+    /** action */
+    mu::transpose(obj);
+    /** assert */
+    for (std::size_t i = 0; i < dummy.size()[0]; i++) {
+      for (std::size_t j = 0; j < dummy.size()[1]; j++) {
+        EXPECT_EQ(obj[j][i], this->values[i][j]);
+      }
+    }
+  }
+}
+
+TYPED_TEST_P(MatrixTypeFixture, UtilityFuncTransposed) {
+  static TypeParam dummy;  // just to get the size at compile time here
   /** arrange */
   TypeParam obj{this->values};
   /** action */
-  auto res = mu::transpose(obj);
+  auto res = mu::transposed(obj);
   /** assert */
   for (std::size_t i = 0; i < dummy.size()[0]; i++) {
     for (std::size_t j = 0; j < dummy.size()[1]; j++) {
@@ -703,9 +737,10 @@ REGISTER_TYPED_TEST_SUITE_P(
     MemberFuncEndConst, MemberFuncRow, MemberFuncCol, MemberFuncMin,
     MemberFuncMax, MemberFuncSum, MemberFuncMean, MemberFuncDiag, MemberFuncDet,
     MemberFuncMeanConvertedType, MemberFuncStd, MemberFuncStdConvertedType,
-    MemberFuncTranspose, OperatorStreamOut, UtilityFuncMin, UtilityFuncMax,
-    UtilityFuncSum, UtilityFuncMean, UtilityFuncMeanConvertedType,
-    UtilityFuncDiagMakeVector, UtilityFuncDet, UtilityFuncTranspose,
-    UtilityFuncEye, UtilityFuncOnes, UtilityFuncZeros);
+    MemberFuncTranspose, MemberFuncTransposed, OperatorStreamOut,
+    UtilityFuncMin, UtilityFuncMax, UtilityFuncSum, UtilityFuncMean,
+    UtilityFuncMeanConvertedType, UtilityFuncDiagMakeVector, UtilityFuncDet,
+    UtilityFuncTranspose, UtilityFuncTransposed, UtilityFuncEye,
+    UtilityFuncOnes, UtilityFuncZeros);
 
 #endif  // TESTS_MATRIX_TYPE_H_
