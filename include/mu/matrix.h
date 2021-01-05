@@ -469,13 +469,35 @@ class Matrix {
   }
 
   /**
-   * @brief creates and returns a transposed Matrix object
+   * @brief transposes this Matrix object
+   *
+   * only works for symmetrical matrices!!!
    *
    * @par Example
    * @snippet example_matrix.cpp matrix transpose function
+   */
+  void transpose() {
+    static_assert(
+        N == M,
+        "Matrix dimensions must match to transpose this object. For Matrices "
+        "with unequal dimensions, i.e. N != M, the \"transposed()\" method can "
+        "be used instead");
+    Matrix<N, M, T> copy = data_;
+    for (std::size_t i = 0; i < N; i++) {
+      for (std::size_t j = 0; j < M; j++) {
+        data_[j][i] = copy[i][j];
+      }
+    }
+  }
+
+  /**
+   * @brief creates and returns a transposed Matrix object
+   *
+   * @par Example
+   * @snippet example_matrix.cpp matrix transposed function
    * @return Matrix<M, N, T>
    */
-  Matrix<M, N, T> transpose() const {
+  Matrix<M, N, T> transposed() const {
     Matrix<M, N, T> ret;
     for (std::size_t i = 0; i < N; i++) {
       for (std::size_t j = 0; j < M; j++) {
@@ -1078,8 +1100,14 @@ T det(const Matrix<N, M, T> &m) {
 }
 
 template <std::size_t N, std::size_t M, typename T>
-Matrix<M, N, T> transpose(const Matrix<N, M, T> &m) {
-  return m.transpose();
+// NOLINTNEXTLINE(runtime/references) intentional non-const reference
+inline void transpose(Matrix<N, M, T> &m) {
+  m.transpose();
+}
+
+template <std::size_t N, std::size_t M, typename T>
+Matrix<M, N, T> transposed(const Matrix<N, M, T> &m) {
+  return m.transposed();
 }
 
 template <typename U = void, std::size_t N1, std::size_t M1, typename T1,
