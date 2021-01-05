@@ -487,6 +487,26 @@ class Vector {
   }
 
   /**
+   * @brief normalizes this vector
+   *
+   * divides every element by the euclidean vector length
+   * the resulting euclidean vector length will be 1
+   *
+   */
+  void normalize() { *this /= length(); }
+
+  /**
+   * @brief returns a normalized vector
+   *
+   * @see @ref normalize()
+   */
+  Vector<N, T> normalized() {
+    Vector<N, T> ret(*this);
+    ret.normalize();
+    return ret;
+  }
+
+  /**
    * @brief flips this vector, i.e. reverses its elements
    *
    * @par Example
