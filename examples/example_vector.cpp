@@ -343,6 +343,29 @@ TEST(Vector, MemberFuncLength) {
   EXPECT_FLOAT_EQ(len2, 2.23606801F);
 }
 
+TEST(Vector, MemberFuncNormalize) {
+  //! [vector normalize function]
+
+  mu::Vector<2, float> a{3.0F, 4.0F};
+  a.normalize();  // a is now [ 0.6, 0.8 ]
+
+  //! [vector normalize function]
+  EXPECT_FLOAT_EQ(a[0], 0.6F);
+  EXPECT_FLOAT_EQ(a[1], 0.8F);
+}
+
+TEST(Vector, MemberFuncNormalized) {
+  //! [vector normalized function]
+
+  mu::Vector<2, float> a{3.0F, 4.0F};
+  mu::Vector<2, float> a_norm = a.normalized();  // a_norm is [ 0.6, 0.8 ]
+
+  //! [vector normalized function]
+  EXPECT_THAT(a, ::testing::ElementsAre(3.0F, 4.0F));
+  EXPECT_FLOAT_EQ(a_norm[0], 0.6F);
+  EXPECT_FLOAT_EQ(a_norm[1], 0.8F);
+}
+
 TEST(Vector, MemberFuncFlip) {
   //! [vector flip function]
 

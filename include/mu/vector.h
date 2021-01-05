@@ -493,12 +493,16 @@ class Vector {
    *
    * divides every element by the euclidean vector length \n
    * the resulting euclidean vector length will be 1
+   * @par Example
+   * @snippet example_vector.cpp vector normalize function
    */
   void normalize() { *this /= length(); }
 
   /**
    * @brief returns a normalized vector
    *
+   * @par Example
+   * @snippet example_vector.cpp vector normalized function
    * @see @ref normalize()
    * @return Vector<N, T>
    */
