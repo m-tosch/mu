@@ -1,7 +1,11 @@
+highlighter: rouge
 markdown: kramdown
 kramdown:
-    math_engine: mathjax
-include: [
-  "_*.tex",
-  "_*.html"
-]
+ input: GFM
+ auto_ids: true
+ hard_wrap: false
+ syntax_highlighter: rouge
+
+include:
+  - _formulas.tex
+  - _*.html
