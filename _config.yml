@@ -2,3 +2,5 @@ include:
   - "_*.tex"
   - "_*.html"
 markdown: kramdown
+kramdown:
+    math_engine: katex
