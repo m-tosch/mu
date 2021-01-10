@@ -1,6 +1,7 @@
-include: 
-  - "_*.tex"
-  - "_*.html"
 markdown: kramdown
 kramdown:
-    math_engine: katex
+    math_engine: mathjax
+include: [
+  "_*.tex",
+  "_*.html"
+]
