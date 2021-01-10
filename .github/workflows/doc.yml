@@ -16,6 +16,10 @@ jobs:
         run: |
           sudo apt-get install -y doxygen
           sudo apt-get install -y graphviz
+          sudo apt-get install -y nodejs
+          sudo apt-get update
+          sudo apt-get install -y npm
+          npm install mathjax
           cd doc/
           doxygen Doxyfile
 
