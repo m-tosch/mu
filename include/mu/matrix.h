@@ -266,7 +266,7 @@ class Matrix {
   /**
    * @brief returns the matrix dimensions as an array of size 2
    *
-   * [0] rows
+   * [0] rows \n
    * [1] columns
    *
    * @par Example
