@@ -1,5 +1,0 @@
-<map id="mu::Vector2D::rotated" name="mu::Vector2D::rotated">
-<area shape="rect" id="node2" href="$classmu_1_1_vector2_d.html#a0b3f9a7c9ef5b0bde320870b4e586bde" title="rotates this Vector by an angle [rad] " alt="" coords="204,31,348,57"/>
-<area shape="rect" id="node3" href="$classmu_1_1_vector2_d.html#a99d8677c48b61d323a8c9967e92126f3" title="x component " alt="" coords="396,5,515,32"/>
-<area shape="rect" id="node4" href="$classmu_1_1_vector2_d.html#a61da829f5ca5f40b19883b32c3ff1294" title="y component " alt="" coords="396,56,515,83"/>
-</map>

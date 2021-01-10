@@ -19,6 +19,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -108,8 +114,8 @@ Include dependency graph for matrix.h:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmu_1_1_matrix.html">mu::Matrix&lt; N, M, T &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A generic matrix.  <a href="classmu_1_1_matrix.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmu_1_1Matrix.html">mu::Matrix&lt; N, M, T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A generic matrix.  <a href="classmu_1_1Matrix.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
@@ -280,13 +286,13 @@ template&lt;std::size_t N, std::size_t M, class T , class U  = T&gt; </div>
         <tr>
           <td class="memname">Matrix&lt;N, M, T&gt; mu::operator* </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classmu_1_1_matrix.html">Matrix</a>&lt; N, M, T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classmu_1_1Matrix.html">Matrix</a>&lt; N, M, T &gt; &amp;&#160;</td>
           <td class="paramname"><em>lhs</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classmu_1_1_matrix.html">Matrix</a>&lt; N, M, U &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classmu_1_1Matrix.html">Matrix</a>&lt; N, M, U &gt; &amp;&#160;</td>
           <td class="paramname"><em>rhs</em>&#160;</td>
         </tr>
         <tr>
@@ -351,7 +357,7 @@ template&lt;std::size_t N, std::size_t M, class T , class TScalar &gt; </div>
         <tr>
           <td class="memname">std::enable_if_t&lt;std::is_arithmetic&lt;TScalar&gt;::value, Matrix&lt;N, M, T&gt; &gt; mu::operator* </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classmu_1_1_matrix.html">Matrix</a>&lt; N, M, T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classmu_1_1Matrix.html">Matrix</a>&lt; N, M, T &gt; &amp;&#160;</td>
           <td class="paramname"><em>lhs</em>, </td>
         </tr>
         <tr>
@@ -422,7 +428,7 @@ template&lt;std::size_t N, std::size_t M, class T , class TScalar &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classmu_1_1_matrix.html">Matrix</a>&lt; N, M, T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classmu_1_1Matrix.html">Matrix</a>&lt; N, M, T &gt; &amp;&#160;</td>
           <td class="paramname"><em>rhs</em>&#160;</td>
         </tr>
         <tr>
@@ -481,13 +487,13 @@ template&lt;std::size_t N, std::size_t M, class T , class U  = T&gt; </div>
         <tr>
           <td class="memname">Matrix&lt;N, M, T&gt; mu::operator+ </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classmu_1_1_matrix.html">Matrix</a>&lt; N, M, T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classmu_1_1Matrix.html">Matrix</a>&lt; N, M, T &gt; &amp;&#160;</td>
           <td class="paramname"><em>lhs</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classmu_1_1_matrix.html">Matrix</a>&lt; N, M, U &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classmu_1_1Matrix.html">Matrix</a>&lt; N, M, U &gt; &amp;&#160;</td>
           <td class="paramname"><em>rhs</em>&#160;</td>
         </tr>
         <tr>
@@ -552,7 +558,7 @@ template&lt;std::size_t N, std::size_t M, class T , class TScalar &gt; </div>
         <tr>
           <td class="memname">std::enable_if_t&lt;std::is_arithmetic&lt;TScalar&gt;::value, Matrix&lt;N, M, T&gt; &gt; mu::operator+ </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classmu_1_1_matrix.html">Matrix</a>&lt; N, M, T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classmu_1_1Matrix.html">Matrix</a>&lt; N, M, T &gt; &amp;&#160;</td>
           <td class="paramname"><em>lhs</em>, </td>
         </tr>
         <tr>
@@ -623,7 +629,7 @@ template&lt;std::size_t N, std::size_t M, class T , class TScalar &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classmu_1_1_matrix.html">Matrix</a>&lt; N, M, T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classmu_1_1Matrix.html">Matrix</a>&lt; N, M, T &gt; &amp;&#160;</td>
           <td class="paramname"><em>rhs</em>&#160;</td>
         </tr>
         <tr>
@@ -682,13 +688,13 @@ template&lt;std::size_t N, std::size_t M, class T , class U  = T&gt; </div>
         <tr>
           <td class="memname">Matrix&lt;N, M, T&gt; mu::operator- </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classmu_1_1_matrix.html">Matrix</a>&lt; N, M, T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classmu_1_1Matrix.html">Matrix</a>&lt; N, M, T &gt; &amp;&#160;</td>
           <td class="paramname"><em>lhs</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classmu_1_1_matrix.html">Matrix</a>&lt; N, M, U &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classmu_1_1Matrix.html">Matrix</a>&lt; N, M, U &gt; &amp;&#160;</td>
           <td class="paramname"><em>rhs</em>&#160;</td>
         </tr>
         <tr>
@@ -753,7 +759,7 @@ template&lt;std::size_t N, std::size_t M, class T , class TScalar &gt; </div>
         <tr>
           <td class="memname">std::enable_if_t&lt;std::is_arithmetic&lt;TScalar&gt;::value, Matrix&lt;N, M, T&gt; &gt; mu::operator- </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classmu_1_1_matrix.html">Matrix</a>&lt; N, M, T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classmu_1_1Matrix.html">Matrix</a>&lt; N, M, T &gt; &amp;&#160;</td>
           <td class="paramname"><em>lhs</em>, </td>
         </tr>
         <tr>
@@ -817,13 +823,13 @@ template&lt;std::size_t N, std::size_t M, class T , class U  = T&gt; </div>
         <tr>
           <td class="memname">Matrix&lt;N, M, T&gt; mu::operator/ </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classmu_1_1_matrix.html">Matrix</a>&lt; N, M, T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classmu_1_1Matrix.html">Matrix</a>&lt; N, M, T &gt; &amp;&#160;</td>
           <td class="paramname"><em>lhs</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classmu_1_1_matrix.html">Matrix</a>&lt; N, M, U &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classmu_1_1Matrix.html">Matrix</a>&lt; N, M, U &gt; &amp;&#160;</td>
           <td class="paramname"><em>rhs</em>&#160;</td>
         </tr>
         <tr>
@@ -888,7 +894,7 @@ template&lt;std::size_t N, std::size_t M, class T , class TScalar &gt; </div>
         <tr>
           <td class="memname">std::enable_if_t&lt;std::is_arithmetic&lt;TScalar&gt;::value, Matrix&lt;N, M, T&gt; &gt; mu::operator/ </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classmu_1_1_matrix.html">Matrix</a>&lt; N, M, T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classmu_1_1Matrix.html">Matrix</a>&lt; N, M, T &gt; &amp;&#160;</td>
           <td class="paramname"><em>lhs</em>, </td>
         </tr>
         <tr>
@@ -933,16 +939,16 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="matrix_8h_a6bd27cc50de057ff0a1c09e88fb8a57a_cgraph.png" border="0" usemap="#matrix_8h_a6bd27cc50de057ff0a1c09e88fb8a57a_cgraph" alt=""/></div>
 <map name="matrix_8h_a6bd27cc50de057ff0a1c09e88fb8a57a_cgraph" id="matrix_8h_a6bd27cc50de057ff0a1c09e88fb8a57a_cgraph">
 <area shape="rect" id="node2" href="matrix_8h.html#a2c2ebfd9667ee0f3060848abbfb43aaa" title="division operator " alt="" coords="181,29,279,56"/>
-<area shape="rect" id="node3" href="classmu_1_1_matrix.html#aacdd03a161afa051f7006e17af9d7483" title="get the min value of the matrix " alt="" coords="358,80,471,107"/>
-<area shape="rect" id="node5" href="classmu_1_1_matrix.html#a6754a5eb5065b9cbdccd25dec8ed1561" title="get the max value of the matrix " alt="" coords="356,131,473,157"/>
-<area shape="rect" id="node6" href="classmu_1_1_matrix.html#ae6c03480a44fc705d22230fb770a4e60" title="sum up all the elements of the matrix " alt="" coords="356,207,473,233"/>
-<area shape="rect" id="node7" href="classmu_1_1_matrix.html#af5bb9793e811451fbbdde9017ac551b5" title="mean of all the elements of the matrix " alt="" coords="168,232,292,259"/>
-<area shape="rect" id="node8" href="classmu_1_1_matrix.html#a214d46d0c61a447dae00184dfddbb969" title="returns the diagonal of the matrix as a vector " alt="" coords="172,283,288,309"/>
-<area shape="rect" id="node9" href="classmu_1_1_matrix.html#a61261e56dda2006a9b1d3e7e068f2a42" title="calculates the determinant of the matrix " alt="" coords="175,333,285,360"/>
-<area shape="rect" id="node10" href="classmu_1_1_matrix.html#af8a8abe6f2c69b0ab37e110e3e3f7d9e" title="transposes this Matrix object " alt="" coords="155,384,305,411"/>
-<area shape="rect" id="node11" href="classmu_1_1_matrix.html#abd9c6ab113a20f6759756853c7de835b" title="creates and returns a transposed Matrix object " alt="" coords="152,435,308,461"/>
-<area shape="rect" id="node12" href="classmu_1_1_matrix.html#ab25f4f8eda7520a919bce40444730e15" title="dot product of two matrices " alt="" coords="175,485,285,512"/>
-<area shape="rect" id="node4" href="classmu_1_1_matrix.html#a64db8855e699278c4d17e146281eaf43" title="get a matrix row as a vector " alt="" coords="521,131,635,157"/>
+<area shape="rect" id="node3" href="classmu_1_1Matrix.html#aacdd03a161afa051f7006e17af9d7483" title="get the min value of the matrix " alt="" coords="358,80,471,107"/>
+<area shape="rect" id="node5" href="classmu_1_1Matrix.html#a6754a5eb5065b9cbdccd25dec8ed1561" title="get the max value of the matrix " alt="" coords="356,131,473,157"/>
+<area shape="rect" id="node6" href="classmu_1_1Matrix.html#ae6c03480a44fc705d22230fb770a4e60" title="sum up all the elements of the matrix " alt="" coords="356,207,473,233"/>
+<area shape="rect" id="node7" href="classmu_1_1Matrix.html#af5bb9793e811451fbbdde9017ac551b5" title="mean of all the elements of the matrix " alt="" coords="168,232,292,259"/>
+<area shape="rect" id="node8" href="classmu_1_1Matrix.html#a214d46d0c61a447dae00184dfddbb969" title="returns the diagonal of the matrix as a vector " alt="" coords="172,283,288,309"/>
+<area shape="rect" id="node9" href="classmu_1_1Matrix.html#a61261e56dda2006a9b1d3e7e068f2a42" title="calculates the determinant of the matrix " alt="" coords="175,333,285,360"/>
+<area shape="rect" id="node10" href="classmu_1_1Matrix.html#af8a8abe6f2c69b0ab37e110e3e3f7d9e" title="transposes this Matrix object " alt="" coords="155,384,305,411"/>
+<area shape="rect" id="node11" href="classmu_1_1Matrix.html#abd9c6ab113a20f6759756853c7de835b" title="creates and returns a transposed Matrix object " alt="" coords="152,435,308,461"/>
+<area shape="rect" id="node12" href="classmu_1_1Matrix.html#ab25f4f8eda7520a919bce40444730e15" title="dot product of two matrices " alt="" coords="175,485,285,512"/>
+<area shape="rect" id="node4" href="classmu_1_1Matrix.html#a64db8855e699278c4d17e146281eaf43" title="get a matrix row as a vector " alt="" coords="521,131,635,157"/>
 </map>
 </div>
 
@@ -965,7 +971,7 @@ template&lt;std::size_t Nn, std::size_t Mm, class U &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classmu_1_1_matrix.html">Matrix</a>&lt; Nn, Mm, U &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classmu_1_1Matrix.html">Matrix</a>&lt; Nn, Mm, U &gt; &amp;&#160;</td>
           <td class="paramname"><em>m</em>&#160;</td>
         </tr>
         <tr>
@@ -976,7 +982,7 @@ template&lt;std::size_t Nn, std::size_t Mm, class U &gt; </div>
       </table>
 </div><div class="memdoc">
 <p>forwards Vector for every row</p>
-<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1_matrix.html">mu::Matrix&lt;2, 2, int&gt;</a> a{{2, 3}, {5, 7}};</div><div class="line">  <span class="comment">// std::cout &lt;&lt; a &lt;&lt; std::endl;</span></div><div class="line">  <span class="comment">// [ [ 2, 3 ],</span></div><div class="line">  <span class="comment">//   [ 5, 7 ] ]</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;2, 2, int&gt;</a> a{{2, 3}, {5, 7}};</div><div class="line">  <span class="comment">// std::cout &lt;&lt; a &lt;&lt; std::endl;</span></div><div class="line">  <span class="comment">// [ [ 2, 3 ],</span></div><div class="line">  <span class="comment">//   [ 5, 7 ] ]</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Nn</td><td></td></tr>

@@ -1,7 +1,7 @@
 var vector_8h =
 [
-    [ "Matrix", "classmu_1_1_matrix.html", "classmu_1_1_matrix" ],
-    [ "Vector", "classmu_1_1_vector.html", "classmu_1_1_vector" ],
+    [ "Matrix", "classmu_1_1Matrix.html", "classmu_1_1Matrix" ],
+    [ "Vector", "classmu_1_1Vector.html", "classmu_1_1Vector" ],
     [ "dot", "vector_8h.html#a16377641dbd6a8daf3aed7c71508f8c9", null ],
     [ "dot", "vector_8h.html#ae9d46281cf90e202d6b39d1658b896de", null ],
     [ "flip", "vector_8h.html#ae66eec9d4ad68f4ecbd67f97908002ea", null ],
