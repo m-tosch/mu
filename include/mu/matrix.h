@@ -429,7 +429,7 @@ class Matrix {
   }
 
   /**
-   * @brief returns the diagonale of the matrix as a vector
+   * @brief returns the diagonal of the matrix as a vector
    *
    * the vector is of the size of the smallest matrix dimension. either N or M
    *
