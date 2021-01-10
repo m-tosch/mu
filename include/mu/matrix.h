@@ -650,6 +650,8 @@ class Matrix {
    *
    * forwards Vector for every row
    *
+   * @par Example
+   * @snippet example_matrix.cpp matrix operator stream out
    * @tparam Nn
    * @tparam U
    * @param os
