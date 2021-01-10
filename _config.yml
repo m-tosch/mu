@@ -1,11 +1,7 @@
-highlighter: rouge
 markdown: kramdown
-kramdown:
- input: GFM
- auto_ids: true
- hard_wrap: false
- syntax_highlighter: rouge
-
 include:
-  - _formulas.tex
+  - _*.tex
   - _*.html
+  - _*.js
+  - _*.css
+  - _*.png
