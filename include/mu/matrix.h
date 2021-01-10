@@ -433,11 +433,17 @@ class Matrix {
    *
    * the vector is of the size of the smallest matrix dimension. either N or M
    *
+   * return type specified as "auto" because otherwise doc does not generate
+   * correctly. otherwise would be:
+   * @code
+   * std::conditional_t < N<M, Vector<N, T>, Vector<M, T>>
+   * @endcode
+   *
    * @par Example
    * @snippet example_matrix.cpp matrix diag function
    * @return Vector<N,T> or Vector<M,T>
    */
-  std::conditional_t < N<M, Vector<N, T>, Vector<M, T>> diag() const {
+  auto diag() const {
     constexpr std::size_t s = N < M ? N : M;
     Vector<s, T> ret;
     for (std::size_t i = 0; i < s; i++) {
