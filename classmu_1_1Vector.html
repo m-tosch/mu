@@ -19,12 +19,6 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    extensions: ["tex2jax.js"],
-    jax: ["input/TeX","output/HTML-CSS"],
-});
-</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -834,8 +828,8 @@ template&lt;typename U  = void, std::size_t N2, typename T2 &gt; </div>
 </div><div class="memdoc">
 
 <p>dot product of two vectors </p>
-<p>For a <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> \( a \) of size \( N \) and a <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> \( b \) of size \( N \) the result is a scalar,</p>
-<p>\( a \cdot b = \sum_{i=1}^{N} a_i b_i \)</p>
+<p>For a <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> <img class="formulaInl" alt="$ a $" src="form_28.png"/> of size <img class="formulaInl" alt="$ N $" src="form_23.png"/> and a <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> <img class="formulaInl" alt="$ b $" src="form_20.png"/> of size <img class="formulaInl" alt="$ N $" src="form_23.png"/> the result is a scalar,</p>
+<p><img class="formulaInl" alt="$ a \cdot b = \sum_{i=1}^{N} a_i b_i $" src="form_29.png"/></p>
 <p><a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> sizes must be equal</p>
 <p>For two Vectors of the same type, specifying the return type is optional. It will be of the type of the two Vectors by default.</p>
 <p>For two Vectors of different types, specifying the return type is required.</p>
@@ -897,9 +891,9 @@ template&lt;typename U  = void, std::size_t N2, std::size_t M2, typename T2 &gt;
 </div><div class="memdoc">
 
 <p>dot product of a vector and a matrix </p>
-<p>For a <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> \( a \) of size \( N \) and a <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> \( B \) of size \( N \times M \) the result is a <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> \( c \) of size \( M \),</p>
-<p>\( c = a \cdot B \) with</p>
-<p>\( c_{j} = a_1 b_{1j} + a_2 b_{2j} + ... + a_N b_{Nj} = \sum_{i=1}^{N} a_i B_{ij} \)</p>
+<p>For a <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> <img class="formulaInl" alt="$ a $" src="form_28.png"/> of size <img class="formulaInl" alt="$ N $" src="form_23.png"/> and a <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> <img class="formulaInl" alt="$ B $" src="form_13.png"/> of size <img class="formulaInl" alt="$ N \times M $" src="form_19.png"/> the result is a <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> <img class="formulaInl" alt="$ c $" src="form_22.png"/> of size <img class="formulaInl" alt="$ M $" src="form_21.png"/>,</p>
+<p><img class="formulaInl" alt="$ c = a \cdot B $" src="form_30.png"/> with</p>
+<p><img class="formulaInl" alt="$ c_{j} = a_1 b_{1j} + a_2 b_{2j} + ... + a_N b_{Nj} = \sum_{i=1}^{N} a_i B_{ij} $" src="form_31.png"/></p>
 <p><a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> size must be equal to the size of the first <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> dimension (N)</p>
 <p>For two objects of the same type, specifying the return type is optional. It will be of the type of the two objects by default.</p>
 <p>For two objects of different types, specifying the return type is required.</p>
@@ -1192,7 +1186,7 @@ template&lt;typename U  = T&gt; </div>
 </div><div class="memdoc">
 
 <p>mean of all the elements of the vector </p>
-<p>\( \mu = \frac{\sum(x_i)}{N} \)</p>
+<p><img class="formulaInl" alt="$ \mu = \frac{\sum(x_i)}{N} $" src="form_27.png"/></p>
 <p>returns the mean as</p><ul>
 <li>the type of this vector (default)</li>
 <li>the explicitly stated type</li>
@@ -1281,7 +1275,7 @@ template&lt;std::size_t N, typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>normalizes this vector </p>
-<p>\( v_{norm} = \frac{v}{\sqrt \sum_{i=1}^{N} v_i^2} \)</p>
+<p><img class="formulaInl" alt="$ v_{norm} = \frac{v}{\sqrt \sum_{i=1}^{N} v_i^2} $" src="form_33.png"/></p>
 <p>divides every element by the euclidean vector length <br />
 the resulting euclidean vector length will be 1 </p><dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;2, float&gt;</a> a{3.0F, 4.0F};</div><div class="line">  a.<a class="code" href="classmu_1_1Vector.html#a76c03271da59a3497cfee6a0d3f65731">normalize</a>();  <span class="comment">// a is now [ 0.6, 0.8 ]</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
 <div class="dynheader">
@@ -2169,7 +2163,7 @@ template&lt;class U  = T&gt; </div>
 </div><div class="memdoc">
 
 <p>calculates the standard deviation </p>
-<p>\( \sigma = \sqrt{\frac{\sum(x_i - \mu)^2}{N}} \)</p>
+<p><img class="formulaInl" alt="$ \sigma = \sqrt{\frac{\sum(x_i - \mu)^2}{N}} $" src="form_32.png"/></p>
 <dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Vector.html">mu::Vector&lt;4, int&gt;</a> a{2, 3, 5, 7};</div><div class="line">  <span class="keywordtype">float</span> std1 = a.<a class="code" href="classmu_1_1Vector.html#a2ccceccca295e2ae76b24ae4bd765134">std</a>();         <span class="comment">// 1 (because a holds type int)</span></div><div class="line">  <span class="keywordtype">float</span> std2 = a.std&lt;<span class="keywordtype">float</span>&gt;();  <span class="comment">// 1.92028642</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
