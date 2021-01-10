@@ -19,6 +19,7 @@ jobs:
           sudo apt-get install -y nodejs
           sudo apt-get update
           sudo apt-get install -y npm
+          npm install node-gyp
           npm install mathjax
           cd doc/
           doxygen Doxyfile
