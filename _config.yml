@@ -1,1 +1,2 @@
-theme: jekyll-theme-slate
+kramdown:
+  math_engine: mathjax
