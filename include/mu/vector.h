@@ -452,7 +452,7 @@ class Vector {
   /**
    * @brief calculates the standard deviation
    *
-   * \f$ \sigma = \sqrt{\frac{\sum(x_i - \mu)^2}{N}} \f$
+   * $$ \sigma = \sqrt{\frac{\sum(x_i - \mu)^2}{N}} $$
    *
    * @par Example
    * @snippet example_vector.cpp vector std function
