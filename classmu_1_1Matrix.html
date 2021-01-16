@@ -19,6 +19,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -1041,9 +1047,9 @@ template&lt;typename U  = void, std::size_t N2, std::size_t M2, typename T2 &gt;
 </div><div class="memdoc">
 
 <p>dot product of two matrices </p>
-<p>For a <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> <img class="formulaInl" alt="$ A $" src="form_11.png"/> of size <img class="formulaInl" alt="$ M \times N $" src="form_12.png"/> and a <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> <img class="formulaInl" alt="$ B $" src="form_13.png"/> of size <img class="formulaInl" alt="$ N \times P $" src="form_14.png"/> the result is a <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> <img class="formulaInl" alt="$ C $" src="form_15.png"/> of size <img class="formulaInl" alt="$ M \times P $" src="form_16.png"/>,</p>
-<p><img class="formulaInl" alt="$ C = A \cdot B $" src="form_17.png"/> with</p>
-<p><img class="formulaInl" alt="$ c_{ij} = A_{i1} B_{1j} + A_{i2} B_{2j} + ... + A_{iN} B_{Nj} = \sum_{k=1}^{N} A_{ik} B_{kj} $" src="form_18.png"/></p>
+<p>For a <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> \( A \) of size \( M \times N \) and a <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> \( B \) of size \( N \times P \) the result is a <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> \( C \) of size \( M \times P \),</p>
+<p>\( C = A \cdot B \) with</p>
+<p>\( c_{ij} = A_{i1} B_{1j} + A_{i2} B_{2j} + ... + A_{iN} B_{Nj} = \sum_{k=1}^{N} A_{ik} B_{kj} \)</p>
 <p>Second <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> dimension (N) of first <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> must be equal to the first <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> dimension of the second <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> (N)</p>
 <p>For two objects of the same type, specifying the return type is optional. It will be of the type of the two objects by default.</p>
 <p>For two objects of different types, specifying the return type is required.</p>
@@ -1114,9 +1120,9 @@ template&lt;typename U  = void, std::size_t N2, typename T2 &gt; </div>
 </div><div class="memdoc">
 
 <p>dot product of a matrix and a vector </p>
-<p>For a <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> <img class="formulaInl" alt="$ A $" src="form_11.png"/> of size <img class="formulaInl" alt="$ N \times M $" src="form_19.png"/> and a <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> <img class="formulaInl" alt="$ b $" src="form_20.png"/> of size <img class="formulaInl" alt="$ M $" src="form_21.png"/> the result is a <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> <img class="formulaInl" alt="$ c $" src="form_22.png"/> of size <img class="formulaInl" alt="$ N $" src="form_23.png"/>,</p>
-<p><img class="formulaInl" alt="$ c = A \cdot b $" src="form_24.png"/> with</p>
-<p><img class="formulaInl" alt="$ c_{j} = A_{j1} b_1 + A_{j2} b_2 + ... + A_{jM} b_M = \sum_{i=1}^{M} A_{ji} b_i $" src="form_25.png"/></p>
+<p>For a <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> \( A \) of size \( N \times M \) and a <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> \( b \) of size \( M \) the result is a <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> \( c \) of size \( N \),</p>
+<p>\( c = A \cdot b \) with</p>
+<p>\( c_{j} = A_{j1} b_1 + A_{j2} b_2 + ... + A_{jM} b_M = \sum_{i=1}^{M} A_{ji} b_i \)</p>
 <p>Second <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> dimension (M) must be equal to the size of the <a class="el" href="classmu_1_1Vector.html" title="A generic vector. ">Vector</a> (N)</p>
 <p>For two objects of the same type, specifying the return type is optional. It will be of the type of the two objects by default.</p>
 <p>For two objects of different types, specifying the return type is required.</p>
@@ -2204,7 +2210,7 @@ template&lt;class U  = T&gt; </div>
 </div><div class="memdoc">
 
 <p>calculates the standard deviation </p>
-<p><img class="formulaInl" alt="$ \sigma = \sqrt{\frac{\sum(x_ij - \mu)^2}{N}} $" src="form_26.png"/></p>
+<p>\( \sigma = \sqrt{\frac{\sum(x_ij - \mu)^2}{N}} \)</p>
 <dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;2, 2, int&gt;</a> a{{2, 3}, {5, 7}};</div><div class="line">  <span class="keywordtype">float</span> std1 = a.<a class="code" href="classmu_1_1Matrix.html#a36369318da6f26e202c2ac4a9deeda6e">std</a>();         <span class="comment">// 1 (because a holds type int)</span></div><div class="line">  <span class="keywordtype">float</span> std2 = a.<a class="code" href="classmu_1_1Matrix.html#a36369318da6f26e202c2ac4a9deeda6e">std</a>&lt;<span class="keywordtype">float</span>&gt;();  <span class="comment">// 1.92028642</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
