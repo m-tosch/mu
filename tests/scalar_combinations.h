@@ -160,19 +160,10 @@ TYPED_TEST_P(ScalarCombinationsFixture, OperatorDivideEqual) {
   EXPECT_THAT(obj, ::testing::ContainerEq(comp));
 }
 
-TYPED_TEST_P(ScalarCombinationsFixture, OperatorDivideByZeroAssert) {
-  /** arrange */
-  typename TestFixture::T1 obj{this->values};
-  /** action & assert */
-  if constexpr (std::is_integral_v<typename TestFixture::T2>) {
-    EXPECT_DEATH({ obj / TestFixture::zero; }, "");  // NOLINT
-  }
-}
-
 REGISTER_TYPED_TEST_SUITE_P(ScalarCombinationsFixture, OperatorPlus,
                             OperatorPlusEqual, OperatorMinus,
                             OperatorMinusEqual, OperatorMultiply,
                             OperatorMultiplyEqual, OperatorDivide,
-                            OperatorDivideEqual, OperatorDivideByZeroAssert);
+                            OperatorDivideEqual);
 
 #endif  // TESTS_SCALAR_COMBINATIONS_H_

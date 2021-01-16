@@ -274,9 +274,6 @@ TYPED_TEST_P(MatrixTypeFixture, MemberFuncRow) {
   auto comp_last = obj[dummy.n_rows() - 1];
   EXPECT_THAT(row_first, ::testing::ContainerEq(comp_first));
   EXPECT_THAT(row_last, ::testing::ContainerEq(comp_last));
-  /* access outside the dimension bounds should cause failure */
-  EXPECT_DEATH({ obj.row(-1); }, "");                  // NOLINT
-  EXPECT_DEATH({ obj.row(dummy.n_rows() + 1); }, "");  // NOLINT
 }
 
 TYPED_TEST_P(MatrixTypeFixture, MemberFuncCol) {
@@ -297,9 +294,6 @@ TYPED_TEST_P(MatrixTypeFixture, MemberFuncCol) {
   }
   EXPECT_THAT(col_first, ::testing::ContainerEq(comp_first));
   EXPECT_THAT(col_last, ::testing::ContainerEq(comp_last));
-  /* access outside the dimension bounds should cause failure */
-  EXPECT_DEATH({ obj.col(-1); }, "");                  // NOLINT
-  EXPECT_DEATH({ obj.col(dummy.n_cols() + 1); }, "");  // NOLINT
 }
 
 TYPED_TEST_P(MatrixTypeFixture, MemberFuncMin) {
