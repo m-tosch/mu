@@ -4,7 +4,7 @@
     {
       "label": "build",
       "type": "shell",
-      "command": "mkdir -p ${workspaceFolder}/build && cd ${workspaceFolder}/build && cmake .. -G \"Unix Makefiles\" && cmake --build . -- -j8",
+      "command": "mkdir -p ${workspaceFolder}/build && cd ${workspaceFolder}/build && cmake .. -G \"Unix Makefiles\" -DCMAKE_BUILD_TYPE=Debug && cmake --build . -- -j8",
       "group": {
         "kind": "build",
         "isDefault": true
