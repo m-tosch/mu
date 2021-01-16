@@ -342,7 +342,7 @@ class Matrix {
    * @return Vector<M, T>
    */
   Vector<M, T> row(const size_type &idx) const {
-    /* access to outside the matrix bounds can only be checked at runtime */
+    /* runtime check for out-of-range. only in debug mode */
     assert(idx >= 0 && idx < N);
     return data_[idx];
   }
@@ -358,7 +358,7 @@ class Matrix {
    * @return Vector<N, T>
    */
   Vector<N, T> col(const size_type &idx) const {
-    /* access to outside the matrix bounds can only be checked at runtime */
+    /* runtime check for out-of-range. only in debug mode */
     assert(idx >= 0 && idx < M);
     Vector<N, T> ret;
     for (std::size_t i = 0; i < N; i++) {

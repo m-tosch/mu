@@ -785,7 +785,7 @@ class Vector {
   operator/=(const TScalar &scalar) {
     /* a division by zero of an integral type is undefined in standard c++
      * however, in the context of this Vector class, it is seen as rather
-     * harmful and can become the source of non obvious bugs */
+     * harmful and can become the source of bugs. debug mode only */
     if (std::is_integral<TScalar>::value) {
       assert(scalar != static_cast<TScalar>(0));
     }
