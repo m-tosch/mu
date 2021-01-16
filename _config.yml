@@ -1,7 +1,0 @@
-markdown: kramdown
-include:
-  - _*.tex
-  - _*.html
-  - _*.js
-  - _*.css
-  - _*.png
