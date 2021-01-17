@@ -1,6 +1,6 @@
 <map id="mu::flip" name="mu::flip">
 <area shape="rect" id="node2" href="$classmu_1_1Vector.html#a597ca2de6348a91e896f3f2296a5bcd2" title="flips this vector, i.e. reverses its elements " alt="" coords="129,5,240,32"/>
-<area shape="rect" id="node3" href="$classmu_1_1Vector.html#a49a95eeb62e37a1abbb3b3f3d03c0168" title="returns a flipped vector " alt="" coords="119,56,251,83"/>
+<area shape="rect" id="node3" href="$classmu_1_1Vector.html#a4cc2ef12039a1bc51b8e048a48054b49" title="returns a flipped vector " alt="" coords="119,56,251,83"/>
 <area shape="rect" id="node4" href="$classmu_1_1Vector.html#a3274e01fb6a31b8e750ef2bd32cf61a3" title="sort vector elements in ascending order " alt="" coords="127,107,243,133"/>
-<area shape="rect" id="node5" href="$classmu_1_1Vector.html#a0dd802317205445d36af4acb1eab8de6" title="returns a sorted vector " alt="" coords="119,157,250,184"/>
+<area shape="rect" id="node5" href="$classmu_1_1Vector.html#a268fadef8c3774945acc651f22d18e16" title="returns a sorted vector " alt="" coords="119,157,250,184"/>
 </map>

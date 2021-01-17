@@ -299,7 +299,6 @@ class mu::Matrix&lt; N, M, T &gt;</h3>
 <li>implementation-defined extended integer types, including any signed, unsigned, and cv-qualified variants. (bool, char, int, long ...)</li>
 <li>implementation-defined extended floating-point types including any cv-qualified variants. (float, double, long double)</li>
 </ul>
-<p>Can be instantiated with a reference of an arithemtic type using std::reference_wrapper and std::ref</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">N</td><td>first matrix dimension (rows) </td></tr>
@@ -386,7 +385,7 @@ template&lt;typename... TArgs&gt; </div>
 
 <p>Construct a new <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a> object from a number of NxM values. </p>
 <p>the number of values in every dimension must match the static size of this <a class="el" href="classmu_1_1Matrix.html" title="A generic matrix. ">Matrix</a>.</p>
-<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <span class="comment">// direct initialization</span></div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;2, 3, int&gt;</a> a{{2, 3, 4}, {5, 6, 7}};</div><div class="line">  <span class="comment">// list initialization</span></div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;2, 3, int&gt;</a> b = {{2, 3, 4}, {5, 6, 7}};</div><div class="line"></div><div class="line">  <span class="comment">// hold references</span></div><div class="line">  <span class="keywordtype">int</span> num1 = 2;</div><div class="line">  <span class="keywordtype">int</span> num2 = 3;</div><div class="line">  <span class="keywordtype">int</span> num3 = 4;</div><div class="line">  <span class="keywordtype">int</span> num4 = 5;</div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;2, 2, std::reference_wrapper&lt;int&gt;</a>&gt; c{</div><div class="line">      {std::ref(num1), std::ref(num2)}, {std::ref(num3), std::ref(num4)}};</div><div class="line">  c += 1;  <span class="comment">// this changes num1, num2, num3 and num4 too</span></div><div class="line"></div></div><!-- fragment --></dd></dl>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"></div><div class="line">  <span class="comment">// direct initialization</span></div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;2, 3, int&gt;</a> a{{2, 3, 4}, {5, 6, 7}};</div><div class="line">  <span class="comment">// list initialization</span></div><div class="line">  <a class="code" href="classmu_1_1Matrix.html">mu::Matrix&lt;2, 3, int&gt;</a> b = {{2, 3, 4}, {5, 6, 7}};</div><div class="line"></div></div><!-- fragment --></dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">TArgs</td><td></td></tr>
