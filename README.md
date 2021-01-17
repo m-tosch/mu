@@ -77,31 +77,6 @@ after: [ -5.75, 2.25 ]
 
 </details>
 
-### Example 4
-
-Use references in a vector. (use carefully)
-
-<details>
-<summary>code</summary>
-
-```cpp
-int a = 3;
-int b = 4;
-mu::Vector<2, std::reference_wrapper<int>> v = {std::ref(a), std::ref(b)};
-v[0].get() = 10;
-std::cout << "v: " << v << std::endl;
-std::cout << "a: " << a << " b: " << b << std::endl;
-```
-
-output
-
-```txt
-v: [ 10, 4 ]
-a: 10 b: 4
-```
-
-</details>
-
 ## Usage
 
 TODO
