@@ -25,18 +25,9 @@ TEST(Vector, ConstructorVariadicTemplate) {
   // list initialization
   mu::Vector<2, int> b = {2, 3};
 
-  // hold references
-  int num1 = 2;
-  int num2 = 3;
-  mu::Vector<2, std::reference_wrapper<int>> c{std::ref(num1), std::ref(num2)};
-  c += 1;  // this changes num1 and num2 too
-
   //! [vector variadic template constructor]
   EXPECT_THAT(a, ::testing::ElementsAre(2, 3));
   EXPECT_THAT(b, ::testing::ElementsAre(2, 3));
-  EXPECT_THAT(c, ::testing::ElementsAre(3, 4));
-  EXPECT_EQ(num1, 3);
-  EXPECT_EQ(num2, 4);
 }
 
 TEST(Vector, ConstructorFromDifferentType) {

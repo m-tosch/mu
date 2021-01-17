@@ -21,26 +21,11 @@ TEST(Matrix, ConstructorVariadicTemplate) {
   // list initialization
   mu::Matrix<2, 3, int> b = {{2, 3, 4}, {5, 6, 7}};
 
-  // hold references
-  int num1 = 2;
-  int num2 = 3;
-  int num3 = 4;
-  int num4 = 5;
-  mu::Matrix<2, 2, std::reference_wrapper<int>> c{
-      {std::ref(num1), std::ref(num2)}, {std::ref(num3), std::ref(num4)}};
-  c += 1;  // this changes num1, num2, num3 and num4 too
-
   //! [matrix variadic template constructor]
   EXPECT_THAT(a[0], ::testing::ElementsAre(2, 3, 4));
   EXPECT_THAT(a[1], ::testing::ElementsAre(5, 6, 7));
   EXPECT_THAT(b[0], ::testing::ElementsAre(2, 3, 4));
   EXPECT_THAT(b[1], ::testing::ElementsAre(5, 6, 7));
-  EXPECT_THAT(c[0], ::testing::ElementsAre(3, 4));
-  EXPECT_THAT(c[1], ::testing::ElementsAre(5, 6));
-  EXPECT_EQ(num1, 3);
-  EXPECT_EQ(num2, 4);
-  EXPECT_EQ(num3, 5);
-  EXPECT_EQ(num4, 6);
 }
 
 TEST(Matrix, ConstructorFromDifferentType) {

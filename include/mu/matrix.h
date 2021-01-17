@@ -36,9 +36,8 @@ template <std::size_t N, std::size_t M, typename T>
 class Matrix {
   static_assert(N != 0, "first matrix dimension (rows) cannot be zero");
   static_assert(M != 0, "second matrix dimension (columns) cannot be zero");
-  static_assert(std::is_arithmetic<mu::unwrap_ref_t<T>>::value,
-                "Matrix type T must be an arithmetic type or a "
-                "std::reference_wrapper that holds an arithmetic type");
+  static_assert(std::is_arithmetic<T>::value,
+                "Matrix type T must be an arithmetic type");
 
  public:
   /* value and size type from the underlying container */
