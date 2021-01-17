@@ -41,18 +41,13 @@ class Matrix;
  * - implementation-defined extended floating-point types including any
  *   cv-qualified variants. (float, double, long double)
  *
- * Can be instantiated with a reference of an arithemtic type using
- * std::reference_wrapper and std::ref
- *
  * @tparam N size
  * @tparam T the type of the values inside the vector
  */
 template <std::size_t N, typename T>
 class Vector {
-  /* TODO comment*/
-  using T_unref = mu::unwrap_ref_t<T>;
   static_assert(N != 0, "Vector dimension cannot be zero");
-  static_assert(std::is_arithmetic<T_unref>::value,
+  static_assert(std::is_arithmetic<T>::value,
                 "Vector type T must be an arithmetic type or a "
                 "std::reference_wrapper that holds an arithmetic type");
 
@@ -299,7 +294,7 @@ class Vector {
    * @snippet example_vector.cpp vector min function
    * @return T
    */
-  T_unref min() const {
+  T min() const {
     T ret(data_[0]);
     for (std::size_t i = 1; i < N; i++) {
       ret = mu::min(ret, data_[i]);
@@ -314,7 +309,7 @@ class Vector {
    * @snippet example_vector.cpp vector max function
    * @return T
    */
-  T_unref max() const {
+  T max() const {
     T ret(data_[0]);
     for (std::size_t i = 1; i < N; i++) {
       ret = mu::max(ret, data_[i]);
@@ -329,8 +324,8 @@ class Vector {
    * @snippet example_vector.cpp vector sum function
    * @return T
    */
-  T_unref sum() const {
-    T_unref ret{};
+  T sum() const {
+    T ret{};
     for (const auto &item : data_) {
       ret += item;
     }
@@ -351,7 +346,7 @@ class Vector {
    * @tparam U
    * @return U
    */
-  template <typename U = T_unref>
+  template <typename U = T>
   U mean() const {
     return U(sum()) / N;
   }
@@ -383,10 +378,10 @@ class Vector {
    * @return std::conditional_t<std::is_same<U, void>::value, T, U>
    */
   template <typename U = void, std::size_t N2, typename T2>
-  std::conditional_t<std::is_same<U, void>::value, T_unref, U> dot(
+  std::conditional_t<std::is_same<U, void>::value, T, U> dot(
       const Vector<N2, T2> &rhs) const {
     static_assert(N == N2, "Vector size mismatch");
-    using U_ = std::conditional_t<!std::is_same<T, T2>::value, U, T_unref>;
+    using U_ = std::conditional_t<!std::is_same<T, T2>::value, U, T>;
     static_assert(!std::is_same<U_, void>::value,
                   "Vector types are different. please specify the return "
                   "type. e.g. \"vec1.dot<float>(vec2);\"");
@@ -430,13 +425,12 @@ class Vector {
    * Vector<M2, U>>
    */
   template <typename U = void, std::size_t N2, std::size_t M2, typename T2>
-  std::conditional_t<std::is_same<U, void>::value, Vector<M2, T_unref>,
-                     Vector<M2, U>>
+  std::conditional_t<std::is_same<U, void>::value, Vector<M2, T>, Vector<M2, U>>
   dot(const Matrix<N2, M2, T2> &rhs) const {
     static_assert(N == N2,
                   "Vector-Matrix dimension mismatch. Vector size must be equal "
                   "to the first dimension of the matrix");
-    using U_ = std::conditional_t<!std::is_same<T, T2>::value, U, T_unref>;
+    using U_ = std::conditional_t<!std::is_same<T, T2>::value, U, T>;
     static_assert(
         !std::is_same<U_, void>::value,
         "Vector and Matrix types are different. please specify the return "
@@ -462,7 +456,7 @@ class Vector {
    * @tparam U
    * @return U
    */
-  template <class U = T_unref>
+  template <class U = T>
   U std() const {
     U sum{0};
     U m = mean<U>();
@@ -484,7 +478,7 @@ class Vector {
    * @tparam U
    * @return U
    */
-  template <class U = T_unref>
+  template <class U = T>
   U length() const {
     return U(mu::sqrt(dot(*this)));
   }
@@ -509,8 +503,8 @@ class Vector {
    * @see @ref normalize()
    * @return Vector<N, T>
    */
-  Vector<N, T_unref> normalized() {
-    Vector<N, T_unref> ret(*this);
+  Vector<N, T> normalized() {
+    Vector<N, T> ret(*this);
     ret.normalize();
     return ret;
   }
@@ -531,8 +525,8 @@ class Vector {
    * @see @ref flip()
    * @return Vector<N, T>
    */
-  Vector<N, T_unref> flipped() const {
-    Vector<N, T_unref> ret(*this);
+  Vector<N, T> flipped() const {
+    Vector<N, T> ret(*this);
     ret.flip();
     return ret;
   }
@@ -567,8 +561,8 @@ class Vector {
    * @snippet example_vector.cpp vector sorted function
    * @return Vector<N, T>
    */
-  Vector<N, T_unref> sorted() const {
-    Vector<N, T_unref> ret(*this);
+  Vector<N, T> sorted() const {
+    Vector<N, T> ret(*this);
     ret.sort();
     return ret;
   }
@@ -583,8 +577,8 @@ class Vector {
    * @return Vector<N, T>
    */
   template <typename Compare>
-  Vector<N, T_unref> sorted(const Compare &comp) const {
-    Vector<N, T_unref> ret(*this);
+  Vector<N, T> sorted(const Compare &comp) const {
+    Vector<N, T> ret(*this);
     ret.sort(comp);
     return ret;
   }
@@ -620,12 +614,11 @@ class Vector {
    * @param rhs
    * @return bool true if equal, false if unequal
    */
-  template <typename U = T_unref>
+  template <typename U = T>
   bool operator==(const Vector<N, U> &rhs) const {
-    using U_unref = mu::unwrap_ref_t<U>;
     for (std::size_t i = 0; i < N; i++) {
-      if (!mu::TypeTraits<T_unref>::equals(data_[i], rhs[i]) ||
-          !mu::TypeTraits<U_unref>::equals(data_[i], rhs[i])) {
+      if (!mu::TypeTraits<T>::equals(data_[i], rhs[i]) ||
+          !mu::TypeTraits<U>::equals(data_[i], rhs[i])) {
         return false;
       }
     }
@@ -638,7 +631,7 @@ class Vector {
    * @param rhs
    * @return bool true if unequal, false if equal
    */
-  template <typename U = T_unref>
+  template <typename U = T>
   bool operator!=(const Vector<N, U> &rhs) const {
     return !operator==(rhs);
   }
@@ -652,7 +645,7 @@ class Vector {
    * @param rhs
    * @return Vector<N, T>&
    */
-  template <typename U = T_unref>
+  template <typename U = T>
   Vector<N, T> &operator+=(const Vector<N, U> &rhs) {
     for (std::size_t i = 0; i < N; i++) {
       data_[i] += rhs[i];
@@ -669,7 +662,7 @@ class Vector {
    * @param rhs
    * @return Vector<N, T>&
    */
-  template <typename U = T_unref>
+  template <typename U = T>
   Vector<N, T> &operator-=(const Vector<N, U> &rhs) {
     for (std::size_t i = 0; i < N; i++) {
       data_[i] -= rhs[i];
@@ -686,7 +679,7 @@ class Vector {
    * @param rhs
    * @return Vector<N, T>&
    */
-  template <typename U = T_unref>
+  template <typename U = T>
   Vector<N, T> &operator*=(const Vector<N, U> &rhs) {
     for (std::size_t i = 0; i < N; i++) {
       data_[i] *= rhs[i];
@@ -705,7 +698,7 @@ class Vector {
    * @param rhs
    * @return Vector<N, T>&
    */
-  template <typename U = T_unref>
+  template <typename U = T>
   Vector<N, T> &operator/=(const Vector<N, U> &rhs) {
     for (std::size_t i = 0; i < N; i++) {
       data_[i] /= rhs[i];

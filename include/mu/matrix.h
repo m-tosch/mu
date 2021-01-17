@@ -28,9 +28,6 @@ namespace mu {
  * - implementation-defined extended floating-point types including any
  *   cv-qualified variants. (float, double, long double)
  *
- * Can be instantiated with a reference of an arithemtic type using
- * std::reference_wrapper and std::ref
- *
  * @tparam N first matrix dimension (rows)
  * @tparam M second matrix dimension (columns)
  * @tparam T the type of the values inside the matrix
