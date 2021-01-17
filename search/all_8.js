@@ -5,7 +5,7 @@ var searchData=
   ['matrix2x2',['Matrix2x2',['../matrix_8h.html#aed67c0f79a50c70f5b634f5de8cdd954',1,'mu']]],
   ['matrix3x3',['Matrix3x3',['../matrix_8h.html#aa7b0dec9829e3d3692cebbc3f5ef5b38',1,'mu']]],
   ['matrixnxn',['MatrixNxN',['../matrix_8h.html#ae59c5e5c475a2aee765fa35796afbad5',1,'mu']]],
-  ['max',['max',['../classmu_1_1Matrix.html#a6754a5eb5065b9cbdccd25dec8ed1561',1,'mu::Matrix::max()'],['../classmu_1_1Vector.html#a0bcb8df801149ed1a5654a141aae14d7',1,'mu::Vector::max()']]],
+  ['max',['max',['../classmu_1_1Matrix.html#a6754a5eb5065b9cbdccd25dec8ed1561',1,'mu::Matrix::max()'],['../classmu_1_1Vector.html#af0a0515e45a5f720d715f1c9a98db9e3',1,'mu::Vector::max()']]],
   ['mean',['mean',['../classmu_1_1Matrix.html#af5bb9793e811451fbbdde9017ac551b5',1,'mu::Matrix::mean()'],['../classmu_1_1Vector.html#a003efac25bdb30912c6481c0c3c9742a',1,'mu::Vector::mean()']]],
-  ['min',['min',['../classmu_1_1Matrix.html#aacdd03a161afa051f7006e17af9d7483',1,'mu::Matrix::min()'],['../classmu_1_1Vector.html#a57ac0fa3add5609d667d37b934793acd',1,'mu::Vector::min()']]]
+  ['min',['min',['../classmu_1_1Matrix.html#aacdd03a161afa051f7006e17af9d7483',1,'mu::Matrix::min()'],['../classmu_1_1Vector.html#a00fc75b7821ecc0563286a2da82668bc',1,'mu::Vector::min()']]]
 ];
