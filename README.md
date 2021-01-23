@@ -81,12 +81,7 @@ after: [ -5.75, 2.25 ]
 
 TODO
 
-1. link with cmake
-2. include header
-```cpp
-#include "mu/vector.h"
-#include "mu/matrix.h"
-```
+see #114
 
 ## Installation
 
