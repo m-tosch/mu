@@ -81,7 +81,7 @@ after: [ -5.75, 2.25 ]
 
 TODO
 
-see #114
+see [#114](https://github.com/m-tosch/mu/issues/114)
 
 ## Installation
 
