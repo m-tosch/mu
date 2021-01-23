@@ -22,7 +22,7 @@ The test suite of the general (parent) type is instantiated in cpp files of the 
 
 ### Combination tests
 
-Tests for functions that require **two** operants are separated and further divided into different files. These functions could require e.g. Vector-Vector, Matrix-Matrix, Vector-Scalar, Matrix-Scalar... etc. In this example, the first two are "same type" combinations and the latter two are "scalar" combinations. Their corresponding test-header files define typed test suites, they're not instantiated yet.
+Tests for functions that require **two** operands are separated and further divided into different files. These functions could require e.g. Vector-Vector, Matrix-Matrix, Vector-Scalar, Matrix-Scalar... etc. In this example, the first two are "same type" combinations and the latter two are "scalar" combinations. Their corresponding test-header files define typed test suites, they're not instantiated yet.
 
 The separation is justified by the benefit of being able to aggregate tests that are the same for different types like e.g. Vector and Matrix. Examples include constructors, but also operators like +,-,\*,/ and +=,-=,\*=,/= etc.
 
