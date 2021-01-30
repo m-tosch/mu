@@ -14,7 +14,7 @@ RUN apt-get install -y manpages-dev
 ## clang
 RUN apt-get install -y clang
 
-## debuggig
+## debugging
 RUN apt-get install -y gdb
 
 ## documentation
