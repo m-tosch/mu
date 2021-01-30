@@ -91,6 +91,8 @@ see [#114](https://github.com/m-tosch/mu/issues/114)
 
 Open the repository as a remote folder inside a container or clone it into a running linux volume in docker. The second options runs faster because it doesn't have to communicate with the host filesystem.
 
+The `.devcontainer` folder holds files that specify all external Software required for development. It is automatically installed when running the container for the first time.
+
 ## Documentation
 
 The documentation can be found [here](https://m-tosch.github.io/mu/index.html)
