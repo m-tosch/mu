@@ -107,7 +107,7 @@ The documentation will be generated in html form inside a `doc/html` folder. Vie
 
 The tests use [googletest](https://github.com/google/googletest)
 
-After successfully building the project (with cmake), you can run the tests locally from the command line inside the generated `build/tests` folder:
+After successfully building the project, you can run the tests locally from the command line inside the generated `build/tests` folder:
 
 ```cmd
 ./mu_tests
