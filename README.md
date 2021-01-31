@@ -149,9 +149,12 @@ output
 
 ## Installation
 
-[Docker Desktop](https://www.docker.com/products/docker-desktop)
+*\*for developers*
 
-[Visual Studio Code](https://code.visualstudio.com/download)
+Tools
+
+- [Docker Desktop](https://www.docker.com/products/docker-desktop)
+- [Visual Studio Code](https://code.visualstudio.com/download)
 
 Open the repository as a remote folder inside a container or clone it into a running linux volume in docker. The second options runs faster because it doesn't have to communicate with the host filesystem.
 
