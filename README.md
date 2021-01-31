@@ -79,9 +79,73 @@ after: [ -5.75, 2.25 ]
 
 ## Usage
 
-TODO
+To use this code with cmake, include the source directory either directly or into your target.
 
-see [#114](https://github.com/m-tosch/mu/issues/114)
+```cmake
+target_include_directories(my_target PRIVATE ${CMAKE_SOURCE_DIR}/mu/include)
+```
+
+Afterwards, mu header files can be included like this
+
+```cpp
+#include "mu/vector.h"
+```
+
+<details>
+<summary>minmal example</summary>
+
+structure
+
+```txt
+/dependencies
+  /mu
+CMakeLists.txt
+main.cpp
+```
+
+`CMakeLists.txt`
+
+```cmake
+cmake_minimum_required(VERSION 2.4)
+
+project(hello_world)
+
+add_executable(app main.cpp)
+
+target_include_directories(app PRIVATE ${CMAKE_SOURCE_DIR}/dependencies/mu/include)
+```
+
+`main.cpp`
+```cpp
+#include <iostream>
+#include "mu/vector.h"
+
+int main() {
+    mu::Vector<2,int> v = {1,2};
+    std::cout << v << std::endl;
+    return 0;
+}
+```
+
+commands
+```cmd
+$ mkdir dependencies
+$ cd dependencies
+$ git clone https://github.com/m-tosch/mu.git
+$ cd ..
+$ mkdir build
+$ cd build
+$ cmake .
+$ make
+$ ./app
+```
+
+output
+```txt
+[ 1, 2 ]
+```
+
+</details>
 
 ## Installation
 
