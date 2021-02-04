@@ -154,11 +154,15 @@ output
 Tools
 
 - [Docker Desktop](https://www.docker.com/products/docker-desktop)
+  - [Ubuntu 20.04 LTS](https://www.microsoft.com/en-us/p/ubuntu-2004-lts/9n6svws3rx71) (Windows 10)
 - [Visual Studio Code](https://code.visualstudio.com/download)
+  - [Remote - Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
-Open the repository as a remote folder inside a container or clone it into a running linux volume in docker. The second options runs faster because it doesn't have to communicate with the host filesystem.
+In Docker Desktop settings under "WSL Integration" you should see the Ubuntu distro you just installed. Enable it then restart docker.
 
-The `.devcontainer` folder holds files that specify all external Software required for development. It is automatically installed when running the container for the first time.
+In VS code, open the repository as a remote folder inside a container: "Remote-Containers: Clone Repository in Container Volume" or clone it into a running linux volume in docker.
+
+The `.devcontainer` folder holds files that specify all additional Software required for development. It is automatically installed when running the container for the first time.
 
 ## Documentation
 
