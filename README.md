@@ -160,7 +160,7 @@ Tools
 
 In Docker Desktop settings under "WSL Integration" you should see the Ubuntu distro you just installed. Enable it then restart docker.
 
-In VS code, open the repository as a remote folder inside a container: "Remote-Containers: Clone Repository in Container Volume" or clone it into a running linux volume in docker.
+In VS code, clone the repository into a container: View → Command Palette... → "Remote-Containers: Clone Repository in Container Volume" or open the repository as a remote folder inside a container. The second option runs slower because of the constant communication with the host filesystem.
 
 The `.devcontainer` folder holds files that specify all additional Software required for development. It is automatically installed when running the container for the first time.
 
