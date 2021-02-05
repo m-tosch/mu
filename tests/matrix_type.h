@@ -71,8 +71,8 @@ TYPED_TEST_P(MatrixTypeFixture, ConstructorVariadicTemplateSize2x2) {
   /* hardcoding this for two arguments since the size must be known to correctly
    * call the variadic template constructor. the constructor itself is
    * (probably) also tested in Matrix derived classes */
-  static TypeParam dummy;  // just to get the size at compile time here
-  if constexpr (dummy.size()[0] == 2 && dummy.size()[1] == 2) {
+  if constexpr (TestFixture::dummy.size()[0] == 2 &&
+                TestFixture::dummy.size()[1] == 2) {
     /** action */
     TypeParam obj{{this->values[0][0], this->values[0][1]},
                   {this->values[1][0], this->values[1][1]}};
@@ -82,8 +82,8 @@ TYPED_TEST_P(MatrixTypeFixture, ConstructorVariadicTemplateSize2x2) {
 }
 
 TYPED_TEST_P(MatrixTypeFixture, ConstructorVariadicTemplateAssignmentSize2x2) {
-  static TypeParam dummy;
-  if constexpr (dummy.size()[0] == 2 && dummy.size()[1] == 2) {
+  if constexpr (TestFixture::dummy.size()[0] == 2 &&
+                TestFixture::dummy.size()[1] == 2) {
     /** action */
     TypeParam obj = {{this->values[0][0], this->values[0][1]},
                      {this->values[1][0], this->values[1][1]}};
@@ -263,34 +263,34 @@ TYPED_TEST_P(MatrixTypeFixture, MemberFuncEndConst) {
 }
 
 TYPED_TEST_P(MatrixTypeFixture, MemberFuncRow) {
-  static TypeParam dummy;  // get the size at compile time
   /** arrange */
   TypeParam obj{this->values};
   /** action */
   auto row_first = obj.row(0);
-  auto row_last = obj.row(dummy.n_rows() - 1);
+  auto row_last = obj.row(TestFixture::dummy.n_rows() - 1);
   /** assert */
   auto comp_first = obj[0];
-  auto comp_last = obj[dummy.n_rows() - 1];
+  auto comp_last = obj[TestFixture::dummy.n_rows() - 1];
   EXPECT_THAT(row_first, ::testing::ContainerEq(comp_first));
   EXPECT_THAT(row_last, ::testing::ContainerEq(comp_last));
 }
 
 TYPED_TEST_P(MatrixTypeFixture, MemberFuncCol) {
-  static TypeParam dummy;  // get the size at compile time
   /** arrange */
   TypeParam obj{this->values};
   /** action */
   auto col_first = obj.col(0);
-  auto col_last = obj.col(dummy.n_cols() - 1);
+  auto col_last = obj.col(TestFixture::dummy.n_cols() - 1);
   /** assert */
-  mu::Vector<dummy.size()[0], typename TestFixture::value_type> comp_first;
-  for (std::size_t i = 0; i < dummy.size()[0]; i++) {
+  mu::Vector<TestFixture::dummy.size()[0], typename TestFixture::value_type>
+      comp_first;
+  for (std::size_t i = 0; i < TestFixture::dummy.size()[0]; i++) {
     comp_first[i] = this->values[i][0];
   }
-  mu::Vector<dummy.size()[0], typename TestFixture::value_type> comp_last;
-  for (std::size_t i = 0; i < dummy.size()[0]; i++) {
-    comp_last[i] = this->values[i][dummy.n_cols() - 1];
+  mu::Vector<TestFixture::dummy.size()[0], typename TestFixture::value_type>
+      comp_last;
+  for (std::size_t i = 0; i < TestFixture::dummy.size()[0]; i++) {
+    comp_last[i] = this->values[i][TestFixture::dummy.n_cols() - 1];
   }
   EXPECT_THAT(col_first, ::testing::ContainerEq(comp_first));
   EXPECT_THAT(col_last, ::testing::ContainerEq(comp_last));
@@ -425,9 +425,10 @@ TYPED_TEST_P(MatrixTypeFixture, MemberFuncDiag) {
   /** action*/
   auto res = obj.diag();
   /** assert */
-  static TypeParam dummy;
   constexpr std::size_t s =
-      dummy.size()[0] < dummy.size()[1] ? dummy.size()[0] : dummy.size()[1];
+      TestFixture::dummy.size()[0] < TestFixture::dummy.size()[1]
+          ? TestFixture::dummy.size()[0]
+          : TestFixture::dummy.size()[1];
   mu::Vector<s, typename TestFixture::value_type> comp;
   std::generate(comp.begin(), comp.end(), [&, i = -1]() mutable {
     i++;
@@ -437,17 +438,15 @@ TYPED_TEST_P(MatrixTypeFixture, MemberFuncDiag) {
 }
 
 TYPED_TEST_P(MatrixTypeFixture, MemberFuncDet) {
-  static TypeParam dummy;  // just to get the size at compile time here
   /* this test is ony for symmetrical matrices */
-  if constexpr (dummy.size()[0] == dummy.size()[1]) {
+  if constexpr (TestFixture::dummy.size()[0] == TestFixture::dummy.size()[1]) {
     /** arrange */
     TypeParam obj{this->values};
     /** action*/
     auto res = obj.det();
     /** assert */
-    static TypeParam dummy;
     std::vector<std::vector<typename TestFixture::value_type>> vv;
-    for (std::size_t i = 0; i < dummy.size()[0]; i++) {
+    for (std::size_t i = 0; i < TestFixture::dummy.size()[0]; i++) {
       vv.push_back(std::vector<typename TestFixture::value_type>());
       for (const auto& item : this->values[i]) {
         vv[i].push_back(item);
@@ -463,16 +462,15 @@ TYPED_TEST_P(MatrixTypeFixture, MemberFuncDet) {
 }
 
 TYPED_TEST_P(MatrixTypeFixture, MemberFuncTranspose) {
-  static TypeParam dummy;  // just to get the size at compile time here
   /* this test is ony for symmetrical matrices */
-  if constexpr (dummy.size()[0] == dummy.size()[1]) {
+  if constexpr (TestFixture::dummy.size()[0] == TestFixture::dummy.size()[1]) {
     /** arrange */
     TypeParam obj{this->values};
     /** action */
     obj.transpose();
     /** assert */
-    for (std::size_t i = 0; i < dummy.size()[0]; i++) {
-      for (std::size_t j = 0; j < dummy.size()[1]; j++) {
+    for (std::size_t i = 0; i < TestFixture::dummy.size()[0]; i++) {
+      for (std::size_t j = 0; j < TestFixture::dummy.size()[1]; j++) {
         EXPECT_EQ(obj[j][i], this->values[i][j]);
       }
     }
@@ -480,14 +478,13 @@ TYPED_TEST_P(MatrixTypeFixture, MemberFuncTranspose) {
 }
 
 TYPED_TEST_P(MatrixTypeFixture, MemberFuncTransposed) {
-  static TypeParam dummy;  // just to get the size at compile time here
   /** arrange */
   TypeParam obj{this->values};
   /** action */
   auto res = obj.transposed();
   /** assert */
-  for (std::size_t i = 0; i < dummy.size()[0]; i++) {
-    for (std::size_t j = 0; j < dummy.size()[1]; j++) {
+  for (std::size_t i = 0; i < TestFixture::dummy.size()[0]; i++) {
+    for (std::size_t j = 0; j < TestFixture::dummy.size()[1]; j++) {
       EXPECT_EQ(res[j][i], obj[i][j]);
     }
   }
@@ -608,9 +605,10 @@ TYPED_TEST_P(MatrixTypeFixture, UtilityFuncDiagMakeVector) {
   /** action*/
   auto res = mu::diag(obj);
   /** assert */
-  static TypeParam dummy;
   constexpr std::size_t s =
-      dummy.size()[0] < dummy.size()[1] ? dummy.size()[0] : dummy.size()[1];
+      TestFixture::dummy.size()[0] < TestFixture::dummy.size()[1]
+          ? TestFixture::dummy.size()[0]
+          : TestFixture::dummy.size()[1];
   mu::Vector<s, typename TestFixture::value_type> comp;
   std::generate(comp.begin(), comp.end(), [&, i = -1]() mutable {
     i++;
@@ -620,17 +618,15 @@ TYPED_TEST_P(MatrixTypeFixture, UtilityFuncDiagMakeVector) {
 }
 
 TYPED_TEST_P(MatrixTypeFixture, UtilityFuncDet) {
-  static TypeParam dummy;  // just to get the size at compile time here
   /* this test is ony for symmetrical matrices */
-  if constexpr (dummy.size()[0] == dummy.size()[1]) {
+  if constexpr (TestFixture::dummy.size()[0] == TestFixture::dummy.size()[1]) {
     /** arrange */
     TypeParam obj{this->values};
     /** action*/
     auto res = mu::det(obj);
     /** assert */
-    static TypeParam dummy;
     std::vector<std::vector<typename TestFixture::value_type>> vv;
-    for (std::size_t i = 0; i < dummy.size()[0]; i++) {
+    for (std::size_t i = 0; i < TestFixture::dummy.size()[0]; i++) {
       vv.push_back(std::vector<typename TestFixture::value_type>());
       for (const auto& item : this->values[i]) {
         vv[i].push_back(item);
@@ -643,16 +639,15 @@ TYPED_TEST_P(MatrixTypeFixture, UtilityFuncDet) {
 }
 
 TYPED_TEST_P(MatrixTypeFixture, UtilityFuncTranspose) {
-  static TypeParam dummy;  // just to get the size at compile time here
   /* this test is ony for symmetrical matrices */
-  if constexpr (dummy.size()[0] == dummy.size()[1]) {
+  if constexpr (TestFixture::dummy.size()[0] == TestFixture::dummy.size()[1]) {
     /** arrange */
     TypeParam obj{this->values};
     /** action */
     mu::transpose(obj);
     /** assert */
-    for (std::size_t i = 0; i < dummy.size()[0]; i++) {
-      for (std::size_t j = 0; j < dummy.size()[1]; j++) {
+    for (std::size_t i = 0; i < TestFixture::dummy.size()[0]; i++) {
+      for (std::size_t j = 0; j < TestFixture::dummy.size()[1]; j++) {
         EXPECT_EQ(obj[j][i], this->values[i][j]);
       }
     }
@@ -660,29 +655,27 @@ TYPED_TEST_P(MatrixTypeFixture, UtilityFuncTranspose) {
 }
 
 TYPED_TEST_P(MatrixTypeFixture, UtilityFuncTransposed) {
-  static TypeParam dummy;  // just to get the size at compile time here
   /** arrange */
   TypeParam obj{this->values};
   /** action */
   auto res = mu::transposed(obj);
   /** assert */
-  for (std::size_t i = 0; i < dummy.size()[0]; i++) {
-    for (std::size_t j = 0; j < dummy.size()[1]; j++) {
+  for (std::size_t i = 0; i < TestFixture::dummy.size()[0]; i++) {
+    for (std::size_t j = 0; j < TestFixture::dummy.size()[1]; j++) {
       EXPECT_EQ(res[j][i], obj[i][j]);
     }
   }
 }
 
 TYPED_TEST_P(MatrixTypeFixture, UtilityFuncEye) {
-  static TypeParam dummy;  // just to get the size at compile time here
   /* this test is ony for symmetrical matrices */
-  if constexpr (dummy.size()[0] == dummy.size()[1]) {
+  if constexpr (TestFixture::dummy.size()[0] == TestFixture::dummy.size()[1]) {
     /** arrange */
     /** action*/
-    TypeParam res = mu::eye<dummy.size()[0]>();
+    TypeParam res = mu::eye<TestFixture::dummy.size()[0]>();
     /** assert */
     TypeParam comp{};
-    for (std::size_t i = 0; i < dummy.size()[0]; i++) {
+    for (std::size_t i = 0; i < TestFixture::dummy.size()[0]; i++) {
       comp[i][i] = 1;
     }
     EXPECT_THAT(res, ::testing::ContainerEq(comp));
@@ -690,10 +683,9 @@ TYPED_TEST_P(MatrixTypeFixture, UtilityFuncEye) {
 }
 
 TYPED_TEST_P(MatrixTypeFixture, UtilityFuncOnes) {
-  /** arrange */
-  static TypeParam dummy;  // get the size at compile time
   /** action */
-  TypeParam res = mu::ones<dummy.size()[0], dummy.size()[1]>();
+  TypeParam res =
+      mu::ones<TestFixture::dummy.size()[0], TestFixture::dummy.size()[1]>();
   /** assert */
   TypeParam comp;
   auto one = static_cast<typename TestFixture::value_type>(1);
@@ -706,10 +698,9 @@ TYPED_TEST_P(MatrixTypeFixture, UtilityFuncOnes) {
 }
 
 TYPED_TEST_P(MatrixTypeFixture, UtilityFuncZeros) {
-  /** arrange */
-  static TypeParam dummy;  // get the size at compile time
   /** action */
-  TypeParam res = mu::zeros<dummy.size()[0], dummy.size()[1]>();
+  TypeParam res =
+      mu::zeros<TestFixture::dummy.size()[0], TestFixture::dummy.size()[1]>();
   /** assert */
   TypeParam comp;
   auto zero = static_cast<typename TestFixture::value_type>(0);

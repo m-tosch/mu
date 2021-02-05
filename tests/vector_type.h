@@ -64,8 +64,7 @@ TYPED_TEST_P(VectorTypeFixture, ConstructorVariadicTemplateSize2) {
   /* hardcoding this for two arguments since the size must be known to correctly
    * call the variadic template constructor. the constructor itself is
    * (probably) also tested in Vector derived classes */
-  static TypeParam dummy;  // just to get the size at compile time here
-  if constexpr (dummy.size() == 2) {
+  if constexpr (TestFixture::dummy.size() == 2) {
     /** action */
     TypeParam obj{this->values[0], this->values[1]};
     /** assert */
@@ -74,8 +73,7 @@ TYPED_TEST_P(VectorTypeFixture, ConstructorVariadicTemplateSize2) {
 }
 
 TYPED_TEST_P(VectorTypeFixture, ConstructorVariadicTemplateAssignmentSize2) {
-  static TypeParam dummy;
-  if constexpr (dummy.size() == 2) {
+  if constexpr (TestFixture::dummy.size() == 2) {
     /** action */
     TypeParam obj = {this->values[0], this->values[1]};
     /** assert */
@@ -476,9 +474,8 @@ TYPED_TEST_P(VectorTypeFixture, OperatorStreamOut) {
     }
   }
   /* 4. copy vector to array for easier comparison via gtest macro */
-  static TypeParam dummy;
-  std::array<vtype, dummy.size()> arr;
-  std::copy_n(v.begin(), dummy.size(), arr.begin());
+  std::array<vtype, TestFixture::dummy.size()> arr;
+  std::copy_n(v.begin(), TestFixture::dummy.size(), arr.begin());
   /** assert */
   EXPECT_THAT(this->values, ::testing::ContainerEq(arr));
 }
@@ -618,10 +615,8 @@ TYPED_TEST_P(VectorTypeFixture, UtilityFuncSortedLambda) {
 }
 
 TYPED_TEST_P(VectorTypeFixture, UtilityFuncOnes) {
-  /** arrange */
-  static TypeParam dummy;  // get the size at compile time
   /** action */
-  TypeParam res = mu::ones<dummy.size()>();
+  TypeParam res = mu::ones<TestFixture::dummy.size()>();
   /** assert */
   TypeParam comp;
   auto one = static_cast<typename TestFixture::value_type>(1);
@@ -630,10 +625,8 @@ TYPED_TEST_P(VectorTypeFixture, UtilityFuncOnes) {
 }
 
 TYPED_TEST_P(VectorTypeFixture, UtilityFuncZeros) {
-  /** arrange */
-  static TypeParam dummy;  // get the size at compile time
   /** action */
-  TypeParam res = mu::zeros<dummy.size()>();
+  TypeParam res = mu::zeros<TestFixture::dummy.size()>();
   /** assert */
   TypeParam comp;
   auto zero = static_cast<typename TestFixture::value_type>(0);
